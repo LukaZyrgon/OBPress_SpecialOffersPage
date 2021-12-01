@@ -1,0 +1,237 @@
+.single-package-img-holder {
+  position: relative;
+  height: 318px!important;
+  margin-bottom: 28px;
+}
+
+.single-package-img {
+  width: 100%;
+  height: 318px!important;
+  object-fit: cover;
+}
+
+.MaxPartialPaymentParcel {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 11px 10.85px 10px 12px;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.MaxPartialPaymentParcel span {
+  font-weight: bold;
+}
+
+.single-package-name-holder {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 18.75px 35px 22.76px 35px;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.single-package-hotel-name {
+  font-size: 14px;
+  line-height: 18px;
+  color: #2C2F33;
+}
+
+.single-package-name {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  color: #000000;
+}
+
+.single-package-info-holder {
+  padding: 22px 42px 25px 26px;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 6px #00000024;
+}
+
+.single-package-included-msg {
+  margin: 0px;
+  margin-bottom: 22.91px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000;
+}
+
+.single-package-included {
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+  margin-right: 40px;
+}
+
+.single-package-included-holder {
+  margin-bottom: 44px;
+}
+
+.single-package-info-categories-bars {
+  margin-bottom: 41.5px;
+}
+
+.single-package-info-categories-bar {
+  margin-right: 40px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #9C9C9C;
+  cursor: pointer;
+}
+
+.single-package-info-categories-bar.active-bar {
+  font-weight: bold;
+  color: #000000;
+}
+
+.single-package-info-category-section {
+  display: none;
+  font-size: 14px;
+  color: #2C2F33;
+  line-height: 20px;
+}
+
+.single-package-info-category-section.active-section {
+  display: block;
+}
+
+.package-description-long {
+  display: none;
+}
+
+.package-less-description {
+  display: none;
+  font-size: 12px;
+  line-height: 17px;
+  color: #4B8CF4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.package-more-description {
+  font-size: 12px;
+  line-height: 17px;
+  color: #4B8CF4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rooms-message-header {
+  font-size: 32px;
+  line-height: 39px;
+  font-weight: bold;
+  color: #222222;
+  margin-top: 69.85px;
+  margin-bottom: 43.77px;
+  text-align: center;
+}
+
+.package_rooms {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-package-room {
+  max-width: 392px;
+  width: 392px;
+  box-shadow: 0px 4px 7px #0000001C;
+  margin-bottom: 20px;
+}
+
+.single-package-room-img {
+  max-width: 392px;
+  width: 392px;
+  max-height: 254px;
+  height: 254px;
+  object-fit: cover;
+}
+
+.single-package-room-rate-info {
+  padding: 53.8px 31.65px 30.94px 32.04px;
+  background-color: #ffffff;
+}
+
+.single-package-room-name {
+  font-size: 20px;
+  color: #222222;
+  line-height: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.single-package-room-icons {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2C2F33;
+  margin-bottom: 23px;
+}
+
+.single-package-room-icons-type {
+  margin-bottom: 7.5px;
+}
+
+.single-package-room-icons-type:nth-last-child {
+  margin-bottom: 0px;
+}
+
+.single-package-room-icons-type img {
+  height: 12px;
+}
+
+.single-package-room-icon-name span {
+  font-weight: 600;
+}
+
+.single-package-room-price-and-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-package-room-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.price-after {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24.49px;
+  color: #BEAD8E;
+  margin: 0px;
+}
+
+.price-after .currency_symbol_price, .price-after .decimal_value_price {
+  font-size: 18px;
+}
+
+.single-package-tax-msg {
+  font-size: 12px;
+  line-height: 15px;
+  color: #2C2F33;
+}
+
+.text-number-of-rooms {
+  display: none;
+}
+
+.room-btn-minus, .room-btn-plus, .room-btn-value {
+  display: none;
+}
+
+.room-btn-add  {
+  font-size: 14px;
+  font-size: 500;
+  color: #ffffff;
+  line-height: 18px;
+  padding: 16px 17.3px 16px 15.9px;
+  background-color: #000000;
+}
