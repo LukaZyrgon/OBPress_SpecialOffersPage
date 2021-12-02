@@ -4,15 +4,18 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 {
 
 	public function __construct($data = [], $args = null) {
+
 		parent::__construct($data, $args);
 		
 		wp_register_script( 'special-offer-page_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/special-offer.js'), [ 'elementor-frontend' ], '1.0.0', true );
 
-		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer.css') );     
+		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer.css') );  
 
 		wp_localize_script('special-offer-page_js', 'specialOfferAjax', array(
 		'ajaxurl' => admin_url('admin-ajax.php')
 		));
+
+
 	}
 
 	public function get_script_depends()

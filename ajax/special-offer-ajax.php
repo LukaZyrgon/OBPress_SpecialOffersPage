@@ -4,6 +4,10 @@ add_action('wp_ajax_get_data_for_rooms', 'get_data_for_rooms');
 add_action('wp_ajax_nopriv_get_data_for_rooms', 'get_data_for_rooms');
 
 
+
+
+
+
 function get_data_for_rooms() {
 
 
