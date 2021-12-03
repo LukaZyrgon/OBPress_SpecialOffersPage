@@ -1,5 +1,7 @@
 <?php
 	$elementor_edit_active = \Elementor\Plugin::$instance->editor->is_edit_mode();
+	$CheckInFormated = str_replace(".","",$CheckIn);
+	$CheckOutFormated = str_replace(".","",$CheckOut);
 ?>
 
 <?php if(isset($_GET["package_id"])): ?>
@@ -79,232 +81,9 @@
 						</div>
 
 
+						<?php echo $hotelFolders ; ?>
 
-<!-- 
-					<form action="" name="index_form" class="custom-bg" id="rate_plan_form-lp">
-						<div class="" id="autocomplete">
-							<input type="hidden" name="c" value="<?= $chain ?>" class="chain">
-							<input type="hidden" name="q" id="hotel_code" value="<?= $property ?>">
-							<input type="hidden" name="currencyId" value="<?= $currency ?>">
-							<input type="hidden" name="lang" value="<?= $language_object->Code ?>">
-						</div>
-
-						<div class="" id="dates">
-							<?php
-
-								//if set, if today or later
-								$todayDateTime = new \DateTime('today');
-
-								$start_date = \DateTime::createFromFormat('dmY', $_GET["CheckIn"]);
-								//if set, valid datetime, and not in past
-								if(isset($_GET["CheckIn"]) && $start_date && !$todayDateTime->diff($start_date)->invert){
-									$CheckInString = $start_date->format('dmY');
-									$CheckInShow = $start_date->format('d/m/Y');
-									$tomorrow = $start_date->modify('+1 day');
-								}else{
-									$CheckInString = $todayDateTime->format('dmY');
-									$CheckInShow = $todayDateTime->format('d/m/Y');
-									$tomorrow = $todayDateTime->modify('+1 day');
-								}
-
-								$end_date = \DateTime::createFromFormat('dmY', $_GET["CheckOut"]);
-
-								if(isset($_GET["CheckOut"]) && $end_date && !$tomorrow->diff($end_date)->invert){
-									$CheckOutString = $end_date->format('dmY');
-									$CheckOutShow = $end_date->format('d/m/Y');
-								}else{
-									$CheckOutString = $tomorrow->format('dmY');
-									$CheckOutShow = $tomorrow->format('d/m/Y');
-								}
-
-								if($_GET["ad"] && intval($_GET["ad"])>0){
-									$adults = intval($_GET["ad"]);
-								}
-
-								if($_GET["ch"] && intval($_GET["ch"])>=0){
-									$children = intval($_GET["ch"]);
-								}
-							?>
-							<p class="input-title custom-text">DATAS DA ESTADIA</p>
-							<input class="calendarToggle" type="text" id="calendar_dates" value="<?= $CheckInShow .'-'. $CheckOutShow ?>" readonly>
-							<input class="calendarToggle" type="hidden" id="date_from" name="CheckIn" value="<?= $CheckIn ?>">
-							<input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?= $CheckOut ?>">
-						</div>
-
-						<div class="guests_number" id="guests_div">
-
-		                    <p class="input-title custom-text">QUARTOS E HÓSPEDES</p>
-
-		                    <input type="text" id="guests"
-		                    data-room="Quarto"
-		                    data-rooms="Quartos"
-		                    data-guest="Hóspede"
-		                    data-guests="Hóspedes"
-		                    data-remove-room="Remover quarto"
-		                    data-max-adults="" 
-		                    data-max-children="" 
-		                    data-max-children-age="
-		                        <?php
-		                        if(isset($childrenMaxAge) && $childrenMaxAge != null){
-		                            echo $childrenMaxAge; 
-		                        }
-		                        else { 
-		                            echo 17;
-		                        }
-		                        ?>
-		                    "
-		                    readonly>
-
-		                    <input type="hidden" id="ad" name="ad" value="<?= $adults ?>">
-		                    <input type="hidden" id="ch" name="ch" value="">
-		                    <input type="hidden" id="ag" name="ag" value="">
-
-		                    <div id="occupancy_dropdown" class="position-absolute custom-bg custom-text">
-
-		                        <div class="add-room-holder">
-		                            <p class="add-room-title select-room-title custom-text">Nº DE QUARTOS</p>
-		                            <div class="select-room-buttons">
-		                                <button class="select-button select-button-minus select-room-minus" type="button" disabled>
-		                                    <span>
-		                                        <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
-		                                        </svg>                                              
-		                                    </span>
-		                                </button>
-		                                <span class="select-value select-room-value">1</span>
-		                                <button class="select-button select-button-plus select-room-plus" type="button">
-		                                    <span>
-		                                        <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>     
-		                                    </span>
-		                                </button>
-		                            </div>                          
-		                        </div>                        
-		                        <div class="select-room-holder">
-		                            <div class="select-room" data-room-counter="0">
-		                                <p class="select-room-title custom-text">Quarto <span class="select-room-counter">1</span></p>
-		                                <div class="select-guests-holder">
-		                                    <div class="select-adults-holder">
-		                                        <div class="select-adults-title">Adultos</div>
-		                                        <div class="select-adults-buttons">
-		                                            <button class="select-button select-button-minus select-adult-minus" type="button" <?php if(isset($property) && !in_array($property, $two_adults_hotels)) echo "disabled" ?>>
-		                                                <span>
-		                                                    <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
-		                                                    </svg>                                              
-		                                                </span>                                                
-		                                            </button>
-		                                            <span class="select-value select-adults-value"><?= $adults ?></span>
-		                                            <button class="select-button select-button-plus select-adult-plus" type="button">
-		                                                <span>
-		                                                    <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>  
-		                                                </span>                                                
-		                                            </button>
-		                                        </div>
-		                                    </div>
-		                                    <div class="select-child-holder">
-		                                        <div class="select-child-title">
-		                                        <span>Crianças</span>
-		                                        <span class="select-child-title-max-age">
-		                                            0 aos
-		                                            <?php if(isset($childrenMaxAge) && $childrenMaxAge != null): ?>
-		                                                <span class="children_max_age_string"><?= $childrenMaxAge ?></span> Anos
-		                                            <?php else: ?> 
-		                                                <span class="children_max_age_string">17</span> Anos
-		                                            <?php endif; ?>
-		                                        </span>
-		                                        </div>
-		                                        <div class="select-child-buttons">
-		                                            <button class="select-button select-button-minus select-child-minus" type="button" disabled>
-		                                                <span>
-		                                                    <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
-		                                                    </svg>                                              
-		                                                </span>                                                
-		                                            </button>
-		                                            <span class="select-value select-child-value">0</span>
-		                                            <button class="select-button select-button-plus select-child-plus" type="button">
-		                                                <span>
-		                                                    <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-		                                                </span>
-		                                            </button>                             
-		                                        </div>                          
-		                                    </div>
-		                                    <div class="select-child-ages-holder" data-children-empty-value="Idade">
-		                                        <div class="select-child-ages-clone">
-		                                            <p class="select-child-ages-title custom-text">Criança <span class="select-child-ages-number"></span></p>
-		                                            <select class="select-child-ages-input-clone" data-string-sing="Ano" data-string-plu="Anos">
-		                                               
-		                                                <?php if(isset($childrenMaxAge) && $childrenMaxAge != null): ?>
-		                                                        <option data-value="/" selected>Idade</option>
-		                                                    <?php for($i=0;$i<$childrenMaxAge+1;$i++): ?>
-		                                                        <option data-value="<?= $i ?>"><?= $i ?> <?php if($i==1) {echo "Ano";} else {echo "Anos";} ?></option>
-		                                                    <?php endfor; ?>
-		                                                <?php else: ?>
-		                                                        <option data-value="/" selected>Idade</option>
-		                                                    <?php for($i=0;$i<18;$i++): ?>
-		                                                        <option data-value="<?= $i ?>"><?= $i ?> <?php if($i==1) {echo "Ano";} else {echo "Anos";} ?></option>
-		                                                    <?php endfor; ?>
-		                                                <?php endif; ?>                                                
-		                                            </select>
-		                                            <p class="incorect-age custom-text">Idade Incorrecta</p>
-
-		                                        </div>                                                                                                                      
-
-		                                    </div>
-		                                    <hr class="select-room-divider">
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <button class="btn-ic custom-action-bg custom-action-border custom-action-text select-occupancy-apply" type="button">
-		                            <span>
-		                                Aplicar
-		                            </span>
-		                            <span class="select-occupancy-apply-info">
-		                                <span class="select-occupancy-apply-info-rooms" data-rooms="1">1</span>
-		                                <span class="select-occupancy-apply-info-rooms-string"></span>
-		                                ,
-		                                <span class="select-occupancy-apply-info-guests" data-guests="1">1</span>
-		                                <span class="select-occupancy-apply-info-guests-string"></span>
-		                            </span>                            
-		                        </button>          
-		                    </div>
-		                </div>
-
-
-
-
-						<div class="promo_code">
-							<p class="input-title custom-text">TENHO UM CÓDIGO</p>
-							<input type="text" id="promo_code" placeholder="" readonly>
-							
-
-		                    <div id="promo_code_dropdown" class="position-absolute custom-bg custom-text">
-		                        <div class="mb-3 mt-2">
-		                            <p class="input-title">CÓDIGO DE GRUPO</p>
-		                            <input type="text" id="group_code" name="group_code" value="<?= $_GET["group_code"] ?>">
-		                        </div>
-
-		                        <div class="mb-3">
-		                            <p class="input-title">CÓDIGO PROMOCIONAL</p>
-		                            <input type="text" id="Code" name="Code" value="<?= $_GET["Code"] ?>">
-		                        </div>
-
-		                        <div class="mb-3">
-		                            <p class="input-title">CARTÃO DE FIDELIZAÇÃO</p>
-		                            <input type="text" id="loyalty_code" name="loyalty_code">
-		                        </div>
-
-		                        <div class="text-right">
-		                            <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic">APLICAR</button>
-		                        </div>
-		                    </div>
-						</div>
-
-						<div id="search" class="search">
-							<button type="button" class="btn btn-ic custom-action-bg custom-action-text custom-action-border search-button">Pesquisar</button>
-						</div>
-					</form> -->
-
-<?php echo $hotelFolders ; ?>
-
-<form type="POST" action="/hotel-results" class="package-form">
+<form type="POST" action="" class="package-form">
     <div class="ob-searchbar obpress-hotel-searchbar-custom container<?php if ($settings_searchbar['obpress_searchbar_vertical_view'] == "yes") echo ' ob-searchbar-vertical'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "left") echo ' ob-mr-auto'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "center") echo ' ob-m-auto'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "right") echo ' ob-ml-auto'; ?>" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>">
         <div class="ob-searchbar-hotel">
             <p>
@@ -317,7 +96,8 @@
                         'obpress'
                     ),
                     number_format_i18n( $counter_for_hotel )
-                );                
+                );     
+
             ?>
             </p>
             <input type="text" value="" readonly placeholder="<?php if ( $data->getHotels()[$property]['HotelName'] ) {
@@ -328,7 +108,7 @@
                                         echo 'single-hotel';
                                     } ?>" spellcheck="false" autocomplete="off">
             <input type="hidden" name="c" value="<?php echo get_option('chain_id') ?>">
-            <input type="hidden" name="q" id="hotel_code" value="<?php echo ($_GET['q'] ?? '') ?>">
+            <input type="hidden" name="q" id="hotel_code" value="<?php echo $data->getHotels()[$property]['HotelCode'] ?>">
             <input type="hidden" name="currencyId" value="<?= (isset($_GET['currencyId'])) ? $_GET['currencyId'] : get_option('default_currency_id') ?>">
             <input type="hidden" name="lang" value="<?= (isset($_GET['lang'])) ? $_GET['lang'] : get_option('default_language_id') ?>">
             <input type="hidden" name="hotel_folder" id="hotel_folder">
@@ -348,6 +128,7 @@
 
         </div>
         <div class="ob-searchbar-calendar">
+
             <p><?php _e('DATES OF STAY', 'obpress'); ?></p>
             <input class="calendarToggle" type="text" id="calendar_dates" value="<?php echo $CheckInShow ?? date("d/m/Y") ?> - <?php echo $CheckOutShow ?? date("d/m/Y", strtotime("+1 day")) ?>"  readonly>
 <!--             <div class="ob-mobile-searchbar-calendar-holder">
@@ -360,8 +141,8 @@
                     <input class="calendarToggle" type="text" id="check_out_mobile" value="<?php echo $CheckOutShowMobile ?? date("d M Y", strtotime("+1 day")) ?>"  readonly>
                 </div>
             </div> -->
-            <input class="calendarToggle" type="hidden" id="date_from" name="CheckIn" value="<?php echo $CheckIn ?? date("dmY") ?>">
-            <input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?php echo $CheckOut ?? date("dmy", strtotime("+1 day")) ?>">            
+            <input class="calendarToggle" type="hidden" id="date_from" name="CheckIn" value="<?php echo $CheckInFormated ?? date("dmY") ?>">
+            <input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?php echo $CheckOutFormated ?? date("dmy", strtotime("+1 day")) ?>">            
         </div>
         <div class="ob-searchbar-guests">
             <p><?php _e('ROOMS AND GUESTS', 'obpress'); ?></p>
@@ -546,12 +327,16 @@
                 </div>
             </div>
         <div class="ob-searchbar-button">
-            <button class="ob-searchbar-submit" type="submit"><?php _e('Search', 'obpress'); ?></button>
+            <button class="ob-searchbar-submit" type="button"><?php _e('Search', 'obpress'); ?></button>
         </div>       
     </div>
 
 
-<!--     <div class="zcalendar-wrap">
+
+
+
+
+    <div class="zcalendar-wrap">
 
         <div class="ob-zcalendar-top">
             <div class="ob-zcalendar-title">
@@ -578,7 +363,10 @@
             <div> <span class='mobile-accept-dates-from-to'>Seg, 14 Nov - Sex, 18 Nov</span> <span class="number_of_nights-mobile-span"> ( <span class="number_of_nights-mobile"> 4 Noites</span> )</span> </div>
             <div id="mobile-accept-date"> Aplicar </div>
         </div>
-	</div>    -->  
+	</div>  
+
+
+
 
 </form>
 
