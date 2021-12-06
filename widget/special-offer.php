@@ -9,6 +9,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		
 		wp_register_script( 'special-offer-page_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/special-offer.js'), [ 'elementor-frontend' ], '1.0.0', true );
 
+		wp_register_script( 'searchbar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/searchbar.js'), [], '1.0.0', true );
+
+		wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true );
+
+		wp_register_script( 'basket_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/basket.js'), [], '1.0.0', true );
+
 		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer.css') );  
 
 		wp_localize_script('special-offer-page_js', 'specialOfferAjax', array(
@@ -20,7 +26,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 	public function get_script_depends()
 	{
-		return ['special-offer-page_js'];
+		return [ 'special-offer-page_js', 'basket_js' , 'zcalendar_special_offer_js' , 'searchbar_special_offer_js' ];
 	}
 
 	public function get_style_depends()
