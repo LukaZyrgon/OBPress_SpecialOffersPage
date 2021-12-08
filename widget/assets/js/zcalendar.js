@@ -1894,7 +1894,6 @@ jQuery(document).ready(function($){
             );
           } else if (c == null && this.promo !== true) {
             var action = "get_hotel_availability";
-            // xhr.open('GET', searchbarAjax.ajaxurl+'?'+q+'/'+currencyId+'/'+first+'/'+ second, true);
 
             var adults = $("#ad").val();
 
@@ -2157,6 +2156,10 @@ jQuery(document).ready(function($){
   
               jQuery("input[name='CheckOut']").trigger("change");
 
+              if (resolution == 1) {
+                   jQuery(".zcalendar").slideUp(200);
+              }
+
             } else {
               range = range + " - " + " . . . ";
             }
@@ -2266,15 +2269,11 @@ jQuery(document).ready(function($){
               if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 400  
                 &&  loadingFinished == true)  {
 
-
                 loadingFinished = false;
-
 
                 if ( $(".zc-month").length < 12) {
 
                   scrolled_months = $(".zc-month").length;
-
-                  console.log(scrolled_months);
 
                    widget.newRequest = true;
 
