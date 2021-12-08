@@ -133,7 +133,6 @@ jQuery(document).ready(function($){
         var info = $(this).closest(".roomrateinfo");
         var room = $(this).closest(".roomrate");
 
-        console.log(info, room);
 
         var on_request = $(info).hasClass("on-request");
 
@@ -142,8 +141,6 @@ jQuery(document).ready(function($){
         if ($(this).hasClass("room-btn-add")){ add = true; }
         if ($(this).hasClass("room-btn-minus")){ minus = true; }
         if ($(this).hasClass("room-btn-plus")){ plus = true; } 
-
-        console.log(add); 
 
         var max_total = 20; //maximum quantity total of rooms for hotel
 
@@ -168,7 +165,6 @@ jQuery(document).ready(function($){
         }
 
 
-
         //check quantity
         if ( add ) {
             info.attr("data-quantity", 1); /* first quantity set to 1 */
@@ -177,14 +173,17 @@ jQuery(document).ready(function($){
             info.find(".room-btn-value").css('display', 'flex');
             info.find(".room-btn-plus").css('display', 'flex');     
             info.find(".text-number-of-rooms").show();  
+            console.log("add");
 
         } else if( plus ) {
 
             info.attr("data-quantity", Number(info.attr("data-quantity"))+1);
+             console.log("plus");
 
         } else if ( minus ) {
 
             info.attr("data-quantity", Number(info.attr("data-quantity"))-1);
+            console.log("minus");
 
         }     
 
@@ -211,6 +210,7 @@ jQuery(document).ready(function($){
 
     // if on request room maximus is 1 room
     if (on_request == true)  {
+        console.log("request");
         var limitRooms = 1;
     }
     
@@ -227,6 +227,8 @@ jQuery(document).ready(function($){
         total_quantity = total_quantity + quantity;        
     });
 
+    //console.log(total_quantity);
+
 
     //room_quantity is sum of all choosen for room
     $.each($(room).find(".roomrateinfo"), function() {
@@ -237,6 +239,7 @@ jQuery(document).ready(function($){
 
     //  Block if its above the total number of rooms for hotel
     if ( total_quantity >= max_total ) {
+        console.log("stigo max");
             $(".room-btn-plus").prop("disabled", "disabled");
             $(".room-btn-add").prop("disabled", "disabled");
 
@@ -246,6 +249,8 @@ jQuery(document).ready(function($){
 
                
     } else {  // if not, enable pluses
+
+        console.log("nije stigo max");
 
 
              // enable all pluses , except the one that went to maximum
@@ -263,6 +268,8 @@ jQuery(document).ready(function($){
 
              //if it reached maximum give it class and disable it
              if ( room_quantity >= max )  {
+
+                    console.log("dodao disabled");
 
                     room.find(".room-btn-plus").prop("disabled", "disabled");
                     room.find(".room-btn-add").prop("disabled", "disabled");
@@ -365,12 +372,14 @@ jQuery(document).ready(function($){
         // if not request room
         if (on_request == false)  {
 
+            console.log("nije request");
+
             $(".basket-send-request-now").hide();
             $(".basket-send-book-now").show();
 
             $.each($(".rate_plan"), function() {
                  if ( $(this).hasClass("on-request") == true ) {
-                     $(this).find(".room-btn-plus").prop("disabled", "disabled");
+                     //$(this).find(".room-btn-plus").prop("disabled", "disabled");
                      $(this).find(".room-btn-add").prop("disabled", "disabled");
                      $(this).find(".room-btn-add").css('display', 'inline-block');
                      $(this).find(".room-btn-minus").hide();
@@ -391,16 +400,18 @@ jQuery(document).ready(function($){
 
         //if total quantity = 1, check for currency and disable other currencies
         if(total_quantity>=1){
+            console.log("jedan");
             currency = info.attr("data-currency");
             
             //find all info where currency is not this and disable it
-            $(".roomrateinfo[data-currency!=\""+currency+"\"]").find(".room-btn-plus").prop("disabled", "disabled");
-            $(".roomrateinfo[data-currency!=\""+currency+"\"]").find(".room-btn-add").prop("disabled", "disabled");
+            //$(".roomrateinfo[data-currency!=\""+currency+"\"]").find(".room-btn-plus").prop("disabled", "disabled");
+            //$(".roomrateinfo[data-currency!=\""+currency+"\"]").find(".room-btn-add").prop("disabled", "disabled");
             $(".roomrateinfo[data-currency!=\""+currency+"\"]").find(".diff_currency").css('display', 'flex');
         }
 
         //if there is no quantity remove currency
         if(currency!=null && total_quantity==0){
+            console.log("uso ovde");
             currency = null;
             $(".room-btn-plus").prop("disabled", false);
             $(".room-btn-add").prop("disabled", false);

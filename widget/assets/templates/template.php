@@ -356,9 +356,39 @@
 					</div> -->
 
 
-					<div id="package-results">
-						<?php require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php'); ?>
-					</div>
+
+                    <?php
+
+                            $RatePlanID = $promotion_id;
+                            $roomtypes = $data->getAllRoomTypes();
+                            $canidates = $data->getAllRoomStayCandidates();
+                            $lng_str = $language_object->Path;
+                            $rate_plan = $data->getRatePlan($RatePlanID);
+                            $hotel = @$data->getHotels()[$property];
+
+                            $prices_filter = $data->getPricesInfo($style, $promotion_id);
+                            $availableRooms =  count( $prices_filter['prices'] ) ;
+
+                    ?>
+
+                    <?php if($availableRooms > 0): ?>
+                        <p class="rooms-message-header">Quartos relacionados</p>
+                    <?php endif; ?>
+
+
+
+                    <div class="obpress-package-rooms-basket"> 
+
+
+    					<div id="package-results">
+    						<?php require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php'); ?>
+    					</div>
+
+                          <!--  Get basket html -->
+
+                        <?php require_once( WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/basket.php'); ?>
+
+                    </div>
 
 
 
@@ -470,4 +500,6 @@
 		</div>
 
 	</div>
+
+
 <?php endif; ?>

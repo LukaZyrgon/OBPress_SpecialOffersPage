@@ -1,20 +1,4 @@
-<?php
 
-	$RatePlanID = $promotion_id;
-    $roomtypes = $data->getAllRoomTypes();
-    $canidates = $data->getAllRoomStayCandidates();
-    $lng_str = $language_object->Path;
-    $rate_plan = $data->getRatePlan($RatePlanID);
-	$hotel = @$data->getHotels()[$property];
-
-	$prices_filter = $data->getPricesInfo($style, $promotion_id);
-	$availableRooms =  count( $prices_filter['prices'] ) ;
-
-?>
-
-<?php if($availableRooms > 0): ?>
-	<p class="rooms-message-header">Quartos relacionados</p>
-<?php endif; ?>
 
 <div class="package_rooms"> 
 
@@ -65,6 +49,7 @@
 
 			<?php if ($data->getRoomRatesByRoomAvailabilityWithRateId($property, $RatePlanID, ["AvailableForSale"]) !== null): ?>
 	            <?php foreach ($data->getRoomRatesByRoomAvailabilityWithRateId($property, $RatePlanID, ["AvailableForSale"]) as $roomrate): ?>
+	            	<?php //var_dump($roomrate);   ?>
 	            	<?php foreach($roomtypes as $roomtype): ?>
 	            		<?php if($roomrate->RoomID == $roomtype->RoomID): ?>
 	            			<?php 
@@ -75,9 +60,12 @@
 					                $room_amenities = [];
 					            }
 				            ?>
-					        <div class="single-package-room">
+
+				            <div class="single-package-room-container">
+
+					        	<div class="single-package-room  roomrate">
 					        	<img class="single-package-room-img" src="<?= @$descriptive_info->getImagesForRoom($roomtype->RoomID)[0] ?>">
-					        	<div class="single-package-room-rate-info">
+					        	<div class="single-package-room-rate-info roomrateinfo" data-price="250" data-quantity="0" data-max-quantity="5">
 					        		<div class="single-package-room-name">
 					        			<?= substr($roomtype->RoomName, 0, 22) ?>
 					        			<?php if(strlen($roomtype->RoomName) > 22): ?>
@@ -141,7 +129,10 @@
 
 				                    </div>
 					        	</div>
-					        </div>
+					        	</div>
+
+					    	</div>
+					    	
 					        <?php break; ?>
 					    <?php endif; ?>
 				    <?php endforeach; ?>
