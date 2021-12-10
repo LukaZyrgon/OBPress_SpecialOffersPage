@@ -52,7 +52,7 @@
                         <div class="obpress-hotel-basket-stay-dates">
                             <div class="obpress-hotel-basket-stay-checkin">
                                 <span class="obpress-hotel-basket-stay-checkin-string">Check-in</span>
-                                <span class="obpress-hotel-basket-stay-checkin-date"><?php //echo $start_date->format('d M'); ?></span>
+                                <span class="obpress-hotel-basket-stay-checkin-date"><?php  $CheckInBasket = date("d M", strtotime($CheckIn)); echo $CheckInBasket; ?></span>
                             </div>
                             <span class="obpress-hotel-searchbar-arrow">
                                 <svg class="arrow-right-dates_v4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -86,21 +86,21 @@
                             </span>
                             <div class="obpress-hotel-basket-stay-checkout">
                                 <span class="obpress-hotel-basket-stay-checkout-string">Check-out</span>
-                                <span class="obpress-hotel-basket-stay-checkout-date"><?php //echo $end_date->format('d M'); ?></span>                            
+                                <span class="obpress-hotel-basket-stay-checkout-date"><?php  $CheckOutBasket = date("d M", strtotime($CheckOut)); echo $CheckOutBasket; ?></span>                            
                             </div>
                         </div>
                         <div class="obpress-hotel-basket-stay-room-info">
                             <span class="obpress-hotel-basket-stay-rooms">
                                 <span class="obpress-hotel-basket-stay-rooms-string">Quartos</span>
-                                <span class="obpress-hotel-basket-stay-rooms-num"> <?php echo $number_of_rooms; ?> </span>
+                                <span class="obpress-hotel-basket-stay-rooms-num"> 1 </span>
                             </span>
                             <span class="obpress-hotel-basket-stay-nights">
                                 <span class="obpress-hotel-basket-stay-nights-string">Noites</span>
-                                <span class="obpress-hotel-basket-stay-nights-num"> <?php echo $nights; ?> </span>                            
+                                <span class="obpress-hotel-basket-stay-nights-num"> 1 </span>                            
                             </span>
                             <span class="obpress-hotel-basket-stay-guests">
                                 <span class="obpress-hotel-basket-stay-guests-string">Hóspedes</span>
-                                <span class="obpress-hotel-basket-stay-guests-num"> <?php echo $guests; ?> </span>                               
+                                <span class="obpress-hotel-basket-stay-guests-num"> <?= (isset($_GET['ad'])) ? $_GET['ad'] : "1" ?> </span>                               
                             </span>
                         </div>
                         <div class="obpress-hotel-searchbar-button-holder">

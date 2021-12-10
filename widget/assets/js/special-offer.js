@@ -50,6 +50,8 @@ jQuery(window).on("elementor/frontend/init", function () {
           $("#package-results").empty();
           $("#package-results").html(res);
 
+          console.log("stigo");
+
           //change url in browser
           // window.history.pushState(  "", "Title", url_no_parametres + "?" + $( $("#rate_plan_form-lp")[0].elements ).not(".chain, #hotel_code").serialize()   );
         })

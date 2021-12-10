@@ -1460,15 +1460,15 @@ jQuery(document).ready(function($){
       $(this).closest(".modal-content").find(".close-modal").click();
     });
 
-    jQuery(document).on("click", ".ob-searchbar-submit", function() {
-      $(this).closest(".obpress-hotel-searchbar-custom").find(".select-occupancy-apply").click();
-      $(this).closest(".obpress-hotel-searchbar-custom").find("#promo_code_apply").click();
-      $("body > .container").hide();
-      $(".next-step-loader").css("display", "flex");
-      $(".obpress-footer").hide();
-      $(".grey-background").hide();
-      $(this).closest(".modal-content").find(".close-modal").click();
-    });
+    // jQuery(document).on("click", ".ob-searchbar-submit", function() {
+    //   $(this).closest(".obpress-hotel-searchbar-custom").find(".select-occupancy-apply").click();
+    //   $(this).closest(".obpress-hotel-searchbar-custom").find("#promo_code_apply").click();
+    //   $("body > .container").hide();
+    //   $(".next-step-loader").css("display", "flex");
+    //   $(".obpress-footer").hide();
+    //   $(".grey-background").hide();
+    //   $(this).closest(".modal-content").find(".close-modal").click();
+    // });
 
     // open calendar on mobile inputs
     jQuery(document).on("click", "#check_in_mobile, #check_out_mobile", function() {

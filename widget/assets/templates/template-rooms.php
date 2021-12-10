@@ -59,13 +59,14 @@
 					            else {
 					                $room_amenities = [];
 					            }
+					            
 				            ?>
 
 				            <div class="single-package-room-container">
 
 					        	<div class="single-package-room  roomrate">
 					        	<img class="single-package-room-img" src="<?= @$descriptive_info->getImagesForRoom($roomtype->RoomID)[0] ?>">
-					        	<div class="single-package-room-rate-info roomrateinfo" data-price="250" data-quantity="0" data-max-quantity="5">
+					        	<div class="single-package-room-rate-info roomrateinfo" data-price="<?php echo $roomrate->Total->AmountBeforeTax; ?>" data-quantity="0" data-max-quantity="<?php echo $roomtype->MaxOccupancy; ?>" data-nights="1">
 					        		<div class="single-package-room-name">
 					        			<?= substr($roomtype->RoomName, 0, 22) ?>
 					        			<?php if(strlen($roomtype->RoomName) > 22): ?>
@@ -121,7 +122,7 @@
 
                                         <div class="single-package-room-button">
 	                                        <div class="text-number-of-rooms">Nº de quartos</div>
-	                                        <div class="button-div-holder">
+	                                        <div class="obpress-hotel-results-button-bottom">
 	                                            <button class="room-btn-add btn-ic custom-action-border custom-action-text custom-action-bg">Reservar agora</button>     
 	                                            <button href="#" class="room-btn-minus btn-ic custom-action-border custom-action-text custom-action-bg">-</button><span class="room-btn-value custom-action-border-top custom-action-border-bottom">0</span><button href="#" class="room-btn-plus btn-ic custom-action-border custom-action-text custom-action-bg">+</button>
 	                                        </div>
@@ -132,7 +133,7 @@
 					        	</div>
 
 					    	</div>
-					    	
+
 					        <?php break; ?>
 					    <?php endif; ?>
 				    <?php endforeach; ?>

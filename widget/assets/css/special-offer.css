@@ -236,6 +236,29 @@
   background-color: #000000;
 }
 
+.obpress-hotel-results-button-bottom {
+    display: flex;
+    align-items: flex-end;
+}
+
+.room-btn-minus , .room-btn-plus , .room-btn-value {
+    display: none;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.room-btn-minus , .room-btn-plus {
+    border:  1px solid #000 ;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+
 
 
 
@@ -258,10 +281,6 @@ form {
 
 
 
-
-
-
-
 /*   BASKET */
 
 
@@ -274,9 +293,10 @@ form {
     width: 336px;
     position: -webkit-sticky;
     position: sticky;
-    top: 234px;        
+    top: 156px;        
     box-shadow: 0px 4px 7px #00000029;
-    background-color: #fff;    
+    background-color: #fff;   
+    margin-top: 25px; 
 }
 
 .obpress-body-admin-bar-shown .obpress-hotel-results-basket {
@@ -457,5 +477,69 @@ form {
     fill: #ffc70e;
     stroke: #ffc70e;
 }
+
+
+.obpress-hotel-results-item-title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+}
+
+.obpress-hotel-results-item-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    line-height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    max-width: 170px;
+}
+
+.obpress-hotel-results-total-room-selected {
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.obpress-hotel-results-item-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    line-height: 18px;
+    min-width: max-content;
+    display: flex;
+    align-items: baseline;
+}
+
+.obpress-hotel-results-item-promo-edit {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.obpress-hotel-results-item-discount, .obpress-hotel-results-discount-holder {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #E6E6E6;
+}
+
+.obpress-hotel-results-item-taxes, .obpress-hotel-results-tax-holder {
+    padding-top: 12px;
+    border-top: 1px solid #E6E6E6;
+}
+
+.obpress-hotel-results-item-edit {
+    color: #4B8CF4;
+    font-size: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 
 /*  end of basket */

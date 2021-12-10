@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
 
                 total_price = total_price + room_tax_price + quantity * price * nights;
 
-                basket_room_name = $(this).attr("data-rate-name");
+                basket_room_name = $(this).find(".single-package-room-name").text(); 
 
                 var adults = Number($(this).attr("data-adults"));
 

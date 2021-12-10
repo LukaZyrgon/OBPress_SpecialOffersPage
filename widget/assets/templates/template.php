@@ -2,6 +2,7 @@
 	$elementor_edit_active = \Elementor\Plugin::$instance->editor->is_edit_mode();
 	$CheckInFormated = str_replace(".","",$CheckIn);
 	$CheckOutFormated = str_replace(".","",$CheckOut);
+
 ?>
 
 <?php if(isset($_GET["package_id"])): ?>
