@@ -66,7 +66,7 @@
 
 					        	<div class="single-package-room  roomrate">
 					        	<img class="single-package-room-img" src="<?= @$descriptive_info->getImagesForRoom($roomtype->RoomID)[0] ?>">
-					        	<div class="single-package-room-rate-info roomrateinfo" data-price="<?php echo $roomrate->Total->AmountBeforeTax; ?>" data-quantity="0" data-max-quantity="<?php echo $roomtype->MaxOccupancy; ?>" data-nights="1">
+					        	<div class="single-package-room-rate-info roomrateinfo" data-price="<?php echo $roomrate->Total->AmountBeforeTax; ?>" data-quantity="0" data-max-quantity="<?php echo $roomtype->MaxOccupancy; ?>" data-nights="1" data-discount="" data-tax-policy-name="Taxas de Serviço e ISS" data-total-price-after-tax="<?php echo $roomrate->Total->AmountAfterTax; ?>">
 					        		<div class="single-package-room-name">
 					        			<?= substr($roomtype->RoomName, 0, 22) ?>
 					        			<?php if(strlen($roomtype->RoomName) > 22): ?>

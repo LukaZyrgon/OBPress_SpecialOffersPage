@@ -541,5 +541,72 @@ form {
     cursor: pointer;
 }
 
+.obpress-hotel-results-tax-title {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.obpress-hotel-results-tax-title svg {
+    margin-left: 5px;
+}
+
+.obpress-hotel-results-item-taxes-type, .obpress-hotel-results-tax-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.obpress-hotel-results-tax-message {
+    font-size: 12px;
+}
+
+.obpress-hotel-results-tax-total {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.obpress-hotel-results-tax-currency, .obpress-hotel-results-discount-currency {
+    font-weight: 400;
+}
+
+.obpress-hotel-total-price-string {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.obpress-hotel-total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #82B789;
+}
+
+.obpress-hotel-submit {
+    width: 100%;
+    height: 40px;
+    background-color: #82B789;
+    border-width: 0px;
+    color: #fff;
+    font-size: 13px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.obpress-hotel-total-price-string {
+  float: left;
+}
+
+.obpress-hotel-total-price {
+  float: right;
+}
+
+.obpress-hotel-results-pay-up-to {
+  display: block;
+  clear: both;
+}
 
 /*  end of basket */
