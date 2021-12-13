@@ -169,7 +169,6 @@ function get_data_for_rooms() {
     $data = new AnalyzeAvailRes($data);
 
 
-
     $descriptive_info = BeApi::ApiCache('hotel_descriptive_info_'.$property.'_'.$language, BeApi::$cache_time['hotel_descriptive_info'], function() use ($property, $language) {
         return BeApi::getHotelDescriptiveInfo($property, $language);
     });
@@ -186,4 +185,5 @@ function get_data_for_rooms() {
     require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php');
 
     die();
+    
 }

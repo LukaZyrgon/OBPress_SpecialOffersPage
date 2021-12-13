@@ -43,7 +43,7 @@
 									<?php endif; ?>
 								<?php endfor; ?>
 							</div>
-                        <span class="obpress-hotel-edit-search" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</span>
+                        <!-- <span class="obpress-hotel-edit-search" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</span> -->
                     </div> 
                     <p class="obpress-hotel-basket-title">
                         <?= $hotel_search->PropertiesType->Properties[0]->HotelRef->HotelName ?>
@@ -96,7 +96,7 @@
                             </span>
                             <span class="obpress-hotel-basket-stay-nights">
                                 <span class="obpress-hotel-basket-stay-nights-string">Noites</span>
-                                <span class="obpress-hotel-basket-stay-nights-num"> 1 </span>                            
+                                <span class="obpress-hotel-basket-stay-nights-num"> <?php echo $nights; ?> </span>                            
                             </span>
                             <span class="obpress-hotel-basket-stay-guests">
                                 <span class="obpress-hotel-basket-stay-guests-string">Hóspedes</span>

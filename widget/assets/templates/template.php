@@ -3,6 +3,11 @@
 	$CheckInFormated = str_replace(".","",$CheckIn);
 	$CheckOutFormated = str_replace(".","",$CheckOut);
 
+    $CheckInT = strtotime($CheckIn);
+    $CheckOutT = strtotime($CheckOut);
+
+    $nights =  ( $CheckOutT - $CheckInT ) / 86400 ;
+
 ?>
 
 <?php if(isset($_GET["package_id"])): ?>
@@ -504,3 +509,7 @@
 
 
 <?php endif; ?>
+
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";
+</script>
