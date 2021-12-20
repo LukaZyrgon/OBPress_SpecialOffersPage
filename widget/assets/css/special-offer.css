@@ -229,11 +229,12 @@
 
 .room-btn-add  {
   font-size: 14px;
-  font-size: 500;
   color: #ffffff;
-  line-height: 18px;
-  padding: 16px 17.3px 16px 15.9px;
   background-color: #000000;
+  height: 50px;
+  width: 140px;
+  text-align: center;
+  border: 0px;
 }
 
 .obpress-hotel-results-button-bottom {
