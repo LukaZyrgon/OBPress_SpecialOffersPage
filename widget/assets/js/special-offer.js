@@ -117,3 +117,11 @@ jQuery(window).on("elementor/frontend/init", function () {
     }
   );
 });
+
+jQuery(document).ready(function($){
+
+  $(document).on("click", ".error_message_btn_calendar", function() {
+    console.log("test");
+    $("#calendar_dates").click();
+  });
+});

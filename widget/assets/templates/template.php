@@ -154,8 +154,8 @@
                         <div class="select-room-buttons">
                             <button class="select-button select-button-minus select-room-minus" type="button" disabled>
 
-                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
-                                 </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
                                 
                             </button>
                             <span class="select-value select-room-value">1</span>
@@ -166,15 +166,13 @@
                             </button>
                         </div>
                     </div>
+
                     <div class="select-room-holder">
                         <div class="select-room" data-room-counter="0">
                             <p class="select-room-title custom-text"><?php _e('Room', 'obpress');?> <span class="select-room-counter">1</span></p>
                             <div class="select-guests-holder">
                                 <div class="select-adults-holder">
-                                    <div class="select-adults-title">
-                                        <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/adults.svg" alt="">
-                                        <?php _e('Adults', 'obpress'); ?>
-                                    </div>
+                                    <div class="select-adults-title"><?php _e('Adults', 'obpress'); ?></div>
                                     <div class="select-adults-buttons">
                                         <button class="select-button select-button-minus select-adult-minus" type="button" disabled>
                                             
@@ -192,22 +190,19 @@
                                 </div>
                                 <div class="select-child-holder">
                                     <div class="select-child-title">
-                                        <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/children.svg" alt="">
-                                        <div>
-                                            <span><?php _e('Children', 'obpress') ?></span>
-                                            <span class="select-child-title-max-age">
-                                                0 <?php 
-                                                _e('to the', 'obpress') ; 
-                                                echo " " ; 
-                                                ?>
-                                                <span class='child-max-age'> <?php echo $childrenMaxAge ; ?> </span>
-                                            </span> 
-                                        </div>
+                                        <span><?php _e('Children', 'obpress') ?></span>
+                                        <span class="select-child-title-max-age">
+                                            0 <?php 
+                                            _e('to the', 'obpress') ; 
+                                            echo " " ; 
+                                            ?>
+                                            <span class='child-max-age'> <?php echo $childrenMaxAge ; ?> </span>
+                                        </span> 
                                     </div>
                                     <div class="select-child-buttons">
                                         <button class="select-button select-button-minus select-child-minus" type="button" disabled>
                                             
-                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
                                             </svg>
 
                                         </button>
@@ -228,22 +223,23 @@
                                         <div class="age-picker"> 
                                             <span class="age-picker-value">0</span> 
 
+
                                             <div class="age-picker-options">
-                                                <?php for ($i = 0; $i < 18; $i++) : ?>
-                                                     <div data-age="<?= $i; ?>"> <?= $i; ?> anos de idade</div>
+                                                <?php for ($i = 0; $i < $childrenMaxAge + 1; $i++) : ?>
+                                                    <div data-age="<?= $i; ?>"> <?= $i; ?> anos de idade</div>
                                                 <?php endfor; ?>
 
                                             </div>
 
                                             <select class="select-child-ages-input-clone">
-                                                    <?php for ($i = 0; $i < 18; $i++) : ?>
+                                                    <?php for ($i = 0; $i < $childrenMaxAge + 1; $i++) : ?>
                                                         <option data-value="<?= $i; ?>" <?php if ($i == 0) { echo "selected";} ?>><?= $i; ?></option>
                                                     <?php endfor; ?>
                                             </select>
 
                                         </div>
 
-                                       
+                                    
 
                                         <div class="child-ages-input">
                                             
@@ -253,6 +249,7 @@
 
                                     </div>
                                 </div>
+                                <hr class="select-room-divider">
                             </div>
                         </div>
                     </div>
@@ -271,43 +268,31 @@
 
                 </div>
             </div>
-                <div class="ob-searchbar-promo">
-                    <p><?php _e('I HAVE A CODE', 'obpress'); ?></p>
-                    <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
+            <div class="ob-searchbar-promo">
+                <p><?php _e('I HAVE A CODE', 'obpress'); ?></p>
+                <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
 
-                    <div id="promo_code_dropdown" class="position-absolute custom-bg custom-text">
-                        <div class="mb-3 mt-2">
-                            <p class="input-title"><?php _e('GROUP CODE', 'obpress') ?></p>
-                            <!-- <input type="text" id="group_code" name="group_code" placeholder="Digite seu código"> -->
-                            <div class="material-textfield">
-                                <input type="text" id="group_code" name="group_code" placeholder="Digite seu código">
-                                <span class="label-title"><?php _e('GROUP CODE', 'obpress') ?></span>
-                            </div>
-                        </div>
+                <div id="promo_code_dropdown" class="position-absolute custom-bg custom-text">
+                    <div class="mb-3 mt-2">
+                        <p class="input-title"><?php _e('GROUP CODE', 'obpress') ?></p>
+                        <input type="text" id="group_code" name="group_code" placeholder="Digite seu código">
+                    </div>
 
-                        <div class="mb-3">
-                            <p class="input-title"><?php _e('PROMO CODE', 'obpress'); ?></p>
-                            <!-- <input type="text" id="Code" name="Code" placeholder="Digite seu código"> -->
-                            <div class="material-textfield">
-                                <input type="text" id="Code" name="Code" placeholder="Digite seu código">
-                                <span class="label-title"><?php _e('PROMO CODE', 'obpress'); ?></span>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <p class="input-title"><?php _e('PROMO CODE', 'obpress'); ?></p>
+                        <input type="text" id="Code" name="Code" placeholder="Digite seu código">
+                    </div>
 
-                        <div class="mb-3">
-                            <p class="input-title"><?php _e('LOYALTY CODE', 'obpress') ?></p>
-                            <!-- <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código"> -->
-                            <div class="material-textfield">
-                                <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código">
-                                <span class="label-title"><?php _e('LOYALTY CODE', 'obpress') ?></span>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <p class="input-title"><?php _e('LOYALTY CODE', 'obpress') ?></p>
+                        <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código">
+                    </div>
 
-                        <div class="text-right">
-                            <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic"><?php _e('Apply', 'obpress'); ?></button>
-                        </div>
+                    <div class="text-right">
+                        <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic"><?php _e('Apply', 'obpress'); ?></button>
                     </div>
                 </div>
+            </div>
             <div class="ob-searchbar-button">
                 <button class="ob-searchbar-submit" type="button"><?php _e('Search', 'obpress'); ?></button>
             </div>       
