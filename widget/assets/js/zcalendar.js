@@ -612,7 +612,7 @@ jQuery(document).ready(function($){
           if (!day.isValid()) return; // if date doesnt have the unix timestamp you cant select it
   
           this.fresh = false; //calendar is not fresh any more, someone picked a date
-  
+
           var dates = this.field.querySelectorAll("." + target.className);
 
           if (this.isRangeSelected == true) {
