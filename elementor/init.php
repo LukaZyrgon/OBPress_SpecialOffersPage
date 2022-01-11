@@ -146,7 +146,7 @@ final class OBPress_SpecialOfferPage_Widget {
 	public function init_widgets() {
 
 		// Include Widget files
-		require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/special-offer.php');
+		require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/special-offer-page.php');
 
 		// Register widget
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \SpecialOfferPage() );
