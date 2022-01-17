@@ -50,7 +50,9 @@ jQuery(document).ready(function($){
 
                 total_children = total_children + children * quantity;
 
-                policy = $(this).find(".obpress-hotel-results-cancelation").text();
+                policy = $(this).attr("data-policy");
+
+                console.log(policy);
 
                 currency = $(this).attr("data-currency-symbol") ;
 
@@ -67,8 +69,6 @@ jQuery(document).ready(function($){
                 }
 
                 clone.find(".obpress-hotel-results-total-room-counter").text(quantity);
-
-                console.log(policy);
 
                 clone.find(".obpress-hotel-results-item-promo").text( policy );
 
