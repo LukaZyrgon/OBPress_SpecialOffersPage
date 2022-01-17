@@ -68,6 +68,8 @@ jQuery(document).ready(function($){
 
                 clone.find(".obpress-hotel-results-total-room-counter").text(quantity);
 
+                console.log(policy);
+
                 clone.find(".obpress-hotel-results-item-promo").text( policy );
 
                 clone.find(".obpress-hotel-results-discount-price").text(total_discount.toFixed(2));

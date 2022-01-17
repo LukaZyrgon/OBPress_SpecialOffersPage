@@ -2158,7 +2158,9 @@ jQuery(document).ready(function($){
 
               if (resolution == 1) {
                    jQuery(".zcalendar").slideUp(200);
+                   jQuery(".ob-searchbar-calendar").removeClass("opened");
               }
+
 
             } else {
               range = range + " - " + " . . . ";

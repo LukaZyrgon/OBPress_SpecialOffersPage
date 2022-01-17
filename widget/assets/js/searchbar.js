@@ -16,10 +16,17 @@ jQuery(document).ready(function($){
   });
 
   jQuery("#hotels").keyup(function () {
+    
     jQuery(this).parent().find(".hotels_dropdown").slideDown(200);
     var folder_id = 0;
     var query = jQuery(this).val();
     var divs = jQuery(this).parent().find(".hotels_dropdown").children();
+
+    if ( resolution == 1) {
+        jQuery(".zcalendar").slideUp(200);
+        jQuery(".ob-searchbar-calendar").removeClass("opened");
+    }
+
     for (var i = 0; i < divs.length; i++) {
       var text = divs.eq(i).text();
       if (
@@ -53,11 +60,18 @@ jQuery(document).ready(function($){
   //Promo Code Js
 
   jQuery("#promo_code").click(function () {
+
+    if ( resolution == 1) {
+        jQuery(".zcalendar").slideUp(200);
+        jQuery(".ob-searchbar-calendar").removeClass("opened");
+    }
+
     if (jQuery("#promo_code_dropdown").css("display") == "none") {
       jQuery("#promo_code_dropdown").slideDown(200);
       promoCodeDisabler();
       jQuery(".ob-searchbar-promo").addClass("opened");
     }
+
   });
 
   jQuery("#promo_code_apply").click(function () {
@@ -739,7 +753,13 @@ jQuery(document).ready(function($){
   }
 
   jQuery("#guests").on("click", function () {
+
     var occupancyDropdown = jQuery("#occupancy_dropdown");
+
+    if ( resolution == 1) {
+        jQuery(".zcalendar").slideUp(200);
+        jQuery(".ob-searchbar-calendar").removeClass("opened");
+    }
 
     //Slide down occupancy dropdown and swap the arrow if it isnt visible
     if (occupancyDropdown.css("display") == "none") {
