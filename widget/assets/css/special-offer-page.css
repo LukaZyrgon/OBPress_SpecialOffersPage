@@ -143,6 +143,8 @@
   width: 392px;*/
   box-shadow: 0px 4px 7px #0000001C;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .single-package-room-img {
@@ -155,14 +157,16 @@
 .single-package-room-rate-info {
   padding: 53.8px 31.65px 30.94px 32.04px;
   background-color: #ffffff;
+  position: relative;
 }
 
 .single-package-room-name {
-  font-size: 20px;
+  font-size: 24px;
   color: #222222;
   line-height: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  letter-spacing: -0.6px;
 }
 
 .single-package-room-icons {
@@ -176,6 +180,7 @@
 
 .single-package-room-icons-type {
   margin-bottom: 7.5px;
+  display: flex;
 }
 
 .single-package-room-icons-type:nth-last-child {
@@ -184,6 +189,11 @@
 
 .single-package-room-icons-type img {
   height: 12px;
+}
+
+.single-package-room-icon-name {
+  margin-left: 8px;
+  font-weight: 400;
 }
 
 .single-package-room-icon-name span {
@@ -202,26 +212,33 @@
 }
 
 .price-after {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
-  line-height: 24.49px;
+  line-height: 25px;
   color: #BEAD8E;
   margin: 0px;
 }
 
+.price-after.best-price {
+  color: #82B789;
+}
+
 .price-after .currency_symbol_price, .price-after .decimal_value_price {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .single-package-tax-msg {
   font-size: 12px;
   line-height: 15px;
   color: #2C2F33;
+  font-weight: 400;
 }
 
 .text-number-of-rooms {
   display: none;
   padding-bottom: 5px;
+  font-size: 15px;
+  line-height: 15px;
 }
 
 .room-btn-minus, .room-btn-plus, .room-btn-value {
@@ -230,12 +247,13 @@
 
 .room-btn-add  {
   font-size: 14px;
-  font-size: 500;
+  font-weight: 500;
   color: #ffffff;
   line-height: 18px;
   padding: 16px 17.3px 16px 15.9px;
   background-color: #000000;
   border:  0px;
+  letter-spacing: 0.7px;
 }
 
 .obpress-hotel-results-button-bottom {
@@ -259,9 +277,27 @@
     cursor: pointer;
 }
 
+.room-amenities {
+    width: 329px;
+    height: 53px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0px 29px;
+    align-items: center;
+    position: absolute;
+    top: -26px;
+    box-shadow: 0px 14px 24px #BEAD8E30;
+}
 
-
-
+.price-before {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #9C9C9C;
+}
 
 
 
