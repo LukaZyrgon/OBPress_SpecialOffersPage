@@ -50,10 +50,10 @@
                     </p>
                     <div class="obpress-hotel-basket-stay-info">
                         <div class="obpress-hotel-basket-stay-dates">
-                            <div class="obpress-hotel-basket-stay-checkin">
+                            <span class="obpress-hotel-basket-stay-checkin">
                                 <span class="obpress-hotel-basket-stay-checkin-string">Check-in</span>
                                 <span class="obpress-hotel-basket-stay-checkin-date"><?php  $CheckInBasket = date("d M", strtotime($CheckIn)); echo $CheckInBasket; ?></span>
-                            </div>
+                            </span>
                             <span class="obpress-hotel-searchbar-arrow">
                                 <svg class="arrow-right-dates_v4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                     <defs>
@@ -84,10 +84,10 @@
                                     </g>
                                 </svg>
                             </span>
-                            <div class="obpress-hotel-basket-stay-checkout">
+                            <span class="obpress-hotel-basket-stay-checkout">
                                 <span class="obpress-hotel-basket-stay-checkout-string">Check-out</span>
                                 <span class="obpress-hotel-basket-stay-checkout-date"><?php  $CheckOutBasket = date("d M", strtotime($CheckOut)); echo $CheckOutBasket; ?></span>                            
-                            </div>
+                            </span>
                         </div>
                         <div class="obpress-hotel-basket-stay-room-info">
                             <span class="obpress-hotel-basket-stay-rooms">
@@ -155,7 +155,7 @@
                     	<span class="obpress-hotel-total-price-value">0,00</span>
                     </span>
                     <?php if(isset($hotel['MaxPartialPaymentParcel'])) : ?>
-                        <span class="obpress-hotel-results-pay-up-to">Pay up to <?= $hotel['MaxPartialPaymentParcel']; ?>x</span>
+                        <!-- <span class="obpress-hotel-results-pay-up-to">Pay up to <?= $hotel['MaxPartialPaymentParcel']; ?>x</span> -->
                     <?php endif; ?>
                 </div>
                 <button class="obpress-hotel-submit" id="basket-send" type="button" disabled>Proximo Passo</button>
