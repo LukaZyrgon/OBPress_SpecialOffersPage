@@ -52,8 +52,6 @@ jQuery(document).ready(function($){
 
                 policy = $(this).attr("data-policy");
 
-                console.log(policy);
-
                 currency = $(this).attr("data-currency-symbol") ;
 
                 var clone = $(".basket-room-div-clone .basket-room-div").clone();

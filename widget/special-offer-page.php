@@ -738,6 +738,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
         $plugin_directory_path = plugins_url( '', __FILE__ );
         $plugins_directory = plugins_url();
 
+
 		require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template.php');
 	}
 }

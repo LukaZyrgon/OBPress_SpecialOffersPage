@@ -67,37 +67,43 @@
 							<div class="single-package-room roomrate">
 							<img class="single-package-room-img" src="<?= @$descriptive_info->getImagesForRoom($roomtype->RoomID)[0] ?>">
 
-							<div class="single-package-room-rate-info roomrateinfo" data-price="<?php echo $roomrate->Total->AmountBeforeTax; ?>" data-quantity="0" data-max-quantity="<?php echo $roomtype->MaxOccupancy; ?>" data-nights="1" data-discount="" data-tax-policy-name="Taxas de Serviço e ISS" data-total-price-after-tax="<?php echo $roomrate->Total->AmountAfterTax; ?>" data-children-ages="" data-rate-id="<?= $roomrate->RatePlanID ?>" data-room-id="<?php echo $roomtype->RoomID; ?>" data-currency-symbol="<?= $currencies[0]->CurrencySymbol ?>" 
-							data-policy="<?php if ($rate_plan->CancelPenalties != null) { 
-                                                    foreach ($rate_plan->CancelPenalties as $cancellation) { 
-                                                        if ($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount == 0 && $cancellation->AmountPercent->Percent == 0 && $cancellation->AmountPercent->NmbrOfNights == 0)) {
-                                                              if ($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d >= $cancellation->DeadLine->OffsetUnitMultiplier) { 
-                                                                echo "Cancelamento Grátis";
-                                                              }
-                                                             elseif ($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d < $cancellation->DeadLine->OffsetUnitMultiplier) {
-                                                                 echo "Não Reembolsável";
-                                                              } else {
-                                                                echo "Cancelamento Grátis";
-                                                             }
-                                                        }
-                                                        elseif ($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount != 0 || $cancellation->AmountPercent->Percent != 0 || $cancellation->AmountPercent->NmbrOfNights != 0)) { 
-                                                            if ($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d >= $cancellation->DeadLine->OffsetUnitMultiplier) { 
-                                                                echo "Permite Cancelamento";    
-                                                             }
-                                                            elseif ($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d <= $cancellation->DeadLine->OffsetUnitMultiplier) {
-                                                                echo "Não Reembolsável";
-                                                             }
-                                                            else {
-                                                                 echo "Permite Cancelamento";
-                                                             }
-                                                        }
-                                                        elseif ($cancellation->NonRefundable == true) {
-                                                             echo "Não Reembolsável";
-                                                        }
-                                                    }
-                                			} ?>" >
-
-
+							<div class="single-package-room-rate-info roomrateinfo" 
+							data-price="<?php echo $roomrate->Total->AmountBeforeTax; ?>" 
+							data-quantity="0" 
+							data-max-quantity="<?php echo $roomtype->MaxOccupancy; ?>" 
+							data-nights="1" 
+							data-discount="<?= isset($roomrate->Total->TPA_Extensions->TotalDiscountValue) ? $roomrate->Total->TPA_Extensions->TotalDiscountValue : "" ?>"  
+                            data-price-before-discount="<?= isset($roomrate->Total->TPA_Extensions->TotalDiscountValue) ? (@$roomrate->Total->TPA_Extensions->TotalDiscountValue+@$roomrate->Total->AmountBeforeTax)/$nights : "" ?>" 
+                            data-tax-policy-name="Taxas de Serviço e ISS" 
+                            data-total-price-after-tax="<?php echo $roomrate->Total->AmountAfterTax; ?>"
+                            data-children-ages="" data-rate-id="<?= $roomrate->RatePlanID ?>"
+                            data-room-id="<?php echo $roomtype->RoomID; ?>"
+                            data-currency-symbol="<?= $currencies[0]->CurrencySymbol ?>"  
+                            data-policy="<?php if($rate_plan->CancelPenalties != null): ?>
+                                                    <?php foreach($rate_plan->CancelPenalties as $cancellation): ?>
+                                                        <?php if($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount == 0 && $cancellation->AmountPercent->Percent == 0 && $cancellation->AmountPercent->NmbrOfNights == 0)): ?>
+                                                            <?php if($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d >= $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Cancelamento Grátis
+                                                            <?php elseif($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d < $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Não Reembolsável
+                                                            <?php else: ?>
+                                                                Cancelamento Grátis
+                                                            <?php endif; ?>
+                                                        <?php elseif($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount != 0 || $cancellation->AmountPercent->Percent != 0 || $cancellation->AmountPercent->NmbrOfNights != 0)): ?>
+                                                            <?php if($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d >= $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Permite Cancelamento    
+                                                            <?php elseif($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d <= $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Não Reembolsável
+                                                            <?php else: ?>
+                                                                Permite Cancelamento
+                                                            <?php endif; ?>
+                                                        <?php elseif($cancellation->NonRefundable == true): ?>
+                                                            Não Reembolsável
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+										">
+                                            
 								<?php if(!empty($room_amenities)): ?>
 									<div class="room-amenities">
 										<?php foreach($room_amenities as $room_amenity): ?>
