@@ -7,17 +7,15 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		parent::__construct($data, $args);
 		
-		wp_register_script( 'special-offer-page_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/special-offer-page.js'), [ 'elementor-frontend' ], '1.0.0', true );
+		wp_register_script( 'special-offer-page_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/special-offer.js'), [ 'elementor-frontend' ], '1.0.0', true );
 
 		wp_register_script( 'searchbar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/searchbar.js'), [], '1.0.0', true );
 
-		if ( is_home() || is_front_page()  == false ) {
-			wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true );
-		} 
+		wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true );
 
 		wp_register_script( 'basket_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/basket.js'), [], '1.0.0', true );
 
-		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer-page.css') );  
+		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer.css') );  
 
 		wp_localize_script('special-offer-page_js', 'specialOfferAjax', array(
 		'ajaxurl' => admin_url('admin-ajax.php')
@@ -737,7 +735,6 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
         $plugin_directory_path = plugins_url( '', __FILE__ );
         $plugins_directory = plugins_url();
-
 
 		require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template.php');
 	}

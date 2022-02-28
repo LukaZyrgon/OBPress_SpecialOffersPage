@@ -143,8 +143,6 @@
   width: 392px;*/
   box-shadow: 0px 4px 7px #0000001C;
   margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 .single-package-room-img {
@@ -157,19 +155,14 @@
 .single-package-room-rate-info {
   padding: 53.8px 31.65px 30.94px 32.04px;
   background-color: #ffffff;
-  position: relative;
-  min-height: 273px;
-  display: flex;
-  flex-direction: column;
 }
 
 .single-package-room-name {
-  font-size: 24px;
+  font-size: 20px;
   color: #222222;
   line-height: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  letter-spacing: -0.6px;
 }
 
 .single-package-room-icons {
@@ -183,7 +176,6 @@
 
 .single-package-room-icons-type {
   margin-bottom: 7.5px;
-  display: flex;
 }
 
 .single-package-room-icons-type:nth-last-child {
@@ -194,11 +186,6 @@
   height: 12px;
 }
 
-.single-package-room-icon-name {
-  margin-left: 8px;
-  font-weight: 400;
-}
-
 .single-package-room-icon-name span {
   font-weight: 600;
 }
@@ -206,8 +193,6 @@
 .single-package-room-price-and-button {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  flex-grow: 1;
 }
 
 .single-package-room-price {
@@ -217,33 +202,25 @@
 }
 
 .price-after {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
-  line-height: 25px;
+  line-height: 24.49px;
   color: #BEAD8E;
   margin: 0px;
 }
 
-.price-after.best-price {
-  color: #82B789;
-}
-
 .price-after .currency_symbol_price, .price-after .decimal_value_price {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .single-package-tax-msg {
   font-size: 12px;
   line-height: 15px;
   color: #2C2F33;
-  font-weight: 400;
 }
 
 .text-number-of-rooms {
   display: none;
-  padding-bottom: 5px;
-  font-size: 15px;
-  line-height: 15px;
 }
 
 .room-btn-minus, .room-btn-plus, .room-btn-value {
@@ -252,13 +229,11 @@
 
 .room-btn-add  {
   font-size: 14px;
-  font-weight: 500;
+  font-size: 500;
   color: #ffffff;
   line-height: 18px;
   padding: 16px 17.3px 16px 15.9px;
   background-color: #000000;
-  border:  0px;
-  letter-spacing: 0.7px;
 }
 
 .obpress-hotel-results-button-bottom {
@@ -282,27 +257,9 @@
     cursor: pointer;
 }
 
-.room-amenities {
-    width: 329px;
-    height: 53px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 0px 29px;
-    align-items: center;
-    position: absolute;
-    top: -26px;
-    box-shadow: 0px 14px 24px #BEAD8E30;
-}
 
-.price-before {
-  margin-top: 0px;
-  margin-bottom: 5px;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 15px;
-  color: #9C9C9C;
-}
+
+
 
 
 
@@ -358,14 +315,13 @@ form {
 .obpress-hotel-results-basket-info {
     background-color: #fff;
     height: 126px;
-    padding: 17px 0px 14px 25px;
+    padding: 17px 31px 14px 25px;
 }
 
 .obpress-hotel-basket-title {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 19px;
-    margin-top: 0px;
 }
 
 .obpress-hotel-basket-stay-info {
@@ -373,32 +329,37 @@ form {
 }
 
 .obpress-hotel-basket-stay-dates {
+    /* width: 124px; */
+    height: 35px;
     border-right: 1px solid #DFDFDF;
     display: flex;
+    justify-content: space-between;
+    padding-right: 8px;
 }
 
 .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow {
-    display: flex;
-    align-self: flex-end;
     margin: 0px 8px;
     width: 10px;
 }
 
 .obpress-hotel-basket-stay-checkout {
-  margin-right: 8px;
+    width: 53px;
 }
 
 .obpress-hotel-basket-stay-checkin, .obpress-hotel-basket-stay-checkout {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.obpress-hotel-basket-stay-checkin {
+    min-width: 52px;
 }
 
 .obpress-hotel-basket-stay-checkin-string, .obpress-hotel-basket-stay-checkout-string {
     font-size: 10px;
-    font-weight: 400;
-    color: #2c2f33;
     line-height: 13px;
-    margin-bottom: 4px;
+    width: fit-content;
 }
 
 .obpress-hotel-basket-stay-checkin-date, .obpress-hotel-basket-stay-checkout-date {
@@ -409,21 +370,26 @@ form {
 }
 
 .obpress-hotel-basket-stay-room-info {
+    width: 153px;
+    padding-left: 8px;
     display: flex;
+    justify-content: space-between;
 }
 
 .obpress-hotel-basket-stay-rooms, .obpress-hotel-basket-stay-nights, .obpress-hotel-basket-stay-guests {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .obpress-hotel-basket-stay-rooms {
-    margin-left: 8.32px;
-    margin-right: 11px;
+    width: 40px;
+    height: 35px;
 }
 
 .obpress-hotel-basket-stay-nights {
-    margin-right: 12px;
+    width: 32px;
+    height: 35px;
 }
 
 .obpress-hotel-basket-stay-guests {
@@ -432,11 +398,8 @@ form {
 }
 
 .obpress-hotel-basket-stay-rooms-string, .obpress-hotel-basket-stay-nights-string, .obpress-hotel-basket-stay-guests-string {
-  font-size: 10px;
-  font-weight: 400;
-  color: #2c2f33;
-  line-height: 13px;
-  margin-bottom: 4px;
+    font-size: 10px;
+    line-height: 13px;
 }
 
 .obpress-hotel-basket-stay-rooms-num, .obpress-hotel-basket-stay-nights-num, .obpress-hotel-basket-stay-guests-num {
@@ -448,17 +411,14 @@ form {
 .obpress-hotel-results-basket-cart {
     background-color: #F9F9F9;
     border-top: 1px solid #E6E6E6;
-    margin-top: 10px;
 }
 
 .obpress-hotel-results-basket-price {
     background-color: #fff;
-    padding: 8px 31px 22px 26px;
 }
 
-.obpress-hotel-total-price-holder {
-    display: flex;
-    justify-content: space-between;
+.obpress-hotel-results-basket-price {
+    padding: 8px 31px 22px 26px;
 }
 
 .basket-room-div {
@@ -542,15 +502,6 @@ form {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     max-width: 170px;
-    word-break: break-all;
-}
-
-.obpress-hotel-results-item-promo {
-    font-size: 12px;
-    font-weight: 600;
-    color: #82B789;
-    font-style: italic;
-    line-height: 15px;
 }
 
 .obpress-hotel-results-total-room-selected {
@@ -569,14 +520,6 @@ form {
     align-items: baseline;
 }
 
-.obpress-hotel-results-item-curr {
-    font-size: 10px;
-    margin-right: 3px;
-    font-weight: 400;
-    position: relative;
-    top: -1px;
-}
-
 .obpress-hotel-results-item-promo-edit {
     display: flex;
     justify-content: space-between;
@@ -591,12 +534,6 @@ form {
     border-top: 1px solid #E6E6E6;
 }
 
-.obpress-hotel-results-item-discount-string, .obpress-hotel-results-discount-message {
-    font-size: 14px;
-    line-height: 18px;
-    color: #000;
-}
-
 .obpress-hotel-results-item-taxes, .obpress-hotel-results-tax-holder {
     padding-top: 12px;
     border-top: 1px solid #E6E6E6;
@@ -607,7 +544,6 @@ form {
     font-size: 10px;
     text-decoration: underline;
     cursor: pointer;
-    font-weight: 400;
 }
 
 .obpress-hotel-results-tax-title {
@@ -615,8 +551,6 @@ form {
     align-items: center;
     font-size: 12px;
     margin-bottom: 8px;
-    font-weight: 400;
-    margin-top: 0px;
 }
 
 .obpress-hotel-results-tax-title svg {
@@ -631,7 +565,6 @@ form {
 
 .obpress-hotel-results-tax-message {
     font-size: 12px;
-    font-weight: 400;
 }
 
 .obpress-hotel-results-tax-total {
@@ -666,7 +599,6 @@ form {
     font-size: 13px;
     margin-top: 15px;
     font-weight: bold;
-    font-family: inherit;
 }
 
 .obpress-hotel-total-price-string {
@@ -721,23 +653,4 @@ form {
   padding: 8.5px 20px;
   min-width: 115px;
   cursor: pointer;
-}
-
-.restricted_text_holder {
-  font-size: 12px;
-  font-weight: 500;
-  color: #FF0000;
-}
-
-.restricted_text_holder .restriction {
-  line-height: 18px;
-}
-
-.restricted_modify_search {
-  font-size: 12px;
-  font-weight: 400;
-  color: #4B8CF4;
-  text-decoration: underline;
-  cursor: pointer;
-  text-align: center;
 }

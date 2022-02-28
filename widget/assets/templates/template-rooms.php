@@ -47,6 +47,9 @@
 			$AllRoomsEmpty = false;
 
 			$first_roomrate = true;
+
+			$today = new \DateTime('now');
+			$CheckInPolicy = \DateTime::createFromFormat('d.m.Y', $CheckIn);
 		?>
 
 		<?php if ($data->getRoomRatesByRoomAvailabilityWithRateId($property, $RatePlanID, ["AvailableForSale"]) !== null): ?>
@@ -187,6 +190,140 @@
 			<?php endforeach; ?>
 		<?php endif; ?>
 
+		
+		<?php if ($data->getRoomRatesByRoomAvailabilityWithRateId($property, $RatePlanID, ["LOS_Restricted"]) !== null): ?>
+			<?php foreach ($data->getRoomRatesByRoomAvailabilityWithRateId($property, $RatePlanID, ["LOS_Restricted"]) as $key => $roomrate): ?>
+				<?php foreach($roomtypes as $roomtype): ?>
+					<?php if($roomrate->RoomID == $roomtype->RoomID): ?>
+						<?php 
+							if ($descriptive_info->getAmenitiesByRoomV4($roomtype->RoomID) !== null) {
+								$room_amenities = $descriptive_info->getAmenitiesByRoomV4($roomtype->RoomID);
+							}
+							else {
+								$room_amenities = [];
+							}
+						?>
+
+						<div class="single-package-room-container">
+
+							<div class="single-package-room roomrate">
+							<img class="single-package-room-img" src="<?= @$descriptive_info->getImagesForRoom($roomtype->RoomID)[0] ?>">
+
+							<div class="single-package-room-rate-info roomrateinfo" 
+							data-price="<?php echo $roomrate->Total->AmountBeforeTax; ?>" 
+							data-quantity="0" 
+							data-max-quantity="<?php echo $roomtype->MaxOccupancy; ?>" 
+							data-nights="1" 
+							data-discount="<?= isset($roomrate->Total->TPA_Extensions->TotalDiscountValue) ? $roomrate->Total->TPA_Extensions->TotalDiscountValue : "" ?>"  
+                            data-price-before-discount="<?= isset($roomrate->Total->TPA_Extensions->TotalDiscountValue) ? (@$roomrate->Total->TPA_Extensions->TotalDiscountValue+@$roomrate->Total->AmountBeforeTax)/$nights : "" ?>" 
+                            data-tax-policy-name="Taxas de Serviço e ISS" 
+                            data-total-price-after-tax="<?php echo $roomrate->Total->AmountAfterTax; ?>"
+                            data-children-ages="" data-rate-id="<?= $roomrate->RatePlanID ?>"
+                            data-room-id="<?php echo $roomtype->RoomID; ?>"
+                            data-currency-symbol="<?= $currencies[0]->CurrencySymbol ?>"  
+                            data-policy="<?php if($rate_plan->CancelPenalties != null): ?>
+                                                    <?php foreach($rate_plan->CancelPenalties as $cancellation): ?>
+                                                        <?php if($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount == 0 && $cancellation->AmountPercent->Percent == 0 && $cancellation->AmountPercent->NmbrOfNights == 0)): ?>
+                                                            <?php if($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d >= $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Cancelamento Grátis
+                                                            <?php elseif($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d < $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Não Reembolsável
+                                                            <?php else: ?>
+                                                                Cancelamento Grátis
+                                                            <?php endif; ?>
+                                                        <?php elseif($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount != 0 || $cancellation->AmountPercent->Percent != 0 || $cancellation->AmountPercent->NmbrOfNights != 0)): ?>
+                                                            <?php if($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d >= $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Permite Cancelamento    
+                                                            <?php elseif($cancellation->DeadLine != null && $today->diff($CheckInPolicy)->d <= $cancellation->DeadLine->OffsetUnitMultiplier): ?>
+                                                                Não Reembolsável
+                                                            <?php else: ?>
+                                                                Permite Cancelamento
+                                                            <?php endif; ?>
+                                                        <?php elseif($cancellation->NonRefundable == true): ?>
+                                                            Não Reembolsável
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+										">
+                                            
+								<?php if(!empty($room_amenities)): ?>
+									<div class="room-amenities">
+										<?php foreach($room_amenities as $room_amenity): ?>
+											<?php if($room_amenity->Image != null): ?>
+												<img class="room=amenity" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_amenity->Image ?>">
+											<?php endif; ?>
+										<?php endforeach; ?>
+									</div>
+								<?php endif; ?>
+								<div class="single-package-room-name">
+									<?= substr($roomtype->RoomName, 0, 20) ?>
+									<?php if(strlen($roomtype->RoomName) > 20): ?>
+										...
+									<?php endif; ?>
+								</div>
+								<div class="single-package-room-icons">
+									<?php if(isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID]) && isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL)): ?>
+										<span class="single-package-room-icons-type">
+											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL ?>"> 
+											<span class="single-package-room-icon-name">
+												Vista: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
+											</span>
+										</span>
+									<?php endif; ?>
+
+									<?php if(isset($roomtype->MaxOccupancy)): ?>
+										<span class="single-package-room-icons-type">
+											<img class="single-package-room-icon" src="<?= $plugin_directory_path."/assets/icons/ocup-max.svg" ?>"> 
+											<span class="single-package-room-icon-name">
+											   Ocup.max.:  <span><?= $roomtype->MaxOccupancy ?> Pessoas</span>
+											</span>
+										</span>
+									<?php endif; ?>
+									
+									<?php if($descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) != null): ?>
+										<span class="single-package-room-icons-type">
+											<img class="single-package-room-icon" src="<?= $plugin_directory_path. "/assets/icons/area.svg" ?>">
+											<span class="single-package-room-icon-name">
+												Área: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
+											</span>
+										</span>
+									<?php endif; ?>
+								</div>
+								<?php if(isset($roomrate->Total->TPA_Extensions->TotalDiscountValue)): ?>
+									<p class="price-before">
+										<del>
+											<?= Lang_Curr_Functions::ValueAndCurrencyCultureV4($roomrate->Total->TPA_Extensions->TotalDiscountValue+@$roomrate->Total->AmountBeforeTax, $currencies, $currency, $language) ?>
+										</del>
+									</p>
+								<?php endif; ?>
+								<div class="single-package-room-price-and-button">
+									<div class="single-package-room-price">
+										<p class="price-after <?php if($first_roomrate == true) echo 'best-price'; ?>">
+											<?= Lang_Curr_Functions::ValueAndCurrencyCultureV4(@$roomrate->Total->AmountBeforeTax, $currencies, $currency, $language) ?>
+										</p>
+										<span class="single-package-tax-msg">Inclui impostos e taxas</span>
+										<?php 
+											if($first_roomrate == true) {
+												$first_roomrate = false;
+											}
+										?>
+									</div>
+
+									<div class="single-package-room-button">
+										<?php require(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/restrictions.php'); ?>
+									</div>
+
+								</div>
+							</div>
+							</div>
+
+						</div>
+
+						<?php break; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			<?php endforeach; ?>
+		<?php endif; ?>
 
 
 		
