@@ -5,22 +5,26 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 	public function __construct($data = [], $args = null) {
 
+		$special_offer_page = true;
+
 		parent::__construct($data, $args);
 		
 		wp_register_script( 'special-offer-page_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/special-offer-page.js'), [ 'elementor-frontend' ], '1.0.0', true );
 
+		// Prevent calling this files twice
+
 		wp_register_script( 'searchbar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/searchbar.js'), [], '1.0.0', true );
 
-		if ( is_home() || is_front_page()  == false ) {
-			wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true );
-		} 
+		// if ( is_home() || is_front_page()  == false ) {
+		// 	wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true ); 
+		// } 
 
 		wp_register_script( 'basket_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/basket.js'), [], '1.0.0', true );
 
 		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer-page.css') );  
 
 		wp_localize_script('special-offer-page_js', 'specialOfferAjax', array(
-		'ajaxurl' => admin_url('admin-ajax.php')
+			'ajaxurl' => admin_url('admin-ajax.php')
 		));
 
 
@@ -723,9 +727,6 @@ class SpecialOfferPage extends \Elementor\Widget_Base
         $data = BeApi::getChainData($chain, $CheckIn, $CheckOut, $adults, ($_GET['ch'] != null && $_GET["ch"] > 0) ? $_GET['ch'] : 0, $_GET['ag'], $property, "false", $currency, $language, $promocode, $groupcode, $mobile);
         $data = new AnalyzeAvailRes($data);
 
-        // var_dump($data->get());
-        // die();
-
         $descriptive_info = BeApi::ApiCache('hotel_descriptive_info_'.$property.'_'.$language, BeApi::$cache_time['hotel_descriptive_info'], function() use ($property, $language) {
             return BeApi::getHotelDescriptiveInfo($property, $language);
         });
@@ -740,5 +741,6 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 
 		require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template.php');
+
 	}
 }

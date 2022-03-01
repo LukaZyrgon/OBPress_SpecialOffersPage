@@ -111,17 +111,30 @@ jQuery(window).on("elementor/frontend/init", function () {
       }
 
 
-
-
-
     }
+
   );
+  
 });
 
 jQuery(document).ready(function($){
 
   $(document).on("click", ".error_message_btn_calendar", function() {
-    console.log("test");
     $("#calendar_dates").click();
   });
+
+
+  // open calendar when click on Change Search
+  $(document).on("click", ".restricted_modify_search", function() {
+
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#calendar_dates").offset().top - 200
+    }, 500);
+
+    $("#calendar_dates").click();
+
+  });
+
+
+  
 });

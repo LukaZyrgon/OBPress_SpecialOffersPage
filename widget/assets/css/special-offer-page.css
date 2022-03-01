@@ -684,6 +684,9 @@ form {
 
 /*  end of basket */
 
+
+
+
 .error_message_holder {
   width: calc(100% - 20px);
   height: 80px;
@@ -739,5 +742,251 @@ form {
   color: #4B8CF4;
   text-decoration: underline;
   cursor: pointer;
-  text-align: center;
+  display: block;
+  padding-top: 10px;
+
+}
+
+
+
+
+/* MOBILE */
+
+@media (max-width: 1279px) { 
+
+
+
+    .obpress-package-rooms-basket {
+        display: block;
+    }
+
+    .single-package-room-container {
+        width: 100%;
+    }
+
+    .obpress-hotel-results-basket {
+        position: static;
+    }
+
+    #package-results {
+        overflow: auto;
+    }
+
+    .obpress-hotel-results-basket-holder {
+        display: none;
+    }
+
+
+
+
+
+
+
+
+
+    /* Basket mobile */
+
+    .obpress-hotel-results-basket-holder {
+        display: none;
+        z-index: 20;
+    }
+
+    .obpress-hotel-results-basket {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        top: unset;
+        width: 100%;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    .obpress-hotel-results-basket-info-holder {
+        display: none;
+        height: calc(100vh - 82px);
+        background-color: #fff;
+        padding: 0px 19px;
+    }
+
+    #basket.open {
+        top: 0px;
+        z-index: 100;
+    }
+
+    .obpress-hotel-results-basket-info-holder.open {
+        display: block;
+    }
+
+    .obpress-hotel-results-basket-info {
+        padding: 12px 0px 17px 0px;
+        border-bottom: 1px solid #E6E6E6;
+    }
+
+    .obpress-hotel-basket-title {
+        line-height: 21px;
+        margin-bottom: 17px;
+    }
+
+    .obpress-hotel-basket-stay-dates {
+        min-width: 140px;
+    }
+    
+    .obpress-hotel-searchbar-arrow {
+        margin-left: 5px;
+    }
+
+    .obpress-hotel-basket-stay-checkin-string, .obpress-hotel-basket-stay-checkout-string {
+        font-size: 9px;
+        line-height: 11px;
+    }
+
+    .obpress-hotel-basket-stay-rooms-string, .obpress-hotel-basket-stay-nights-string, .obpress-hotel-basket-stay-guests-string {
+        font-size: 9px;
+        line-height: 11px;
+    }
+
+    .obpress-hotel-basket-stay-rooms-num, .obpress-hotel-basket-stay-nights-num, .obpress-hotel-basket-stay-guests-num {
+        text-align: center;
+    }
+
+    .obpress-hotel-results-basket .obpress-hotel-searchbar-button-holder {
+        display: block;
+    }
+    
+    .obpress-hotel-results-discount-holder {
+        padding: 17px 0px 21px 0px;
+    }
+
+    .obpress-hotel-results-basket-cart {
+        background-color: #fff;
+        border-top: unset;
+    }
+
+    .obpress-hotel-results-basket-cart .basket-room-div {
+        padding: 0px 0px 21px 0px;
+    }
+
+    .obpress-hotel-results-item-top {
+        height: calc(100vh - 279px);
+        padding-top: 21px;
+        overflow-y: scroll; 
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .obpress-hotel-results-item-top::-webkit-scrollbar {
+        display: none;
+    }
+
+    .obpress-hotel-results-item-title {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .obpress-hotel-results-total-room-selected {
+        display: none;
+    }
+
+    .obpress-hotel-results-item-price .obpress-hotel-results-item-value {
+        font-size: 12px;
+    }
+
+    .obpress-hotel-results-item-promo-edit {
+        padding-bottom: 40px;
+    }
+
+    .obpress-hotel-results-item-value {
+        font-size: 10px;
+    }
+
+    .obpress-hotel-results-item-edit {
+        display: none;
+    }
+
+    .obpress-hotel-results-discount-message {
+        font-size: 12px;
+    }
+
+    .obpress-hotel-results-discount-total .obpress-hotel-results-discount-currency {
+        font-size: 10px;
+    }
+
+    .obpress-hotel-results-discount-total .obpress-hotel-results-discount-price {
+        font-size: 12px;
+    }
+
+    .obpress-hotel-results-item-taxes, .obpress-hotel-results-tax-holder {
+        padding-top: 17px;
+    }
+
+    .obpress-hotel-results-tax-title {
+        font-weight: bold;
+    }
+
+    .obpress-hotel-results-tax-total .obpress-hotel-results-tax-currency {
+        font-size: 10px;
+    }
+
+    .obpress-hotel-results-tax-total .obpress-hotel-results-tax-price {
+        font-size: 12px;
+    }
+
+    .obpress-hotel-edit-search {
+        display: none;
+    }
+
+    .obpress-hotel-results-basket-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 17px 12px 14px 50px;
+        box-shadow: #00000040 0px 0px 25px;
+        height: 82px;
+        background-image: url('../../assets/icons/basket_arrow_up.svg');
+        background-position-x: 17px;
+        background-position-y: center;
+        background-repeat: no-repeat;
+    }
+
+    .obpress-hotel-results-basket-price.open {
+        background-image: url('../../assets/icons/basket_arrow_down.svg');
+    }
+
+    .obpress-hotel-total-price-holder {
+        flex-direction: column;
+    }
+    
+    .obpress-hotel-total-price {
+        font-size: 16px;
+    }
+
+    .obpress-hotel-total-price-currency {
+        font-size: 14px;
+    }
+
+    .obpress-hotel-results-pay-up-to {
+        display: block;
+        color: #000;
+        font-size: 10px;
+    }
+    
+    .obpress-hotel-total-price-string {
+        display: none;
+    }
+
+    .obpress-hotel-submit {
+        padding: 11px 35px 11px 18px;
+        width: unset;
+        margin-top: unset;
+        background-image: url('../../assets/icons/basket_arrow_right.svg');
+        background-position-x: 93%;
+        background-position-y: center;
+        background-repeat: no-repeat;
+    }
+
+
+    /*  end of basket css */
+
+
+
 }

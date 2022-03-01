@@ -103,11 +103,11 @@ jQuery(document).ready(function($){
         });
 
 
-        // if ( resolution == 3 && total_quantity > 0 ) {
-        //     $(".obpress-hotel-results-basket-holder").show();
-        // } else if ( resolution == 3 && total_quantity == 0 ) {
-        //     $(".obpress-hotel-results-basket-holder").hide();
-        // }
+        if ( resolution == 3 && total_quantity > 0 ) {
+            $(".obpress-hotel-results-basket-holder").show();
+        } else if ( resolution == 3 && total_quantity == 0 ) {
+            $(".obpress-hotel-results-basket-holder").hide();
+        }
 
 
         if ( can_submit == false ) {
@@ -668,6 +668,7 @@ jQuery(document).ready(function($){
         $('#basket #quantity_field').val(quantity);
         $("#basket .room_name").html(quantity + " Rooms - " + room_name);
 
+
         if (quantity==0) {
             closeBasket();
         }
@@ -769,6 +770,14 @@ jQuery(document).ready(function($){
     
 
 
+
+
+    // show basket on click
+  $(".obpress-hotel-results-basket-price").on("click", function() {
+    $(this).closest("#basket").find(".obpress-hotel-results-basket-info-holder").toggleClass("open");
+    $(this).toggleClass("open");
+    $(this).closest("#basket").toggleClass("open");
+  });
 
 
     
