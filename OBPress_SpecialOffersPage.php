@@ -4,7 +4,7 @@
   Plugin uri: www.zyrgon.net
   Text Domain: OBPress_SpecialOffersPage
   Description: Widgets to OBPress
-  Version: 0.0.2
+  Version: 0.0.3
   Author: Zyrgon
   Author uri: www.zyrgon.net
   License: GPlv2 or Later
