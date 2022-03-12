@@ -55,21 +55,24 @@
 	                        ?>
 
 	                        <div class="single-package-info-categories">
-	                        	<div class="single-package-info-categories-bars">
-	                        		<span class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</span>
+	                        	<ul class="single-package-info-categories-bars">
+	                        		<li class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</li>
 	                        		<?php foreach($amenity_categories as $key => $amenity_category): ?>
-	                        			<span class="single-package-info-categories-bar" data-category="<?= $key ?>"><?= $key ?></span>
+	                        			<li class="single-package-info-categories-bar" data-category="<?= $key ?>"><?= $key ?>
+                                            
+                                        </li>
 	                        		<?php endforeach; ?>
-	                        	</div>
+	                        	</ul>
 
 	                        	<div class="single-package-info-category-section active-section" data-category="package-description">
-	                        		<span class="package-description-short">
+	                        		<span class="package-description-short"> • 
 	                        			<?= substr(nl2br($offer["get_rate_plans"]->RatePlanDescription->Description),0, 200) ?>
 	                        			<?php if(strlen($offer["get_rate_plans"]->RatePlanDescription->Description) > 200): ?>
 	                        				<span class="kurac">...</span>
 	                        			<?php endif; ?>
 	                        		</span>
 	                        		<?php if(strlen($offer["get_rate_plans"]->RatePlanDescription->Description) > 200): ?>
+                                        • 
 	                        			<span class="package-description-long"><?= nl2br($offer["get_rate_plans"]->RatePlanDescription->Description) ?></span>
 	                        		
 		                        		<span class="package-more-description">ler mais</span>
@@ -79,7 +82,7 @@
 	                        	<?php foreach($amenity_categories as $key => $amenity_category): ?>
 	                    			<div class="single-package-info-category-section" data-category="<?= $key ?>">
 	                    				<?php foreach($amenity_category as $amenity): ?>
-	                    					<div><?= $amenity->HotelAmenity ?></div>
+	                    					<div>• <?= $amenity->HotelAmenity ?></div>
 	                    				<?php endforeach; ?>
 	                    			</div>
 	                    		<?php endforeach; ?>
@@ -752,7 +755,6 @@
                         <?php require_once( WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/basket.php'); ?>
 
                     </div>
-
 
 
 					<?php endif; ?>
