@@ -74,15 +74,17 @@
 }
 
 .single-package-info-categories-bars {
-  margin-bottom: 41.5px;
+  padding-left: 16px;
+  overflow: auto;
 }
 
 .single-package-info-categories-bar {
   margin-right: 40px;
-  font-size: 14px;
   line-height: 18px;
   color: #9C9C9C;
   cursor: pointer;
+  float: left;
+  padding-bottom: 33px;
 }
 
 .single-package-info-categories-bar.active-bar {
@@ -98,7 +100,11 @@
 }
 
 .single-package-info-category-section.active-section {
-  display: block;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    max-height: 130px;
+    flex-wrap: wrap;
 }
 
 .package-description-long {
