@@ -2,13 +2,12 @@
 	$elementor_edit_active = \Elementor\Plugin::$instance->editor->is_edit_mode();
 	$CheckInFormated = str_replace(".","",$CheckIn);
 	$CheckOutFormated = str_replace(".","",$CheckOut);
-
     $CheckInT = strtotime($CheckIn);
     $CheckOutT = strtotime($CheckOut);
-
     $nights =  ( $CheckOutT - $CheckInT ) / 86400 ;
 
 ?>
+
 
 <?php if(isset($_GET["package_id"])): ?>
 	<div class="single-package" data-redirect="<?= $redirect ?>" data-redirect-url="<?= $redirect_route ?>" data-package-id="<?= $promotion_id ?>">
@@ -16,6 +15,8 @@
 			<?php foreach($package_offers as $key => $package_offer): ?>
 				<?php foreach($package_offer as $rateplan => $offer): ?>
 					<?php if($rateplan == $promotion_id): ?>
+
+
 						<div class="single-package-img-holder">
 							<?php if(@$hotels_in_chain[$key]["MaxPartialPaymentParcel"] != null): ?>
 	                            <div class="MaxPartialPaymentParcel" data-toggle="modal" data-target="#partial-modal-payment">
@@ -29,7 +30,20 @@
 	                            <img class="single-package-img" src="<?= $plugin_directory_path . '/assets/icons/placeholderNewWhite.svg' ?>" alt="promotion">
 	                        <?php endif; ?>
 
-	                        <div class="single-package-name-holder">
+	                        <div class="single-package-name-holder"
+
+                            <?php  
+                                if ( isset($offer["get_rate_plans"]->Guarantees) ) { 
+                                    foreach($offer["get_rate_plans"]->Guarantees as $Guarantee) { 
+                                        if($Guarantee->GuaranteeCode == -1) { 
+                                            echo "data-start='" . $Guarantee->Start . "'"; echo $Guarantee->End;
+                                            echo "data-end='" . $Guarantee->End . "'";
+                                        }
+                                    }
+                                }
+                            ?> 
+
+                            >
 	                	        <div class="single-package-hotel-name"><?= @$hotels_in_chain[$key]["HotelName"] ?></div>
 	                            <div class="single-package-name"><?= $offer["get_rate_plans"]->RatePlanName ?></div>
 	                        </div>

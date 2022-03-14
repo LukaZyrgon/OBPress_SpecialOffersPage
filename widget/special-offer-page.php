@@ -1265,6 +1265,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
             return BeApi::getHotelRatePlans($hotel_from_package, $language);
         });
 
+
         $hotel_search = BeApi::ApiCache('hotel_search_property_'.$property.'_'.$language.'_true', BeApi::$cache_time['hotel_search_property'], function() use ($property, $language) {
             return BeApi::getHotelSearchForProperty($property, "true", $language);
         });
@@ -1301,7 +1302,6 @@ class SpecialOfferPage extends \Elementor\Widget_Base
             }
         }
 
-
         if(isset($package_offers)) {
             foreach ($package_offers as $hotel_code => $package_offer) {
                 foreach ($package_offer as $rate_plan_code => $offer) {
@@ -1310,6 +1310,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
                             if($rate_plan_code2 == $rate_plan_code) {
 
                                 $package_offers[$hotel_code][$rate_plan_code]["get_rate_plans"] = $rateplan;
+ 
 
                             }
                         }

@@ -634,7 +634,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
             }
         }
 
-
+        
         if(isset($package_offers)) {
             foreach ($package_offers as $hotel_code => $package_offer) {
                 foreach ($package_offer as $rate_plan_code => $offer) {
