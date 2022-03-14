@@ -63,108 +63,769 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 	protected function _register_controls()
 	{
 
-		// $this->start_controls_section(
-		// 	'color_section',
-		// 	[
-		// 		'label' => __('Colors', 'OBPress_SpecialOffersList'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->start_controls_section(
+			'color_section',
+			[
+				'label' => __('Package Main Image Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_ribbon_background_color',
-		// 	[
-		// 		'label' => __('Info Box Ribbon Background Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.obpress-offer-partial' => 'background-color: {{obpress_so_box_ribbon_background_color}}',
-		// 			'div.obpress-offer-partial-left::before' => 'border-right: 10px solid {{obpress_so_box_ribbon_background_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'package_image_height',
+			[
+				'label' => esc_html__( 'Package Image Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 128,
+						'max' => 500,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 318,
+				],
+				'selectors' => [
+					'.single-package .single-package-img-holder' => 'height: {{SIZE}}px!important',
+					'.single-package .single-package-img' => 'height: {{SIZE}}px!important',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_ribbon_text_color',
-		// 	[
-		// 		'label' => __('Info Box Ribbon Text Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.obpress-offer-partial' => 'color: {{obpress_so_box_ribbon_text_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'package_image_margin',
+			[
+				'label' => __( 'Package Image Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '28',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-img-holder' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
+		$this->add_control(
+			'package_partial_payment_padding',
+			[
+				'label' => __( 'Partial Payment Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '11',
+					'right' => '10.85',
+					'bottom' => '10',
+					'left' => '12',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .MaxPartialPaymentParcel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_background_color',
-		// 	[
-		// 		'label' => __('Info Box Background Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.obpress-offer-info' => 'background-color: {{obpress_so_box_background_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'package_partial_payment_color',
+			[
+				'label' => __('Package Partial Payment Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .MaxPartialPaymentParcel' => 'color: {{package_partial_payment_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_title_color',
-		// 	[
-		// 		'label' => __('Info Box Title Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#222222',
-		// 		'selectors' => [
-		// 			'.obpress-offer-description h5' => 'color: {{obpress_so_box_title_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_partial_payment_typography',
+				'label' => __('Package Partial Payment Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .MaxPartialPaymentParcel',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_hotel_name_color',
-		// 	[
-		// 		'label' => __('Info Box Hotel Name Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#BEAD8E',
-		// 		'selectors' => [
-		// 			'.obpress-offer-description h6' => 'color: {{obpress_so_box_hotel_name_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_partial_payment_typography_value',
+				'label' => __('Package Partial Payment Value Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .MaxPartialPaymentParcel span',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_text_color',
-		// 	[
-		// 		'label' => __('Info Box Text Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#2c2f33',
-		// 		'selectors' => [
-		// 			'.obpress-offer-description p, .obpress-offer-price p' => 'color: {{obpress_so_box_text_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'package_partial_payment_bg_color',
+			[
+				'label' => __('Package Partial Payment Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .MaxPartialPaymentParcel' => 'background-color: {{package_partial_payment_bg_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'obpress_so_box_price_color',
-		// 	[
-		// 		'label' => __('Info Box Text Color', 'OBPress_SpecialOffers'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#bead8e',
-		// 		'selectors' => [
-		// 			'.obpress-offer-number, .obpress-offer-night' => 'color: {{obpress_so_box_price_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'package_partial_package_name_padding',
+			[
+				'label' => __( 'Package Name Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '18.75',
+					'right' => '35',
+					'bottom' => '22.76',
+					'left' => '35',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-name-holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'package_partial_package_name_bg_color',
+			[
+				'label' => __('Package Name Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .single-package-name-holder' => 'background-color: {{package_partial_package_name_bg_color}}'
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'box_shadow',
+				'label' => esc_html__( 'Package Name Box Shadow', 'OBPress_SpecialOffers' ),
+				'selector' => '{{WRAPPER}} .single-package .single-package-name-holder',
+			]
+		);
+
+		$this->add_control(
+			'package_hotel_name_color',
+			[
+				'label' => __('Hotel Name Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .single-package-hotel-name' => 'color: {{package_hotel_name_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'hotel_name_typography',
+				'label' => __('Hotel Name Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-hotel-name',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_name_color',
+			[
+				'label' => __('Package Name Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .single-package-name' => 'color: {{package_hotel_name_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_name_typography',
+				'label' => __('Package Name Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-name',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '29',
+						],
+					],
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'package_info_section',
+			[
+				'label' => __('Package Info Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'package_info_padding',
+			[
+				'label' => __( 'Package Info Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '22',
+					'right' => '42',
+					'bottom' => '25',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-info-holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_info_bg_color',
+			[
+				'label' => __('Package Info Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .single-package-info-holder' => 'background-color: {{package_info_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'package_info_box_shadows',
+				'label' => esc_html__( 'Package Info Box Shadow', 'OBPress_SpecialOffers' ),
+				'selector' => '{{WRAPPER}} .single-package .single-package-info-holder',
+			]
+		);
+
+		$this->add_control(
+			'package_message_text_color',
+			[
+				'label' => __('Package Message Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .single-package-included-msg' => 'color: {{package_message_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_message_typography',
+				'label' => __('Package Message Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-included-msg',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_message_text_align',
+			[
+				'label' => __( 'Packages Message Text Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .single-package-included-msg' => 'text-align: {{package_message_text_align}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_message_margin',
+			[
+				'label' => __( 'Package Message Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '22.91',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-included-msg' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_message_margin',
+			[
+				'label' => __( 'Package Included Message Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '44',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-included-holder' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_text_color',
+			[
+				'label' => __('Package Included Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .single-package-included' => 'color: {{package_included_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_included_typography',
+				'label' => __('Package Included Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-included',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_text_margin',
+			[
+				'label' => __( 'Package Included Text Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '40',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-included' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_margin',
+			[
+				'label' => __( 'Package Included Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '41.5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-info-categories-bars' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_categories_text_color',
+			[
+				'label' => __('Package Categories Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#9C9C9C',
+				'selectors' => [
+					'.single-package .single-package-info-categories-bar' => 'color: {{package_categories_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_categories_typography',
+				'label' => __('Package Categories Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-info-categories-bar',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_categories_active_text_color',
+			[
+				'label' => __('Package Categories Active Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000000',
+				'selectors' => [
+					'.single-package .single-package-info-categories-bar.active-bar' => 'color: {{package_included_categories_active_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_included_active_typography',
+				'label' => __('Package Categories Active Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-info-categories-bar.active-bar',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_categories_text_margin',
+			[
+				'label' => __( 'Package Included Categories Text Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '40',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-info-categories-bar' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_included_categories_margin',
+			[
+				'label' => __( 'Package Included Categories Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '41.5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-info-categories-bars' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_description_text_color',
+			[
+				'label' => __('Package Description Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .package-description-short' => 'color: {{package_included_categories_active_text_color}}',
+					'.single-package .package-description-long' => 'color: {{package_included_categories_active_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_description_typography',
+				'label' => __('Package Description Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .package-description-short, .single-package .package-description-long',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '20',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_description_text_align',
+			[
+				'label' => __( 'Packages Description Text Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .single-package-info-category-section' => 'text-align: {{package_description_text_align}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_see_more_text_color',
+			[
+				'label' => __('Package See More Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#4B8CF4',
+				'selectors' => [
+					'.single-package .package-more-description' => 'color: {{package_see_more_text_color}}',
+					'.single-package .package-less-description' => 'color: {{package_see_more_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_see_more_typography',
+				'label' => __('Package Description Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .package-more-description, .single-package .package-less-description',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '17',
+						],
+					],
+				],
+			]
+		);
+
+		$this->end_controls_section();
 
 
 		// $this->start_controls_section(
