@@ -420,9 +420,6 @@
             </p>
 
 
-
-
-
             <input type="text" value="" readonly placeholder="<?php if ( $data->getHotels()[$property]['HotelName'] ) {
                     echo $data->getHotels()[$property]['HotelName'];
                     } else {
@@ -431,12 +428,8 @@
                                             echo 'single-hotel';
                                         } ?>" spellcheck="false" autocomplete="off">
 
-
-
-            <input type="hidden" name="c" value="<?php echo get_option('chain_id') ?>">
+            <input type="hidden" name="c" id="chain_code" value="<?php echo get_option('chain_id') ?>">
             <input type="hidden" name="q" id="hotel_code" value="<?php echo $data->getHotels()[$property]['HotelCode'] ?>">
-
-
 
             <input type="hidden" name="currencyId" value="<?= (isset($_GET['currencyId'])) ? $_GET['currencyId'] : get_option('default_currency_id') ?>">
             <input type="hidden" name="lang" value="<?= (isset($_GET['lang'])) ? $_GET['lang'] : get_option('default_language_id') ?>">
