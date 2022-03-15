@@ -179,8 +179,8 @@ function get_data_for_rooms() {
     });
 
     $plugin_directory_path = plugins_url( '', __FILE__ );
+    // $plugin_directory_path = str_replace('/ajax', '', $plugin_directory_path);
     $plugins_directory = plugins_url();
-
 
     require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php');
 

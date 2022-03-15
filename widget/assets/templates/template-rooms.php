@@ -1,4 +1,10 @@
-
+<?php
+	$RatePlanID = $promotion_id;
+	$roomtypes = $data->getAllRoomTypes();
+	$canidates = $data->getAllRoomStayCandidates();
+	$prices_filter = $data->getPricesInfo($style, $promotion_id);
+	$availableRooms =  count( $prices_filter['prices'] );
+?>
 
 <div class="package_rooms"> 
 
@@ -134,7 +140,7 @@
 
 									<?php if(isset($roomtype->MaxOccupancy)): ?>
 										<span class="single-package-room-icons-type">
-											<img class="single-package-room-icon" src="<?= $plugin_directory_path."/assets/icons/ocup-max.svg" ?>"> 
+											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/ocup-max.svg" ?>"> 
 											<span class="single-package-room-icon-name">
 											   Ocup.max.:  <span><?= $roomtype->MaxOccupancy ?> Pessoas</span>
 											</span>
@@ -143,7 +149,7 @@
 									
 									<?php if($descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) != null): ?>
 										<span class="single-package-room-icons-type">
-											<img class="single-package-room-icon" src="<?= $plugin_directory_path. "/assets/icons/area.svg" ?>">
+											<img class="single-package-room-icon" src="<?= $plugins_directory. "/OBPress_SpecialOffersPage/widget/assets/icons/area.svg" ?>">
 											<span class="single-package-room-icon-name">
 												Área: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
 											</span>
@@ -273,7 +279,7 @@
 
 									<?php if(isset($roomtype->MaxOccupancy)): ?>
 										<span class="single-package-room-icons-type">
-											<img class="single-package-room-icon" src="<?= $plugin_directory_path."/assets/icons/ocup-max.svg" ?>"> 
+											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/ocup-max.svg" ?>"> 
 											<span class="single-package-room-icon-name">
 											   Ocup.max.:  <span><?= $roomtype->MaxOccupancy ?> Pessoas</span>
 											</span>
@@ -282,7 +288,7 @@
 									
 									<?php if($descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) != null): ?>
 										<span class="single-package-room-icons-type">
-											<img class="single-package-room-icon" src="<?= $plugin_directory_path. "/assets/icons/area.svg" ?>">
+											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/area.svg" ?>">
 											<span class="single-package-room-icon-name">
 												Área: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
 											</span>
