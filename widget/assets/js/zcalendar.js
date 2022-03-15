@@ -18,6 +18,10 @@ jQuery(document).ready(function($){
           this.element = options.element;
   
           this.promo = options.promo;
+
+          if (  window.location.href.split("/")[3] == "package" )  {
+               this.promo = true;
+          }
   
           if (!window.moment) {
             //no moment, no calendar
@@ -1874,7 +1878,7 @@ jQuery(document).ready(function($){
           var currencyId = jQuery("#occupancy_dropdown").attr(
             "data-default-currency"
           );
-  
+
           if (this.promo == true) {
             var packageId = jQuery(".section3").attr("data-packageid");
   

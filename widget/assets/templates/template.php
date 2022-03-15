@@ -30,13 +30,13 @@
 	                            <img class="single-package-img" src="<?= $plugin_directory_path . '/assets/icons/placeholderNewWhite.svg' ?>" alt="promotion">
 	                        <?php endif; ?>
 
-	                        <div class="single-package-name-holder"
+	                        <div class="single-package-name-holder date-range"
 
                             <?php  
                                 if ( isset($offer["get_rate_plans"]->Guarantees) ) { 
                                     foreach($offer["get_rate_plans"]->Guarantees as $Guarantee) { 
                                         if($Guarantee->GuaranteeCode == -1) { 
-                                            echo "data-start='" . $Guarantee->Start . "'"; echo $Guarantee->End;
+                                            echo "data-start='" . $Guarantee->Start . "'"; 
                                             echo "data-end='" . $Guarantee->End . "'";
                                         }
                                     }
