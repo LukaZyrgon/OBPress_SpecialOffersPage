@@ -25,7 +25,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer-page.css'));  
 		wp_register_style( 'zcalendar_special_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/zcalendar.css') );
-		wp_register_style( 'searchbar_special_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );
+		wp_register_style( 'searchbar_special_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/searchbar.css') );
 
 
 
