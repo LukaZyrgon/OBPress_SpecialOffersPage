@@ -9,19 +9,25 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		parent::__construct($data, $args);
 		
+		wp_register_script( 'moment_plugin_min_js', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/vendor/moment.min.js'));
+
+		wp_register_script( 'moment_plugin_tz_js', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/vendor/moment.tz.js'));
+
 		wp_register_script( 'special-offer-page_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/special-offer-page.js'), [ 'elementor-frontend' ], '1.0.0', true );
 
 		// Prevent calling this files twice
 
 		wp_register_script( 'searchbar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/searchbar.js'), [], '1.0.0', true );
+		wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true ); 
 
-		if ( is_home() || is_front_page()  == false ) {
-			wp_register_script( 'zcalendar_special_offer_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/zcalendar.js'), [], '1.0.0', true ); 
-		} 
 
 		wp_register_script( 'basket_js',  plugins_url( '/OBPress_SpecialOffersPage/widget/assets/js/basket.js'), [], '1.0.0', true );
 
-		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer-page.css') );  
+		wp_register_style( 'special-offer-page_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/special-offer-page.css'));  
+		wp_register_style( 'zcalendar_special_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/zcalendar.css') );
+		wp_register_style( 'searchbar_special_css', plugins_url( '/OBPress_SpecialOffersPage/widget/assets/css/searchbar.css') );
+
+
 
 		wp_localize_script('special-offer-page_js', 'specialOfferAjax', array(
 			'ajaxurl' => admin_url('admin-ajax.php')
@@ -32,12 +38,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 	public function get_script_depends()
 	{
-		return [ 'special-offer-page_js', 'basket_js' , 'zcalendar_special_offer_js' , 'searchbar_special_offer_js' ];
+		return [ 'moment_plugin_min_js', 'moment_plugin_tz_js', 'special-offer-page_js', 'basket_js' , 'zcalendar_special_offer_js' , 'searchbar_special_offer_js' ];
 	}
 
 	public function get_style_depends()
 	{
-		return ['special-offer-page_css'];
+		return ['special-offer-page_css', 'zcalendar_special_css', 'searchbar_special_css'];
 	}
 	
 	public function get_name()
