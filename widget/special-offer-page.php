@@ -3088,14 +3088,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'basket_hotel_name_background_color',
+			'basket_hotel_name_color',
 			[
-				'label' => __('Baket Hotel Name Background Color', 'OBPress_SpecialOffers'),
+				'label' => __('Baket Hotel Name Color', 'OBPress_SpecialOffers'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#F9F9F9',
+				'default' => '#000',
 				'selectors' => [
-					'.single-package .obpress-hotel-basket-title' => 'background-color: {{basket_hotel_result_background_color}}',
+					'.single-package .obpress-hotel-basket-title' => 'color: {{basket_hotel_name_color}}',
 				],
 			]
 		);
@@ -3120,7 +3120,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						],
 					],
 					'font_weight' => [
-						'default' => '400',
+						'default' => '700',
 					],
 					'line_height' => [
 						'default' => [
@@ -3133,6 +3133,755 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'basket_hotel_name_align_title',
+			[
+				'label' => __( 'Basket Hotel Name Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-title' => 'text-align: {{basket_hotel_name_align_title}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_justify_content',
+			[
+				'label' => __( 'Basket Stay Info Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-info' => 'justify-content: {{basket_stay_info_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'basket_stay_dates_border',
+				'label' => __( 'Basket Stay Dates Border', 'OBPress_SpecialOffers' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '0',
+							'right' => '1',
+							'bottom' => '0',
+							'left' => '0',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#DFDFDF',
+					],
+				],
+				'selector' => '.single-package .obpress-hotel-basket-stay-dates',
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_dates_margin',
+			[
+				'label' => __( 'Basket Stay Dates Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '8',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkout' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_title_color',
+			[
+				'label' => __('Basket Stay Info Title Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2c2f33',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkin-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-checkout-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-rooms-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-nights-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-guests-string' => 'color: {{basket_stay_info_title_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_stay_info_title_typography',
+				'label' => __('Basket Stay Info Title Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-basket-stay-checkin-string, .single-package .obpress-hotel-basket-stay-checkout-string, .single-package .obpress-hotel-basket-stay-rooms-string, .single-package .obpress-hotel-basket-stay-nights-string, .single-package .obpress-hotel-basket-stay-guests-string',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '10',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '13',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_title_margin',
+			[
+				'label' => __( 'Basket Stay Info Title Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '4',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkin-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-checkout-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-rooms-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-nights-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-guests-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'basket_stay_info_date_color',
+			[
+				'label' => __('Basket Stay Info Date Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkin-date, .single-package .obpress-hotel-basket-stay-checkout-date' => 'color: {{basket_stay_info_title_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_stay_info_date_typography',
+				'label' => __('Basket Stay Info Date Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-basket-stay-checkin-date, .single-package .obpress-hotel-basket-stay-checkout-date',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_arrow_color',
+			[
+				'label' => __('Basket Stay Info Arrow Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow .b' => 'stroke: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow .c' => 'stroke: {{basket_stay_info_title_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_arrow_width',
+			[
+				'label' => esc_html__( 'Basket Stay Info Arrow Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'width: {{SIZE}}px',
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow svg' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_arrow_height',
+			[
+				'label' => esc_html__( 'Basket Stay Info Arrow Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'height: {{SIZE}}px',
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow svg' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_arrow_margin',
+			[
+				'label' => __( 'Basket Stay Info Arrow Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '8',
+					'bottom' => '0',
+					'left' => '8',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_stay_info_values_color',
+			[
+				'label' => __('Basket Stay Info Values Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num' => 'color: {{basket_stay_info_values_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_stay_info_values_typography',
+				'label' => __('Basket Stay Info Values Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		
+		$this->add_control(
+			'basket_stay_info_values_text_align',
+			[
+				'label' => __( 'Basket Stay Info Values Text Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num' => 'text-align: {{basket_stay_info_values_text_align}}'
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'basket_room_info_section',
+			[
+				'label' => __('Basket Room Styles', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_margin',
+			[
+				'label' => __( 'Basket Room Info Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-cart' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'basket_room_info_border',
+				'label' => __( 'Basket Room Info Border', 'OBPress_SpecialOffers' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '1',
+							'right' => '0',
+							'bottom' => '0',
+							'left' => '0',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#E6E6E6',
+					],
+				],
+				'selector' => '.single-package .obpress-hotel-results-basket-cart',
+			]
+		);
+
+
+		$this->add_control(
+			'basket_room_info_padding',
+			[
+				'label' => __( 'Basket Room Info Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '31',
+					'bottom' => '19',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-cart .basket-room-div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_justify_content',
+			[
+				'label' => __( 'Basket Room Info Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-title-price' => 'justify-content: {{basket_room_info_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_title_price_margin',
+			[
+				'label' => __( 'Basket Room Title Price Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '14',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-title-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_name_color',
+			[
+				'label' => __('Basket Room Info Name Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-title, .single-package .obpress-hotel-results-total-room-selected, .single-package .obpress-hotel-results-item-price' => 'color: {{basket_room_info_name_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_name_typography',
+				'label' => __('Basket Room Info Name Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-results-item-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '600',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_quantity_typography',
+				'label' => __('Basket Room Info Quantity Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-results-total-room-selected',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_price_typography',
+				'label' => __('Basket Room Info Price Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-results-item-price',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_currency_typography',
+				'label' => __('Basket Room Info Currency Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-results-item-curr',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '10',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_policy_justify_content',
+			[
+				'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo-edit' => 'justify-content: {{basket_room_info_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_policy_padding',
+			[
+				'label' => __( 'Basket Room Policy Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '15',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo-edit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_policy_name_color',
+			[
+				'label' => __('Basket Room Info Policy Name Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#82B789',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo' => 'color: {{basket_room_info_name_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_policy_name_typography',
+				'label' => __('Basket Room Info Policy Name Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-results-item-promo',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '600',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+					'font_style' => [
+						'default' => 'italic',
+					]
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_remover_color',
+			[
+				'label' => __('Basket Room Remover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#4B8CF4',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-edit' => 'color: {{basket_room_remover_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_remover_typography',
+				'label' => __('Basket Room Remover Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-results-item-edit',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '10',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+					'text_decoration' => [
+						'default' => 'underline',
+					]
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_room_info_policy_justify_content',
+			[
+				'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo-edit' => 'justify-content: {{basket_room_info_justify_content}}'
+				],
+			]
+		);
 
 		$this->end_controls_section();
 

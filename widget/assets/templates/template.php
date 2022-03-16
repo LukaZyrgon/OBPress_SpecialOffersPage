@@ -51,6 +51,35 @@
 						</div>
 
 						<div class="single-package-info-holder">
+
+                            <?php
+                                $package_stay_period_exist = false;
+                                if(isset($offer["get_rate_plans"]->Guarantees)) {
+                                    foreach($offer["get_rate_plans"]->Guarantees as $Guarantee) {
+                                        if($Guarantee->GuaranteeCode == -1) {
+                                            $package_stay_period_exist = true;
+                                        }
+                                    }
+                                }
+                            ?>
+                            
+                            <?php if($package_stay_period_exist == true): ?>
+                                <p class="stay-period-header">Package Stay Period</p>
+                                <ul class="stay-period-list">
+                                    <?php if($offer["get_rate_plans"]->Guarantees): ?>
+                                        <?php foreach($offer["get_rate_plans"]->Guarantees as $Guarantee): ?>
+                                            <?php if($Guarantee->GuaranteeCode == -1): ?>
+                                                <li class="stay-period-range" data-start="<?= $Guarantee->Start; ?>" data-end="<?= $Guarantee->End; ?>">  
+                                                    <?= Lang_Curr_Functions::dateFormatCulture($Guarantee->Start, $language, 9); ?> until <?= Lang_Curr_Functions::dateFormatCulture($Guarantee->End, $language, 9); ?>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>						
+                                </ul>
+                            <?php endif; ?>
+
+
+
 							<?php if(isset($offer["get_rate_plans"]->RatePlanInclusions)): ?>
 	                            <?php if($offer["get_rate_plans"]->RatePlanInclusions != null): ?>
 	                            	<p class="single-package-included-msg">Esse pacote especial oferece:</p>
@@ -71,6 +100,14 @@
 	                        <div class="single-package-info-categories">
 	                        	<ul class="single-package-info-categories-bars">
 	                        		<li class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</li>
+                                    <?php if(isset($offer["get_rate_plans"]->Guarantees)): ?>
+                                        <li class="single-package-info-categories-bar" data-category="package-guaranties">Deposit / Guarantee Policies</li>
+                                    <?php endif; ?>
+
+                                    <?php if(isset($offer["get_rate_plans"]->CancelPenalties)): ?>
+                                        <li class="single-package-info-categories-bar" data-category="package-cancellation">Cancellation Policies</li>
+                                    <?php endif; ?>
+                                    
 	                        		<?php foreach($amenity_categories as $key => $amenity_category): ?>
 	                        			<li class="single-package-info-categories-bar" data-category="<?= $key ?>"><?= $key ?>
                                             
@@ -93,11 +130,128 @@
 		                        		<span class="package-less-description">ler menos</span>
 		                        	<?php endif; ?>
 	                        	</div>
+
+                                <?php if(isset($offer["get_rate_plans"]->Guarantees)): ?>
+                                    <?php
+                                        $Guarantees = $offer["get_rate_plans"]->Guarantees;
+                                        $NewGuarantees = [];
+                                        foreach($Guarantees as $key => $Guaranty) {
+                                            if(is_null($Guaranty->GuaranteeDescription)) {
+                                                unset($Guarantees[$key]);
+                                            }
+                                            else {
+                                                $NewGuarantees[$Guaranty->GuaranteeDescription->Name][] = $Guaranty;
+                                            }
+                                        }
+                                        $Guarantees = $NewGuarantees;
+                                        $Guarantees = array_values($Guarantees);
+                                        
+                                        $first_element = array_shift($Guarantees);
+                                        array_push($Guarantees, $first_element);
+                                    ?>                                
+
+                                    <div class="single-package-info-category-section" data-category="package-guaranties">
+                                        <?php if(current($Guarantees) == null): ?>
+
+                                        <?php elseif(current($Guarantees) != null && count($Guarantees) == 1 && count($Guarantees[0]) == 1 && $Guarantees[0][0]->Start == null && $Guarantees[0][0]->GuaranteeDescription != null): ?>
+                                            <?= nl2br($Guarantees[0][0]->GuaranteeDescription->Description) ?>
+                                        <?php else: ?>
+                                            <?php foreach($Guarantees as $GuarantyByType): ?>
+                                                <?php if(count($GuarantyByType) == 1 && $GuarantyByType[0]->Start == null && $GuarantyByType[0]->GuaranteeDescription != null): ?>
+                                                    <span class="policy_dates">On other dates:</span>
+                                                <?php elseif(count($GuarantyByType) > 1 && $GuarantyByType[0]->Start != null && $GuarantyByType[0]->GuaranteeDescription != null): ?>
+                                                    <span class="policy_dates">Policy applicable on dates:</span>
+                                                <?php else: ?>
+                                                    <span class="policy_dates">Policy applicable on dates:</span><br>
+                                                <?php endif; ?>
+                                                <?php foreach($GuarantyByType as $Guaranty): ?>
+                                                    <?php if($Guaranty->Start != null && $Guaranty->GuaranteeDescription != null): ?>
+                                                        <span class="incentive-dates responsive-incentive-text-guarantee">
+                                                            <?= Lang_Curr_Functions::dateFormatCulture($Guaranty->Start, $language, 9); ?> - <?php Lang_Curr_Functions::dateFormatCulture($Guaranty->End, $language, 9); ?> <br>
+                                                        </span>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                <?php if($GuarantyByType[0]->GuaranteeDescription->Name): ?>
+                                                    <p class="incentive-text responsive-incentive-text-guarantee"><?= nl2br($GuarantyByType[0]->GuaranteeDescription->Description) ?></p>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </div>
+
+                                <?php endif; ?>
+
+                                <?php if(isset($offer["get_rate_plans"]->CancelPenalties)): ?>
+                                    <?php
+                                        $CancelPenalties = $offer["get_rate_plans"]->CancelPenalties;
+
+                                        $NewCancelPenalties = [];
+                                        foreach($CancelPenalties as $key => $CancelPenalty) {
+                                            if(is_null($CancelPenalty->PenaltyDescription)) {
+                                                unset($CancelPenalties[$key]);
+                                            }
+                                            else {
+                                                $NewCancelPenalties[$CancelPenalty->PenaltyDescription->Name][] = $CancelPenalty;
+                                            }
+                                        }
+                                        $CancelPenalties = $NewCancelPenalties;
+                                        $CancelPenalties = array_values($CancelPenalties);
+
+                                        $first_element = array_shift($CancelPenalties);
+                                        array_push($CancelPenalties, $first_element);
+                                    ?>
+                                    
+                                    <div class="single-package-info-category-section" data-category="package-cancellation">
+                                        <?php if(current($CancelPenalties) == null): ?>
+                                        <?php elseif(current($CancelPenalties) != null && count($CancelPenalties) == 1 && count($CancelPenalties[0]) == 1 && $CancelPenalties[0][0]->Start == null && $CancelPenalties[0][0]->PenaltyDescription != null): ?>
+                                            <div class="offer-text-holder">
+                                                <span class="offer-text" data-open="false"><?= nl2br($CancelPenalties[0][0]->PenaltyDescription->Description); ?></span>
+                                            </div>
+                                        <?php else: ?>
+                                            <?php foreach($CancelPenalties as $CancelPenaltyByType): ?>
+                                                <?php if(count($CancelPenaltyByType) == 1 && $CancelPenaltyByType[0]->Start == null): ?>
+                                                    <span class="policy_dates">On other dates:</span><br>
+                                                <?php else: ?>
+                                                    <span class="policy_dates">Policy applicable on dates:</span><br>
+                                                <?php endif; ?>
+                                                <?php foreach($CancelPenaltyByType as $CancelPenaltyByPeriod): ?>
+                                                    <?php if($CancelPenaltyByPeriod->Start != null && $CancelPenaltyByPeriod->PenaltyDescription != null): ?>
+                                                        <span class="incentive-dates responsive-incentive-text-cancel">
+                                                            <?php Lang_Curr_Functions::dateFormatCulture($CancelPenaltyByPeriod->Start, $language, 9); ?> - <?php Lang_Curr_Functions::dateFormatCulture($CancelPenaltyByPeriod->End, $language, 9); ?> <br>
+                                                        </span>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                <?php if($CancelPenaltyByType[0]->PenaltyDescription->Name): ?>
+                                                    <p class="incentive-text responsive-incentive-text-cancel"><?= nl2br($CancelPenaltyByType[0]->PenaltyDescription->Description); ?></p>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </div>
+
+                                <?php endif; ?>
+
+
 	                        	<?php foreach($amenity_categories as $key => $amenity_category): ?>
 	                    			<div class="single-package-info-category-section" data-category="<?= $key ?>">
-	                    				<?php foreach($amenity_category as $amenity): ?>
-	                    					<div>• <?= $amenity->HotelAmenity ?></div>
+                                        <?php $loop_counter = 0; ?>
+                                        <?php foreach($amenity_category as $amenity): ?>
+
+                                            <?php if($loop_counter == 0): ?>
+                                                <div class="amenity-4-group">
+                                            <?php endif; ?>
+
+	                    					        <div>• <?= $amenity->HotelAmenity ?></div>
+                                                    <?php $loop_counter++; ?>
+
+                                            <?php if($loop_counter == 4): ?>
+                                                </div>
+                                                <?php $loop_counter = 0; ?>
+                                            <?php endif; ?>
+
 	                    				<?php endforeach; ?>
+
+                                        <?php if($loop_counter != 0): ?>
+                                            </div>
+                                        <?php endif; ?>
 	                    			</div>
 	                    		<?php endforeach; ?>
 	                        </div>
@@ -790,6 +944,13 @@
 
 		<div class="single-package-info-holder">
 
+            <p class="stay-period-header">Package Stay Period</p>
+            <ul class="stay-period-list">
+                <li class="stay-period-range" data-start="2022-01-13T00:00:00Z" data-end="2022-01-30T00:00:00Z">    
+                    1/13/2022 until 11/30/2022
+                </li>				
+            </ul>
+
         	<p class="single-package-included-msg">Esse pacote especial oferece:</p>
         	<div class="single-package-included-holder">
                 <span class="single-package-included">Free wifi all hotel</span>
@@ -805,14 +966,18 @@
 
 
             <div class="single-package-info-categories">
-            	<div class="single-package-info-categories-bars">
-            		<span class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</span>
-            		<span class="single-package-info-categories-bar" data-category="Serviços Gerais">Serviços Gerais</span>
-            		<span class="single-package-info-categories-bar" data-category="Restaurantes e Bares">Restaurantes e Bares</span>
-            		<span class="single-package-info-categories-bar" data-category="Bem-estar e Desporto">Bem-estar e Desporto</span>
-            		<span class="single-package-info-categories-bar" data-category="Produtos de casa e banho">Produtos de casa e banho</span>
-            		<span class="single-package-info-categories-bar" data-category="Atrações">Atrações</span>
-            	</div>
+            	<ul class="single-package-info-categories-bars">
+            		<li class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</li>
+
+                    <li class="single-package-info-categories-bar" data-category="package-guaranties">Deposit / Guarantee Policies</li>
+                    <li class="single-package-info-categories-bar" data-category="package-cancellation">Cancellation Policies</li>
+
+            		<li class="single-package-info-categories-bar" data-category="Serviços Gerais">Serviços Gerais</li>
+            		<li class="single-package-info-categories-bar" data-category="Restaurantes e Bares">Restaurantes e Bares</li>
+            		<li class="single-package-info-categories-bar" data-category="Bem-estar e Desporto">Bem-estar e Desporto</li>
+            		<li class="single-package-info-categories-bar" data-category="Produtos de casa e banho">Produtos de casa e banho</li>
+            		<li class="single-package-info-categories-bar" data-category="Atrações">Atrações</li>
+            	</ul>
 
             	<div class="single-package-info-category-section active-section" data-category="package-description">
             		<span class="package-description-short">
@@ -837,6 +1002,14 @@
             		<span class="package-more-description">ler mais</span>
             		<span class="package-less-description">ler menos</span>
             	</div>
+
+                <div class="single-package-info-category-section" data-category="package-guaranties">
+                    This is guarantee descripton!
+                </div>
+
+                <div class="single-package-info-category-section" data-category="package-cancellation">
+                    This is cancel penalties descripton!
+                </div>
             	
     			<div class="single-package-info-category-section" data-category="Serviços Gerais">
     				<div>Lorem</div>
@@ -870,6 +1043,7 @@
     			</div>
             </div>
 		</div>
+
         <form type="POST" action="" class="package-form">
 
             <div class="ob-searchbar obpress-hotel-searchbar-custom container" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>">
