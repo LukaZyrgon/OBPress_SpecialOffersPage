@@ -752,7 +752,9 @@ jQuery(document).ready(function($){
 
                 var rate_to_remove = $(this);
 
-                rate_to_remove.find(".room-btn-minus , .room-btn-value , .room-btn-plus").hide();
+                console.log(rate_to_remove);
+
+                rate_to_remove.find(".room-btn-minus , .room-btn-value , .room-btn-plus , .text-number-of-rooms" ).hide();
 
                 rate_to_remove.find(".room-btn-add").show();
 
