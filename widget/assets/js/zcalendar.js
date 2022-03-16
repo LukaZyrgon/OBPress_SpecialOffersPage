@@ -311,9 +311,8 @@ jQuery(document).ready(function($){
 
         };
 
-        console.log(widget);
-
         jQuery(document).on("click", "#calendar_dates", function () {
+
             if (  jQuery(".zcalendar").is(":visible")   ) {
                   widget.hide();
                } else {
@@ -321,15 +320,12 @@ jQuery(document).ready(function($){
              }
         });
 
-
         jQuery(document).on("click", "#mobile-accept-date", function () { 
 
            widget.hide();
 
         });
 
-
-        
         ZyrgonCalendar.prototype.show = function () {
 
             if(resolution == 1) {
@@ -837,6 +833,7 @@ jQuery(document).ready(function($){
   
         //display disabled dates
         ZyrgonCalendar.prototype.showDisabled = function () {
+
           var q = this.getQ();
   
           var disableBefore = this.first
@@ -882,27 +879,36 @@ jQuery(document).ready(function($){
           // ako je promo, uzmi datume i pretvori ih u Unix
   
           if (this.promo == true) {
+
             var offerDates = jQuery(".date-range");
             var startPromoDates = [];
             var endPromoDates = [];
   
             jQuery.each(offerDates, function (index, value) {
+
               var dataStart = value.getAttribute("data-start");
               var dataEnd = value.getAttribute("data-end");
+
+              // if there is no offer dates, break the loop
+              if (dataStart == null || dataEnd == null) {
+                  return false;
+              }
   
               var startPromoDateSubstring = dataStart.substring(0, 10);
               var endPromoDateSubstring = dataEnd.substring(0, 10);
   
               var startPromoDateMoments =
-                moment(startPromoDateSubstring).unix() + 43200;
+              moment(startPromoDateSubstring).unix() + 43200;
   
               // end one day to end date, visitor will check out day after last day of promo
               var endPromoDateMoments =
-                moment(endPromoDateSubstring).unix() + 43200 + 86400;
+              moment(endPromoDateSubstring).unix() + 43200 + 86400;
   
               startPromoDates.push(startPromoDateMoments);
               endPromoDates.push(endPromoDateMoments);
+
             });
+
           }
   
           // start of loop
@@ -917,17 +923,29 @@ jQuery(document).ready(function($){
   
             // If it is promo calendar and its not offer date, disable that date
             if (this.promo == true) {
+
               dates[i].setAttribute("data-disabled", "true");
+
+              // if there is promo days, allow only them, otherwise allow all
+
+              if ( startPromoDates.length > 0 ) {  
   
-              for (j = 0; j < startPromoDates.length; j++) {
-                if (
-                  Number(dates[i].getAttribute("data-unix")) >=
-                    startPromoDates[j] &&
-                  Number(dates[i].getAttribute("data-unix") <= endPromoDates[j])
-                ) {
-                  dates[i].removeAttribute("data-disabled");
-                }
+                  for (j = 0; j < startPromoDates.length; j++) {
+
+                    if ( Number(dates[i].getAttribute("data-unix")) >= startPromoDates[j] &&
+                        Number(dates[i].getAttribute("data-unix") <= endPromoDates[j]) ) {
+                      dates[i].removeAttribute("data-disabled");
+                    }
+
+                  }
+
+              }  else {
+
+                dates[i].removeAttribute("data-disabled");
+
               }
+
+
             }
   
             var unix = Number(date); //unix timestamp
@@ -1967,6 +1985,7 @@ jQuery(document).ready(function($){
         // PROMO CALENDAR
   
         ZyrgonCalendar.prototype.bookNow = function () {
+
           // pick hotel
           var hotel_id = jQuery("#hotel").attr("data-hotel-id");
   
@@ -2038,8 +2057,13 @@ jQuery(document).ready(function($){
           var endPromoDatesSlash = [];
   
           jQuery.each(offerDates, function (index, value) {
+
             var dataStart = value.getAttribute("data-start");
             var dataEnd = value.getAttribute("data-end");
+
+            if ( dataStart == null || dataEnd == null ) {
+              return false;
+            }
   
             var startPromoDateSubstring = dataStart.substring(0, 10);
             var endPromoDateSubstring = dataEnd.substring(0, 10);
@@ -2105,6 +2129,7 @@ jQuery(document).ready(function($){
         // get language number
         var lang_number = jQuery("#lang_curr").attr("data-lang");
   
+
         var widget = new ZyrgonCalendar({
           element: ".zcalendar",
           openWith: "#calendar_dates",
@@ -2294,13 +2319,8 @@ jQuery(document).ready(function($){
               }
 
             }
-
-            
+   
   }
-
-
-
-
 
 
 
