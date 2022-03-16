@@ -111,7 +111,7 @@
 									<div class="room-amenities">
 										<?php foreach($room_amenities as $room_amenity): ?>
 											<?php if($room_amenity->Image != null): ?>
-												<img class="room=amenity" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_amenity->Image ?>">
+												<img class="room-amenity" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_amenity->Image ?>">
 											<?php endif; ?>
 										<?php endforeach; ?>
 									</div>
@@ -250,7 +250,7 @@
 									<div class="room-amenities">
 										<?php foreach($room_amenities as $room_amenity): ?>
 											<?php if($room_amenity->Image != null): ?>
-												<img class="room=amenity" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_amenity->Image ?>">
+												<img class="room-amenity" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_amenity->Image ?>">
 											<?php endif; ?>
 										<?php endforeach; ?>
 									</div>

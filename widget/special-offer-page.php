@@ -827,6 +827,2308 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'searchbar_color_section',
+			[
+				'label' => __('Package Searchbar Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_margin',
+			[
+				'label' => __( 'Searchbar Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .package-form' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_padding',
+			[
+				'label' => __( 'Searchbar Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '30',
+					'bottom' => '0',
+					'left' => '30',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .ob-searchbar' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}!important;',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_justify_content',
+			[
+				'label' => __( 'Searchbar Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .ob-searchbar' => 'justify-content: {{package_searchbar_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_elements_padding',
+			[
+				'label' => __( 'Searchbar Elements Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '10',
+					'bottom' => '20',
+					'left' => '10',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .ob-searchbar-hotel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .ob-searchbar-calendar' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .ob-searchbar-guests' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .ob-searchbar-promo' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_title_text_color',
+			[
+				'label' => __('Searchbar Title Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .ob-searchbar-hotel > p' => 'color: {{package_searchbar_title_text_color}}',
+					'.single-package .ob-searchbar-calendar > p' => 'color: {{package_searchbar_title_text_color}}',
+					'.single-package .ob-searchbar-guests > p' => 'color: {{package_searchbar_title_text_color}}',
+					'.single-package .ob-searchbar-promo > p' => 'color: {{package_searchbar_title_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_searchbar_title_text_typography',
+				'label' => __('Searchbar Title Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .ob-searchbar-hotel > p, .single-package .ob-searchbar-calendar > p, .single-package .ob-searchbar-guests > p, .single-package .ob-searchbar-promo > p',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_inputs_text_color',
+			[
+				'label' => __('Searchbar Inputs Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .ob-searchbar-guests input' => 'color: {{package_searchbar_inputs_text_color}}',
+					'.single-package .ob-searchbar-calendar input' => 'color: {{package_searchbar_inputs_text_color}}',
+					'.single-package .ob-searchbar-promo input::placeholder' => 'color: {{package_searchbar_inputs_text_color}}',
+					'.single-package .ob-searchbar-hotel input::placeholder' => 'color: {{package_searchbar_inputs_text_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_searchbar_inputs_text_typography',
+				'label' => __('Searchbar Inputs Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .ob-searchbar-calendar input, .single-package .ob-searchbar-guests input, .single-package .ob-searchbar-promo input, .single-package .ob-searchbar-hotel input',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_button_padding',
+			[
+				'label' => __( 'Searchbar Button Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '30',
+					'right' => '10',
+					'bottom' => '30',
+					'left' => '10',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .ob-searchbar-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_text_color',
+			[
+				'label' => __('Searchbar Button Text Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'color: {{package_searchbar_buutton_text_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'package_searchbar_buutton_text_typography',
+				'label' => __('Searchbar Button Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .ob-searchbar-submit',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '800',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_bg_color',
+			[
+				'label' => __('Searchbar Button Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'background-color: {{package_searchbar_buutton_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_border_color',
+			[
+				'label' => __('Searchbar Button Border Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'border-color: {{package_searchbar_buutton_border_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_border_width',
+			[
+				'label' => __( 'Searchbar Button Border Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
+				],
+				'range' => [
+					'px' => [
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'border-width: {{SIZE}}px',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'package_searchbar_buutton_text_hover_color',
+			[
+				'label' => __('Searchbar Button Text Hover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit:hover' => 'color: {{package_searchbar_buutton_text_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_hover_bg_color',
+			[
+				'label' => __('Searchbar Button Background Hover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit:hover' => 'background-color: {{package_searchbar_buutton_hover_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_hover_border_color',
+			[
+				'label' => __('Searchbar Button Border Hover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit:hover' => 'border-color: {{package_searchbar_buutton_hover_border_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_width',
+			[
+				'label' => __( 'Button Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 200,
+						'step' => 1,
+					],
+				],
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 148,
+				],
+				'mobile_default' => [
+					'size' => 100,
+					'unit' => '%',
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'package_searchbar_buutton_height',
+			[
+				'label' => __( 'Button Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 60,
+				],
+				'range' => [
+					'px' => [
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'package_searchbar_buutton_transition',
+			[
+				'label' => __( 'Button Transition Duration', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .ob-searchbar-submit' => 'transition-duration: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'related_packages_style_section',
+			[
+				'label' => __('Related Packages Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'relate_packages_title_color',
+			[
+				'label' => __('Related Packages Title Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#222222',
+				'selectors' => [
+					'.single-package .rooms-message-header' => 'color: {{relate_packages_title_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'relate_packages_title_typography',
+				'label' => __('Related Packages Title Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .rooms-message-header',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '32',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '39',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'relate_packages_title_margin',
+			[
+				'label' => __( 'Related Packages Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '69.85',
+					'right' => '0',
+					'bottom' => '43.77',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .rooms-message-header' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'relate_packages_text_align_title',
+			[
+				'label' => __( 'Related Packages Title Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .rooms-message-header' => 'text-align: {{relate_packages_text_align_title}}'
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'related_packages_cards_section',
+			[
+				'label' => __('Related Cards Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_between_cards_padding',
+			[
+				'label' => __( 'Between Cards Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '25',
+					'right' => '50',
+					'bottom' => '25',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_width',
+			[
+				'label' => __( 'Cards Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 50,
+				],
+				'range' => [
+					'px' => [
+						'min' => 40,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .single-package-room-container' => 'width: {{SIZE}}%',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_bg_color',
+			[
+				'label' => __('Cards Backgroung Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .single-package-room-rate-info' => 'background-color: {{releted_packages_cards_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_padding',
+			[
+				'label' => __( 'Cards Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '54',
+					'right' => '32',
+					'bottom' => '31',
+					'left' => '32',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room-rate-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'cards_box_shadow',
+				'label' => esc_html__( 'Cardse Box Shadow', 'OBPress_SpecialOffers' ),
+				'selector' => '.single-package .single-package-room',
+				'fields_options' => [
+					'box_shadow_type' => [ 
+						'default' =>'yes' 
+					],
+					'box_shadow' => [
+						'default' =>[
+							'horizontal' => 0,
+							'vertical' => 4,
+							'blur' => 7,
+							'color' => '#0000001c'
+						]
+					]
+				]
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_margin',
+			[
+				'label' => __( 'Cards Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_img_height',
+			[
+				'label' => __( 'Cards Image Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 254,
+				],
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 500,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .single-package-room-img' => 'height: {{SIZE}}px; max-height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenities_padding',
+			[
+				'label' => __( 'Cards Amenities Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '29',
+					'bottom' => '0',
+					'left' => '29',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .room-amenities' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'amenities_box_shadow',
+				'label' => esc_html__( 'Cards Amenities Box Shadow', 'OBPress_SpecialOffers' ),
+				'selector' => '.single-package .room-amenities',
+				'fields_options' => [
+					'box_shadow_type' => [ 
+						'default' =>'yes' 
+					],
+					'box_shadow' => [
+						'default' =>[
+							'horizontal' => 0,
+							'vertical' => 14,
+							'blur' => 24,
+							'color' => '#bead8e30'
+						]
+					]
+				]
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_justify_content',
+			[
+				'label' => __( 'Cards Amenities Horizontal Align', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .room-amenities' => 'justify-content: {{releted_packages_cards_amenitites_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_bg_color',
+			[
+				'label' => __('Cards Amenities Bg Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .room-amenities' => 'background-color: {{releted_packages_cards_amenitites_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_align_items',
+			[
+				'label' => __( 'Cards Amenities Vertical Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => [
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'flex-end'  => __( 'Bottom', 'OBPress_SpecialOffers' ),
+					'flex-start'  => __( 'Top', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .room-amenities' => 'align-items: {{releted_packages_cards_amenitites_align_items}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_width',
+			[
+				'label' => __( 'Cards Amenities Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 103,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 200,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .room-amenities' => 'width: calc(100% - {{SIZE}}px)',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_height',
+			[
+				'label' => __( 'Cards Amenities Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 53,
+				],
+				'range' => [
+					'px' => [
+						'min' => 24,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .room-amenities' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_horizontal_position',
+			[
+				'label' => __( 'Cards Amenities Horizontal Positon', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 32,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 103,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .room-amenities' => 'left: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_vertical_position',
+			[
+				'label' => __( 'Cards Amenities Vertical Positon', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => -26,
+				],
+				'range' => [
+					'px' => [
+						'min' => -100,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .room-amenities' => 'top: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_icon_width',
+			[
+				'label' => __( 'Cards Amenities Icon Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 24,
+				],
+				'range' => [
+					'px' => [
+						'min' => 12,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .room-amenity' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_amenitites_icon_height',
+			[
+				'label' => __( 'Cards Amenities Icon Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 24,
+				],
+				'range' => [
+					'px' => [
+						'min' => 12,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .room-amenity' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_name_color',
+			[
+				'label' => __('Cards Room Name Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#222222',
+				'selectors' => [
+					'.single-package .single-package-room-name' => 'color: {{releted_packages_cards_room_name_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_room_name_typography',
+				'label' => __('Cards Room Name Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-room-name',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_name_text_align',
+			[
+				'label' => __( 'Cards Room Name Text Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .single-package-room-name' => 'text-align: {{releted_packages_cards_room_name_text_align}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_name_margin',
+			[
+				'label' => __( 'Cards Room Name Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room-name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_icon_height',
+			[
+				'label' => __( 'Cards Room Icon Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 12,
+				],
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 20,
+						'step' => 1,
+					],
+				],
+				'selectors' => [
+					'.single-package .single-package-room-icons-type img' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_icons_color',
+			[
+				'label' => __('Cards Room Icons Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .single-package-room-icon-name' => 'color: {{releted_packages_cards_room_icons_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_room_icons_typography',
+				'label' => __('Cards Room Icons Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-room-icon-name',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+		
+		$this->add_control(
+			'releted_packages_cards_room_icons_justify_content',
+			[
+				'label' => __( 'Cards Room Icons Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .single-package-room-icons-type' => 'justify-content: {{releted_packages_cards_room_icons_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_icons_margin',
+			[
+				'label' => __( 'Cards Room Icons Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '23',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room-icons' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_between_icons_margin',
+			[
+				'label' => __( 'Cards Room Between Icons Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '8',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room-icons-type' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_icons_value_color',
+			[
+				'label' => __('Cards Room Icons Value Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .single-package-room-icon-name span' => 'color: {{releted_packages_cards_room_icons_value_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_room_icons_value_typography',
+				'label' => __('Cards Room Icons Value Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-room-icon-name span',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '600',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_icon_text_margin',
+			[
+				'label' => __( 'Cards Room Icons Name Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '8',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .single-package-room-icon-name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_full_price_color',
+			[
+				'label' => __('Cards Room Full Price Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#9C9C9C',
+				'selectors' => [
+					'.single-package .price-before' => 'color: {{releted_packages_cards_room_full_price_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_full_price_typography',
+				'label' => __('Cards Room Full Price Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .price-before',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_full_price_margin',
+			[
+				'label' => __( 'Cards Room Full Price Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .price-before' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_full_price_text_align',
+			[
+				'label' => __( 'Cards Room Full Price Text Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .price-before' => 'text-align: {{releted_packages_cards_full_price_text_align}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_price_button_justify_content',
+			[
+				'label' => __( 'Cards Room Price Button Horizontal Align', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersList' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersList' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .single-package-room-price-and-button' => 'justify-content: {{releted_packages_cards_room_price_button_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_price_button_align_items',
+			[
+				'label' => __( 'Cards Room Price Button Vertical Align', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-end',
+				'options' => [
+					'flex-end'  => __( 'Bottom', 'OBPress_SpecialOffers' ),
+					'flex-start'  => __( 'Top', 'OBPress_SpecialOffers' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffers' ),
+				],
+				'selectors' => [
+					'.single-package .single-package-room-price-and-button' => 'align-items: {{releted_packages_cards_room_price_button_align_items}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_lowest_price_color',
+			[
+				'label' => __('Cards Room Lowest Price Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#82B789',
+				'selectors' => [
+					'.single-package .price-after.best-price' => 'color: {{releted_packages_cards_room_lowest_price_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_price_color',
+			[
+				'label' => __('Cards Room Price Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#BEAD8E',
+				'selectors' => [
+					'.single-package .price-after' => 'color: {{releted_packages_cards_room_price_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_price_typography',
+				'label' => __('Cards Room Price Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .price-after',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '25',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '25',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_price_symbol_decimal_typography',
+				'label' => __('Cards Room Price Symbol Decimal Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .price-after .currency_symbol_price, .single-package .price-after .decimal_value_price',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '20',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '25',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_room_tax_color',
+			[
+				'label' => __('Cards Room Tax Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .single-package-tax-msg' => 'color: {{releted_packages_cards_room_tax_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_tax_typography',
+				'label' => __('Cards Room Tax Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .single-package-tax-msg',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'related_packages_cards_buttons_section',
+			[
+				'label' => __('Related Cards Buttons Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_padding',
+			[
+				'label' => __( 'Book Button Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '16',
+					'right' => '17',
+					'bottom' => '16',
+					'left' => '16',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .room-btn-add' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_bg_color',
+			[
+				'label' => __('Book Button Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-add' => 'background-color: {{releted_packages_cards_book_btn_bg_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_color',
+			[
+				'label' => __('Book Button Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .room-btn-add' => 'color: {{releted_packages_cards_book_btn_color}}'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_book_btn_typography',
+				'label' => __('Book Button Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .room-btn-add',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '500',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+					'letter_spacing' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '0.7',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_bg_hover_color',
+			[
+				'label' => __('Book Button Hover Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-add:hover' => 'background-color: {{releted_packages_cards_book_btn_bg_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_hover_color',
+			[
+				'label' => __('Book Button Hover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .room-btn-add:hover' => 'color: {{releted_packages_cards_book_btn_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_transition',
+			[
+				'label' => __( 'Button Transition Duration', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .room-btn-add' => 'transition-duration: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_number_rooms_color',
+			[
+				'label' => __('Number Rooms Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .text-number-of-rooms' => 'color: {{releted_packages_cards_number_rooms_color}}'
+				],
+			]
+		);
+
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_number_rooms_typography',
+				'label' => __('Number Rooms Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .text-number-of-rooms',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '500',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+					'letter_spacing' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '0.7',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_number_rooms_padding',
+			[
+				'label' => __( 'Number Rooms Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .text-number-of-rooms' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_justify_content',
+			[
+				'label' => __( 'Add Remove Buttons Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-button-bottom' => 'justify-content: {{releted_packages_cards_btn_minus_plus_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_bg_color',
+			[
+				'label' => __('Add Remove Buttons Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus' => 'background-color: {{releted_packages_cards_btn_minus_plus_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_hover_bg_color',
+			[
+				'label' => __('Add Remove Buttons Hover Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-minus:hover, .single-package .room-btn-plus:hover' => 'background-color: {{releted_packages_cards_btn_minus_plus_hover_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'releted_packages_cards_btn_minus_plus_border',
+				'label' => __( 'Add Remove Buttons Border', 'OBPress_SpecialOffers' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '1',
+							'right' => '1',
+							'bottom' => '1',
+							'left' => '1',
+							'isLinked' => true,
+						],
+					],
+					'color' => [
+						'default' => '#000',
+					],
+				],
+				'selector' => '.single-package .room-btn-minus, .single-package .room-btn-plus',
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_color',
+			[
+				'label' => __('Add Remove Buttons Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus' => 'color: {{releted_packages_cards_btn_minus_plus_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'add_remove_buttons_typography',
+				'label' => __('Add Remove Buttons Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .room-btn-minus, .single-package .room-btn-minus',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_width',
+			[
+				'label' => __( 'Add Remove Buttons Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 30,
+				],
+				'range' => [
+					'px' => [
+						'max' => 50,
+						'min' => 20,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_selected_rooms_value_width',
+			[
+				'label' => __( 'Selected Rooms Value Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 30,
+				],
+				'range' => [
+					'px' => [
+						'max' => 50,
+						'min' => 20,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .room-btn-value' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_height',
+			[
+				'label' => __( 'Add Remove Buttons Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 30,
+				],
+				'range' => [
+					'px' => [
+						'max' => 50,
+						'min' => 20,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus, .single-package .room-btn-value' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_transition',
+			[
+				'label' => __( 'Add Remove Buttons Transition Duration', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'min' => 0,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus' => 'transition: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_selected_rooms_value_color',
+			[
+				'label' => __('Add Remove Buttons Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .room-btn-value' => 'color: {{releted_packages_cards_selected_rooms_value_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_selected_rooms_value_hover_color',
+			[
+				'label' => __('Add Remove Buttons Hover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2C2F33',
+				'selectors' => [
+					'.single-package .room-btn-value:hover' => 'color: {{releted_packages_cards_selected_rooms_value_hover_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_selected_rooms_value_typography',
+				'label' => __('Add Remove Buttons Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .room-btn-value',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_restricted_color',
+			[
+				'label' => __('Restricted Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#FF0000',
+				'selectors' => [
+					'.single-package .restricted_text_holder' => 'color: {{releted_packages_cards_restricted_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_restricted_typography',
+				'label' => __('Restricted Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .restricted_text_holder, .single-package .restricted_text_holder .restriction',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '500',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+					
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_change_search_btn_padding',
+			[
+				'label' => __( 'Change Search Button Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .restricted_modify_search' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		
+		$this->add_control(
+			'releted_packages_cards_change_search_btn_color',
+			[
+				'label' => __('Change Search Button Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#4B8CF4',
+				'selectors' => [
+					'.single-package .restricted_modify_search' => 'color: {{releted_packages_cards_change_search_btn_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_change_search_btn_hover_color',
+			[
+				'label' => __('Change Search Button Hover Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#4B8CF4',
+				'selectors' => [
+					'.single-package .restricted_modify_search:hover' => 'color: {{releted_packages_cards_change_search_btn_hover_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_change_search_btn_transition',
+			[
+				'label' => __( 'Change Search Button Transition Duration', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'min' => 0,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .restricted_modify_search' => 'transition: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_cards_restricted_typography',
+				'label' => __('Change Search Button Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .restricted_modify_search',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+					
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'basket_section',
+			[
+				'label' => __('Basket Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'basket_vertical_position',
+			[
+				'label' => esc_html__( 'Basket Vertical Position', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 160,
+						'max' => 350,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 265,
+				],
+				'selectors' => [
+					'.obpress-body-admin-bar-shown .single-package .obpress-hotel-results-basket' => 'top: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_margin',
+			[
+				'label' => __( 'Basket Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '25',
+					'right' => '0',
+					'bottom' => '45',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'basket_width',
+			[
+				'label' => esc_html__( 'Basket Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 313,
+						'max' => 500,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 336,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_background_color',
+			[
+				'label' => __('Baket Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket, .obpress-hotel-results-basket-info, .single-package .obpress-hotel-results-basket-price' => 'background-color: {{basket_background_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'basket_box_shadow',
+				'label' => esc_html__( 'Basket Box Shadow', 'OBPress_SpecialOffers' ),
+				'selector' => '.single-package .obpress-hotel-results-basket',
+				'fields_options' => [
+					'box_shadow_type' => [ 
+						'default' =>'yes' 
+					],
+					'box_shadow' => [
+						'default' =>[
+							'horizontal' => 0,
+							'vertical' => 4,
+							'blur' => 7,
+							'color' => '#00000029'
+						]
+					]
+				]
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_result_background_color',
+			[
+				'label' => __('Baket Hotel Result Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#F9F9F9',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-cart' => 'background-color: {{basket_hotel_result_background_color}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'basket_info_section',
+			[
+				'label' => __('Basket Info Style', 'OBPress_SpecialOffers'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'basket_info_padding',
+			[
+				'label' => __( 'Basket Info Padding', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '17',
+					'right' => '0',
+					'bottom' => '14',
+					'left' => '25',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_stars_color',
+			[
+				'label' => __('Baket Hotel Result Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#ffc70e',
+				'selectors' => [
+					'.single-package .hotel-stars .star-full path' => 'fill: {{basket_hotel_stars_color}}',
+					'.single-package .star-lines g .c' => 'stroke: {{basket_hotel_stars_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_stars_justify_content',
+			[
+				'label' => __( 'Basket Hotel Stars Justify Content', 'OBPress_SpecialOffersList' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'center' => __( 'Center', 'OBPress_SpecialOffersList' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersList' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersList' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-stars-holder' => 'justify-content: {{basket_hotel_stars_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_stars_margin',
+			[
+				'label' => __( 'Basket Hotel Stars Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '7',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .hotel-stars' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_stars_width',
+			[
+				'label' => esc_html__( 'Basket Hotel Stars Width', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'selectors' => [
+					'.single-package .hotel-stars svg' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_stars_height',
+			[
+				'label' => esc_html__( 'Basket Hotel Stars Height', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 40,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'selectors' => [
+					'.single-package .hotel-stars svg' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_name_margin',
+			[
+				'label' => __( 'Basket Hotel Name Margin', 'OBPress_SpecialOffers' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '19',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'basket_hotel_name_background_color',
+			[
+				'label' => __('Baket Hotel Name Background Color', 'OBPress_SpecialOffers'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#F9F9F9',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-title' => 'background-color: {{basket_hotel_result_background_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_hotel_name_typography',
+				'label' => __('Basket Hotel Name Typography', 'OBPress_SpecialOffers'),
+				'selector' => '.single-package .obpress-hotel-basket-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
+					
+				],
+			]
+		);
+
+
+		$this->end_controls_section();
 
 		// $this->start_controls_section(
 		// 	'so_button_section',
