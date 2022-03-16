@@ -311,6 +311,7 @@ jQuery(document).ready(function($){
 
         };
 
+        console.log(widget);
 
         jQuery(document).on("click", "#calendar_dates", function () {
             if (  jQuery(".zcalendar").is(":visible")   ) {
