@@ -1719,7 +1719,7 @@
                                 <!-- <span class="obpress-hotel-results-pay-up-to">Pay up to <?= $hotel['MaxPartialPaymentParcel']; ?>x</span> -->
                             <?php endif; ?>
                         </div>
-                        <button class="obpress-hotel-submit" id="basket-send" type="button" style="pointer-events: none;">Proximo Passo</button>
+                        <button class="obpress-hotel-submit" id="basket-send" type="button">Proximo Passo</button>
                     </div>
                 </div>
             </div>
