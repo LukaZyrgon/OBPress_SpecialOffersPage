@@ -64,6 +64,29 @@
   box-shadow: 0px 3px 6px #00000024;
 }
 
+.stay-period-header {
+  margin: 0px;
+  margin-bottom: 22.91px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000;
+}
+
+.stay-period-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  padding-left: 17px;
+}
+
+.stay-period-range {
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+  margin-right: 40px;
+}
+
 .single-package-included-msg {
   margin: 0px;
   margin-bottom: 22.91px;
@@ -85,7 +108,7 @@
 }
 
 .single-package-info-categories-bars {
-  padding-left: 16px;
+  padding-left: 17px;
   overflow: auto;
 }
 
@@ -112,10 +135,11 @@
 
 .single-package-info-category-section.active-section {
     display: flex;
-    flex-direction: column;
-    max-height: 300px;
-    max-height: 130px;
     flex-wrap: wrap;
+}
+
+.amenity-4-group {
+  width: 300px;
 }
 
 .package-description-long {
