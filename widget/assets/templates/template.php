@@ -966,14 +966,18 @@
 
 
             <div class="single-package-info-categories">
-            	<div class="single-package-info-categories-bars">
-            		<span class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</span>
-            		<span class="single-package-info-categories-bar" data-category="Serviços Gerais">Serviços Gerais</span>
-            		<span class="single-package-info-categories-bar" data-category="Restaurantes e Bares">Restaurantes e Bares</span>
-            		<span class="single-package-info-categories-bar" data-category="Bem-estar e Desporto">Bem-estar e Desporto</span>
-            		<span class="single-package-info-categories-bar" data-category="Produtos de casa e banho">Produtos de casa e banho</span>
-            		<span class="single-package-info-categories-bar" data-category="Atrações">Atrações</span>
-            	</div>
+            	<ul class="single-package-info-categories-bars">
+            		<li class="single-package-info-categories-bar active-bar" data-category="package-description">Descrição</li>
+
+                    <li class="single-package-info-categories-bar" data-category="package-guaranties">Deposit / Guarantee Policies</li>
+                    <li class="single-package-info-categories-bar" data-category="package-cancellation">Cancellation Policies</li>
+
+            		<li class="single-package-info-categories-bar" data-category="Serviços Gerais">Serviços Gerais</li>
+            		<li class="single-package-info-categories-bar" data-category="Restaurantes e Bares">Restaurantes e Bares</li>
+            		<li class="single-package-info-categories-bar" data-category="Bem-estar e Desporto">Bem-estar e Desporto</li>
+            		<li class="single-package-info-categories-bar" data-category="Produtos de casa e banho">Produtos de casa e banho</li>
+            		<li class="single-package-info-categories-bar" data-category="Atrações">Atrações</li>
+            	</ul>
 
             	<div class="single-package-info-category-section active-section" data-category="package-description">
             		<span class="package-description-short">
@@ -998,6 +1002,14 @@
             		<span class="package-more-description">ler mais</span>
             		<span class="package-less-description">ler menos</span>
             	</div>
+
+                <div class="single-package-info-category-section" data-category="package-guaranties">
+                    This is guarantee descripton!
+                </div>
+
+                <div class="single-package-info-category-section" data-category="package-cancellation">
+                    This is cancel penalties descripton!
+                </div>
             	
     			<div class="single-package-info-category-section" data-category="Serviços Gerais">
     				<div>Lorem</div>
