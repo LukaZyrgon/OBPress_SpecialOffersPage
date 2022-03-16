@@ -50,10 +50,8 @@ jQuery(window).on("elementor/frontend/init", function () {
           $("#package-results").empty();
           $("#package-results").html(res);
 
-          console.log("stigo");
-
-          //change url in browser
-          // window.history.pushState(  "", "Title", url_no_parametres + "?" + $( $("#rate_plan_form-lp")[0].elements ).not(".chain, #hotel_code").serialize()   );
+          //change url in browser ?currencyId=16&lang=en-US&CheckIn=28122022&CheckOut=29122022&ad=2&ch=0&ag=&group_code=&Code=&loyalty_code=
+           window.history.pushState(  "", "Title", url_no_parametres + "?" + $( $(".package-form")[0].elements ).not("#chain_code, #hotel_code").serialize()   );
         })
       });
 
