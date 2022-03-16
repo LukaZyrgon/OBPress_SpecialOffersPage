@@ -16,7 +16,6 @@
 				<?php foreach($package_offer as $rateplan => $offer): ?>
 					<?php if($rateplan == $promotion_id): ?>
 
-
 						<div class="single-package-img-holder">
 							<?php if(@$hotels_in_chain[$key]["MaxPartialPaymentParcel"] != null): ?>
 	                            <div class="MaxPartialPaymentParcel" data-toggle="modal" data-target="#partial-modal-payment">
@@ -33,6 +32,7 @@
 	                        <div class="single-package-name-holder date-range"
 
                             <?php  
+                               
                                 if ( isset($offer["get_rate_plans"]->Guarantees) ) { 
                                     foreach($offer["get_rate_plans"]->Guarantees as $Guarantee) { 
                                         if($Guarantee->GuaranteeCode == -1) { 
@@ -838,7 +838,7 @@
             </div>
         </div>
         <div class="zcalendar-holder" id="calendar-holder">
-            <div class="zcalendar data-allow-unavail="<?= get_option('allow_unavail_dates') ?> data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-promotional="<?php _e('Offers for you', 'obpress'); ?>" data-promo="<?php _e('Special Offer', 'obpress'); ?>" data-lang="{{$lang->Code}}"  data-night="<?php _e('Night', 'obpress') ?>" data-nights="<?php _e('Nights', 'obpress') ?>" data-price-for="<?php _e('*Price for', 'obpress') ?>" data-adult="<?php _e('adult', 'obpress') ?>" data-adults="<?php _e('adults', 'obpress') ?>" data-restriction="<?php _e('Restricted Days', 'obpress') ?>" data-notavailable="<?php _e('index_no_availability_v4', 'obpress') ?>" data-closedonarrival="<?php _e('calendar_closed_on_arrival', 'obpress') ?>"  data-closedondeparture="<?php _e('calendar_closed_on_departure', 'obpress') ?>" data-minimum-string="<?php _e('system_min', 'obpress') ?>" data-maximum-string="<?php _e('system_max', 'obpress') ?>" ></div>
+            <div class="zcalendar" data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-promotional="<?php _e('Offers for you', 'obpress'); ?>" data-promo="<?php _e('Special Offer', 'obpress'); ?>" data-lang="<?php $lang->Code ?>"  data-night="<?php _e('Night', 'obpress') ?>" data-nights="<?php _e('Nights', 'obpress') ?>" data-price-for="<?php _e('*Price for', 'obpress') ?>" data-adult="<?php _e('adult', 'obpress') ?>" data-adults="<?php _e('adults', 'obpress') ?>" data-restriction="<?php _e('Restricted Days', 'obpress') ?>" data-notavailable="<?php _e('index_no_availability_v4', 'obpress') ?>" data-closedonarrival="<?php _e('calendar_closed_on_arrival', 'obpress') ?>"  data-closedondeparture="<?php _e('calendar_closed_on_departure', 'obpress') ?>" data-minimum-string="<?php _e('system_min', 'obpress') ?>" data-maximum-string="<?php _e('system_max', 'obpress') ?>" ></div>
         </div>
         
         <div class="ob-zcalendar-bottom">
