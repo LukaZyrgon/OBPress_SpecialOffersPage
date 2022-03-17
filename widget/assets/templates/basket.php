@@ -51,7 +51,7 @@
                     <div class="obpress-hotel-basket-stay-info">
                         <div class="obpress-hotel-basket-stay-dates">
                             <span class="obpress-hotel-basket-stay-checkin">
-                                <span class="obpress-hotel-basket-stay-checkin-string">Check-in</span>
+                                <span class="obpress-hotel-basket-stay-checkin-string"><?php _e('Check-in', 'OBPress_SpecialOffersPage') ?></span>
                                 <span class="obpress-hotel-basket-stay-checkin-date"><?php  $CheckInBasket = date("d M", strtotime($CheckIn)); echo $CheckInBasket; ?></span>
                             </span>
                             <span class="obpress-hotel-searchbar-arrow">
@@ -85,28 +85,28 @@
                                 </svg>
                             </span>
                             <span class="obpress-hotel-basket-stay-checkout">
-                                <span class="obpress-hotel-basket-stay-checkout-string">Check-out</span>
+                                <span class="obpress-hotel-basket-stay-checkout-string"><?php _e('Check-out', 'OBPress_SpecialOffersPage') ?></span>
                                 <span class="obpress-hotel-basket-stay-checkout-date"><?php  $CheckOutBasket = date("d M", strtotime($CheckOut)); echo $CheckOutBasket; ?></span>                            
                             </span>
                         </div>
                         <div class="obpress-hotel-basket-stay-room-info">
                             <span class="obpress-hotel-basket-stay-rooms">
-                                <span class="obpress-hotel-basket-stay-rooms-string">Quartos</span>
+                                <span class="obpress-hotel-basket-stay-rooms-string"><?php _e('Rooms', 'OBPress_SpecialOffersPage') ?></span>
                                 <span class="obpress-hotel-basket-stay-rooms-num"> 1 </span>
                             </span>
                             <span class="obpress-hotel-basket-stay-nights">
-                                <span class="obpress-hotel-basket-stay-nights-string">Noites</span>
+                                <span class="obpress-hotel-basket-stay-nights-string"><?php _e('Nights', 'OBPress_SpecialOffersPage') ?></span>
                                 <span class="obpress-hotel-basket-stay-nights-num"> <?php echo $nights; ?> </span>                            
                             </span>
                             <span class="obpress-hotel-basket-stay-guests">
-                                <span class="obpress-hotel-basket-stay-guests-string">Hóspedes</span>
+                                <span class="obpress-hotel-basket-stay-guests-string"><?php _e('Guests', 'OBPress_SpecialOffersPage') ?></span>
                                 <span class="obpress-hotel-basket-stay-guests-num"> <?= (isset($_GET['ad'])) ? $_GET['ad'] : "1" ?> </span>                               
                             </span>
                         </div>
                         <div class="obpress-hotel-searchbar-button-holder">
                             <button class="obpress-hotel-searchbar-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <svg class="obpress-hotel-searchbar-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><style>.a{fill:#fff;opacity:0;}.b{fill:none;stroke:#273240;stroke-linecap:round;stroke-width:1.5px;}</style></defs><g transform="translate(12030 20724)"><rect class="a" width="24" height="24" transform="translate(-12030 -20724)"></rect><g transform="translate(-12026 -20720)"><circle class="b" cx="6.5" cy="6.5" r="6.5"></circle></g><line class="b" x2="5.5" y2="5" transform="translate(-12014 -20709.5)"></line></g></svg>
-                                Modificar
+                                <?php _e('Modificar', 'OBPress_SpecialOffersPage') ?>
                             </button>
                         </div>
                     </div>   
@@ -149,7 +149,7 @@
 
             <div class="obpress-hotel-results-basket-price">
                 <div class="obpress-hotel-total-price-holder">
-                    <span class="obpress-hotel-total-price-string">Total</span>
+                    <span class="obpress-hotel-total-price-string"><?php _e('Total', 'OBPress_SpecialOffersPage') ?></span>
                     <span class="obpress-hotel-total-price">
                     	<span class="font-weight-regular obpress-hotel-total-price-currency">R$</span> 
                     	<span class="obpress-hotel-total-price-value">0,00</span>
@@ -158,7 +158,7 @@
                         <!-- <span class="obpress-hotel-results-pay-up-to">Pay up to <?= $hotel['MaxPartialPaymentParcel']; ?>x</span> -->
                     <?php endif; ?>
                 </div>
-                <button class="obpress-hotel-submit" id="basket-send" type="button" disabled>Proximo Passo</button>
+                <button class="obpress-hotel-submit" id="basket-send" type="button" disabled><?php _e('Next step', 'OBPress_SpecialOffersPage') ?></button>
             </div>
 
 
@@ -188,11 +188,11 @@
 
 	    <div class="obpress-hotel-results-item-promo-edit">
 	        <span class="obpress-hotel-results-item-promo"></span>
-	        <span class="obpress-hotel-results-item-edit">Remover</span>
+	        <span class="obpress-hotel-results-item-edit"><?php _e('Remover', 'OBPress_SpecialOffersPage') ?></span>
 	    </div>
         
         <div class="obpress-hotel-results-discount-holder">
-            <div class="obpress-hotel-results-discount-message">Discount <span class="obpress-hotel-results-discount-percent"></span></div>
+            <div class="obpress-hotel-results-discount-message"><?php _e('Discount', 'OBPress_SpecialOffersPage') ?> <span class="obpress-hotel-results-discount-percent"></span></div>
             <div class="obpress-hotel-results-discount-total">
                 <span class="obpress-hotel-results-discount-currency">-R$</span>    
                 <span class="obpress-hotel-results-discount-price">123</span>
@@ -201,7 +201,7 @@
 
         <div class="obpress-hotel-results-tax-holder">
             <p class="obpress-hotel-results-tax-title">
-                Taxas
+                <?php _e('Taxs', 'OBPress_SpecialOffersPage') ?>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14.545" height="14.545" viewBox="0 0 20.545 20.545"><path d="M12.245,18.409H14.3V12.245H12.245ZM13.272,3A10.272,10.272,0,1,0,23.545,13.272,10.276,10.276,0,0,0,13.272,3Zm0,18.49a8.218,8.218,0,1,1,8.218-8.218A8.229,8.229,0,0,1,13.272,21.49Zm-1.027-11.3H14.3V8.136H12.245Z" transform="translate(-3 -3)"/></svg>
             </p>
             <div class="obpress-hotel-results-tax-bottom">

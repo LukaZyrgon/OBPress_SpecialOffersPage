@@ -133,7 +133,7 @@
 										<span class="single-package-room-icons-type">
 											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL ?>"> 
 											<span class="single-package-room-icon-name">
-												Vista: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
+												<?php _e('View', 'OBPress_SpecialOffersPage') ?>: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
 											</span>
 										</span>
 									<?php endif; ?>
@@ -142,7 +142,7 @@
 										<span class="single-package-room-icons-type">
 											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/ocup-max.svg" ?>"> 
 											<span class="single-package-room-icon-name">
-											   Ocup.max.:  <span><?= $roomtype->MaxOccupancy ?> Pessoas</span>
+												<?php _e('Ocup.max', 'OBPress_SpecialOffersPage') ?>:  <span><?= $roomtype->MaxOccupancy ?> <?php _e('People', 'OBPress_SpecialOffersPage') ?></span>
 											</span>
 										</span>
 									<?php endif; ?>
@@ -151,7 +151,7 @@
 										<span class="single-package-room-icons-type">
 											<img class="single-package-room-icon" src="<?= $plugins_directory. "/OBPress_SpecialOffersPage/widget/assets/icons/area.svg" ?>">
 											<span class="single-package-room-icon-name">
-												Área: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
+												<?php _e('Area', 'OBPress_SpecialOffersPage') ?>: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
 											</span>
 										</span>
 									<?php endif; ?>
@@ -168,7 +168,7 @@
 										<p class="price-after <?php if($first_roomrate == true) echo 'best-price'; ?>">
 											<?= Lang_Curr_Functions::ValueAndCurrencyCultureV4(@$roomrate->Total->AmountBeforeTax, $currencies, $currency, $language) ?>
 										</p>
-										<span class="single-package-tax-msg">Inclui impostos e taxas</span>
+										<span class="single-package-tax-msg"><?php _e('Includes taxes and fees', 'OBPress_SpecialOffersPage') ?></span>
 										<?php 
 											if($first_roomrate == true) {
 												$first_roomrate = false;
@@ -177,9 +177,9 @@
 									</div>
 
 									<div class="single-package-room-button">
-										<div class="text-number-of-rooms">Nº de quartos</div>
+										<div class="text-number-of-rooms"><?php _e('Nº of rooms', 'OBPress_SpecialOffersPage') ?></div>
 										<div class="obpress-hotel-results-button-bottom">
-											<button class="room-btn-add btn-ic custom-action-border custom-action-text custom-action-bg">Reservar agora</button>     
+											<button class="room-btn-add btn-ic custom-action-border custom-action-text custom-action-bg"><?php _e('Book now', 'OBPress_SpecialOffersPage') ?></button>     
 											<button href="#" class="room-btn-minus btn-ic custom-action-border custom-action-text custom-action-bg">-</button><span class="room-btn-value custom-action-border-top custom-action-border-bottom">0</span><button href="#" class="room-btn-plus btn-ic custom-action-border custom-action-text custom-action-bg">+</button>
 										</div>
 									</div>
@@ -272,7 +272,7 @@
 										<span class="single-package-room-icons-type">
 											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL ?>"> 
 											<span class="single-package-room-icon-name">
-												Vista: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
+												<?php _e('View', 'OBPress_SpecialOffersPage') ?>: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
 											</span>
 										</span>
 									<?php endif; ?>
@@ -281,7 +281,7 @@
 										<span class="single-package-room-icons-type">
 											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/ocup-max.svg" ?>"> 
 											<span class="single-package-room-icon-name">
-											   Ocup.max.:  <span><?= $roomtype->MaxOccupancy ?> Pessoas</span>
+											<?php _e('Ocup.max.', 'OBPress_SpecialOffersPage') ?>:  <span><?= $roomtype->MaxOccupancy ?> <?php _e('People', 'OBPress_SpecialOffersPage') ?></span>
 											</span>
 										</span>
 									<?php endif; ?>
@@ -290,7 +290,7 @@
 										<span class="single-package-room-icons-type">
 											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/area.svg" ?>">
 											<span class="single-package-room-icon-name">
-												Área: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
+												<?php _e('Area', 'OBPress_SpecialOffersPage') ?>: <span><?= $descriptive_info->getRoomArea($property, $roomtype->RoomID, $language) ?></span>
 											</span>
 										</span>
 									<?php endif; ?>
@@ -307,7 +307,7 @@
 										<p class="price-after <?php if($first_roomrate == true) echo 'best-price'; ?>">
 											<?= Lang_Curr_Functions::ValueAndCurrencyCultureV4(@$roomrate->Total->AmountBeforeTax, $currencies, $currency, $language) ?>
 										</p>
-										<span class="single-package-tax-msg">Inclui impostos e taxas</span>
+										<span class="single-package-tax-msg"><?php _e('Includes taxes and fees', 'OBPress_SpecialOffersPage') ?></span>
 										<?php 
 											if($first_roomrate == true) {
 												$first_roomrate = false;
@@ -369,12 +369,12 @@
 				<img class="error_info_icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/information-button-white.svg" ?>">
 				<div class="error_message">
 					<div class="error_message_description">
-						Não existem quartos disponíveis para as datas indicadas.
+						<?php _e('There are no rooms available for the dates indicated.', 'OBPress_SpecialOffersPage') ?>
 					</div>
 				</div>
 			</div>
 			<button class="error_message_btn_calendar">
-				Altere a sua pesquisa
+				<?php _e('Change your search', 'OBPress_SpecialOffersPage') ?>
 			</button>
 		</div>
 
@@ -385,12 +385,12 @@
 				<img class="error_info_icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/information-button-white.svg" ?>">
 				<div class="error_message">
 					<div class="error_message_description">
-						Não existem quartos disponíveis para a ocupação indicada.
+					<?php _e('There are no rooms available for the dates indicated.', 'OBPress_SpecialOffersPage') ?>
 					</div>
 				</div>
 			</div>
 			<button class="error_message_btn_occupancy">
-				Altere a sua pesquisa
+				<?php _e('Change your search', 'OBPress_SpecialOffersPage') ?>
 			</button>
 		</div>
 	<?php endif; ?>

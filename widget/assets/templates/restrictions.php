@@ -70,7 +70,7 @@
                     <?php if(current($roomrate->RatesType->Rates)->MinLOS != null && current($roomrate->RatesType->Rates)->MinLOS > count($roomrate->RatesType->Rates)): ?>
                         <div class="restriction">
                             <span>
-                                - Stay a minimum of 
+                                - <?php _e('Stay a minimum of', 'OBPress_SpecialOffersPage') ?>
                                 <?php
                                     echo current($roomrate->RatesType->Rates)->MinLOS;
                                     if(current($roomrate->RatesType->Rates)->MinLOS == 1){
@@ -85,7 +85,7 @@
                     <?php elseif(end($roomrate->RatesType->Rates)->MinLOS != null && end($roomrate->RatesType->Rates)->MinLOS > count($roomrate->RatesType->Rates)): ?>
                         <div class="restriction">
                             <span>
-                                - Stay a minimum of 
+                                - <?php _e('Stay a minimum of', 'OBPress_SpecialOffersPage') ?> 
                                 <?php
                                     echo end($roomrate->RatesType->Rates)->MinLOS;
                                     if(end($roomrate->RatesType->Rates)->MinLOS == 1) {
@@ -100,7 +100,7 @@
                     <?php endif; ?>
                     <?php if(end($roomrate->RatesType->Rates)->MaxLOS != null && end($roomrate->RatesType->Rates)->MaxLOS < count($roomrate->RatesType->Rates)): ?>
                         <div class="restriction">
-                            <span>Stay a maximum of </span>
+                            <span><?php _e('Stay a maximum of', 'OBPress_SpecialOffersPage') ?> </span>
                             <span>
                                 <?php
                                     echo end($roomrate->RatesType->Rates)->MaxLOS;
@@ -117,7 +117,7 @@
                     <?php if($roomrate->RatesType->Rates[0]->StayThrough != null): ?>
                         <div class="restriction">   
                             <span>
-                                - Stay a minimum of 
+                                - <?php _e('Stay a minimum of', 'OBPress_SpecialOffersPage') ?>
                                 <?php 
                                     echo $roomrate->RatesType->Rates[0]->StayThrough;
                                     if($roomrate->RatesType->Rates[0]->StayThrough == 1) {
@@ -134,9 +134,9 @@
                         <?php if(current($roomrate->RatesType->Rates)->MinAdvancedBookingOffset != null): ?>
                             <div class="restriction days-in-advance">
                                 <span>
-                                    - Book 
+                                    - <?php _e('Book', 'OBPress_SpecialOffersPage') ?> 
                                     <?= current($roomrate->RatesType->Rates)->MinAdvancedBookingOffset ?>
-                                    nights in advance
+                                    <?php _e('nights in advance', 'OBPress_SpecialOffersPage') ?>
                                 </span>
                             </div>
                         <?php endif; ?>
@@ -145,8 +145,8 @@
                         <?php foreach($roomrate->Availability as $availability): ?>
                             <?php if($availability->WarningRPH != null && $availability->WarningRPH == 346): ?>
                                 <div class="restriction closed-on-arival">
-                                    <span>Closed on arrival</span>
-                                    <span class="tooltip-yes">YES</span>
+                                    <span><?php _e('Closed on arrival', 'OBPress_SpecialOffersPage') ?></span>
+                                    <span class="tooltip-yes"><?php _e('YES', 'OBPress_SpecialOffersPage') ?></span>
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -155,8 +155,8 @@
                         <?php foreach($roomrate->Availability as $availability): ?>
                             <?php if($availability->WarningRPH != null && $availability->WarningRPH == 563): ?>
                                 <div class="restriction closed-on-departure">
-                                    <span>Closed on departure</span>
-                                    <span class="tooltip-yes">YES</span>
+                                    <span><?php _e('Closed on departure', 'OBPress_SpecialOffersPage') ?></span>
+                                    <span class="tooltip-yes"><?php _e('YES', 'OBPress_SpecialOffersPage') ?></span>
                                 </div>
                             <?php endif;?>
                         <?php endforeach;?>
@@ -470,7 +470,7 @@
             More about
         </span> -->
         <span class="restricted_modify_search">
-            Change Search
+            <?php _e('Change Search', 'OBPress_SpecialOffersPage') ?>
         </span>
 
 

@@ -19,7 +19,7 @@
 						<div class="single-package-img-holder">
 							<?php if(@$hotels_in_chain[$key]["MaxPartialPaymentParcel"] != null): ?>
 	                            <div class="MaxPartialPaymentParcel" data-toggle="modal" data-target="#partial-modal-payment">
-	                                Pay up to <span><?= @$hotels_in_chain[$key]["MaxPartialPaymentParcel"] ?>x</span>
+                                    <?php _e('Pay up to', 'OBPress_SpecialOffersPage') ?> <span><?= @$hotels_in_chain[$key]["MaxPartialPaymentParcel"] ?>x</span> 
 	                            </div>
 	                        <?php endif; ?>
 
@@ -64,13 +64,13 @@
                             ?>
                             
                             <?php if($package_stay_period_exist == true): ?>
-                                <p class="stay-period-header">Package Stay Period</p>
+                                <p class="stay-period-header"><?php _e('Package Stay Period', 'OBPress_SpecialOffersPage') ?></p> 
                                 <ul class="stay-period-list">
                                     <?php if($offer["get_rate_plans"]->Guarantees): ?>
                                         <?php foreach($offer["get_rate_plans"]->Guarantees as $Guarantee): ?>
                                             <?php if($Guarantee->GuaranteeCode == -1): ?>
                                                 <li class="stay-period-range" data-start="<?= $Guarantee->Start; ?>" data-end="<?= $Guarantee->End; ?>">  
-                                                    <?= Lang_Curr_Functions::dateFormatCulture($Guarantee->Start, $language, 9); ?> until <?= Lang_Curr_Functions::dateFormatCulture($Guarantee->End, $language, 9); ?>
+                                                    <?= Lang_Curr_Functions::dateFormatCulture($Guarantee->Start, $language, 9); ?> <?php _e('until', 'OBPress_SpecialOffersPage') ?> <?= Lang_Curr_Functions::dateFormatCulture($Guarantee->End, $language, 9); ?>
                                                 </li>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
@@ -82,7 +82,7 @@
 
 							<?php if(isset($offer["get_rate_plans"]->RatePlanInclusions)): ?>
 	                            <?php if($offer["get_rate_plans"]->RatePlanInclusions != null): ?>
-	                            	<p class="single-package-included-msg">Esse pacote especial oferece:</p>
+	                            	<p class="single-package-included-msg"><?php _e('This special package offers', 'OBPress_SpecialOffersPage') ?>:</p> 
 	                            	<div class="single-package-included-holder">
 		                                <?php foreach($offer["get_rate_plans"]->RatePlanInclusions as $included): ?>
 		                                    <span class="single-package-included"><?= $included->RatePlanInclusionDesciption->Name ?></span>
@@ -276,7 +276,7 @@
                             'Hotel',
                             'Destination or Hotel',
                             $counter_for_hotel,
-                            'obpress'
+                            'OBPress_SpecialOffersPage'
                         ),
                         number_format_i18n( $counter_for_hotel )
                     );     
@@ -286,7 +286,7 @@
                 <input type="text" value="" readonly placeholder="<?php if ( $data->getHotels()[$property]['HotelName'] ) {
                     echo $data->getHotels()[$property]['HotelName'];
                     } else {
-                    _e('All Hotels', 'obpress');
+                    _e('All Hotels', 'OBPress_SpecialOffersPage');
                     }  ?>" id="hotels" class="<?php if (!empty(get_option('hotel_id'))) {
                                             echo 'single-hotel';
                                         } ?>" spellcheck="false" autocomplete="off">
@@ -304,7 +304,7 @@
                     <div class="obpress-mobile-search-hotels-input-holder">
                         <input class="obpress-mobile-search-hotels-input" type="text" placeholder="Digite o nome ou cidade do hotel" id="search-hotels-input">
                     </div>
-                    <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div>
+                    <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'OBPress_SpecialOffersPage'); ?></div>
                     <div class="hotels_folder custom-bg custom-text" hidden></div>
                     <div class="hotels_hotel custom-bg custom-text" data-id="" hidden></div>
                 </div>
@@ -566,7 +566,7 @@
                         'Hotel',
                         'Destination or Hotel',
                         $counter_for_hotel,
-                        'obpress'
+                        'OBPress_SpecialOffersPage'
                     ),
                     number_format_i18n( $counter_for_hotel )
                 );                
@@ -577,7 +577,7 @@
             <input type="text" value="" readonly placeholder="<?php if ( $data->getHotels()[$property]['HotelName'] ) {
                     echo $data->getHotels()[$property]['HotelName'];
                     } else {
-                    _e('All Hotels', 'obpress');
+                    _e('All Hotels', 'OBPress_SpecialOffersPage');
                     }  ?>" id="hotels" class="<?php if (!empty(get_option('hotel_id'))) {
                                             echo 'single-hotel';
                                         } ?>" spellcheck="false" autocomplete="off">
@@ -591,28 +591,28 @@
             <input type="hidden" name="NRooms" id="NRooms" value="<?php echo $_GET['NRooms'] ?>">
             <div class="hotels_dropdown">
                 <div class="obpress-mobile-close-hotels-dropdown-holder">
-                    <span>Selecione destino ou hotel</span>
+                    <span><?php _e('Select destination or hotel', 'OBPress_SpecialOffersPage') ?></span>
                     <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/cross_medium.svg" alt="">
                 </div>
                 <div class="obpress-mobile-search-hotels-input-holder">
                     <input class="obpress-mobile-search-hotels-input" type="text" placeholder="Digite o nome ou cidade do hotel" id="search-hotels-input">
                 </div>
-               <!--  <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div> -->
+               <!--  <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'OBPress_SpecialOffersPage'); ?></div> -->
                 <div class="hotels_folder custom-bg custom-text" hidden></div>
                 <div class="hotels_hotel custom-bg custom-text" data-id="" hidden></div>
             </div>
 
         </div>
         <div class="ob-searchbar-calendar">
-            <p><?php _e('Dates of stay', 'obpress'); ?></p>
+            <p><?php _e('Dates of stay', 'OBPress_SpecialOffersPage'); ?></p>
             <input class="calendarToggle" type="text" id="calendar_dates" value="<?php echo $CheckInShow ?? date("d/m/Y") ?> - <?php echo $CheckOutShow ?? date("d/m/Y", strtotime("+1 day")) ?>"  readonly>
             <div class="ob-mobile-searchbar-calendar-holder">
                 <div class="ob-mobile-searchbar-calendar">
-                    <p>Check-in</p>
+                    <p><?php _e('Check-in', 'OBPress_SpecialOffersPage') ?></p>
                     <input class="calendarToggle" type="text" id="check_in_mobile" value="<?php echo $CheckInShowMobile ?? date("d M Y") ?>"  readonly>
                 </div>
                 <div class="ob-mobile-searchbar-calendar">
-                    <p>Check-out</p>
+                    <p><?php _e('Check-out', 'OBPress_SpecialOffersPage') ?></p>
                     <input class="calendarToggle" type="text" id="check_out_mobile" value="<?php echo $CheckOutShowMobile ?? date("d M Y", strtotime("+1 day")) ?>"  readonly>
                 </div>
             </div>
@@ -620,15 +620,15 @@
             <input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?php echo $CheckOut ?? date("dmy", strtotime("+1 day")) ?>">            
         </div>
         <div class="ob-searchbar-guests">
-            <p><?php _e('Rooms and guests', 'obpress'); ?></p>
-            <input type="text" id="guests" data-room="<?php _e('Room', 'obpress'); ?>" data-rooms="<?php _e('Rooms', 'obpress'); ?>" data-guest="<?php _e('Guest', 'obpress'); ?>" data-guests="<?php _e('Guests', 'obpress'); ?>" data-remove-room="<?php _e('Remove room', 'obpress'); ?>" readonly>
+            <p><?php _e('Rooms and guests', 'OBPress_SpecialOffersPage'); ?></p>
+            <input type="text" id="guests" data-room="<?php _e('Room', 'OBPress_SpecialOffersPage'); ?>" data-rooms="<?php _e('Rooms', 'OBPress_SpecialOffersPage'); ?>" data-guest="<?php _e('Guest', 'OBPress_SpecialOffersPage'); ?>" data-guests="<?php _e('Guests', 'OBPress_SpecialOffersPage'); ?>" data-remove-room="<?php _e('Remove room', 'OBPress_SpecialOffersPage'); ?>" readonly>
             <input type="hidden" id="ad" name="ad" value="<?= get_option('calendar_adults') ?>">
             <input type="hidden" id="ch" name="ch" value="">
             <input type="hidden" id="ag" name="ag" value="">
 
             <div id="occupancy_dropdown" class="position-absolute custom-bg custom-text" data-default-currency="<?= (isset($_GET['currencyId'])) ? $_GET['currencyId'] : get_option('default_currency_id') ?>">
                 <div class="add-room-holder">
-                    <p class="add-room-title select-room-title custom-text"><?php _e('NUMBER OF ROOMS', 'obpress') ?></p>
+                    <p class="add-room-title select-room-title custom-text"><?php _e('NUMBER OF ROOMS', 'OBPress_SpecialOffersPage') ?></p>
                     <div class="select-room-buttons">
                         <button class="select-button select-button-minus select-room-minus" type="button" disabled>
 
@@ -646,15 +646,15 @@
                 </div>
                 <div class="select-room-holder">
                     <div class="select-room" data-room-counter="0">
-                        <p class="select-room-title custom-text"><?php _e('Room', 'obpress');?> <span class="select-room-counter">1</span></p>
+                        <p class="select-room-title custom-text"><?php _e('Room', 'OBPress_SpecialOffersPage');?> <span class="select-room-counter">1</span></p>
 
-                        <div class="remove-room-mobile">Remover quarto</div>
+                        <div class="remove-room-mobile"><?php _e('Remove room', 'OBPress_SpecialOffersPage') ?></div>
 
                         <div class="select-guests-holder">
                             <div class="select-adults-holder">
                                 <div class="select-adults-title">
                                     <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/adults.svg" alt="">
-                                    <?php _e('Adults', 'obpress'); ?>
+                                    <?php _e('Adults', 'OBPress_SpecialOffersPage'); ?>
                                 </div>
                                 <div class="select-adults-buttons">
                                     <button class="select-button select-button-minus select-adult-minus" type="button" disabled>
@@ -675,10 +675,10 @@
                                 <div class="select-child-title">
                                     <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/children.svg" alt="">
                                     <div>
-                                        <span><?php _e('Children', 'obpress') ?></span>
+                                        <span><?php _e('Children', 'OBPress_SpecialOffersPage') ?></span>
                                         <span class="select-child-title-max-age">
                                             0 <?php 
-                                            _e('to the', 'obpress') ; 
+                                            _e('to the', 'OBPress_SpecialOffersPage') ; 
                                             echo " " ; 
                                             ?>
                                             <span class='child-max-age'> <?php echo $childrenMaxAge ; ?> </span>
@@ -704,14 +704,14 @@
                                 <div class="select-child-ages-clone">
 
 
-                                    <p class="select-child-ages-title custom-text"><?php _e('Age', 'obpress'); ?> <span class="select-child-ages-number"></span></p>
+                                    <p class="select-child-ages-title custom-text"><?php _e('Age', 'OBPress_SpecialOffersPage'); ?> <span class="select-child-ages-number"></span></p>
 
                                     <div class="age-picker"> 
                                         <span class="age-picker-value">0</span> 
 
                                         <div class="age-picker-options">
                                             <?php for ($i = 0; $i < 18; $i++) : ?>
-                                                 <div data-age="<?= $i; ?>"> <?= $i; ?> anos de idade</div>
+                                                 <div data-age="<?= $i; ?>"> <?= $i; ?> <?php _e('years old', 'OBPress_SpecialOffersPage') ?></div>
                                             <?php endfor; ?>
 
                                         </div>
@@ -730,26 +730,26 @@
                                         
                                     </div>
 
-                                    <p class="incorect-age custom-text"><?php _e('Incorrect Age', 'obpress') ?></p>
+                                    <p class="incorect-age custom-text"><?php _e('Incorrect Age', 'OBPress_SpecialOffersPage') ?></p>
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="add-room-mobile">+ Adicionar outro quarto</div>
+                        <div class="add-room-mobile">+ <?php _e('Add another room', 'OBPress_SpecialOffersPage') ?></div>
                         
                     </div>
                 </div>
 
                 <button class="btn-ic custom-action-bg custom-action-border custom-action-text select-occupancy-apply" type="button">
-                        <?php _e('Apply', 'obpress') ?>
+                        <?php _e('Apply', 'OBPress_SpecialOffersPage') ?>
 
                         <span class="select-occupancy-apply-info">
                                 <span class="select-occupancy-apply-info-rooms" data-rooms="1">1</span>
-                                <span class="select-occupancy-apply-info-rooms-string">Room</span>
+                                <span class="select-occupancy-apply-info-rooms-string"><?php _e('Room', 'OBPress_SpecialOffersPage') ?></span>
                                 ,
                                 <span class="select-occupancy-apply-info-guests" data-guests="<?= get_option('calendar_adults') ?>"><?= get_option('calendar_adults') ?></span>
-                                <span class="select-occupancy-apply-info-guests-string">Guest</span>
+                                <span class="select-occupancy-apply-info-guests-string"><?php _e('Guest', 'OBPress_SpecialOffersPage') ?></span>
                         </span>
                 </button>
 
@@ -759,8 +759,8 @@
 
 
             <div class="ob-searchbar-promo">
-                <p><?php _e('I have a code', 'obpress'); ?></p>
-                <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
+                <p><?php _e('I have a code', 'OBPress_SpecialOffersPage'); ?></p>
+                <input type="text" id="promo_code" value="" placeholder="<?php _e('Choose type', 'OBPress_SpecialOffersPage') ?>" readonly>
                 <div class="material-check custom-checkbox-holde ob-mobile-i-have-a-code">
                     <div class="mdc-touch-target-wrapper">
                         <div class="mdc-checkbox mdc-checkbox--touch">
@@ -774,39 +774,39 @@
                         </div>
                     </div>
                     <label class="form-check-label" for="i_have_a_code">
-                        <span class="checkbox-custom-label"><?php _e('I HAVE A CODE', 'obpress'); ?></span>
+                        <span class="checkbox-custom-label"><?php _e('I HAVE A CODE', 'OBPress_SpecialOffersPage'); ?></span>
                     </label>
                 </div>
                 <div id="promo_code_dropdown" class="position-absolute custom-bg custom-text">
                     <div class="mb-3 mt-2">
-                        <p class="input-title"><?php _e('GROUP CODE', 'obpress') ?></p>
+                        <p class="input-title"><?php _e('GROUP CODE', 'OBPress_SpecialOffersPage') ?></p>
                         <!-- <input type="text" id="group_code" name="group_code" placeholder="Digite seu código"> -->
                         <div class="material-textfield">
-                            <input type="text" id="group_code" name="group_code" placeholder="Digite seu código">
-                            <span class="label-title"><?php _e('GROUP CODE', 'obpress') ?></span>
+                            <input type="text" id="group_code" name="group_code" placeholder="<?php _e('Enter your code', 'OBPress_SpecialOffersPage') ?>">
+                            <span class="label-title"><?php _e('GROUP CODE', 'OBPress_SpecialOffersPage') ?></span>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <p class="input-title"><?php _e('PROMO CODE', 'obpress'); ?></p>
+                        <p class="input-title"><?php _e('PROMO CODE', 'OBPress_SpecialOffersPage'); ?></p>
                         <!-- <input type="text" id="Code" name="Code" placeholder="Digite seu código"> -->
                         <div class="material-textfield">
-                            <input type="text" id="Code" name="Code" placeholder="Digite seu código">
-                            <span class="label-title"><?php _e('PROMO CODE', 'obpress'); ?></span>
+                            <input type="text" id="Code" name="Code" placeholder="<?php _e('Enter your code', 'OBPress_SpecialOffersPage') ?>">
+                            <span class="label-title"><?php _e('PROMO CODE', 'OBPress_SpecialOffersPage'); ?></span>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <p class="input-title"><?php _e('LOYALTY CODE', 'obpress') ?></p>
+                        <p class="input-title"><?php _e('LOYALTY CODE', 'OBPress_SpecialOffersPage') ?></p>
                         <!-- <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código"> -->
                         <div class="material-textfield">
-                            <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código">
-                            <span class="label-title"><?php _e('LOYALTY CODE', 'obpress') ?></span>
+                            <input type="text" id="loyalty_code" name="loyalty_code" placeholder="<?php _e('Enter your code', 'OBPress_SpecialOffersPage') ?>">
+                            <span class="label-title"><?php _e('LOYALTY CODE', 'OBPress_SpecialOffersPage') ?></span>
                         </div>
                     </div>
 
                     <div class="text-right">
-                        <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic"><?php _e('Apply', 'obpress'); ?></button>
+                        <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic"><?php _e('Apply', 'OBPress_SpecialOffersPage'); ?></button>
                     </div>
                 </div>
             </div>
@@ -814,7 +814,7 @@
    
 
             <div class="ob-searchbar-button">
-                <button class="ob-searchbar-submit" type="button"><?php _e('Search', 'obpress'); ?></button>
+                <button class="ob-searchbar-submit" type="button"><?php _e('Search', 'OBPress_SpecialOffersPage'); ?></button>
             </div> 
 
     </div>
@@ -822,28 +822,28 @@
 
         <div class="ob-zcalendar-top">
             <div class="ob-zcalendar-title">
-                Selecione a data de estadia
+                <?php _e('Select date of stay', 'OBPress_SpecialOffersPage') ?>
                 <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/cross_medium.svg" alt="">
             </div>
             <div class="ob-mobile-weekdays">
                 <div>
-                    <span>sun</span>
-                    <span>mon</span>
-                    <span>tue</span>
-                    <span>wed</span>
-                    <span>thu</span>
-                    <span>fri</span>
-                    <span>sat</span>
+                    <span><?php _e('sun', 'OBPress_SpecialOffersPage') ?></span>
+                    <span><?php _e('mon', 'OBPress_SpecialOffersPage') ?></span>
+                    <span><?php _e('tue', 'OBPress_SpecialOffersPage') ?></span>
+                    <span><?php _e('wed', 'OBPress_SpecialOffersPage') ?></span>
+                    <span><?php _e('thu', 'OBPress_SpecialOffersPage') ?></span>
+                    <span><?php _e('fri', 'OBPress_SpecialOffersPage') ?></span>
+                    <span><?php _e('sat', 'OBPress_SpecialOffersPage') ?></span>
                 </div>
             </div>
         </div>
         <div class="zcalendar-holder" id="calendar-holder">
-            <div class="zcalendar" data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-promotional="<?php _e('Offers for you', 'obpress'); ?>" data-promo="<?php _e('Special Offer', 'obpress'); ?>" data-lang="<?php $lang->Code ?>"  data-night="<?php _e('Night', 'obpress') ?>" data-nights="<?php _e('Nights', 'obpress') ?>" data-price-for="<?php _e('*Price for', 'obpress') ?>" data-adult="<?php _e('adult', 'obpress') ?>" data-adults="<?php _e('adults', 'obpress') ?>" data-restriction="<?php _e('Restricted Days', 'obpress') ?>" data-notavailable="<?php _e('index_no_availability_v4', 'obpress') ?>" data-closedonarrival="<?php _e('calendar_closed_on_arrival', 'obpress') ?>"  data-closedondeparture="<?php _e('calendar_closed_on_departure', 'obpress') ?>" data-minimum-string="<?php _e('system_min', 'obpress') ?>" data-maximum-string="<?php _e('system_max', 'obpress') ?>" ></div>
+            <div class="zcalendar" data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-promotional="<?php _e('Offers for you', 'OBPress_SpecialOffersPage'); ?>" data-promo="<?php _e('Special Offer', 'OBPress_SpecialOffersPage'); ?>" data-lang="<?php $lang->Code ?>"  data-night="<?php _e('Night', 'OBPress_SpecialOffersPage') ?>" data-nights="<?php _e('Nights', 'OBPress_SpecialOffersPage') ?>" data-price-for="<?php _e('*Price for', 'OBPress_SpecialOffersPage') ?>" data-adult="<?php _e('adult', 'OBPress_SpecialOffersPage') ?>" data-adults="<?php _e('adults', 'OBPress_SpecialOffersPage') ?>" data-restriction="<?php _e('Restricted Days', 'OBPress_SpecialOffersPage') ?>" data-notavailable="<?php _e('index_no_availability_v4', 'OBPress_SpecialOffersPage') ?>" data-closedonarrival="<?php _e('calendar_closed_on_arrival', 'OBPress_SpecialOffersPage') ?>"  data-closedondeparture="<?php _e('calendar_closed_on_departure', 'OBPress_SpecialOffersPage') ?>" data-minimum-string="<?php _e('system_min', 'OBPress_SpecialOffersPage') ?>" data-maximum-string="<?php _e('system_max', 'OBPress_SpecialOffersPage') ?>" ></div>
         </div>
         
         <div class="ob-zcalendar-bottom">
             <div> <span class='mobile-accept-dates-from-to'>Seg, 14 Nov - Sex, 18 Nov</span> <span class="number_of_nights-mobile-span"> ( <span class="number_of_nights-mobile"> 4 Noites</span> )</span> </div>
-            <div id="mobile-accept-date"> Aplicar </div>
+            <div id="mobile-accept-date"> <?php _e('Apply', 'OBPress_SpecialOffersPage') ?> </div>
         </div>
     </div>     
 
@@ -899,7 +899,7 @@
                     ?>
 
                     <?php if($availableRooms > 0): ?>
-                        <p class="rooms-message-header">Quartos relacionados</p>
+                        <p class="rooms-message-header"><?php _e('Related rooms', 'OBPress_SpecialOffersPage') ?></p>
                     <?php endif; ?>
 
 
@@ -1055,7 +1055,7 @@
                                 'Hotel',
                                 'Destination or Hotel',
                                 $counter_for_hotel,
-                                'obpress'
+                                'OBPress_SpecialOffersPage'
                             ),
                             number_format_i18n( $counter_for_hotel )
                         );                
@@ -1069,7 +1069,7 @@
                     <input type="text" value="" readonly placeholder="<?php if ( $data->getHotels()[$property]['HotelName'] ) {
                             echo $data->getHotels()[$property]['HotelName'];
                             } else {
-                            _e('All Hotels', 'obpress');
+                            _e('All Hotels', 'OBPress_SpecialOffersPage');
                             }  ?>" id="hotels" class="<?php if (!empty(get_option('hotel_id'))) {
                                                     echo 'single-hotel';
                                                 } ?>" spellcheck="false" autocomplete="off">
@@ -1093,14 +1093,14 @@
                         <div class="obpress-mobile-search-hotels-input-holder">
                             <input class="obpress-mobile-search-hotels-input" type="text" placeholder="Digite o nome ou cidade do hotel" id="search-hotels-input">
                         </div>
-                    <!--  <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div> -->
+                    <!--  <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'OBPress_SpecialOffersPage'); ?></div> -->
                         <div class="hotels_folder custom-bg custom-text" hidden></div>
                         <div class="hotels_hotel custom-bg custom-text" data-id="" hidden></div>
                     </div>
 
                 </div>
                 <div class="ob-searchbar-calendar">
-                    <p><?php _e('Dates of stay', 'obpress'); ?></p>
+                    <p><?php _e('Dates of stay', 'OBPress_SpecialOffersPage'); ?></p>
                     <input class="calendarToggle" type="text" id="calendar_dates" value="<?php echo $CheckInShow ?? date("d/m/Y") ?> - <?php echo $CheckOutShow ?? date("d/m/Y", strtotime("+1 day")) ?>"  readonly>
                     <div class="ob-mobile-searchbar-calendar-holder">
                         <div class="ob-mobile-searchbar-calendar">
@@ -1116,15 +1116,15 @@
                     <input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?php echo $CheckOut ?? date("dmy", strtotime("+1 day")) ?>">            
                 </div>
                 <div class="ob-searchbar-guests">
-                    <p><?php _e('Rooms and guests', 'obpress'); ?></p>
-                    <input type="text" id="guests" data-room="<?php _e('Room', 'obpress'); ?>" data-rooms="<?php _e('Rooms', 'obpress'); ?>" data-guest="<?php _e('Guest', 'obpress'); ?>" data-guests="<?php _e('Guests', 'obpress'); ?>" data-remove-room="<?php _e('Remove room', 'obpress'); ?>" readonly>
+                    <p><?php _e('Rooms and guests', 'OBPress_SpecialOffersPage'); ?></p>
+                    <input type="text" id="guests" data-room="<?php _e('Room', 'OBPress_SpecialOffersPage'); ?>" data-rooms="<?php _e('Rooms', 'OBPress_SpecialOffersPage'); ?>" data-guest="<?php _e('Guest', 'OBPress_SpecialOffersPage'); ?>" data-guests="<?php _e('Guests', 'OBPress_SpecialOffersPage'); ?>" data-remove-room="<?php _e('Remove room', 'OBPress_SpecialOffersPage'); ?>" readonly>
                     <input type="hidden" id="ad" name="ad" value="<?= get_option('calendar_adults') ?>">
                     <input type="hidden" id="ch" name="ch" value="">
                     <input type="hidden" id="ag" name="ag" value="">
 
                     <div id="occupancy_dropdown" class="position-absolute custom-bg custom-text" data-default-currency="<?= (isset($_GET['currencyId'])) ? $_GET['currencyId'] : get_option('default_currency_id') ?>">
                         <div class="add-room-holder">
-                            <p class="add-room-title select-room-title custom-text"><?php _e('NUMBER OF ROOMS', 'obpress') ?></p>
+                            <p class="add-room-title select-room-title custom-text"><?php _e('NUMBER OF ROOMS', 'OBPress_SpecialOffersPage') ?></p>
                             <div class="select-room-buttons">
                                 <button class="select-button select-button-minus select-room-minus" type="button" disabled>
 
@@ -1142,7 +1142,7 @@
                         </div>
                         <div class="select-room-holder">
                             <div class="select-room" data-room-counter="0">
-                                <p class="select-room-title custom-text"><?php _e('Room', 'obpress');?> <span class="select-room-counter">1</span></p>
+                                <p class="select-room-title custom-text"><?php _e('Room', 'OBPress_SpecialOffersPage');?> <span class="select-room-counter">1</span></p>
 
                                 <div class="remove-room-mobile">Remover quarto</div>
 
@@ -1150,7 +1150,7 @@
                                     <div class="select-adults-holder">
                                         <div class="select-adults-title">
                                             <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/adults.svg" alt="">
-                                            <?php _e('Adults', 'obpress'); ?>
+                                            <?php _e('Adults', 'OBPress_SpecialOffersPage'); ?>
                                         </div>
                                         <div class="select-adults-buttons">
                                             <button class="select-button select-button-minus select-adult-minus" type="button" disabled>
@@ -1171,10 +1171,10 @@
                                         <div class="select-child-title">
                                             <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/children.svg" alt="">
                                             <div>
-                                                <span><?php _e('Children', 'obpress') ?></span>
+                                                <span><?php _e('Children', 'OBPress_SpecialOffersPage') ?></span>
                                                 <span class="select-child-title-max-age">
                                                     0 <?php 
-                                                    _e('to the', 'obpress') ; 
+                                                    _e('to the', 'OBPress_SpecialOffersPage') ; 
                                                     echo " " ; 
                                                     ?>
                                                     <span class='child-max-age'> <?php echo $childrenMaxAge ; ?> </span>
@@ -1200,7 +1200,7 @@
                                         <div class="select-child-ages-clone">
 
 
-                                            <p class="select-child-ages-title custom-text"><?php _e('Age', 'obpress'); ?> <span class="select-child-ages-number"></span></p>
+                                            <p class="select-child-ages-title custom-text"><?php _e('Age', 'OBPress_SpecialOffersPage'); ?> <span class="select-child-ages-number"></span></p>
 
                                             <div class="age-picker"> 
                                                 <span class="age-picker-value">0</span> 
@@ -1226,7 +1226,7 @@
                                                 
                                             </div>
 
-                                            <p class="incorect-age custom-text"><?php _e('Incorrect Age', 'obpress') ?></p>
+                                            <p class="incorect-age custom-text"><?php _e('Incorrect Age', 'OBPress_SpecialOffersPage') ?></p>
 
                                         </div>
                                     </div>
@@ -1238,7 +1238,7 @@
                         </div>
 
                         <button class="btn-ic custom-action-bg custom-action-border custom-action-text select-occupancy-apply" type="button">
-                                <?php _e('Apply', 'obpress') ?>
+                                <?php _e('Apply', 'OBPress_SpecialOffersPage') ?>
 
                                 <span class="select-occupancy-apply-info">
                                         <span class="select-occupancy-apply-info-rooms" data-rooms="1">1</span>
@@ -1255,7 +1255,7 @@
 
 
                     <div class="ob-searchbar-promo">
-                        <p><?php _e('I have a code', 'obpress'); ?></p>
+                        <p><?php _e('I have a code', 'OBPress_SpecialOffersPage'); ?></p>
                         <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
                         <div class="material-check custom-checkbox-holde ob-mobile-i-have-a-code">
                             <div class="mdc-touch-target-wrapper">
@@ -1270,39 +1270,39 @@
                                 </div>
                             </div>
                             <label class="form-check-label" for="i_have_a_code">
-                                <span class="checkbox-custom-label"><?php _e('I HAVE A CODE', 'obpress'); ?></span>
+                                <span class="checkbox-custom-label"><?php _e('I HAVE A CODE', 'OBPress_SpecialOffersPage'); ?></span>
                             </label>
                         </div>
                         <div id="promo_code_dropdown" class="position-absolute custom-bg custom-text">
                             <div class="mb-3 mt-2">
-                                <p class="input-title"><?php _e('GROUP CODE', 'obpress') ?></p>
+                                <p class="input-title"><?php _e('GROUP CODE', 'OBPress_SpecialOffersPage') ?></p>
                                 <!-- <input type="text" id="group_code" name="group_code" placeholder="Digite seu código"> -->
                                 <div class="material-textfield">
                                     <input type="text" id="group_code" name="group_code" placeholder="Digite seu código">
-                                    <span class="label-title"><?php _e('GROUP CODE', 'obpress') ?></span>
+                                    <span class="label-title"><?php _e('GROUP CODE', 'OBPress_SpecialOffersPage') ?></span>
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <p class="input-title"><?php _e('PROMO CODE', 'obpress'); ?></p>
+                                <p class="input-title"><?php _e('PROMO CODE', 'OBPress_SpecialOffersPage'); ?></p>
                                 <!-- <input type="text" id="Code" name="Code" placeholder="Digite seu código"> -->
                                 <div class="material-textfield">
                                     <input type="text" id="Code" name="Code" placeholder="Digite seu código">
-                                    <span class="label-title"><?php _e('PROMO CODE', 'obpress'); ?></span>
+                                    <span class="label-title"><?php _e('PROMO CODE', 'OBPress_SpecialOffersPage'); ?></span>
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <p class="input-title"><?php _e('LOYALTY CODE', 'obpress') ?></p>
+                                <p class="input-title"><?php _e('LOYALTY CODE', 'OBPress_SpecialOffersPage') ?></p>
                                 <!-- <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código"> -->
                                 <div class="material-textfield">
                                     <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código">
-                                    <span class="label-title"><?php _e('LOYALTY CODE', 'obpress') ?></span>
+                                    <span class="label-title"><?php _e('LOYALTY CODE', 'OBPress_SpecialOffersPage') ?></span>
                                 </div>
                             </div>
 
                             <div class="text-right">
-                                <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic"><?php _e('Apply', 'obpress'); ?></button>
+                                <button id="promo_code_apply" class="custom-action-bg custom-action-text custom-action-border btn-ic"><?php _e('Apply', 'OBPress_SpecialOffersPage'); ?></button>
                             </div>
                         </div>
                     </div>
@@ -1310,7 +1310,7 @@
         
 
                     <div class="ob-searchbar-button">
-                        <button class="ob-searchbar-submit" type="button"><?php _e('Search', 'obpress'); ?></button>
+                        <button class="ob-searchbar-submit" type="button"><?php _e('Search', 'OBPress_SpecialOffersPage'); ?></button>
                     </div> 
 
             </div>
@@ -1334,7 +1334,7 @@
                     </div>
                 </div>
                 <div class="zcalendar-holder" id="calendar-holder">
-                    <div class="zcalendar data-allow-unavail="<?= get_option('allow_unavail_dates') ?> data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-promotional="<?php _e('Offers for you', 'obpress'); ?>" data-promo="<?php _e('Special Offer', 'obpress'); ?>" data-lang="{{$lang->Code}}"  data-night="<?php _e('Night', 'obpress') ?>" data-nights="<?php _e('Nights', 'obpress') ?>" data-price-for="<?php _e('*Price for', 'obpress') ?>" data-adult="<?php _e('adult', 'obpress') ?>" data-adults="<?php _e('adults', 'obpress') ?>" data-restriction="<?php _e('Restricted Days', 'obpress') ?>" data-notavailable="<?php _e('index_no_availability_v4', 'obpress') ?>" data-closedonarrival="<?php _e('calendar_closed_on_arrival', 'obpress') ?>"  data-closedondeparture="<?php _e('calendar_closed_on_departure', 'obpress') ?>" data-minimum-string="<?php _e('system_min', 'obpress') ?>" data-maximum-string="<?php _e('system_max', 'obpress') ?>" ></div>
+                    <div class="zcalendar data-allow-unavail="<?= get_option('allow_unavail_dates') ?> data-allow-unavail="<?= get_option('allow_unavail_dates') ?>" data-promotional="<?php _e('Offers for you', 'OBPress_SpecialOffersPage'); ?>" data-promo="<?php _e('Special Offer', 'OBPress_SpecialOffersPage'); ?>" data-lang="{{$lang->Code}}"  data-night="<?php _e('Night', 'OBPress_SpecialOffersPage') ?>" data-nights="<?php _e('Nights', 'OBPress_SpecialOffersPage') ?>" data-price-for="<?php _e('*Price for', 'OBPress_SpecialOffersPage') ?>" data-adult="<?php _e('adult', 'OBPress_SpecialOffersPage') ?>" data-adults="<?php _e('adults', 'OBPress_SpecialOffersPage') ?>" data-restriction="<?php _e('Restricted Days', 'OBPress_SpecialOffersPage') ?>" data-notavailable="<?php _e('index_no_availability_v4', 'OBPress_SpecialOffersPage') ?>" data-closedonarrival="<?php _e('calendar_closed_on_arrival', 'OBPress_SpecialOffersPage') ?>"  data-closedondeparture="<?php _e('calendar_closed_on_departure', 'OBPress_SpecialOffersPage') ?>" data-minimum-string="<?php _e('system_min', 'OBPress_SpecialOffersPage') ?>" data-maximum-string="<?php _e('system_max', 'OBPress_SpecialOffersPage') ?>" ></div>
                 </div>
                 
                 <div class="ob-zcalendar-bottom">
