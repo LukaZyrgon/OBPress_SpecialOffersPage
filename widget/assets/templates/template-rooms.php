@@ -129,13 +129,27 @@
 									<?php endif; ?>
 								</div>
 								<div class="single-package-room-icons">
-									<?php if(isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID]) && isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL)): ?>
-										<span class="single-package-room-icons-type">
-											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL ?>"> 
-											<span class="single-package-room-icon-name">
-												<?php _e('View', 'OBPress_SpecialOffersPage') ?>: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
+
+									<?php if(isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID])): ?>
+										<?php foreach($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID] as $room_view): ?>
+											<span class="single-package-room-icons-type">
+												<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_view->URL ?>"> 
+												<span class="single-package-room-icon-name">
+													<?php _e('View', 'OBPress_SpecialOffersPage') ?>: <span><?= $room_view->RoomAmenity ?></span>
+												</span>
 											</span>
-										</span>
+										<?php endforeach; ?>
+									<?php endif; ?>
+
+									<?php if(isset($descriptive_info->getRoomsBedTypes()[$property][$roomtype->RoomID])): ?>
+										<?php foreach($descriptive_info->getRoomsBedTypes()[$property][$roomtype->RoomID] as $room_bed): ?>
+											<span class="single-package-room-icons-type">
+												<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_bed->URL ?>"> 
+												<span class="single-package-room-icon-name">
+													<?php _e('Bed type', 'OBPress_SpecialOffersPage') ?>: <span><?= $room_bed->RoomAmenity ?></span>
+												</span>
+											</span>
+										<?php endforeach; ?>
 									<?php endif; ?>
 
 									<?php if(isset($roomtype->MaxOccupancy)): ?>
@@ -268,13 +282,27 @@
 									<?php endif; ?>
 								</div>
 								<div class="single-package-room-icons">
-									<?php if(isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID]) && isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL)): ?>
-										<span class="single-package-room-icons-type">
-											<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->URL ?>"> 
-											<span class="single-package-room-icon-name">
-												<?php _e('View', 'OBPress_SpecialOffersPage') ?>: <span><?= $descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID][0]->RoomAmenity ?></span>
+
+								<?php if(isset($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID])): ?>
+									<?php foreach($descriptive_info->getRoomsViewTypes()[$property][$roomtype->RoomID] as $room_view): ?>
+											<span class="single-package-room-icons-type">
+												<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_view->URL ?>"> 
+												<span class="single-package-room-icon-name">
+													<?php _e('View', 'OBPress_SpecialOffersPage') ?>: <span><?= $room_view->RoomAmenity ?></span>
+												</span>
 											</span>
-										</span>
+										<?php endforeach; ?>
+									<?php endif; ?>
+
+									<?php if(isset($descriptive_info->getRoomsBedTypes()[$property][$roomtype->RoomID])): ?>
+										<?php foreach($descriptive_info->getRoomsBedTypes()[$property][$roomtype->RoomID] as $room_bed): ?>
+											<span class="single-package-room-icons-type">
+												<img class="single-package-room-icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/".$room_bed->URL ?>"> 
+												<span class="single-package-room-icon-name">
+												<?php _e('Bed type', 'OBPress_SpecialOffersPage') ?>: <span><?= $room_bed->RoomAmenity ?></span>
+												</span>
+											</span>
+										<?php endforeach; ?>
 									<?php endif; ?>
 
 									<?php if(isset($roomtype->MaxOccupancy)): ?>
