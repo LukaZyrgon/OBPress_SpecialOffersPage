@@ -9,7 +9,7 @@
 ?>
 
 
-<?php if(isset($_GET["package_id"])): ?>
+<?php if(!is_null($promotion_id)): ?>
 	<div class="single-package" data-redirect="<?= $redirect ?>" data-redirect-url="<?= $redirect_route ?>" data-package-id="<?= $promotion_id ?>">
 		<?php if($package_offers != null): ?>
 			<?php foreach($package_offers as $key => $package_offer): ?>

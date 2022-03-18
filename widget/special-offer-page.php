@@ -70,6 +70,43 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 	{
 
 		$this->start_controls_section(
+			'content_section',
+			[
+				'label' => __( 'Content', 'OBPress_SpecialOffersPage' ),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		// The value of the switcher, if it is Off is an empty string
+		$this->add_control(
+			'package_id_url_switcher',
+			[
+				'label' => __( 'Read Package ID from URL', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => __( 'On', 'OBPress_SpecialOffersPage' ),
+				'label_off' => __( 'Off', 'OBPress_SpecialOffersPage' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);		
+
+		$this->add_control(
+			'package_id_input',
+			[
+				'label' => esc_html__( 'Package ID', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'placeholder' => esc_html__( 'Type your Package ID here', 'OBPress_SpecialOffersPage' ),
+				//Show only when switched off
+				'condition' => [
+					'package_id_url_switcher' => '',
+				],				
+			]
+		);
+
+		$this->end_controls_section();
+		
+		
+		$this->start_controls_section(
 			'color_section',
 			[
 				'label' => __('Package Main Image Style', 'OBPress_SpecialOffersPage'),
@@ -4648,140 +4685,6 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 	protected function render()
 	{
-		// ini_set("xdebug.var_display_max_children", '-1');
-		// ini_set("xdebug.var_display_max_data", '-1');
-		// ini_set("xdebug.var_display_max_depth", '-1');
-
-		// require_once(WP_CONTENT_DIR . '/plugins/obpress_plugin_manager/BeApi/BeApi.php');
-		// require_once(WP_PLUGIN_DIR . '/obpress_plugin_manager/class-lang-curr-functions.php');
-		// new Lang_Curr_Functions();
-		// Lang_Curr_Functions::chainOrHotel($id);
-
-		// $settings_so = $this->get_settings_for_display();
-		// $chain = get_option('chain_id');
-
-		// $languages = Lang_Curr_Functions::getLanguagesArray();
-		// $language = Lang_Curr_Functions::getLanguage();
-		// $language_object = Lang_Curr_Functions::getLanguageObject();        
-		// $currencies = Lang_Curr_Functions::getCurrenciesArray();
-		// $currency = Lang_Curr_Functions::getCurrency();
-
-		// foreach ($currencies as $currency_from_api) {
-		// 	if ($currency_from_api->UID == $currency) {
-		// 		$currency_string = $currency_from_api->CurrencySymbol;
-		// 		break;
-		// 	}
-		// }
-
-  //       $hotels_in_chain = [];
-  //       $hotels = BeApi::ApiCache('hotel_search_chain_'.$chain.'_'.$language.'_true', BeApi::$cache_time['hotel_search_chain'], function() use ($chain, $language){
-  //           return BeApi::getHotelSearchForChain($chain, "true",$language);
-  //       });
-
-  //       foreach($hotels->PropertiesType->Properties as $Property) {
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["HotelCode"] = $Property->HotelRef->HotelCode;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["HotelName"] = $Property->HotelRef->HotelName;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["ChainName"] = $Property->HotelRef->ChainName;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["Country"] = $Property->Address->CountryCode;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["City"] = $Property->Address->CityCode;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["StateProvCode"] = $Property->Address->StateProvCode;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["AddressLine"] = $Property->Address->AddressLine;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["Latitude"] = $Property->Position->Latitude;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["Longitude"] = $Property->Position->Longitude;
-  //           $hotels_in_chain[$Property->HotelRef->HotelCode]["MaxPartialPaymentParcel"] = $Property->MaxPartialPaymentParcel;
-  //       }
-
-  //       if(isset($_GET["mobile"]) && $_GET["mobile"] != null && $_GET["mobile"] == true) {
-  //           $mobile = true;
-  //       }
-  //       else {
-  //           $mobile = false;
-  //       }
-
-  //       $available_packages = BeApi::ApiCache('available_packages_'.$chain.'_'.$currency.'_'.$language.'_'.$mobile, BeApi::$cache_time['available_packages'], function() use ($chain, $currency, $language, $mobile){
-  //           return BeApi::getClientAvailablePackages($chain, $currency, $language, null, $mobile);
-  //       });
-
-  //       function sortByPrice($param1, $param2) {
-		//     return strcmp($param1->Total->AmountBeforeTax, $param2->Total->AmountBeforeTax);
-		// }
-
-		// $hotels_from_packages = [];
-  //       //sort packages by price
-  //       if(isset($available_packages->RoomStaysType) && $available_packages->RoomStaysType != null) {
-  //           foreach($available_packages->RoomStaysType->RoomStays as $RoomStay) {
-  //               $RoomRates = $RoomStay->RoomRates;
-  //               usort($RoomRates, "sortByPrice");
-  //               $RoomStay->RoomRates = $RoomRates;
-  //               $hotels_from_packages[] = $RoomStay->BasicPropertyInfo->HotelRef->HotelCode;
-  //           }
-  //       }
-  //       $hotels_from_packages = array_unique($hotels_from_packages);
-
-  //       $rateplans = [];
-  //       $package_offers = [];
-  //       $rateplans_per_hotel = [];
-
-  //       if(isset($available_packages->RoomStaysType) && $available_packages->RoomStaysType != null) {
-            
-  //           foreach ($hotels_from_packages as $hotel_from_packages) {
-  //               $rateplans[] = BeApi::ApiCache('rateplans_array_'.$hotel_from_packages.'_'.$language, BeApi::$cache_time['rateplans_array'], function() use ($hotel_from_packages, $language){
-  //                   return BeApi::getHotelRatePlans($hotel_from_packages, $language);
-  //               });
-  //           }
-
-
-  //           foreach ($rateplans as $rateplan) {
-  //               if($rateplan->RatePlans != null) {
-  //                   foreach ($rateplan->RatePlans->RatePlan as $RatePlan) {
-  //                       if ($RatePlan->RatePlanTypeCode == 11) {
-  //                           $rateplans_per_hotel[$rateplan->RatePlans->HotelRef->HotelCode][$RatePlan->RatePlanID] = $RatePlan;
-  //                       }
-  //                   }
-  //               }
-  //           }
-                
-  //           foreach ($available_packages->RoomStaysType->RoomStays as $RoomStay) {
-  //               foreach ($RoomStay->RoomRates as $RoomRate) {
-  //                   $package_offers[$RoomStay->BasicPropertyInfo->HotelRef->HotelCode][$RoomRate->RatePlanID]["room_rate"] = $RoomRate;
-  //               }
-  //               foreach ($RoomStay->RatePlans as $RatePlan) {
-  //                   $package_offers[$RoomStay->BasicPropertyInfo->HotelRef->HotelCode][$RatePlan->RatePlanID]["rate_plan"] = $RatePlan;
-  //               }  
-  //           }
-
-  //           if($available_packages->TPA_Extensions != null) {
-  //               foreach ($available_packages->TPA_Extensions->MultimediaDescriptionsType->MultimediaDescriptions as  $MultimediaDescription) {
-  //                   foreach ($package_offers as $hotel_code => $package_offer) {
-  //                       foreach ($package_offer as $rate_plan_code => $offer) {
-  //                           if ($MultimediaDescription->ID == $rate_plan_code) {
-  //                               $package_offers[$hotel_code][$rate_plan_code]["image"] = $MultimediaDescription;
-  //                           }
-  //                       }
-  //                   }
-  //               }
-  //           }
-
-  //           foreach ($package_offers as $hotel_code => $package_offer) {
-  //               foreach ($package_offer as $rate_plan_code => $offer) {
-  //                   foreach ($rateplans_per_hotel as $hotel_code2 => $per_hotel) {
-  //                       foreach ($per_hotel as $rate_plan_code2 => $rateplan) {
-  //                           if($rate_plan_code2 == $rate_plan_code) {
-
-  //                               $package_offers[$hotel_code][$rate_plan_code]["get_rate_plans"] = $rateplan;
-
-  //                           }
-  //                       }
-  //                   }
-  //               }
-  //           }
-  //       }
-
-  //       $plugin_directory_path = plugins_url( '', __FILE__ );
-
-
-	//NEW CODE
-
 		ini_set("xdebug.var_display_max_children", '-1');
 		ini_set("xdebug.var_display_max_data", '-1');
 		ini_set("xdebug.var_display_max_depth", '-1');
@@ -4795,8 +4698,15 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		Lang_Curr_Functions::chainOrHotel($id);
 
+		$settings_so = $this->get_settings_for_display();
+
 		if(isset($_GET["package_id"]) && $_GET["package_id"] != null) {
 			$promotion_id = $_GET["package_id"];
+			$redirect = false;
+            $redirect_route = null;
+		}
+		elseif ($settings_so['package_id_url_switcher'] == '' && !empty($settings_so['package_id_input']) && !is_null($settings_so['package_id_input'])) {
+			$promotion_id = $settings_so['package_id_input'];
 			$redirect = false;
             $redirect_route = null;
 		}
@@ -4806,7 +4716,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
             $redirect_route = home_url()."/packages";
 		}
 
-		$settings_so = $this->get_settings_for_display();
+
 		$chain = get_option('chain_id');
 
 		$languages = Lang_Curr_Functions::getLanguagesArray();
