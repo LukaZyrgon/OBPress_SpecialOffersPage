@@ -433,14 +433,14 @@ jQuery(document).ready(function($){
         var reservation = {};
 
 
-        date_from = moment($("#date_from").val(), 'DDMMYYYY').format("YYYY-MM-DD");
-        date_to = moment($("#date_to").val(), 'DDMMYYYY').format("YYYY-MM-DD");
-        hotel_id = Number($("#hotel_code").val());
-        nights = Number($("#NRooms").val());
+        date_from = moment($("#date_from-so").val(), 'DDMMYYYY').format("YYYY-MM-DD");
+        date_to = moment($("#date_to-so").val(), 'DDMMYYYY').format("YYYY-MM-DD");
+        hotel_id = Number($("#hotel_code-so").val());
+        nights = Number($("#NRooms-so").val());
 
-        group_code = $("#group_code").val();
-        promo_code = $("#Code").val();
-        loyalty_code = $("#loyalty_code").val(); 
+        group_code = $("#group_code-so").val();
+        promo_code = $("#Code-so").val();
+        loyalty_code = $("#loyalty_code-so").val(); 
         
         reservation.start = date_from;    
         reservation.end = date_to;

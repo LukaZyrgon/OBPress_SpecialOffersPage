@@ -32,18 +32,18 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       var url_no_parametres = location.protocol + '//' + location.host + location.pathname;
 
-      $(".ob-searchbar-submit").click(function() {
+      $(".ob-searchbar-submit-so").click(function() {
         // var data = {};
         // var action = "get_data_for_rooms";
 
         // data.action = action;
 
         var package_id = $(".single-package").data("package-id");
-        var CheckIn = $("#date_from").val();
-        var CheckOut = $("#date_to").val(); 
-        var ad = $("#ad").val(); 
-        var ch = $("#ch").val();
-        var ag = $("#ag").val();
+        var CheckIn = $("#date_from-so").val();
+        var CheckOut = $("#date_to-so").val(); 
+        var ad = $("#ad-so").val(); 
+        var ch = $("#ch-so").val();
+        var ag = $("#ag-so").val();
 
         $.get(specialOfferAjax.ajaxurl+"?action=get_data_for_rooms&package_id=" + package_id + "&CheckIn=" +  CheckIn + "&CheckOut=" + 
           CheckOut + "&ad=" + ad + "&ch=" + ch + "&ag=" + ag , function( res ) {
@@ -52,7 +52,7 @@ jQuery(window).on("elementor/frontend/init", function () {
           $("#package-results").html(res);
 
           //change url in browser ?currencyId=16&lang=en-US&CheckIn=28122022&CheckOut=29122022&ad=2&ch=0&ag=&group_code=&Code=&loyalty_code=
-           window.history.pushState(  "", "Title", url_no_parametres + "?" + $( $(".package-form")[0].elements ).not("#chain_code, #hotel_code").serialize()   );
+           window.history.pushState(  "", "Title", url_no_parametres + "?" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()   );
         })
       });
 
@@ -119,7 +119,7 @@ jQuery(window).on("elementor/frontend/init", function () {
 jQuery(document).ready(function($){
 
   $(document).on("click", ".error_message_btn_calendar", function() {
-    $("#calendar_dates").click();
+    $("#calendar_dates-so").click();
   });
 
 
@@ -127,10 +127,10 @@ jQuery(document).ready(function($){
   $(document).on("click", ".restricted_modify_search", function() {
 
     $([document.documentElement, document.body]).animate({
-        scrollTop: $("#calendar_dates").offset().top - 200
+        scrollTop: $("#calendar_dates-so").offset().top - 200
     }, 500);
 
-    $("#calendar_dates").click();
+    $("#calendar_dates-so").click();
 
   });
 

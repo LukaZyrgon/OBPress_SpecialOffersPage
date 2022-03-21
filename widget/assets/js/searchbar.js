@@ -2,29 +2,29 @@ jQuery(document).ready(function($){
 
 
 
-  jQuery(".obpress-mobile-close-hotels-dropdown-holder img").click(function () {
-    $(this).closest(".hotels_dropdown").hide();
-    $(".ob-searchbar-hotel").removeClass("opened");
+  jQuery(".obpress-mobile-close-hotels-dropdown-holder-so img").click(function () {
+    $(this).closest(".hotels_dropdown-so").hide();
+    $(".ob-searchbar-so-hotel").removeClass("opened");
   });
 
   jQuery(document).mouseup(function (e) {
-    var box = jQuery(".hotels_dropdown");
+    var box = jQuery(".hotels_dropdown-so");
     if (!box.is(e.target) && box.has(e.target).length === 0) {
       box.slideUp(200);
-      jQuery(".ob-searchbar-hotel").removeClass("opened");
+      jQuery(".ob-searchbar-so-hotel").removeClass("opened");
     }
   });
 
-  jQuery("#hotels").keyup(function () {
+  jQuery("#hotels-so").keyup(function () {
     
-    jQuery(this).parent().find(".hotels_dropdown").slideDown(200);
+    jQuery(this).parent().find(".hotels_dropdown-so").slideDown(200);
     var folder_id = 0;
     var query = jQuery(this).val();
-    var divs = jQuery(this).parent().find(".hotels_dropdown").children();
+    var divs = jQuery(this).parent().find(".hotels_dropdown-so").children();
 
     if ( resolution == 1) {
-        jQuery(".zcalendar").slideUp(200);
-        jQuery(".ob-searchbar-calendar").removeClass("opened");
+        jQuery(".zcalendar-so").slideUp(200);
+        jQuery(".ob-searchbar-calendar-so").removeClass("opened");
     }
 
     for (var i = 0; i < divs.length; i++) {
@@ -59,28 +59,28 @@ jQuery(document).ready(function($){
 
   //Promo Code Js
 
-  jQuery("#promo_code").click(function () {
+  jQuery("#promo_code-so").click(function () {
 
     if ( resolution == 1) {
-        jQuery(".zcalendar").slideUp(200);
-        jQuery(".ob-searchbar-calendar").removeClass("opened");
+        jQuery(".zcalendar-so").slideUp(200);
+        jQuery(".ob-searchbar-calendar-so").removeClass("opened");
     }
 
-    if (jQuery("#promo_code_dropdown").css("display") == "none") {
-      jQuery("#promo_code_dropdown").slideDown(200);
+    if (jQuery("#promo_code_dropdown-so").css("display") == "none") {
+      jQuery("#promo_code_dropdown-so").slideDown(200);
       promoCodeDisabler();
-      jQuery(".ob-searchbar-promo").addClass("opened");
+      jQuery(".ob-searchbar-promo-so").addClass("opened");
     }
 
   });
 
-  jQuery("#promo_code_apply").click(function () {
-    jQuery("#promo_code_dropdown").slideUp(200);
-    jQuery(".ob-searchbar-promo").removeClass("opened");
+  jQuery("#promo_code_apply-so").click(function () {
+    jQuery("#promo_code_dropdown-so").slideUp(200);
+    jQuery(".ob-searchbar-promo-so").removeClass("opened");
   });
 
   jQuery(document).mousedown(function (e) {
-    var promo_code_dropdown = jQuery("#promo_code_dropdown");
+    var promo_code_dropdown = jQuery("#promo_code_dropdown-so");
 
     // if the target of the click isn't the container nor a descendant of the container
     if(resolution == 1) {
@@ -89,64 +89,64 @@ jQuery(document).ready(function($){
         promo_code_dropdown.has(e.target).length === 0
       ) {
         promo_code_dropdown.slideUp(200);
-        jQuery(".ob-searchbar-promo").removeClass("opened");
+        jQuery(".ob-searchbar-promo-so").removeClass("opened");
       }
     }
     
   });
 
-  jQuery("#promo_code_apply").click(function (e) {
+  jQuery("#promo_code_apply-so").click(function (e) {
     e.preventDefault();
 
     if (
-      jQuery("#group_code").val() != null &&
-      jQuery("#group_code").val() != ""
+      jQuery("#group_code-so").val() != null &&
+      jQuery("#group_code-so").val() != ""
     ) {
-      jQuery("#promo_code").val(jQuery("#group_code").val());
+      jQuery("#promo_code-so").val(jQuery("#group_code-so").val());
     } else if (
-      jQuery("#Code").val() != null &&
-      jQuery("#Code").val() != ""
+      jQuery("#Code-so").val() != null &&
+      jQuery("#Code-so").val() != ""
     ) {
-      jQuery("#promo_code").val(jQuery("#Code").val());
+      jQuery("#promo_code-so").val(jQuery("#Code-so").val());
     } else if (
-      jQuery("#loyalty_code").val() != null &&
-      jQuery("#loyalty_code").val() != ""
+      jQuery("#loyalty_code-so").val() != null &&
+      jQuery("#loyalty_code-so").val() != ""
     ) {
-      jQuery("#promo_code").val(jQuery("#loyalty_code").val());
+      jQuery("#promo_code-so").val(jQuery("#loyalty_code-so").val());
     } else {
-      jQuery("#promo_code").val("");
+      jQuery("#promo_code-so").val("");
     }
 
-    jQuery("#promo_code_dropdown").slideUp(200);
-    jQuery(".ob-searchbar-promo").removeClass("opened");
+    jQuery("#promo_code_dropdown-so").slideUp(200);
+    jQuery(".ob-searchbar-promo-so").removeClass("opened");
     //togglePromoCodeDropdown();
     promoCodeDisabler();
   });
 
-  jQuery("#group_code,#Code,#loyalty_code").keyup(promoCodeDisabler);
+  jQuery("#group_code-so,#Code-so,#loyalty_code-so").keyup(promoCodeDisabler);
 
   function promoCodeDisabler() {
     //enable all
-    jQuery("#group_code").prop("disabled", false);
-    jQuery("#Code").prop("disabled", false);
-    jQuery("#loyalty_code").prop("disabled", false);
+    jQuery("#group_code-so").prop("disabled", false);
+    jQuery("#Code-so").prop("disabled", false);
+    jQuery("#loyalty_code-so").prop("disabled", false);
 
     //disable empty
-    if (jQuery("#group_code").val().length > 0) {
-      jQuery("#Code").prop("disabled", true);
-      jQuery("#loyalty_code").prop("disabled", true);
-    } else if (jQuery("#Code").val().length > 0) {
-      jQuery("#group_code").prop("disabled", true);
-      jQuery("#loyalty_code").prop("disabled", true);
-    } else if (jQuery("#loyalty_code").val().length > 0) {
-      jQuery("#group_code").prop("disabled", true);
-      jQuery("#Code").prop("disabled", true);
+    if (jQuery("#group_code-so").val().length > 0) {
+      jQuery("#Code-so").prop("disabled", true);
+      jQuery("#loyalty_code-so").prop("disabled", true);
+    } else if (jQuery("#Code-so").val().length > 0) {
+      jQuery("#group_code-so").prop("disabled", true);
+      jQuery("#loyalty_code-so").prop("disabled", true);
+    } else if (jQuery("#loyalty_code-so").val().length > 0) {
+      jQuery("#group_code-so").prop("disabled", true);
+      jQuery("#Code-so").prop("disabled", true);
     }
   }
 
   //Occupancy Javascript
-  var adultsInput = jQuery("#ad");
-  var childrenInput = jQuery("#ch");
+  var adultsInput = jQuery("#ad-so");
+  var childrenInput = jQuery("#ch-so");
 
   //Default Number of Rooms
   var maxRooms = 10;
@@ -178,14 +178,14 @@ jQuery(document).ready(function($){
   }
 
   if (
-    jQuery("#hotel_code").val() != "" &&
-    jQuery("#hotel_code").val() != "0"
+    jQuery("#hotel_code-so").val() != "" &&
+    jQuery("#hotel_code-so").val() != "0"
   ) {
     // childrenAllowed();
 
-    var hotel_id = parseInt(jQuery("#hotel_code").val());
+    var hotel_id = parseInt(jQuery("#hotel_code-so").val());
     var currency_id = parseInt(
-      jQuery("#occupancy_dropdown").attr("data-default-currency")
+      jQuery("#occupancy_dropdown-so").attr("data-default-currency")
     );
 
     //TODO!!! Figure out how to get max rooms
@@ -200,7 +200,7 @@ jQuery(document).ready(function($){
       maxRooms = response;
       if (maxRooms > 1) {
         // $('.select-room-add').css('display', 'block');
-        jQuery(".select-room-plus").prop("disabled", false);
+        jQuery(".select-room-plus-so").prop("disabled", false);
       }
 
       //If a url comes with more rooms than max rooms
@@ -215,13 +215,13 @@ jQuery(document).ready(function($){
       ) {
         //Clone the first room to as much rooms needed
         for (i = 1; i < numberOfRoomsParam; i++) {
-          jQuery(".select-room")
+          jQuery(".select-room-so")
             .eq(0)
             .clone()
-            .appendTo(".select-room-holder");
+            .appendTo(".select-room-holder-so");
 
           // Stores the cloned room in a variable and pushes the default settings for the room
-          var clonedRoom = jQuery(".select-room").last();
+          var clonedRoom = jQuery(".select-room-so").last();
           var defaultGuestValues = {
             adult: 1,
             children: 0,
@@ -232,23 +232,23 @@ jQuery(document).ready(function($){
           //Sets the appropriate room counter for the cloned room, and shows it next to the Room String
           clonedRoom.attr(
             "data-room-counter",
-            jQuery(".select-room").length - 1
+            jQuery(".select-room-so").length - 1
           );
           clonedRoom
-            .find(".select-room-counter")
+            .find(".select-room-counter-so")
             .text(parseInt(clonedRoom.attr("data-room-counter")) + 1);
 
           //Sets the string value of adults and children to the default value
           clonedRoom
-            .find(".select-adults-value")
+            .find(".select-adults-value-so")
             .text(defaultGuestValues.adult);
           clonedRoom
-            .find(".select-child-value")
+            .find(".select-child-value-so")
             .text(defaultGuestValues.children);
 
           //Enables the + and disables the - just in case
-          clonedRoom.find(".select-button-plus").prop("disabled", false);
-          clonedRoom.find(".select-button-minus").prop("disabled", true);
+          clonedRoom.find(".select-button-plus-so").prop("disabled", false);
+          clonedRoom.find(".select-button-minus-so").prop("disabled", true);
 
           //Removes all the child ages input fields if the 1st room contains any
           clonedRoom.find(".select-child-ages").remove();
@@ -256,27 +256,27 @@ jQuery(document).ready(function($){
           //If Room is added show the divider line
           jQuery(".select-room-divider").css("display", "block");
 
-          // var removeRoomStringAttribute = $('#guests').attr('data-remove-room');
+          // var removeRoomStringAttribute = $('#guests-so').attr('data-remove-room');
           // //Add a button to be able to remove the added room
           // var removeRoomString = '<p class="select-remove-room custom-text">'+removeRoomStringAttribute+'</p>'
           // $(removeRoomString).insertBefore('.select-room:last hr');
         }
 
         //If maximum number of rooms is selected disable adding rooms
-        if (jQuery(".select-room").length == maxRooms) {
-          jQuery(".select-room-plus").prop("disabled", true);
+        if (jQuery(".select-room-so").length == maxRooms) {
+          jQuery(".select-room-plus-so").prop("disabled", true);
         }
 
-        if (jQuery(".select-room").length < maxRooms) {
-          jQuery(".select-room-plus").prop("disabled", false);
+        if (jQuery(".select-room-so").length < maxRooms) {
+          jQuery(".select-room-plus-so").prop("disabled", false);
         }
 
-        if (jQuery(".select-room").length == 1) {
-          jQuery(".select-room-minus").prop("disabled", true);
+        if (jQuery(".select-room-so").length == 1) {
+          jQuery(".select-room-minus-so").prop("disabled", true);
         }
 
-        if (jQuery(".select-room").length > 1) {
-          jQuery(".select-room-minus").prop("disabled", false);
+        if (jQuery(".select-room-so").length > 1) {
+          jQuery(".select-room-minus-so").prop("disabled", false);
         }
       }
 
@@ -305,22 +305,22 @@ jQuery(document).ready(function($){
 
           //Get number of adults for current room, and put it in the span representing the value,also check if buttons should be disabled
           guests[i].adult = parseInt(arrayParamArrayNumbers[i]);
-          jQuery(".select-adults-value").eq(i).text(guests[i].adult);
+          jQuery(".select-adults-value-so").eq(i).text(guests[i].adult);
 
           if (guests[i].adult > 1) {
-            jQuery(".select-adult-minus").eq(i).prop("disabled", false);
+            jQuery(".select-adult-minus-so").eq(i).prop("disabled", false);
           }
 
           if (guests[i].adult == 1) {
-            jQuery(".select-adult-minus").eq(i).prop("disabled", true);
+            jQuery(".select-adult-minus-so").eq(i).prop("disabled", true);
           }
 
           if (guests[i].adult == 10) {
-            jQuery(".select-adult-plus").eq(i).prop("disabled", true);
+            jQuery(".select-adult-plus-so").eq(i).prop("disabled", true);
           }
 
           if (guests[i].adult < 10) {
-            jQuery(".select-adult-plus").eq(i).prop("disabled", false);
+            jQuery(".select-adult-plus-so").eq(i).prop("disabled", false);
           }
         }
 
@@ -352,22 +352,22 @@ jQuery(document).ready(function($){
 
           //Get number of children for current room, and put it in the span representing the value,also check if buttons should be disabled
           guests[i].children = parseInt(childrenParamArrayNumbers[i]);
-          jQuery(".select-child-value").eq(i).text(guests[i].children);
+          jQuery(".select-child-value-so").eq(i).text(guests[i].children);
 
           if (guests[i].children > 0) {
-            jQuery(".select-child-minus").eq(i).prop("disabled", false);
+            jQuery(".select-child-minus-so").eq(i).prop("disabled", false);
           }
 
           if (guests[i].children == 0) {
-            jQuery(".select-child-minus").eq(i).prop("disabled", true);
+            jQuery(".select-child-minus-so").eq(i).prop("disabled", true);
           }
 
           if (guests[i].children == 10) {
-            jQuery(".select-child-plus").eq(i).prop("disabled", true);
+            jQuery(".select-child-plus-so").eq(i).prop("disabled", true);
           }
 
           if (guests[i].children < 10) {
-            jQuery(".select-child-plus").eq(i).prop("disabled", false);
+            jQuery(".select-child-plus-so").eq(i).prop("disabled", false);
           }
         }
 
@@ -416,29 +416,29 @@ jQuery(document).ready(function($){
           // loop childs
           for (j = 0; j < guests[i].children; j++) {
             // Clones the first child age div and stores it in a variable
-            jQuery(".select-child-ages-clone").clone();
+            jQuery(".select-child-ages-clone-so").clone();
 
-            var childAge = jQuery(".select-child-ages-clone")
+            var childAge = jQuery(".select-child-ages-clone-so")
               .clone()
               .last();
 
             //Removes the clone class and adds the real class
-            childAge.removeClass("select-child-ages-clone");
+            childAge.removeClass("select-child-ages-clone-so");
             childAge.addClass("select-child-ages");
 
             //Appends the child age clone to the div its supposed to be in
-            childAge.appendTo(jQuery(".select-child-ages-holder").eq(i));
+            childAge.appendTo(jQuery(".select-child-ages-holder-so").eq(i));
 
             //Appends the apropriate number next to 'Child' eg. Child 1, Child 2, Child 3
-            childAge.find(".select-child-ages-number").text(j + 1);
+            childAge.find(".select-child-ages-number-so").text(j + 1);
 
             //Removes the clone class from the input select field and adds the real class
             childAge
-              .find(".select-child-ages-input-clone")
+              .find(".select-child-ages-input-clone-so")
               .addClass("select-child-ages-input");
             childAge
-              .find(".select-child-ages-input-clone")
-              .removeClass("select-child-ages-input-clone");
+              .find(".select-child-ages-input-clone-so")
+              .removeClass("select-child-ages-input-clone-so");
 
             childAge
               .find(".select-child-ages-input")
@@ -446,7 +446,7 @@ jQuery(document).ready(function($){
               .attr("selected", "selected");
           }
         }
-        jQuery("#ag").attr("value", childrenAgesParam);
+        jQuery("#ag-so").attr("value", childrenAgesParam);
       }
 
       // Update the string in the #guests input field and on the button with current number of Guests and Rooms
@@ -458,16 +458,16 @@ jQuery(document).ready(function($){
 
       var roomString = "";
       if (numberOfRoomsParam > 1) {
-        roomString = jQuery("#guests").attr("data-rooms");
+        roomString = jQuery("#guests-so").attr("data-rooms");
       } else {
-        roomString = jQuery("#guests").attr("data-room");
+        roomString = jQuery("#guests-so").attr("data-room");
       }
 
       var guestString = "";
       if (guestNumber > 1) {
-        guestString = jQuery("#guests").attr("data-guests");
+        guestString = jQuery("#guests-so").attr("data-guests");
       } else {
-        guestString = jQuery("#guests").attr("data-guest");
+        guestString = jQuery("#guests-so").attr("data-guest");
       }
 
       //Set the whole string
@@ -480,37 +480,37 @@ jQuery(document).ready(function($){
         " " +
         guestString;
 
-      jQuery("#guests").attr("value", guestsInputString);
+      jQuery("#guests-so").attr("value", guestsInputString);
 
-      jQuery(".select-occupancy-apply-info-rooms").attr(
+      jQuery(".select-occupancy-apply-info-rooms-so").attr(
         "data-rooms",
         numberOfRoomsParam
       );
-      jQuery(".select-occupancy-apply-info-rooms").text(numberOfRoomsParam);
+      jQuery(".select-occupancy-apply-info-rooms-so").text(numberOfRoomsParam);
 
-      jQuery(".select-room-value").text(numberOfRoomsParam);
+      jQuery(".select-room-value-so").text(numberOfRoomsParam);
       if (numberOfRoomsParam > 1) {
-        jQuery(".select-occupancy-apply-info-rooms-string").text(
-          jQuery("#guests").attr("data-rooms")
+        jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+          jQuery("#guests-so").attr("data-rooms")
         );
       } else {
-        jQuery(".select-occupancy-apply-info-rooms-string").text(
-          jQuery("#guests").attr("data-room")
+        jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+          jQuery("#guests-so").attr("data-room")
         );
       }
 
-      jQuery(".select-occupancy-apply-info-guests").attr(
+      jQuery(".select-occupancy-apply-info-guests-so").attr(
         "data-guests",
         guestNumber
       );
-      jQuery(".select-occupancy-apply-info-guests").text(guestNumber);
+      jQuery(".select-occupancy-apply-info-guests-so").text(guestNumber);
       if (guestNumber > 1) {
-        jQuery(".select-occupancy-apply-info-guests-string").text(
-          jQuery("#guests").attr("data-guests")
+        jQuery(".select-occupancy-apply-info-guests-string-so").text(
+          jQuery("#guests-so").attr("data-guests")
         );
       } else {
-        jQuery(".select-occupancy-apply-info-guests-string").text(
-          jQuery("#guests").attr("data-guest")
+        jQuery(".select-occupancy-apply-info-guests-string-so").text(
+          jQuery("#guests-so").attr("data-guest")
         );
       }
     });
@@ -518,7 +518,7 @@ jQuery(document).ready(function($){
   //Same logic applied as in hotels, just for chain, because chain can only have 1 room
   else {
 
-    jQuery(".add-room-holder").css("display", "none");
+    jQuery(".add-room-holder-so").css("display", "none");
 
     // childrenAllowedChain();
 
@@ -541,22 +541,22 @@ jQuery(document).ready(function($){
       }
 
       guests[0].adult = parseInt(arrayParamArrayNumbers[0]);
-      jQuery(".select-adults-value").text(guests[0].adult);
+      jQuery(".select-adults-value-so").text(guests[0].adult);
 
       if (guests[0].adult > 1) {
-        jQuery(".select-adult-minus").prop("disabled", false);
+        jQuery(".select-adult-minus-so").prop("disabled", false);
       }
 
       if (guests[0].adult == 1) {
-        jQuery(".select-adult-minus").prop("disabled", true);
+        jQuery(".select-adult-minus-so").prop("disabled", true);
       }
 
       if (guests[0].adult == 10) {
-        jQuery(".select-adult-plus").prop("disabled", true);
+        jQuery(".select-adult-plus-so").prop("disabled", true);
       }
 
       if (guests[0].adult < 10) {
-        jQuery(".select-adult-plus").prop("disabled", false);
+        jQuery(".select-adult-plus-so").prop("disabled", false);
       }
 
       adultsInput.attr("value", adultsParam);
@@ -572,22 +572,22 @@ jQuery(document).ready(function($){
         childrenParamArrayNumbers[0] = 1;
       }
       guests[0].children = parseInt(childrenParamArrayNumbers[0]);
-      jQuery(".select-child-value").text(guests[0].children);
+      jQuery(".select-child-value-so").text(guests[0].children);
 
       if (guests[0].children > 0) {
-        jQuery(".select-child-minus").prop("disabled", false);
+        jQuery(".select-child-minus-so").prop("disabled", false);
       }
 
       if (guests[0].children == 0) {
-        jQuery(".select-child-minus").prop("disabled", true);
+        jQuery(".select-child-minus-so").prop("disabled", true);
       }
 
       if (guests[0].children == 10) {
-        jQuery(".select-child-plus").prop("disabled", true);
+        jQuery(".select-child-plus-so").prop("disabled", true);
       }
 
       if (guests[0].children < 10) {
-        jQuery(".select-child-plus").prop("disabled", false);
+        jQuery(".select-child-plus-so").prop("disabled", false);
       }
 
       childrenInput.attr("value", childrenParam);
@@ -633,27 +633,27 @@ jQuery(document).ready(function($){
         // loop childs
         for (j = 0; j < guests[i].children; j++) {
           // Clones the first child age div and stores it in a variable
-          jQuery(".select-child-ages-clone").clone();
+          jQuery(".select-child-ages-clone-so").clone();
 
-          var childAge = jQuery(".select-child-ages-clone").clone().last();
+          var childAge = jQuery(".select-child-ages-clone-so").clone().last();
 
           //Removes the clone class and adds the real class
-          childAge.removeClass("select-child-ages-clone");
+          childAge.removeClass("select-child-ages-clone-so");
           childAge.addClass("select-child-ages");
 
           //Appends the child age clone to the div its supposed to be in
-          childAge.appendTo(jQuery(".select-child-ages-holder").eq(i));
+          childAge.appendTo(jQuery(".select-child-ages-holder-so").eq(i));
 
           //Appends the apropriate number next to 'Child' eg. Child 1, Child 2, Child 3
-          childAge.find(".select-child-ages-number").text(j + 1);
+          childAge.find(".select-child-ages-number-so").text(j + 1);
 
           //Removes the clone class from the input select field and adds the real class
           childAge
-            .find(".select-child-ages-input-clone")
+            .find(".select-child-ages-input-clone-so")
             .addClass("select-child-ages-input");
           childAge
-            .find(".select-child-ages-input-clone")
-            .removeClass("select-child-ages-input-clone");
+            .find(".select-child-ages-input-clone-so")
+            .removeClass("select-child-ages-input-clone-so");
 
           childAge
             .find(".select-child-ages-input")
@@ -661,7 +661,7 @@ jQuery(document).ready(function($){
             .attr("selected", "selected");
         }
       }
-      jQuery("#ag").attr("value", childrenAgesParam);
+      jQuery("#ag-so").attr("value", childrenAgesParam);
     }
 
     var guestNumber = 0;
@@ -672,16 +672,16 @@ jQuery(document).ready(function($){
 
     var roomString = "";
     if (numberOfRoomsParam > 1) {
-      roomString = jQuery("#guests").attr("data-rooms");
+      roomString = jQuery("#guests-so").attr("data-rooms");
     } else {
-      roomString = jQuery("#guests").attr("data-room");
+      roomString = jQuery("#guests-so").attr("data-room");
     }
 
     var guestString = "";
     if (guestNumber > 1) {
-      guestString = jQuery("#guests").attr("data-guests");
+      guestString = jQuery("#guests-so").attr("data-guests");
     } else {
-      guestString = jQuery("#guests").attr("data-guest");
+      guestString = jQuery("#guests-so").attr("data-guest");
     }
 
     //Set the whole string
@@ -694,49 +694,49 @@ jQuery(document).ready(function($){
       " " +
       guestString;
 
-    jQuery("#guests").attr("value", guestsInputString);
+    jQuery("#guests-so").attr("value", guestsInputString);
 
-    jQuery(".select-occupancy-apply-info-rooms").attr(
+    jQuery(".select-occupancy-apply-info-rooms-so").attr(
       "data-rooms",
       numberOfRoomsParam
     );
-    jQuery(".select-occupancy-apply-info-rooms").text(numberOfRoomsParam);
+    jQuery(".select-occupancy-apply-info-rooms-so").text(numberOfRoomsParam);
     if (numberOfRoomsParam > 1) {
-      jQuery(".select-occupancy-apply-info-rooms-string").text(
-        jQuery("#guests").attr("data-rooms")
+      jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+        jQuery("#guests-so").attr("data-rooms")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-rooms-string").text(
-        jQuery("#guests").attr("data-room")
+      jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+        jQuery("#guests-so").attr("data-room")
       );
     }
 
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       guestNumber
     );
-    jQuery(".select-occupancy-apply-info-guests").text(guestNumber);
+    jQuery(".select-occupancy-apply-info-guests-so").text(guestNumber);
     if (guestNumber > 1) {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guests")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guests")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guest")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guest")
       );
     }
   }
 
   //If anything is clicked outside the occupancy div, slide it up
   jQuery(document).mousedown(function (e) {
-    var occupancy_dropdown = jQuery("#occupancy_dropdown");
+    var occupancy_dropdown = jQuery("#occupancy_dropdown-so");
     if(resolution == 1) {
       if (
         !occupancy_dropdown.is(e.target) &&
         occupancy_dropdown.has(e.target).length === 0
       ) {
         occupancy_dropdown.slideUp(200);
-        jQuery(".ob-searchbar-guests").removeClass("opened");
+        jQuery(".ob-searchbar-guests-so").removeClass("opened");
       }
     }
     
@@ -744,28 +744,28 @@ jQuery(document).ready(function($){
 
   // If it's not a single hotel, disable the option to add multiple rooms, else allow it
   if (
-    jQuery("#hotel_code").val() == "" ||
-    jQuery("#hotel_code").val() == "0"
+    jQuery("#hotel_code-so").val() == "" ||
+    jQuery("#hotel_code-so").val() == "0"
   ) {
-    jQuery(".add-room-holder").css("display", "none");
+    jQuery(".add-room-holder-so").css("display", "none");
   } else {
-       jQuery(".add-room-holder").css("display", "flex");
+       jQuery(".add-room-holder-so").css("display", "flex");
   }
 
-  jQuery("#guests").on("click", function () {
+  jQuery("#guests-so").on("click", function () {
 
-    var occupancyDropdown = jQuery("#occupancy_dropdown");
+    var occupancyDropdown = jQuery("#occupancy_dropdown-so");
 
     if ( resolution == 1) {
-        jQuery(".zcalendar").slideUp(200);
-        jQuery(".ob-searchbar-calendar").removeClass("opened");
+        jQuery(".zcalendar-so").slideUp(200);
+        jQuery(".ob-searchbar-calendar-so").removeClass("opened");
     }
 
     //Slide down occupancy dropdown and swap the arrow if it isnt visible
     if (occupancyDropdown.css("display") == "none") {
       occupancyDropdown.slideDown(200);
 
-      jQuery(".ob-searchbar-guests").addClass("opened");
+      jQuery(".ob-searchbar-guests-so").addClass("opened");
     }
 
     //Slide up occupancy dropdown and swap the arrow if it is visible
@@ -775,39 +775,39 @@ jQuery(document).ready(function($){
         "background-image",
         // "url(/icons/icons_GreyDark/iconGreyDark_ArrowDown.svg)"
       );
-      jQuery(".ob-searchbar-guests").removeClass("opened");
+      jQuery(".ob-searchbar-guests-so").removeClass("opened");
     }
   });
 
   //Function that runs when input guest input field is clicked
 
   //Event listener for select single hotel,all hotels or area in the search bar
-  jQuery(".hotels_all, .hotels_hotel, .hotels_folder").on(
+  jQuery(".hotels_all, .hotels_hotel-so, .hotels_folder-so").on(
     "click",
     function () {
       //Remove all rooms if different hotel is selected
-      if (jQuery(".select-room").length > 1) {
-        jQuery(".select-room").not(":first").remove();
+      if (jQuery(".select-room-so").length > 1) {
+        jQuery(".select-room-so").not(":first").remove();
         jQuery(".select-room-divider").css("display", "none");
         //Remove all the rooms from the guests array
         guests.length = 1;
-        jQuery("#NRooms").attr("value", 1);
+        jQuery("#NRooms-so").attr("value", 1);
         //Trigger a click on apply, so it would update input fields, update guests array properly and update the strings in apply button and #guests input
-        jQuery(".select-occupancy-apply").trigger("click");
+        jQuery(".select-occupancy-apply-so").trigger("click");
       }
 
       //If it's all hotels or area disable the option to add other rooms
       //Else get the hotel id and currency, and send an AJAX request to check the maximal number of rooms for that hotel
       if (
-        jQuery("#hotel_code").val() == "" ||
-        jQuery("#hotel_code").val() == "0"
+        jQuery("#hotel_code-so").val() == "" ||
+        jQuery("#hotel_code-so").val() == "0"
       ) {
-        jQuery(".add-room-holder").css("display", "none");
+        jQuery(".add-room-holder-so").css("display", "none");
       } else {
         //TODO!!! Figure out how to get max rooms
-        var hotel_id = parseInt($("#hotel_code").val());
+        var hotel_id = parseInt($("#hotel_code-so").val());
         var currency_id = parseInt(
-          jQuery("#occupancy_dropdown").attr("data-default-currency")
+          jQuery("#occupancy_dropdown-so").attr("data-default-currency")
         );
 
         var action = "get_max_rooms";
@@ -818,8 +818,8 @@ jQuery(document).ready(function($){
         jQuery.post(searchbarAjax.ajaxurl, data, function (response) {
           maxRooms = response;
           if (maxRooms > 1) {
-            jQuery(".add-room-holder").css("display", "flex");
-            jQuery(".select-room-plus").prop("disabled", false);
+            jQuery(".add-room-holder-so").css("display", "flex");
+            jQuery(".select-room-plus-so").prop("disabled", false);
           }
         });
       }
@@ -829,15 +829,15 @@ jQuery(document).ready(function($){
   // Adult Buttons
 
   // Add Adults button
-  jQuery(document).on("click", ".select-adult-plus", function () {
+  jQuery(document).on("click", ".select-adult-plus-so", function () {
     var roomCounter = jQuery(this)
-      .closest(".select-room")
+      .closest(".select-room-so")
       .attr("data-room-counter");
 
     //Increment value of adults input only if number of adults are bellow limit
     if (guests[roomCounter].adult < 10) {
       guests[roomCounter].adult = guests[roomCounter].adult + 1;
-      jQuery(".select-adults-value")
+      jQuery(".select-adults-value-so")
         .eq(roomCounter)
         .text(guests[roomCounter].adult);
     }
@@ -849,40 +849,40 @@ jQuery(document).ready(function($){
 
     //If number of adults is above the minimum enable the - button
     if (guests[roomCounter].adult > 1) {
-      jQuery(".select-adult-minus").eq(roomCounter).prop("disabled", false);
+      jQuery(".select-adult-minus-so").eq(roomCounter).prop("disabled", false);
     }
 
     //Change the string in the apply button on each + click
     var applyButtonGuests =
       parseInt(
-        jQuery(".select-occupancy-apply-info-guests").attr("data-guests")
+        jQuery(".select-occupancy-apply-info-guests-so").attr("data-guests")
       ) + 1;
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       applyButtonGuests
     );
-    jQuery(".select-occupancy-apply-info-guests").text(applyButtonGuests);
+    jQuery(".select-occupancy-apply-info-guests-so").text(applyButtonGuests);
     if (applyButtonGuests > 1) {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guests")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guests")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guest")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guest")
       );
     }
   });
 
   //Remove Adults button
-  jQuery(document).on("click", ".select-adult-minus", function () {
+  jQuery(document).on("click", ".select-adult-minus-so", function () {
     var roomCounter = jQuery(this)
-      .closest(".select-room")
+      .closest(".select-room-so")
       .attr("data-room-counter");
 
     //Reduce value of adults input only if number of adults are above minimum
     if (guests[roomCounter].adult > 1) {
       guests[roomCounter].adult = guests[roomCounter].adult - 1;
-      jQuery(".select-adults-value")
+      jQuery(".select-adults-value-so")
         .eq(roomCounter)
         .text(guests[roomCounter].adult);
     }
@@ -894,26 +894,26 @@ jQuery(document).ready(function($){
 
     //If number of adults is bellow the limit enable the + button
     if (guests[roomCounter].adult < 10) {
-      jQuery(".select-adult-plus").eq(roomCounter).prop("disabled", false);
+      jQuery(".select-adult-plus-so").eq(roomCounter).prop("disabled", false);
     }
 
     //Change the string in the apply button on each - click
     var applyButtonGuests =
       parseInt(
-        jQuery(".select-occupancy-apply-info-guests").attr("data-guests")
+        jQuery(".select-occupancy-apply-info-guests-so").attr("data-guests")
       ) - 1;
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       applyButtonGuests
     );
-    jQuery(".select-occupancy-apply-info-guests").text(applyButtonGuests);
+    jQuery(".select-occupancy-apply-info-guests-so").text(applyButtonGuests);
     if (applyButtonGuests > 1) {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guests")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guests")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guest")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guest")
       );
     }
   });
@@ -921,61 +921,61 @@ jQuery(document).ready(function($){
   // Children Buttons
 
   // Add Children button
-  jQuery(document).on("click", ".select-child-plus", function () {
+  jQuery(document).on("click", ".select-child-plus-so", function () {
     var roomCounter = jQuery(this)
-      .closest(".select-room")
+      .closest(".select-room-so")
       .attr("data-room-counter");
 
     //Increment value of children input only if number of children are bellow limit
     if (guests[roomCounter].children < 10) {
       guests[roomCounter].children = guests[roomCounter].children + 1;
-      jQuery(".select-child-value")
+      jQuery(".select-child-value-so")
         .eq(roomCounter)
         .text(guests[roomCounter].children);
 
       // Clones the first child age div and stores it in a variable
-      jQuery(".select-child-ages-clone").clone();
-      var childAge = jQuery(".select-child-ages-clone").clone().last();
+      jQuery(".select-child-ages-clone-so").clone();
+      var childAge = jQuery(".select-child-ages-clone-so").clone().last();
 
       //Removes the clone class and adds the real class
-      childAge.removeClass("select-child-ages-clone");
+      childAge.removeClass("select-child-ages-clone-so");
       childAge.addClass("select-child-ages");
 
       //Appends the child age clone to the div its supposed to be in
       childAge.appendTo(
-        jQuery(".select-child-ages-holder").eq(roomCounter)
+        jQuery(".select-child-ages-holder-so").eq(roomCounter)
       );
 
       //Appends the apropriate number next to 'Child' eg. Child 1, Child 2, Child 3
       childAge
-        .find(".select-child-ages-number")
+        .find(".select-child-ages-number-so")
         .text(guests[roomCounter].children);
 
       //Removes the clone class from the input select field and adds the real class
       childAge
-        .find(".select-child-ages-input-clone")
+        .find(".select-child-ages-input-clone-so")
         .addClass("select-child-ages-input");
       childAge
-        .find(".select-child-ages-input-clone")
-        .removeClass("select-child-ages-input-clone");
+        .find(".select-child-ages-input-clone-so")
+        .removeClass("select-child-ages-input-clone-so");
 
       //Change the string in the apply button on each + click
       var applyButtonGuests =
         parseInt(
-          jQuery(".select-occupancy-apply-info-guests").attr("data-guests")
+          jQuery(".select-occupancy-apply-info-guests-so").attr("data-guests")
         ) + 1;
-      jQuery(".select-occupancy-apply-info-guests").attr(
+      jQuery(".select-occupancy-apply-info-guests-so").attr(
         "data-guests",
         applyButtonGuests
       );
-      jQuery(".select-occupancy-apply-info-guests").text(applyButtonGuests);
+      jQuery(".select-occupancy-apply-info-guests-so").text(applyButtonGuests);
       if (applyButtonGuests > 1) {
-        jQuery(".select-occupancy-apply-info-guests-string").text(
-          jQuery("#guests").attr("data-guests")
+        jQuery(".select-occupancy-apply-info-guests-string-so").text(
+          jQuery("#guests-so").attr("data-guests")
         );
       } else {
-        jQuery(".select-occupancy-apply-info-guests-string").text(
-          jQuery("#guests").attr("data-guest")
+        jQuery(".select-occupancy-apply-info-guests-string-so").text(
+          jQuery("#guests-so").attr("data-guest")
         );
       }
     }
@@ -987,24 +987,24 @@ jQuery(document).ready(function($){
 
     //If number of adults is above the minimum enable the - button
     if (guests[roomCounter].children > 0) {
-      jQuery(".select-child-minus").eq(roomCounter).prop("disabled", false);
+      jQuery(".select-child-minus-so").eq(roomCounter).prop("disabled", false);
     }
   });
 
   //Remove Children button
-  jQuery(document).on("click", ".select-child-minus", function () {
+  jQuery(document).on("click", ".select-child-minus-so", function () {
     var roomCounter = jQuery(this)
-      .closest(".select-room")
+      .closest(".select-room-so")
       .attr("data-room-counter");
 
     //Decreases child number if child number is above the minimum, updates the text value between the buttons and removes child select field
     if (guests[roomCounter].children > 0) {
       guests[roomCounter].children = guests[roomCounter].children - 1;
-      jQuery(".select-child-value")
+      jQuery(".select-child-value-so")
         .eq(roomCounter)
         .text(guests[roomCounter].children);
 
-      jQuery(".select-child-ages-holder")
+      jQuery(".select-child-ages-holder-so")
         .eq(roomCounter)
         .find(".select-child-ages")
         .last()
@@ -1018,36 +1018,36 @@ jQuery(document).ready(function($){
 
     //Enables the + button if children number is bellow the limit
     if (guests[roomCounter].children < 10) {
-      jQuery(".select-child-plus").eq(roomCounter).prop("disabled", false);
+      jQuery(".select-child-plus-so").eq(roomCounter).prop("disabled", false);
     }
 
     //Change the string in the apply button on each - click
     var applyButtonGuests =
       parseInt(
-        jQuery(".select-occupancy-apply-info-guests").attr("data-guests")
+        jQuery(".select-occupancy-apply-info-guests-so").attr("data-guests")
       ) - 1;
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       applyButtonGuests
     );
-    jQuery(".select-occupancy-apply-info-guests").text(applyButtonGuests);
+    jQuery(".select-occupancy-apply-info-guests-so").text(applyButtonGuests);
     if (applyButtonGuests > 1) {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guests")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guests")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guest")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guest")
       );
     }
   });
 
-  jQuery(document).on("click", ".select-room-plus", function () {
+  jQuery(document).on("click", ".select-room-plus-so", function () {
     //Clones the first room and appends it to the room holder div
-    jQuery(".select-room").eq(0).clone().appendTo(".select-room-holder");
+    jQuery(".select-room-so").eq(0).clone().appendTo(".select-room-holder-so");
 
     // Stores the cloned room in a variable and pushes the default settings for the room
-    var clonedRoom = jQuery(".select-room").last();
+    var clonedRoom = jQuery(".select-room-so").last();
 
     var defaultRoomSettings = {
       adult: 1,
@@ -1057,20 +1057,20 @@ jQuery(document).ready(function($){
     guests.push(defaultRoomSettings);
 
     //Sets the appropriate room counter for the cloned room, and shows it next to the Room String
-    clonedRoom.attr("data-room-counter", jQuery(".select-room").length - 1);
+    clonedRoom.attr("data-room-counter", jQuery(".select-room-so").length - 1);
     clonedRoom
-      .find(".select-room-counter")
+      .find(".select-room-counter-so")
       .text(parseInt(clonedRoom.attr("data-room-counter")) + 1);
 
     //Sets the string value of adults and children to the default value
-    clonedRoom.find(".select-adults-value").text(defaultRoomSettings.adult);
+    clonedRoom.find(".select-adults-value-so").text(defaultRoomSettings.adult);
     clonedRoom
-      .find(".select-child-value")
+      .find(".select-child-value-so")
       .text(defaultRoomSettings.children);
 
     //Enables the + and disables the - just in case
-    clonedRoom.find(".select-button-plus").prop("disabled", false);
-    clonedRoom.find(".select-button-minus").prop("disabled", true);
+    clonedRoom.find(".select-button-plus-so").prop("disabled", false);
+    clonedRoom.find(".select-button-minus-so").prop("disabled", true);
 
     //Removes all the child ages input fields if the 1st room contains any
     clonedRoom.find(".select-child-ages").remove();
@@ -1078,137 +1078,137 @@ jQuery(document).ready(function($){
     //If Room is added show the divider line
     // jQuery(".select-room-divider").css("display", "block");
 
-    if (maxRooms == jQuery(".select-room").length) {
+    if (maxRooms == jQuery(".select-room-so").length) {
       jQuery(this).prop("disabled", true);
     }
 
     var applyButtonGuests =
       parseInt(
-        jQuery(".select-occupancy-apply-info-guests").attr("data-guests")
+        jQuery(".select-occupancy-apply-info-guests-so").attr("data-guests")
       ) + 1;
 
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       applyButtonGuests
     );
-    jQuery(".select-occupancy-apply-info-guests").text(applyButtonGuests);
+    jQuery(".select-occupancy-apply-info-guests-so").text(applyButtonGuests);
     if (applyButtonGuests > 1) {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guests")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guests")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guest")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guest")
       );
     }
 
     //Change the string in the apply button on each room added
     var applyButtonRooms =
       parseInt(
-        jQuery(".select-occupancy-apply-info-rooms").attr("data-rooms")
+        jQuery(".select-occupancy-apply-info-rooms-so").attr("data-rooms")
       ) + 1;
-    jQuery(".select-occupancy-apply-info-rooms").attr(
+    jQuery(".select-occupancy-apply-info-rooms-so").attr(
       "data-rooms",
       applyButtonRooms
     );
 
-    jQuery(".select-occupancy-apply-info-rooms").text(applyButtonRooms);
-    jQuery(".select-room-value").text(applyButtonRooms);
+    jQuery(".select-occupancy-apply-info-rooms-so").text(applyButtonRooms);
+    jQuery(".select-room-value-so").text(applyButtonRooms);
     if (applyButtonRooms > 1) {
-      jQuery(".select-occupancy-apply-info-rooms-string").text(
-        jQuery("#guests").attr("data-rooms")
+      jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+        jQuery("#guests-so").attr("data-rooms")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-rooms-string").text(
-        jQuery("#guests").attr("data-room")
+      jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+        jQuery("#guests-so").attr("data-room")
       );
     }
 
     //Enable - if number of rooms is bigger than minimum
-    if (jQuery(".select-room").length > 1) {
-      jQuery(".select-room-minus").prop("disabled", false);
+    if (jQuery(".select-room-so").length > 1) {
+      jQuery(".select-room-minus-so").prop("disabled", false);
     }
   });
 
   // Remove a Room button
 
-  jQuery(document).on("click", ".select-room-minus", function () {
-    var roomCounter = jQuery(".select-room")
+  jQuery(document).on("click", ".select-room-minus-so", function () {
+    var roomCounter = jQuery(".select-room-so")
       .last()
       .attr("data-room-counter");
 
     var applyButtonGuests =
       parseInt(
-        $(".select-occupancy-apply-info-guests").attr("data-guests")
+        $(".select-occupancy-apply-info-guests-so").attr("data-guests")
       ) -
       guests[roomCounter].adult -
       guests[roomCounter].children;
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       applyButtonGuests
     );
-    jQuery(".select-occupancy-apply-info-guests").text(applyButtonGuests);
+    jQuery(".select-occupancy-apply-info-guests-so").text(applyButtonGuests);
     if (applyButtonGuests > 1) {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guests")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guests")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-guests-string").text(
-        jQuery("#guests").attr("data-guest")
+      jQuery(".select-occupancy-apply-info-guests-string-so").text(
+        jQuery("#guests-so").attr("data-guest")
       );
     }
 
     var applyButtonRooms =
-      parseInt($(".select-occupancy-apply-info-rooms").attr("data-rooms")) -
+      parseInt($(".select-occupancy-apply-info-rooms-so").attr("data-rooms")) -
       1;
-    jQuery(".select-occupancy-apply-info-rooms").attr(
+    jQuery(".select-occupancy-apply-info-rooms-so").attr(
       "data-rooms",
       applyButtonRooms
     );
-    jQuery(".select-occupancy-apply-info-rooms").text(applyButtonRooms);
-    jQuery(".select-room-value").text(applyButtonRooms);
+    jQuery(".select-occupancy-apply-info-rooms-so").text(applyButtonRooms);
+    jQuery(".select-room-value-so").text(applyButtonRooms);
 
-    if (jQuery(".select-room").length > 1) {
-      jQuery(".select-occupancy-apply-info-rooms-string").text(
-        jQuery("#guests").attr("data-rooms")
+    if (jQuery(".select-room-so").length > 1) {
+      jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+        jQuery("#guests-so").attr("data-rooms")
       );
     } else {
-      jQuery(".select-occupancy-apply-info-rooms-string").text(
-        jQuery("#guests").attr("data-room")
+      jQuery(".select-occupancy-apply-info-rooms-string-so").text(
+        jQuery("#guests-so").attr("data-room")
       );
     }
 
     guests.splice(roomCounter, 1);
 
-    jQuery(".select-room").last().remove();
+    jQuery(".select-room-so").last().remove();
 
-    if (maxRooms > jQuery(".select-room").length) {
-      jQuery(".select-room-plus").prop("disabled", false);
+    if (maxRooms > jQuery(".select-room-so").length) {
+      jQuery(".select-room-plus-so").prop("disabled", false);
     }
 
-    if (jQuery(".select-room").length == 1) {
-      jQuery(".select-room-minus").prop("disabled", true);
+    if (jQuery(".select-room-so").length == 1) {
+      jQuery(".select-room-minus-so").prop("disabled", true);
     }
   });
 
   // show and hide child age
-  jQuery(document).on("click", ".age-picker", function () {
-    if ($(this).find(".age-picker-options").is(":visible")) {
-      $(".age-picker-options").hide();
+  jQuery(document).on("click", ".age-picker-so", function () {
+    if ($(this).find(".age-picker-options-so").is(":visible")) {
+      $(".age-picker-options-so").hide();
 
-      $(this).find(".age-picker-options").hide();
+      $(this).find(".age-picker-options-so").hide();
     } else {
-      $(".age-picker-options").hide();
+      $(".age-picker-options-so").hide();
 
-      $(this).find(".age-picker-options").show();
+      $(this).find(".age-picker-options-so").show();
     }
   });
 
   // choose age
-  jQuery(document).on("click", ".age-picker-options div", function () {
+  jQuery(document).on("click", ".age-picker-options-so div", function () {
     var age = $(this).data("age");
 
-    $(this).parent().parent().find(".age-picker-value").text(age);
+    $(this).parent().parent().find(".age-picker-value-so").text(age);
 
     var selectInput = $(this).parent().next();
 
@@ -1218,20 +1218,20 @@ jQuery(document).ready(function($){
   });
 
   //Apply Button
-  jQuery(document).on("click", ".select-occupancy-apply", function () {
-    var childAgeHolder = jQuery(".select-child-ages-holder");
+  jQuery(document).on("click", ".select-occupancy-apply-so", function () {
+    var childAgeHolder = jQuery(".select-child-ages-holder-so");
 
-    var adultsInput = jQuery("#ad");
+    var adultsInput = jQuery("#ad-so");
     var adultsArray = [];
 
-    var childrenInput = jQuery("#ch");
+    var childrenInput = jQuery("#ch-so");
     var childrenArray = [];
 
-    var childrenAgesInput = jQuery("#ag");
+    var childrenAgesInput = jQuery("#ag-so");
     var childrenAgesString = "";
 
-    var numberOfRoomsInput = jQuery("#NRooms");
-    var numberOfRooms = jQuery(".select-room").length;
+    var numberOfRoomsInput = jQuery("#NRooms-so");
+    var numberOfRooms = jQuery(".select-room-so").length;
 
     var guestNumber = 0;
 
@@ -1255,7 +1255,7 @@ jQuery(document).ready(function($){
     childrenAgesInput.attr("value", 0);
 
     //Loop through all the rooms
-    for (i = 0; i < jQuery(".select-room").length; i++) {
+    for (i = 0; i < jQuery(".select-room-so").length; i++) {
       //Always reset the children ages array, so it doesen't keep adding values to it if you click apply more than once
       guests[i].childrenAges = [];
 
@@ -1321,16 +1321,16 @@ jQuery(document).ready(function($){
     //Getting the strings for #guests input in the search bar, checking if it should be singular, plural
     var roomString = "";
     if (numberOfRooms > 1) {
-      roomString = jQuery("#guests").attr("data-rooms");
+      roomString = jQuery("#guests-so").attr("data-rooms");
     } else {
-      roomString = jQuery("#guests").attr("data-room");
+      roomString = jQuery("#guests-so").attr("data-room");
     }
 
     var guestString = "";
     if (guestNumber > 1) {
-      guestString = jQuery("#guests").attr("data-guests");
+      guestString = jQuery("#guests-so").attr("data-guests");
     } else {
-      guestString = jQuery("#guests").attr("data-guest");
+      guestString = jQuery("#guests-so").attr("data-guest");
     }
 
     //Set the whole string
@@ -1343,21 +1343,21 @@ jQuery(document).ready(function($){
       " " +
       guestString;
 
-    jQuery(".select-occupancy-apply-info-rooms").attr(
+    jQuery(".select-occupancy-apply-info-rooms-so").attr(
       "data-rooms",
       numberOfRooms
     );
-    jQuery(".select-occupancy-apply-info-rooms").text(numberOfRooms);
-    jQuery(".select-occupancy-apply-info-rooms-string").text(roomString);
+    jQuery(".select-occupancy-apply-info-rooms-so").text(numberOfRooms);
+    jQuery(".select-occupancy-apply-info-rooms-string-so").text(roomString);
 
-    jQuery(".select-occupancy-apply-info-guests").attr(
+    jQuery(".select-occupancy-apply-info-guests-so").attr(
       "data-guests",
       guestNumber
     );
-    jQuery(".select-occupancy-apply-info-guests").text(guestNumber);
-    jQuery(".select-occupancy-apply-info-guests-string").text(guestString);
+    jQuery(".select-occupancy-apply-info-guests-so").text(guestNumber);
+    jQuery(".select-occupancy-apply-info-guests-string-so").text(guestString);
 
-    jQuery("#guests").attr("value", guestsInputString);
+    jQuery("#guests-so").attr("value", guestsInputString);
 
     // Check if kids have age
 
@@ -1373,17 +1373,17 @@ jQuery(document).ready(function($){
       });
     } else {
       //Close the occupancy dropdown
-      jQuery(".incorect-age").hide();
+      jQuery(".incorect-age-so").hide();
       jQuery(".search-button, #btn-search").prop("disabled", false);
       if(resolution == 1) {
-        jQuery("#occupancy_dropdown").slideUp(200);
+        jQuery("#occupancy_dropdown-so").slideUp(200);
       }
-      jQuery(".ob-searchbar-guests").removeClass("opened");
+      jQuery(".ob-searchbar-guests-so").removeClass("opened");
     }
 
     // Check if children are allowed
 
-    if (jQuery("#hotel_code").val() != "") {
+    if (jQuery("#hotel_code-so").val() != "") {
       childrenAllowed();
     } else {
       childrenAllowedChain();
@@ -1396,11 +1396,11 @@ jQuery(document).ready(function($){
       function childrenAllowed(load) {
 
           var currencyId = $(".obpress-currencies-select").find(":selected").attr("data-curr") ;
-          var hotelCode = $("#hotel_code").val();
-          var selectedChildren = Number( $("#ch").val() );
+          var hotelCode = $("#hotel_code-so").val();
+          var selectedChildren = Number( $("#ch-so").val() );
 
 
-           $(".age-picker-options div").hide();
+           $(".age-picker-options-so div").hide();
 
 
             // prepare ajax request for children availability and max age
@@ -1411,9 +1411,9 @@ jQuery(document).ready(function($){
 
                       var max_age = allowed[1]; 
 
-                      $(".child-max-age").text( max_age );
+                      $(".child-max-age-so").text( max_age );
 
-                      $(".age-picker-options").each(function() {
+                      $(".age-picker-options-so").each(function() {
 
                            for ( i = 0 ; i <= max_age ; i++) {
 
@@ -1426,7 +1426,7 @@ jQuery(document).ready(function($){
 
                           if ( allowed[0] == false  ) {
 
-                            $(".ob-searchbar-submit").attr('disabled', 'disabled');
+                            $(".ob-searchbar-submit-so").attr('disabled', 'disabled');
 
                             $("#children-not-allowed-phone").text(response[1]);
 
@@ -1434,18 +1434,18 @@ jQuery(document).ready(function($){
 
                             if (load == "load") {
 
-                                $(".ob-searchbar-submit").trigger( "click" );
+                                $(".ob-searchbar-submit-so").trigger( "click" );
                             };
 
                           }  else  {
 
-                             $(".ob-searchbar-submit").removeAttr("disabled");
+                             $(".ob-searchbar-submit-so").removeAttr("disabled");
 
                         }  
 
                       } else {
 
-                         $(".ob-searchbar-submit").removeAttr("disabled");
+                         $(".ob-searchbar-submit-so").removeAttr("disabled");
 
                       }
               });
@@ -1457,11 +1457,11 @@ jQuery(document).ready(function($){
 
       function childrenAllowedChain() {
 
-        $(".child-max-age").text("17");
+        $(".child-max-age-so").text("17");
 
-        $(".age-picker-options div").show();
+        $(".age-picker-options-so div").show();
 
-        $(".ob-searchbar-submit").removeAttr("disabled");
+        $(".ob-searchbar-submit-so").removeAttr("disabled");
         
       };
 
@@ -1491,29 +1491,29 @@ jQuery(document).ready(function($){
     // });
 
     // open calendar on mobile inputs
-    jQuery(document).on("click", "#check_in_mobile, #check_out_mobile", function() {
-      $(this).closest(".ob-searchbar-calendar").find("#calendar_dates").click();
+    jQuery(document).on("click", "#check_in_mobile-so, #check_out_mobile-so", function() {
+      $(this).closest(".ob-searchbar-calendar-so").find("#calendar_dates-so").click();
     });
 
     // show promo code input on mobile
-    jQuery(document).on("click", ".ob-mobile-i-have-a-code-input", function() {
-      if($("#promo_code_dropdown").css("display") == "none" && $(".ob-mobile-i-have-a-code-input").is(":checked")) {
-        $("#promo_code_dropdown").show();
+    jQuery(document).on("click", ".ob-mobile-i-have-a-code-input-so", function() {
+      if($("#promo_code_dropdown-so").css("display") == "none" && $(".ob-mobile-i-have-a-code-input-so").is(":checked")) {
+        $("#promo_code_dropdown-so").show();
       } else {
-        $("#promo_code_dropdown").hide();
+        $("#promo_code_dropdown-so").hide();
       }
     });
 
     if(resolution != 1) {
-      $("#group_code ,#Code, #loyalty_code").attr("placeholder", "");
+      $("#group_code-so ,#Code-so, #loyalty_code-so").attr("placeholder", "");
     }
 
     $(document).on("click", ".zc-close", function() {
       if(resolution != 1) {
-        if($(".zcalendar-wrap").css("display") == "none") {
-          $(".zcalendar-wrap").show();
+        if($(".zcalendar-wrap-so").css("display") == "none") {
+          $(".zcalendar-wrap-so").show();
         } else {
-          $(".zcalendar-wrap").hide();
+          $(".zcalendar-wrap-so").hide();
         }
       }
     });
