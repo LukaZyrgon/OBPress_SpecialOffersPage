@@ -1,11 +1,11 @@
 /*
  *  zyrgon-calendar.css alpha | http://zyrgon.com | (c) 2020
  */
-.zcalendar-wrap{
+.zcalendar-wrap-so{
 	overflow: hidden;
 }
 
-.zcalendar{
+.zcalendar-so{
 	margin-left:auto;
 	margin-right:auto;	
 	background: #F5F5F5;
@@ -118,15 +118,15 @@
 	display: none;
 }
 
-.zcalendar .zc-month:nth-child(2) {
+.zcalendar-so .zc-month:nth-child(2) {
 	display: block;
 }
 
-.zcalendar .zc-month:nth-child(3) {
+.zcalendar-so .zc-month:nth-child(3) {
 	display: none;
 }
 
-.zcalendar .zc-month:nth-child(4) {
+.zcalendar-so .zc-month:nth-child(4) {
 	display: none;
 }
 
@@ -398,14 +398,14 @@
 
 /* TOOLTIPS */
 
-.zcalendar [data-title]{
+.zcalendar-so [data-title]{
 	position: relative;
 }
 
 
 
 
-.zcalendar [data-title]:after {
+.zcalendar-so [data-title]:after {
 	content: attr(data-title) '\a' attr(data-minimum-stay-message) '\a' attr(data-maximum-stay-message);
 	position: absolute;
 	z-index: 210;
@@ -427,7 +427,7 @@
 
 
 
-.zcalendar [data-two-messages-title][data-title]:after {
+.zcalendar-so [data-two-messages-title][data-title]:after {
 	content: attr(data-title) '\a' attr(data-minimum-stay-message) '\a' attr(data-maximum-stay-message);
 	position: absolute;
 	z-index: 210;
@@ -463,7 +463,7 @@
     margin-left: 30px;
 }
 
-.zcalendar [data-title]:before{
+.zcalendar-so [data-title]:before{
 	content:'';
 	position: absolute;
 
@@ -484,8 +484,8 @@
 	z-index: 200;
 }
 
-.zcalendar [data-title]:not([data-disabled]):hover:after,
-.zcalendar [data-title]:not([data-disabled]):hover:before {
+.zcalendar-so [data-title]:not([data-disabled]):hover:after,
+.zcalendar-so [data-title]:not([data-disabled]):hover:before {
    	opacity: 1;
     visibility: visible;
 }
@@ -537,14 +537,14 @@
 }
 
 
-.ob-zcalendar-top, .ob-zcalendar-bottom {
+.ob-zcalendar-top-so, .ob-zcalendar-bottom-so {
 	display: none;
 }
 
 
 /* between the bootstrap 120 and tablet mode */
 @media(max-width: 1199px)  and (min-width: 991px){
-	.zcalendar{
+	.zcalendar-so{
 		width:960px;
 	}
 
@@ -563,7 +563,7 @@
 		margin-bottom:3.5px;
 	}
 
-	.zcalendar [data-title]:after  {
+	.zcalendar-so [data-title]:after  {
 		bottom:56px;
 	}
 }
@@ -575,7 +575,7 @@
 		right:4px;
 	}
 
-	.zcalendar{
+	.zcalendar-so{
 		position: fixed;
 		top: 0px;    
 	    left: 0px!important;	
@@ -596,7 +596,7 @@
 		padding: 20px 30px;
 	}
 
-	.zcalendar .zc-month {
+	.zcalendar-so .zc-month {
 		width:320px;
 		float:none;		
 		margin-left:auto;
@@ -606,7 +606,7 @@
 		display: block;
 	}
 
-	.zcalendar .zc-month:nth-child(2), .zcalendar .zc-month:nth-child(3), .zcalendar .zc-month:nth-child(4) {
+	.zcalendar-so .zc-month:nth-child(2), .zcalendar-so .zc-month:nth-child(3), .zcalendar-so .zc-month:nth-child(4) {
 		display: block;
 	}
 
@@ -681,13 +681,13 @@
 		margin-right:0;
 	}
 
-	.zcalendar-wrap {
+	.zcalendar-wrap-so {
 		display: none;
 		position: absolute;
 		top: 0px;
 	}
 	
-	.zcalendar-holder {
+	.zcalendar-holder-so {
 		position: fixed;
 		top: 117px;
 		width: 100%;
@@ -699,7 +699,7 @@
 		scrollbar-width: thin;
 	}
 	
-	.ob-zcalendar-top {
+	.ob-zcalendar-top-so {
 		display: block;
 		position: fixed;
 		top: 0px;
@@ -708,7 +708,7 @@
 		z-index: 1;
 	}
 
-	.ob-zcalendar-title {
+	.ob-zcalendar-title-so {
 		display: flex;
 		justify-content: space-between;
 		background-color: #000000;
@@ -719,12 +719,12 @@
 		line-height: 19px;
 	}
 
-	.ob-mobile-weekdays {
+	.ob-mobile-weekdays-so {
 		background-color: #EEEEEE;
 		width: 100%;
 	}
 
-	.ob-mobile-weekdays span {
+	.ob-mobile-weekdays-so span {
 		display: inline-block;
 		width: 50px;
 		text-align: center;
@@ -735,17 +735,17 @@
 		line-height: 15px;
 	}
 
-	.ob-mobile-weekdays div {
+	.ob-mobile-weekdays-so div {
 		display: flex;
 		justify-content: center;
 	}
 
-	.zcalendar {
+	.zcalendar-so {
 		position: static;
 		background-color: #fff;
 	}
 
-	.ob-zcalendar-bottom {
+	.ob-zcalendar-bottom-so {
 		display: block;
 		position: fixed;
 		bottom: 0px;
@@ -762,7 +762,7 @@
 		display: none;
 	}
 
-	#mobile-accept-date {  
+	#mobile-accept-date-so {  
 		background-color: #000;
 	    color: #fff;
 	    display: block;
@@ -785,13 +785,13 @@
 	}
 
 
-	.mobile-accept-dates-from-to {
+	.mobile-accept-dates-from-to-so {
 	    color: #000;
 	    font-size: 14px;
 	    font-weight: 800;
 	}
 
-	.number_of_nights-mobile-span {
+	.number_of_nights-mobile-span-so {
 		font-size: 11px;
 		color: #9C9C9C;
 	}
