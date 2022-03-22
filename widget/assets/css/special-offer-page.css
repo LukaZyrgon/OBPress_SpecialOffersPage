@@ -202,6 +202,7 @@
   min-height: 273px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .single-package-room-name {

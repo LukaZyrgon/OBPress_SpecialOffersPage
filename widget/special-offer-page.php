@@ -3002,6 +3002,403 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'related_packages_error_section',
+			[
+				'label' => __('Error Section Style', 'OBPress_RoomPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_margin',
+			[
+				'label' => __( 'Error Margin', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '25',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .error_message_holder' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'releted_packages_error_padding',
+			[
+				'label' => __( 'Error Padding', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '20',
+					'bottom' => '0',
+					'left' => '20',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .error_message_holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_width',
+			[
+				'label' => __( 'Error Width', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 20,
+				],
+				'range' => [
+					'px' => [
+						'max' => 800,
+						'min' => -350,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .error_message_holder' => 'width: calc(100% - {{SIZE}}px)',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_height',
+			[
+				'label' => __( 'Error Height', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 80,
+				],
+				'range' => [
+					'px' => [
+						'max' => 200,
+						'min' => 40,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .error_message_holder' => 'height: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_bg_color',
+			[
+				'label' => __('Error Background COlor', 'OBPress_RoomPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#0C83D9',
+				'selectors' => [
+					'.single-package .error_message_holder' => 'background-color: {{releted_packages_error_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_border_radius',
+			[
+				'label' => __( 'Error Border Radius', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '4',
+					'right' => '4',
+					'bottom' => '4',
+					'left' => '4',
+					'isLinked' => true
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .error_message_holder' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_justify_content',
+			[
+				'label' => __( 'Error Horizontal Align', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_RoomPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_RoomPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_RoomPage' ),
+					'center' => __( 'Center', 'OBPress_RoomPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_RoomPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_RoomPage' ),
+				],
+				'selectors' => [
+					'.single-package .error_message_holder' => 'justify-content: {{releted_packages_error_justify_content}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_align_items',
+			[
+				'label' => __( 'Error Vertical Align', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'center',
+				'options' => [
+					'center'  => __( 'Center', 'OBPress_RoomPage' ),
+					'flex-end'  => __( 'Bottom', 'OBPress_RoomPage' ),
+					'flex-start'  => __( 'Top', 'OBPress_RoomPage' ),
+				],
+				'selectors' => [
+					'.single-package .error_message_holder' => 'align-items: {{releted_packages_error_align_items}}'
+				],
+			]
+		);
+
+
+		$this->add_control(
+			'releted_packages_error_icon_width',
+			[
+				'label' => __( 'Error Icon Width', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 24,
+				],
+				'range' => [
+					'px' => [
+						'max' => 150,
+						'min' => 12,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .error_info_icon' => 'width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_icon_margin',
+			[
+				'label' => __( 'Error Icon Margin', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '15',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .error_info_icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_message_color',
+			[
+				'label' => __('Error Message Color', 'OBPress_RoomPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .error_message' => 'color: {{releted_packages_error_message_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_error_message_typography',
+				'label' => __('Error Message Typography', 'OBPress_RoomPage'),
+				'selector' => '.single-package .error_message',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '21',
+						],
+					],
+					
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_button_bg_color',
+			[
+				'label' => __('Error Button Background Color', 'OBPress_RoomPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .error_message_btn_calendar, .single-package .error_message_btn_occupancy' => 'background-color: {{releted_packages_error_button_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_button_hover_bg_color',
+			[
+				'label' => __('Error Button Hover Background Color', 'OBPress_RoomPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .error_message_btn_calendar:hover, .single-package .error_message_btn_occupancy:hover' => 'background-color: {{releted_packages_error_button_hover_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_button_color',
+			[
+				'label' => __('Error Button Color', 'OBPress_RoomPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#0C83D9',
+				'selectors' => [
+					'.single-package .error_message_btn_calendar, .single-package .error_message_btn_occupancy' => 'color: {{releted_packages_error_button_color}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'releted_packages_error_button_typography',
+				'label' => __('Error Button Typography', 'OBPress_RoomPage'),
+				'selector' => '.single-package .error_message_btn_calendar, .single-package .error_message_btn_occupancy',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '21',
+						],
+					],
+					
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_button_hover_color',
+			[
+				'label' => __('Error Button Hover Color', 'OBPress_RoomPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#0C83D9',
+				'selectors' => [
+					'.single-package .error_message_btn_calendar:hover, .single-package .error_message_btn_occupancy:hover' => 'color: {{releted_packages_error_button_hover_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_button_hover_transition',
+			[
+				'label' => __( 'Error Button Transition', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'min' => 0,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .error_message_btn_calendar, .single-package .error_message_btn_occupancy' => 'transition: {{SIZE}}s',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_btn_padding',
+			[
+				'label' => __( 'Error Button Padding', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '9',
+					'right' => '20',
+					'bottom' => '9',
+					'left' => '20',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .error_message_btn_calendar, .single-package .error_message_btn_occupancy' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_error_btn_width',
+			[
+				'label' => __( 'Error Button Width', 'OBPress_RoomPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 115,
+				],
+				'range' => [
+					'px' => [
+						'max' => 500,
+						'min' => 50,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .error_message_btn_calendar, .single-package .error_message_btn_occupancy' => 'min-width: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 		// $this->start_controls_section(
 		// 	'basket_section',
 		// 	[
@@ -4470,7 +4867,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
 		// 		],
 		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-total-price-holder' => 'justify-content: {{basket_room_tax_results_justify_content}}'
+		// 			'.single-package .obpress-hotel-total-price-holder' => 'justify-content: {{basket_total_price_justify_content}}'
 		// 		],
 		// 	]
 		// );

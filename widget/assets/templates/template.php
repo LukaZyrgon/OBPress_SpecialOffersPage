@@ -1205,7 +1205,19 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="error_message_holder">
+                    <div class="error_message_left">
+                        <img class="error_info_icon" src="<?= $plugins_directory."/OBPress_SpecialOffersPage/widget/assets/icons/information-button-white.svg" ?>">
+                        <div class="error_message">
+                            <div class="error_message_description">
+                                <?php _e('There are no rooms available for the dates indicated.', 'OBPress_RoomPage') ?>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="error_message_btn_calendar">
+                        <?php _e('Change your search', 'OBPress_RoomPage') ?>
+                    </button>
+                </div>
             </div>
             <div class="obpress-hotel-results-basket-holder">
                 <div class="obpress-hotel-results-basket <?php if(is_admin_bar_showing() == true){echo 'obpress-admin-bar-shown-basket';} ?>"  id="basket">
