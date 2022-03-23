@@ -5246,8 +5246,22 @@ class SpecialOfferPage extends \Elementor\Widget_Base
             $adults = $_GET['ad'];
         }
 
+		if($_GET['ch'] == null) {
+        	$children = 0;
+        }
+        else {
+            $children = $_GET['ch'];
+        }
 
-        if($_GET["CheckIn"] == null) {
+		if($_GET['ag'] == null) {
+        	$children_ages = 1;
+        }
+        else {
+            $children_ages = $_GET['ag'];
+        }
+
+
+        if($_GET["CheckIn"] == null || $_GET["CheckOut"] == null) {
 
 
             $package_active_periods = [];
@@ -5272,20 +5286,11 @@ class SpecialOfferPage extends \Elementor\Widget_Base
                         $CheckOut = date('d.m.Y', $newCheckOut);
                         $CheckOutUrlParam = date('dmY', $newCheckOut);
 
-                        $redirect = true;
-                        $redirect_route = home_url()."?CheckIn=".$CheckInUrlParam."&CheckOut=".$CheckOutUrlParam."&ad=".$adults;
-                        // return redirect(request()->fullUrlWithQuery(['CheckIn' => $CheckInUrlParam, 'CheckOut' => $CheckOutUrlParam, "ad" => $adults]));
-
-						$host  = $_SERVER['HTTP_HOST'];
-						$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-						$page = 'package';
-						$params = $_SERVER['QUERY_STRING'];
-						$params.= "&CheckIn=".$CheckInUrlParam."&CheckOut=".$CheckOutUrlParam;
-						if(!isset($_GET["ad"])) {
-							$params.= "&ad=".$adults;
-						}
-						wp_redirect("https://$host$uri/$page?$params");
-						exit;
+						$_GET["CheckIn"] = $CheckInUrlParam;
+						$_GET["CheckOut"] = $CheckOutUrlParam;
+						$_GET["ad"] = $adults;
+						$_GET["ch"] = $children;
+						$_GET["ag"] = $children_ages;
                     }
                 }
             }
