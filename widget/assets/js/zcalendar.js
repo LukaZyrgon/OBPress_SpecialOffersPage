@@ -1899,22 +1899,27 @@ jQuery(document).ready(function($){
           );
 
           if (this.promo == true) {
+
+            return false;
+
             var packageId = jQuery(".section3").attr("data-packageid");
   
             var languageId = jQuery("#lang_curr").attr("data-lang");
   
-            xhr.open(
-              "GET",
-              "/availability/offer/" +
-                q +
-                "/" +
-                currencyId +
-                "/" +
-                packageId +
-                "/" +
-                languageId,
-              true
-            );
+            // Dont send request on package page
+            // xhr.open(
+            //   "GET",
+            //   "/availability/offer/" +
+            //     q +
+            //     "/" +
+            //     currencyId +
+            //     "/" +
+            //     packageId +
+            //     "/" +
+            //     languageId,
+            //   true
+            // );
+
           } else if (c == null && this.promo !== true) {
             var action = "get_hotel_availability";
 
