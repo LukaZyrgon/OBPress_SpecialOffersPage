@@ -117,7 +117,7 @@
 	                        		<span class="package-description-short"> • 
 	                        			<?= substr(nl2br($offer["get_rate_plans"]->RatePlanDescription->Description),0, 200) ?>
 	                        			<?php if(strlen($offer["get_rate_plans"]->RatePlanDescription->Description) > 200): ?>
-	                        				<span class="kurac">...</span>
+	                        				<span class="">...</span>
 	                        			<?php endif; ?>
 	                        		</span>
 	                        		<?php if(strlen($offer["get_rate_plans"]->RatePlanDescription->Description) > 200): ?>
