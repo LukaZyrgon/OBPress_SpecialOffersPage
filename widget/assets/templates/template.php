@@ -728,7 +728,7 @@
 
 
 
-                    <input type="hidden" name="c" value="<?php echo get_option('chain_id') ?>">
+                    <input type="hidden" name="c" id="chain_code-so" value="<?php echo get_option('chain_id') ?>">
                     <input type="hidden" name="q" id="hotel_code-so" value="<?php echo $data->getHotels()[$property]['HotelCode'] ?>">
 
 

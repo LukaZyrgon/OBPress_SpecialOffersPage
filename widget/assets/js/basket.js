@@ -587,8 +587,11 @@ jQuery(document).ready(function($){
 
             success:function(response){
 
+                var getUrl = window.location;
+                var baseUrl = getUrl.protocol + "//" + getUrl.host;
+
                 //redirect on success
-                var url = window.location.hostname + "/extras"; // read the step3 url
+                var url = baseUrl + "/extras"; // read the step3 url
                 
                 //url = url.replace("hotel-results","extras"); // replace step2 from step3
                 url = updateUrlParam('c',null,url); //remove c param
@@ -605,7 +608,7 @@ jQuery(document).ready(function($){
                     url = updateUrlParam('roomuids', room_id_single, url);
                     url = updateUrlParam('rateuids', rateplan_id_single, url);
                 }
-                
+
                 window.location.href = url; // redirect  
 
             },
