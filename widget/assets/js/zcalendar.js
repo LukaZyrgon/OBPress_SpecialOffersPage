@@ -288,7 +288,7 @@ jQuery(document).ready(function($){
              }
         });
 
-        jQuery(document).on("click", "#mobile-accept-date-so", function () { 
+        jQuery(document).on("click", "#mobile-accept-date-so , .ob-zcalendar-title-so span", function () { 
 
            widget_offer.hide();
 
@@ -1977,6 +1977,8 @@ jQuery(document).ready(function($){
 
               if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 400  
                 &&  loadingFinished == true)  {
+
+                console.log("skroll");
 
                 loadingFinished = false;
 

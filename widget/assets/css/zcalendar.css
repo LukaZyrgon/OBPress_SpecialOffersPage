@@ -717,6 +717,17 @@
 		font-weight: bold;
 		padding: 26px 23px 23px 20px;
 		line-height: 19px;
+		height: 70px;
+		display: flex;
+		align-items: center;
+	}
+
+	.ob-zcalendar-title-so span {
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+		text-align: center;
+    	padding-top: 10px;
 	}
 
 	.ob-mobile-weekdays-so {

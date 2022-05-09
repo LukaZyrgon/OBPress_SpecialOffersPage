@@ -510,7 +510,9 @@
                                 <div class="ob-zcalendar-top-so">
                                     <div class="ob-zcalendar-title-so">
                                         <?php _e('Select date of stay', 'OBPress_SpecialOffersPage') ?>
-                                        <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/cross_medium.svg" alt="">
+                                        <span>
+                                            <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/cross_medium.svg" alt="">
+                                        </span>
                                     </div>
                                     <div class="ob-mobile-weekdays-so">
                                         <div>
