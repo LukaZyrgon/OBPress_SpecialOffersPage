@@ -353,8 +353,8 @@ jQuery(document).ready(function($){
                 sameDayAsUTC = true;
               }
 
-              $(".zcalendar-wrap-so [data-unix] .loader").show();
-              $(".zcalendar-wrap-so [data-disabled] .loader").hide();
+              //$(".zcalendar-wrap-so [data-unix] .loader").show();
+              //$(".zcalendar-wrap-so [data-disabled] .loader").hide();
 
             } else {
               sameDayAsUTC = true;
@@ -448,10 +448,10 @@ jQuery(document).ready(function($){
           datePriceBox.classList.add("zc-date-price");
           dateBox.appendChild(datePriceBox);
 
-          var animation = document.createElement('div');
-          animation.classList.add('loader');  
-          $(animation).append("<div class='loader-ball'></div>");
-          dateBox.appendChild(animation);
+          //var animation = document.createElement('div');
+          ///animation.classList.add('loader');  
+          //$(animation).append("<div class='loader-ball'></div>");
+          //dateBox.appendChild(animation);
   
           //make fields for of the month (7 days per week, max 6 weeks = 42)
           for (i = 0; i < 42; i++) {
@@ -1472,7 +1472,7 @@ jQuery(document).ready(function($){
               );
             }
 
-            $(".zcalendar-wrap-so .loader").hide();
+            //$(".zcalendar-wrap-so .loader").hide();
 
             $(".zcalendar-wrap-so .zc-date-price").show();
 
@@ -1894,8 +1894,8 @@ jQuery(document).ready(function($){
           requestForNewOccupancy = true;
           widget_offer.newRequest = true;
           $(".zcalendar-wrap-so .zc-date-price").hide();
-          $(".zcalendar-wrap-so [data-unix] .loader").show();
-          $(".zcalendar-wrap-so [data-disabled] .loader").hide();
+          //$(".zcalendar-wrap-so [data-unix] .loader").show();
+          //$(".zcalendar-wrap-so [data-disabled] .loader").hide();
           widget_offer.fill();
 
           // change text in bottom label
