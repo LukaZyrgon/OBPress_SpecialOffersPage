@@ -510,7 +510,9 @@
                                 <div class="ob-zcalendar-top-so">
                                     <div class="ob-zcalendar-title-so">
                                         <?php _e('Select date of stay', 'OBPress_SpecialOffersPage') ?>
-                                        <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/cross_medium.svg" alt="">
+                                        <span>
+                                            <img src="<?= get_template_directory_uri() ?>/templates/assets/icons/cross_medium.svg" alt="">
+                                        </span>
                                     </div>
                                     <div class="ob-mobile-weekdays-so">
                                         <div>
@@ -560,7 +562,8 @@
 
                         <div class="obpress-package-rooms-basket"> 
 
-                            <div id="package-results">
+                            <div id="package-results" data-max-rooms="<?php if ( isset( $style->Result->MaxRooms) ) { 
+                                echo $style->Result->MaxRooms; }?>">
                                 <?php require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php'); ?>
                             </div>
 
@@ -728,7 +731,7 @@
 
 
 
-                    <input type="hidden" name="c" value="<?php echo get_option('chain_id') ?>">
+                    <input type="hidden" name="c" id="chain_code-so" value="<?php echo get_option('chain_id') ?>">
                     <input type="hidden" name="q" id="hotel_code-so" value="<?php echo $data->getHotels()[$property]['HotelCode'] ?>">
 
 

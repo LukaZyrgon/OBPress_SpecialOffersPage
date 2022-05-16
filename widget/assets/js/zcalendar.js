@@ -12,17 +12,16 @@ jQuery(document).ready(function($){
 
         sameDayAsUTC = true;
   
-        var ZyrgonCalendar = function (options) {
+        var ZyrgonCalendarOffer = function (options) {
           //initializing the calendar, first run, and default options
   
           this.element = options.element;
   
-          this.promo = options.promo;
+          //this.promo = options.promo;
 
-          if (  window.location.href.split("/")[3] == "package" )  {
-               this.promo = true;
-          }
-  
+          // package plugin is always promo
+          this.promo = true;
+
           if (!window.moment) {
             //no moment, no calendar
             return;
@@ -30,12 +29,12 @@ jQuery(document).ready(function($){
   
           //set the element and field where calendar will be created
           if (options.field != null) {
-            this.widget = options.field;
+            this.widget_offer = options.field;
           } else {
-            this.widget = document.querySelector(options.element); //if no element #calendar is default
+            this.widget_offer = document.querySelector(options.element); //if no element #calendar is default
           }
           // this.field = document.querySelector(".zhs-calendar");
-          this.field = this.widget;
+          this.field = this.widget_offer;
           if (this.field == null) {
             // console.log("Sorry, i cant find that element");
             return;
@@ -191,20 +190,20 @@ jQuery(document).ready(function($){
         // Event listeners for click and hover on dates
 
         $(document).on("click",".package-form .zc-date",function(e){
-           widget.selectDateSpecialOffer(e);  
+           widget_offer.selectDateSpecialOffer(e);  
         });
 
 
         $(document).on("mouseenter",".package-form .zc-date",function(e){
-           widget.onDateHover(e); 
+           widget_offer.onDateHover(e); 
         });
 
   
-        ZyrgonCalendar.prototype.createListeners = function () {
+        ZyrgonCalendarOffer.prototype.createListeners = function () {
 
 
           //date listeners
-          var dates = this.field.querySelectorAll(".zc-date");
+          var dates = this.field.querySelectorAll(".package-form .zc-date");
   
           // for (var i = 0; i < dates.length; i++) {
 
@@ -241,7 +240,7 @@ jQuery(document).ready(function($){
           // );
   
           //escape key unselects dates
-          this.widget.onkeydown = function (evt) {
+          this.widget_offer.onkeydown = function (evt) {
             evt = evt || window.event;
             var isEscape = false;
             if ("key" in evt) {
@@ -256,17 +255,15 @@ jQuery(document).ready(function($){
   
           //on change refill calendar
           jQuery("#hotel_code-so").change(this.destinationChange.bind(this));
-          // document.querySelector("#hotel_code").addEventListener('change', this.destinationChange.bind(this));
-          document
-            .querySelector("input[name='c']")
-            .addEventListener("change", function () {
+
+          document.querySelector("#chain_code-so").addEventListener("change", function () {
               this.destinationChange.bind(this).bind(this);
             });
   
           //month prev next listners
-          jQuery(document).on("click", ".zc-close", this.hide.bind(this));
-          jQuery(document).on("click", ".zc-btn-prev", this.prevMonth.bind(this));
-          jQuery(document).on("click", ".zc-btn-next", this.nextMonth.bind(this));
+          jQuery(document).on("click", ".zcalendar-wrap-so .zc-close", this.hide.bind(this));
+          jQuery(document).on("click", ".zcalendar-wrap-so .zc-btn-prev", this.prevMonth.bind(this));
+          jQuery(document).on("click", ".zcalendar-wrap-so .zc-btn-next", this.nextMonth.bind(this));
 
   
           if (this.element == ".zcalendar-so") {
@@ -278,35 +275,6 @@ jQuery(document).ready(function($){
             );
           }
   
-          // var use = jQuery(document);
-  
-          // if (jQuery(this.widget).parent().find(this.openWith).length) {
-          //   use = jQuery(this.widget).parent();
-          // } else {
-          //   if (
-          //     jQuery(this.widget).parent().parent().find(this.openWith).length
-          //   ) {
-          //     use = jQuery(this.widget).parent().parent();
-          //   }
-          // }
-  
-          // //CLICK ON DATE INPUT
-  
-          // use.on("click", this.openWith, function () {
-
-
-          //      if (jQuery(".zcalendar").is(":visible")) {
-                   
-          //         this.hide();
-
-          //      } else {
-                
-          //         this.show();
-
-          //      }
-
-          //   }.bind(this)
-          // );
 
 
         };
@@ -314,37 +282,37 @@ jQuery(document).ready(function($){
         jQuery(document).on("click", "#calendar_dates-so", function () {
 
             if (  jQuery(".zcalendar-so").is(":visible")   ) {
-                  widget.hide();
+                  widget_offer.hide();
                } else {
-                  widget.show();
+                  widget_offer.show();
              }
         });
 
-        jQuery(document).on("click", "#mobile-accept-date-so", function () { 
+        jQuery(document).on("click", "#mobile-accept-date-so , .ob-zcalendar-title-so span", function () { 
 
-           widget.hide();
+           widget_offer.hide();
 
         });
 
-        ZyrgonCalendar.prototype.show = function () {
+        ZyrgonCalendarOffer.prototype.show = function () {
 
             if(resolution == 1) {
-              jQuery(this.widget).slideDown(200);
+              jQuery(this.widget_offer).slideDown(200);
             } else {
               $(".zcalendar-wrap-so").show();
-              jQuery(this.widget).show();
+              jQuery(this.widget_offer).show();
             }
 
             jQuery(".ob-searchbar-calendar-so").addClass("opened");
 
         };
   
-        ZyrgonCalendar.prototype.hide = function () {
+        ZyrgonCalendarOffer.prototype.hide = function () {
 
             if ( resolution == 1 ) {
-              jQuery(this.widget).slideUp(200);
+              jQuery(this.widget_offer).slideUp(200);
             } else {
-              jQuery(this.widget).hide();
+              jQuery(this.widget_offer).hide();
               $(".zcalendar-wrap-so").hide();
             }
 
@@ -354,11 +322,8 @@ jQuery(document).ready(function($){
 
         };
   
-        ZyrgonCalendar.prototype.goToSelection = function () {
-          //move calendar to selected
-        };
   
-        ZyrgonCalendar.prototype.destinationChange = function () {
+        ZyrgonCalendarOffer.prototype.destinationChange = function () {
 
             var q = this.getQ();
 
@@ -369,13 +334,9 @@ jQuery(document).ready(function($){
 
             //change form action
             if (q == "" || q == "0") {
-      
-              $(".searchbar-form").attr("action", "/chain-results");
-
+              $(".package-form").attr("action", "/chain-results");
             } else {
-
-               $(".searchbar-form").attr("action", "/hotel-results");
-
+              $(".package-form").attr("action", "/hotel-results");
             }
 
 
@@ -392,8 +353,8 @@ jQuery(document).ready(function($){
                 sameDayAsUTC = true;
               }
 
-              $("[data-unix] .loader").show();
-              $("[data-disabled] .loader").hide();
+              //$(".zcalendar-wrap-so [data-unix] .loader").show();
+              //$(".zcalendar-wrap-so [data-disabled] .loader").hide();
 
             } else {
               sameDayAsUTC = true;
@@ -407,15 +368,13 @@ jQuery(document).ready(function($){
             return this;
         };
   
-        ZyrgonCalendar.prototype.drawCalendar = function(mobile) {
+        ZyrgonCalendarOffer.prototype.drawCalendar = function(mobile) {
 
 
           if (mobile != "mobile") {
             this.field.innerHTML = "";
           } 
 
-
-  
           //button prev
           var leftBtn = document.createElement("button");
           leftBtn.setAttribute("type", "button");
@@ -489,10 +448,10 @@ jQuery(document).ready(function($){
           datePriceBox.classList.add("zc-date-price");
           dateBox.appendChild(datePriceBox);
 
-          var animation = document.createElement('div');
-          animation.classList.add('loader');  
-          $(animation).append("<div class='loader-ball'></div>");
-          dateBox.appendChild(animation);
+          //var animation = document.createElement('div');
+          ///animation.classList.add('loader');  
+          //$(animation).append("<div class='loader-ball'></div>");
+          //dateBox.appendChild(animation);
   
           //make fields for of the month (7 days per week, max 6 weeks = 42)
           for (i = 0; i < 42; i++) {
@@ -544,18 +503,15 @@ jQuery(document).ready(function($){
 
           }
 
-
-
           this.fill();
           this.createListeners();
   
           return this;
 
-
         };
   
         // press on the next button
-        ZyrgonCalendar.prototype.nextMonth = function (monthDifference) {
+        ZyrgonCalendarOffer.prototype.nextMonth = function (monthDifference) {
           this.month = moment(this.month, "X").add("1", "M").utc().format("X");
           this.field.querySelector(".zc-btn-prev").disabled = false;
           this.newRequest = true;
@@ -564,12 +520,12 @@ jQuery(document).ready(function($){
         };
   
         // press on the prev button (check if its current month, do not allow back)
-        ZyrgonCalendar.prototype.prevMonth = function () {
+        ZyrgonCalendarOffer.prototype.prevMonth = function () {
 
           var monthM = moment(this.month, "X");
   
           if (moment().isSame(monthM.utc().format("YYYY-MM-DD"), "month")) {
-            this.field.querySelector(".zc-btn-prev").disabled = true;
+            this.field.querySelector(".zcalendar-wrap-so .zc-btn-prev").disabled = true;
             return this;
           } else {
             this.month = monthM.subtract("1", "M").utc().format("X");
@@ -583,18 +539,18 @@ jQuery(document).ready(function($){
         };
   
         // return month when open advanced search after error
-        ZyrgonCalendar.prototype.prevMonthAdv = function (begginingUnix) {
+        ZyrgonCalendarOffer.prototype.prevMonthAdv = function (begginingUnix) {
           this.month = begginingUnix;
           this.fill();
           return this;
         };
   
-        ZyrgonCalendar.prototype.gotoDate = function (unix) {
+        ZyrgonCalendarOffer.prototype.gotoDate = function (unix) {
           var monthM = moment(this.month, "X").startOf("month");
           this.month = monthM.utc().format("X");
         };
   
-        ZyrgonCalendar.prototype.unselect = function () {
+        ZyrgonCalendarOffer.prototype.unselect = function () {
           var today = moment();
           this.isRangeSelected = true;
           this.fresh = true;
@@ -602,7 +558,7 @@ jQuery(document).ready(function($){
           this.fill();
         };
   
-        ZyrgonCalendar.prototype.selectDateSpecialOffer = function (e) {
+        ZyrgonCalendarOffer.prototype.selectDateSpecialOffer = function (e) {
 
           var target = e.target ? e.target : e.srcElement;
           var target = this.getDateElement(target);
@@ -647,7 +603,7 @@ jQuery(document).ready(function($){
           return this;
         };
   
-        ZyrgonCalendar.prototype.setRange = function (first, second) {
+        ZyrgonCalendarOffer.prototype.setRange = function (first, second) {
           //first, second date
           this.start = this.second.isAfter(this.first)
             ? this.first.clone()
@@ -663,7 +619,7 @@ jQuery(document).ready(function($){
           this.showRange(this.start, this.end);
         };
   
-        ZyrgonCalendar.prototype.setDateRange = function (first, second) {
+        ZyrgonCalendarOffer.prototype.setDateRange = function (first, second) {
           this.first = first.clone().startOf("day").add(12, "hours");
           this.start = first.clone().startOf("day").add(12, "hours");
           this.second = second.clone().startOf("day").add(12, "hours");
@@ -690,10 +646,11 @@ jQuery(document).ready(function($){
 
 
   
-        ZyrgonCalendar.prototype.showRange = function (firstM, secondM) {
+        ZyrgonCalendarOffer.prototype.showRange = function (firstM, secondM) {
+
           var q = this.getQ();
   
-          var dates = this.field.querySelectorAll(".zc-date");
+          var dates = this.field.querySelectorAll(".zcalendar-wrap-so .zc-date");
           if (this.fresh == true) {
             //unselect all
             for (i = 0; i < dates.length; i++) {
@@ -772,10 +729,10 @@ jQuery(document).ready(function($){
           return this;
         };
   
-        ZyrgonCalendar.prototype.showSingle = function (firstM) {
+        ZyrgonCalendarOffer.prototype.showSingle = function (firstM) {
           var q = this.getQ();
           var first = firstM.utc().format("X");
-          var dates = this.field.querySelectorAll(".zc-date");
+          var dates = this.field.querySelectorAll(".zcalendar-wrap-so .zc-date");
           for (i = 0; i < dates.length; i++) {
             this.showDateClean(dates[i]); //clean out the data attributes
   
@@ -793,7 +750,7 @@ jQuery(document).ready(function($){
           return this;
         };
   
-        ZyrgonCalendar.prototype.showDateClean = function (dateDiv) {
+        ZyrgonCalendarOffer.prototype.showDateClean = function (dateDiv) {
           var q = this.getQ();
   
           dateDiv.removeAttribute("data-start");
@@ -820,19 +777,21 @@ jQuery(document).ready(function($){
           return this;
         };
   
-        ZyrgonCalendar.prototype.getQ = function () {
-          var qInput = document.querySelector("input[name='q']").value;
-          // console.log(qInput,'qInput')
+        ZyrgonCalendarOffer.prototype.getQ = function () {
+
+          var qInput = $("#hotels-so").value;
+
           if (qInput == null) {
             q = 0;
           } else {
             q = Number(qInput);
           }
           return Number(q);
+
         };
   
         //display disabled dates
-        ZyrgonCalendar.prototype.showDisabled = function () {
+        ZyrgonCalendarOffer.prototype.showDisabled = function () {
 
           var q = this.getQ();
   
@@ -857,7 +816,7 @@ jQuery(document).ready(function($){
           var prevDisabled = null;
           var nextDisabled = null;
   
-          var dates = this.field.querySelectorAll(".zc-date");
+          var dates = this.field.querySelectorAll(".zcalendar-wrap-so .zc-date");
   
           //find first disabled before the picked time
           if (this.isRangeSelected == false) {
@@ -913,6 +872,7 @@ jQuery(document).ready(function($){
   
           // start of loop
           for (i = 0; i < dates.length; i++) {
+
             dates[i].removeAttribute("data-disabled");
   
             dates[i].removeAttribute("data-gray");
@@ -1081,7 +1041,8 @@ jQuery(document).ready(function($){
           } // end of loop
         };
   
-        ZyrgonCalendar.prototype.onDateHover = function (e) {
+        ZyrgonCalendarOffer.prototype.onDateHover = function (e) {
+
           var target = this.getDateElement(e.target);
           if (target == null) return;
           var unix = target.getAttribute("data-unix");
@@ -1104,7 +1065,7 @@ jQuery(document).ready(function($){
           }
         };
   
-        ZyrgonCalendar.prototype.getDateElement = function (el) {
+        ZyrgonCalendarOffer.prototype.getDateElement = function (el) {
           //on inside date click, sometimes we click on some inner div, and it doesnt contain date data, so we need to go into parents div
           for (var i = 0; i < 4; i++) {
             // go only 3 times
@@ -1117,24 +1078,24 @@ jQuery(document).ready(function($){
         };
   
         //nights between 2 moments
-        ZyrgonCalendar.prototype.getNights = function (first, second) {
+        ZyrgonCalendarOffer.prototype.getNights = function (first, second) {
           return Math.abs(first.diff(second, "days"));
         };
   
         //setters
-        ZyrgonCalendar.prototype.setStart = function (moment) {
+        ZyrgonCalendarOffer.prototype.setStart = function (moment) {
           this.start = moment;
         };
-        ZyrgonCalendar.prototype.setEnd = function (moment) {
+        ZyrgonCalendarOffer.prototype.setEnd = function (moment) {
           this.end = moment;
         };
   
-        ZyrgonCalendar.prototype.setOmnibeesDates = function () {
+        ZyrgonCalendarOffer.prototype.setOmnibeesDates = function () {
           //set checkin and checkout
         };
   
         //fill in the design
-        ZyrgonCalendar.prototype.fill = function () {
+        ZyrgonCalendarOffer.prototype.fill = function () {
           this.fillMonths(); //fill dates and all
   
           //fetch 2 month intervals for dates on screen
@@ -1147,7 +1108,7 @@ jQuery(document).ready(function($){
         };
   
         //fill in the design
-        ZyrgonCalendar.prototype.fillAdvanced = function (
+        ZyrgonCalendarOffer.prototype.fillAdvanced = function (
           firstAvailStartAdvanced
         ) {
           this.startDate = firstAvailStartAdvanced;
@@ -1168,7 +1129,7 @@ jQuery(document).ready(function($){
         };
   
         //draw all months
-        ZyrgonCalendar.prototype.fillMonths = function () {
+        ZyrgonCalendarOffer.prototype.fillMonths = function () {
           // for (var i = 0; i < this.showMonthsNum; i++) {
           //   this.fillMonth(i);
           // }
@@ -1182,288 +1143,9 @@ jQuery(document).ready(function($){
 
         };
   
-        // ZyrgonCalendar.prototype.fillMonth = function (i) {
 
 
-        //   var q = this.getQ();
-
-        //   // if mobile fill ,add after added month , if desktop add last 3
-        //   if ( typeof scrolled_months !== 'undefined' && resolution != 1) {
-
-        //     var month = moment(this.month,"X").clone().add( i + scrolled_months ,"months");
-
-        //   } else {
-
-        //     var month = moment(this.month,"X").clone().add(i,"months"); //first month that is picked
-
-        //   }
-
-        //   console.log(month);
-
-        //   alert("stop");
-
-
-        //   var first = month.clone().startOf('month'); //first day of the month
-        //   var last = month.clone().endOf('month'); //last day of the month
-
-        //   //console.log(first , last);
-
-
-        //   if ( this.data[q]==null ) {
-        //     this.data[q] = {};
-        //     this.data[q].calendar = {};
-        //   }
-
-
-        //   if ( typeof scrolled_months !== 'undefined' && resolution != 1) {
-
-        //     var monthDiv = this.field.querySelectorAll('.zc-month')[ i + scrolled_months ] ;
-
-        //     console.log(monthDiv);
-
-        //   } else {
-
-        //     var monthDiv = this.field.querySelectorAll('.zc-month')[ i ];
-
-        //   }
-
-
-
-
-          
-        //   // var month = moment(this.month, "X").clone().add(i, "months"); //first month that is picked
-  
-        //   // var first = month.clone().startOf("month"); //first day of the month
-        //   // var last = month.clone().endOf("month"); //last day of the month
-  
-        //   // if (this.data[q] == null) {
-        //   //   this.data[q] = {};
-        //   //   this.data[q].calendar = {};
-        //   // }
-  
-        //   var monthDiv = this.field.querySelectorAll(".zc-month")[i];
-        //   monthDiv.querySelector(".zc-month-name").innerHTML =
-        //     month.format("MMMM") + ",";
-        //   monthDiv.querySelector(".zc-month-year").innerHTML =
-        //     month.format("YYYY");
-  
-        //   var week = first.clone().startOf("week");
-  
-        //   var weekDays = [];
-        //   var weekFields = monthDiv.querySelectorAll(".zc-weekday");
-        //   for (var i = 0; i < 7; i++) {
-        //     weekFields[i].innerHTML = week.format("ddd").substring(0, 2);
-        //     week.add("1", "days");
-        //   }
-  
-        //   var calendar = [];
-  
-        //   for (i = 0; i < first.weekday(); i++) {
-        //     calendar.push(null);
-        //   }
-  
-        //   var day = first.clone().startOf("day").add(12, "hours");
-  
-        //   while (!day.isAfter(last, "day")) {
-        //     calendar.push(day);
-        //     day = day.clone().add(1, "days").startOf("day").add(12, "hours");
-        //   }
-  
-        //   var lang = Number(jQuery("#lang_curr").attr("data-lang"));
-  
-        //   var dates = monthDiv.querySelectorAll(".zc-date");
-
-        //   var firstNonFetched = null;
-
-
-
-  
-        //   for (i = 0; i < 42; i++) {
-
-
-        //     //clear price if desktop, dont if mobile
-        //     if ( typeof scrolled_months == 'undefined' ) {
-
-        //       dates[i].querySelector(".zc-date-price").innerHTML = "";
-
-        //        // dates[i].querySelector(".zc-date-price-decimals").innerHTML = "";
-
-        //        jQuery(dates[i]).find(".disabled-date").remove();
-
-        //     } 
-
-
-
-
-        //     // dates[i].querySelector(".zc-date-price").innerHTML = "";
-
-        //     // dates[i].removeAttribute("data-open");
-
-        //     // dates[i].removeAttribute("data-closed-on-arrival");
-
-        //     // dates[i].removeAttribute("data-closed-on-departure");
-
-        //     // dates[i].removeAttribute("data-minimum-stay-message");
-
-        //     // dates[i].removeAttribute("data-maximum-stay-message");
-
-        //     // $(dates[i]).find(".zc-minimum-stay").remove();
-
-
-  
-        //     if (calendar[i] != null) {
-
-        //       console.log("nije null");
-
-
-        //       var unix = Number(calendar[i].format("X"));
-  
-        //       dates[i].setAttribute("data-unix", unix);
-        //       dates[i].querySelector(".zc-date-date").innerHTML =
-        //         calendar[i].format("D");
-  
-        //       if (this.data[q].calendar[unix] != null) {
-        //         if (this.data[q].calendar[unix].available == false) {
-        //           dates[i].setAttribute("data-disabled", "true");
-        //         } else {
-        //           //price in front or back depends on the language
-        //           var currency = this.data[q].calendar[unix].currency;
-        //           currency = this.currencies[currency];
-        //           var value = this.data[q].calendar[unix].price.toFixed(2);
-        //           var price = value + currency;
-  
-        //           if (lang != 1 && currency != "COP") {
-        //             var vp = value.split(".");
-        //             value = vp[0];
-        //           }
-  
-        //           if (lang == 1 || lang == 8) {
-        //             price = currency + value;
-        //           } else {
-        //             price = value + currency;
-        //           }
-  
-        //           if (currency == "COP") {
-        //             var valuta = " mil";
-  
-        //             if (lang == 1 || lang == 2) {
-        //               var valuta = " k";
-        //             }
-  
-        //             price = Math.floor(value / 1000) + valuta;
-        //           }
-  
-        //           dates[i].querySelector(".zc-date-price").innerHTML = price;
-        //           dates[i].setAttribute("data-title", "Check In");
-        //           dates[i].setAttribute("data-open", this.data[q].calendar[unix].open);
-
-        //           if (  this.data[q].calendar[unix].open  == false ) {
-
-        //             dates[i].setAttribute( "data-title" , NotAvailableText ); 
-
-        //             dates[i].querySelector(".zc-date-price").innerHTML =  "";
-
-        //           }
-
-        //                           // add restrictions
-
-        //         var restrictions =  this.data[q].calendar[unix].restrictionTypes ;
-
-        //           if ( restrictions.length != 0 ) {
-
-        //             for ( k = 0 ; k < restrictions.length ; k++ ) {
-
-        //                 if (  restrictions[k] == 4 ) {
-
-        //                     dates[i].setAttribute( "data-stay-through" , "true" );
-
-        //                     dates[i].setAttribute( "data-title" , "Stay through");
-
-        //                 }
-
-        //                 if (  typeof restrictions[k] == "string" ) {
-
-        //                     var splited_restrictions = restrictions[k].split(",") ;
-
-
-        //                     if ( splited_restrictions[0] == "0" ) {
-
-        //                       $(dates[i]).find(".zc-minimum-stay").remove();
-
-        //                       dates[i].setAttribute( "data-minimum-length-of-stay" , splited_restrictions[1]  );
-
-        //                       dates[i].setAttribute( "data-minimum-stay-message" ,  MinimumText + " " + splited_restrictions[1] + " " + NightsText );
-
-        //                       dates[i].setAttribute("data-two-messages-title", "true");
-          
-        //                       $( "<div class='zc-minimum-stay'>"+splited_restrictions[1]+"</div>" ).appendTo( dates[i] );
-
-        //                     }
-
-
-        //                     if ( splited_restrictions[0] == "1" ) {
-
-        //                       $(dates[i]).find(".zc-maximum-stay").remove();
-
-        //                       dates[i].setAttribute( "data-maximum-length-of-stay" , splited_restrictions[1]  );
-
-        //                       dates[i].setAttribute( "data-maximum-stay-message" ,  MaximumText + " " + splited_restrictions[1] + " " + NightsText );
-
-        //                       dates[i].setAttribute("data-two-messages-title", "true");
-
-        //                       $( "<div class='zc-minimum-stay'>"+splited_restrictions[1]+"</div>" ).appendTo( dates[i] );
-
-        //                     }
-
-        //                 }
-
-
-
-        //                 if ( restrictions[k] == 5 ) {
-
-        //                     dates[i].setAttribute("data-closed-on-arrival" , "true" );
-
-        //                     dates[i].setAttribute("data-title", ClosedOnArrivalText );
-
-        //                     //$(dates[i]).addClass("line-through"); 
-
-        //                 }
-
-
-        //                 if (  restrictions[k] == 6 ) {
-
-        //                     dates[i].setAttribute( "data-closed-on-departure" , "true" );
-
-        //                 }
-
-
-        //             }
-
-
-        //           }
-
-
-
-        //         }
-        //       }
-        //     } else {
-        //       //non day
-        //       dates[i].removeAttribute("data-closed");
-        //       dates[i].querySelector(".zc-date-date").innerHTML = "";
-        //       dates[i].querySelector(".zc-date-price").innerHTML = "";
-        //       dates[i].removeAttribute("data-title");
-        //       dates[i].removeAttribute("data-unix");
-        //       dates[i].removeAttribute("data-open");
-        //     }
-        //   }
-  
-        //   return this;
-        // };
-
-
-
-
-        ZyrgonCalendar.prototype.fillMonth = function(i) {
+        ZyrgonCalendarOffer.prototype.fillMonth = function(i) {
 
 
           var q = this.getQ();
@@ -1493,11 +1175,11 @@ jQuery(document).ready(function($){
 
           if ( typeof scrolled_months !== 'undefined' && resolution != 1) {
 
-            var monthDiv = this.field.querySelectorAll('.zc-month')[ i + scrolled_months ] ;
+            var monthDiv = this.field.querySelectorAll('.zcalendar-wrap-so .zc-month')[ i + scrolled_months ] ;
 
           } else {
 
-            var monthDiv = this.field.querySelectorAll('.zc-month')[ i ];
+            var monthDiv = this.field.querySelectorAll('.zcalendar-wrap-so .zc-month')[ i ];
 
           }
 
@@ -1531,13 +1213,12 @@ jQuery(document).ready(function($){
 
           var lang = Number( $("#lang_curr").attr("data-lang") );
             
-          var dates = monthDiv.querySelectorAll(".zc-date");
+          var dates = monthDiv.querySelectorAll(".zcalendar-wrap-so .zc-date");
 
           var firstNonFetched = null;
 
 
           for ( i = 0; i < 42 ; i++ ) { //6 * 7 = 42 grid
-
 
             // clear price if desktop, dont if mobile
              if ( typeof scrolled_months == 'undefined' ) {
@@ -1577,7 +1258,6 @@ jQuery(document).ready(function($){
 
                     var vp = value.split('.');
                     value = vp[0] ;
-
                     value_decimals = "," + vp[1] ;
 
                   }
@@ -1643,7 +1323,7 @@ jQuery(document).ready(function($){
 
   
         //this.addDate(q, x, avail, price, currency, promo, open);
-        ZyrgonCalendar.prototype.hasDate = function (q, unix) {
+        ZyrgonCalendarOffer.prototype.hasDate = function (q, unix) {
           if (!this.data.hasOwnProperty(q)) {
             this.data[q] = {};
             this.data[q].calendar = {};
@@ -1655,7 +1335,7 @@ jQuery(document).ready(function($){
         };
   
         //this.addDate(q, x, avail, price, currency, promo, open);
-        ZyrgonCalendar.prototype.addDate = function (
+        ZyrgonCalendarOffer.prototype.addDate = function (
           q,
           unix,
           avail,
@@ -1683,7 +1363,7 @@ jQuery(document).ready(function($){
 
 
 
-        ZyrgonCalendar.prototype.fetchDates = function (occupancy) {
+        ZyrgonCalendarOffer.prototype.fetchDates = function (occupancy) {
 
 
 
@@ -1695,17 +1375,16 @@ jQuery(document).ready(function($){
   
           if (q === 0) {
             // it is chain
-            c = Number(document.querySelector("input[name='c']").value);
+            c = Number( $("#chain_code-so").value );
           }
   
           // GET FOLDER, IF ITS CLICKED ,FIND IS THERE ONLY ONE HOTEL IN IT AND SELECT IT
   
-          var hotelFolder = jQuery("#hotel_folder-so").val();
+          var hotelFolder = $("#hotel_folder-so").val();
   
           if (hotelFolder !== "") {
-            var folderChildren = jQuery(
-              "form .hotels_hotel-so[data-parent-id='" + hotelFolder + "']"
-            );
+
+            var folderChildren = $("form .hotels_hotel-so[data-parent-id='" + hotelFolder + "']");
   
             var folderChildrenNumber = folderChildren.length;
   
@@ -1726,6 +1405,7 @@ jQuery(document).ready(function($){
           if (datesDivs.length == 0) return; //nothing to do
   
           var firstUnix = Number(datesDivs[0].getAttribute("data-unix"));
+
           var lastUnix = Number(
             datesDivs[datesDivs.length - 1].getAttribute("data-unix")
           );
@@ -1792,9 +1472,9 @@ jQuery(document).ready(function($){
               );
             }
 
-            $(".loader").hide();
+            //$(".zcalendar-wrap-so .loader").hide();
 
-            $(".zc-date-price").show();
+            $(".zcalendar-wrap-so .zc-date-price").show();
 
             loadingFinished = true;
 
@@ -1871,11 +1551,9 @@ jQuery(document).ready(function($){
 
                   // }
 
-
                 }
 
               }
-
 
                 this.addDate(q, x, avail, price, currency, promo, open, restrictionTypes);
                 available.push(x);
@@ -1921,11 +1599,12 @@ jQuery(document).ready(function($){
             // );
 
           } else if (c == null && this.promo !== true) {
+
             var action = "get_hotel_availability";
 
             var adults = $("#ad-so").val();
 
-            if ( adults == "" || adults == undefined ) { adults = 1};
+            if ( adults == "" || adults == undefined ) { adults = 1 };
 
             var children = $("#ch-so").val();
 
@@ -1957,9 +1636,10 @@ jQuery(document).ready(function($){
               true
             );
           } else {
+
             var action = "get_chain_availability";
-  
-            var chain = jQuery("input[name='c']").attr("value");
+            var chain = $("#chain_code-so").attr("value");
+
             xhr.open(
               "GET",
               searchbarAjax.ajaxurl +
@@ -1989,7 +1669,7 @@ jQuery(document).ready(function($){
   
         // PROMO CALENDAR
   
-        ZyrgonCalendar.prototype.bookNow = function () {
+        ZyrgonCalendarOffer.prototype.bookNow = function () {
 
           // pick hotel
           var hotel_id = jQuery("#hotel").attr("data-hotel-id");
@@ -2135,7 +1815,7 @@ jQuery(document).ready(function($){
         var lang_number = jQuery("#lang_curr").attr("data-lang");
   
 
-        var widget = new ZyrgonCalendar({
+        var widget_offer = new ZyrgonCalendarOffer({
           element: ".zcalendar-so",
           openWith: "#calendar_dates-so",
           showMonthsNum: 3 /* min days to pick */,
@@ -2143,6 +1823,8 @@ jQuery(document).ready(function($){
           doFetch: true,
           promo: false,
           onSelect: function () {
+
+            console.log("package select");
 
             document.querySelector("#date_from-so").value =
               this.start.format(this.outputDateFormat);
@@ -2183,19 +1865,15 @@ jQuery(document).ready(function($){
   
               if (lang == 1) {
                 var end_date = this.end.format(this.outputShowFormat);
-                range =
-                  range +
-                  " - " +
-                  moment(end_date, "DD/MM/YYYY").format("MM/DD/YYYY");
+                range = range + " - " + moment(end_date, "DD/MM/YYYY").format("MM/DD/YYYY");
               }
   
-              jQuery("input[name='CheckOut']").trigger("change");
+              $("#date_to-so").trigger("change");
 
               if (resolution == 1) {
                    jQuery(".zcalendar-so").slideUp(200);
                    jQuery(".ob-searchbar-calendar-so").removeClass("opened");
               }
-
 
             } else {
               range = range + " - " + " . . . ";
@@ -2214,16 +1892,16 @@ jQuery(document).ready(function($){
         jQuery(document).on("click", ".select-occupancy-apply-so", function () {
 
           requestForNewOccupancy = true;
-          widget.newRequest = true;
-          $(".zc-date-price").hide();
-          $("[data-unix] .loader").show();
-          $("[data-disabled] .loader").hide();
-          widget.fill();
+          widget_offer.newRequest = true;
+          $(".zcalendar-wrap-so .zc-date-price").hide();
+          //$(".zcalendar-wrap-so [data-unix] .loader").show();
+          //$(".zcalendar-wrap-so [data-disabled] .loader").hide();
+          widget_offer.fill();
 
           // change text in bottom label
           var newAdultsNumber = Math.min( ...$("#ad-so").val().split(",")  ) ;
 
-          $(".number-of-adults").text( " " + newAdultsNumber);
+          $(".zcalendar-wrap-so .number-of-adults").text( " " + newAdultsNumber);
           
           if ( newAdultsNumber == 1 ) {
             $(".adult-plural").text( " " + $(".zcalendar-so").data("adult")  );
@@ -2237,19 +1915,13 @@ jQuery(document).ready(function($){
         // SHOW SELECTED DATES IN STEP 2
   
         this.startDate =
-          moment(jQuery("#date_from-so").val(), "DDMMYYYY").unix() + 43200;
+          moment( $("#date_from-so").val(), "DDMMYYYY").unix() + 43200;
   
-        var endDate = moment(jQuery("#date_to-so").val(), "DDMMYYYY").unix() + 43200;
-        // console.log(endDate);
-        jQuery(".zc-dates")
-          .find("div[data-unix=" + this.startDate + "]")
-          .click();
+        var endDate = moment( $("#date_to-so").val(), "DDMMYYYY").unix() + 43200;
+
+        jQuery(".zcalendar-wrap-so .zc-dates").find("div[data-unix=" + this.startDate + "]").click();
   
-        jQuery(".zc-dates")
-          .find("div[data-unix=" + endDate + "]")
-          .click();
-
-
+        jQuery(".zcalendar-wrap-so .zc-dates").find("div[data-unix=" + endDate + "]").click();
 
 
 
@@ -2266,18 +1938,18 @@ jQuery(document).ready(function($){
         
       if (nights == 1) {
 
-        $(".number_of_nights").text( nights + " " + $('[data-night]').eq(0).data('night')  );
+        $(".zcalendar-wrap-so .number_of_nights").text( nights + " " + $('[data-night]').eq(0).data('night')  );
         $(".number_of_nights-mobile-so").text( nights + " " + $('[data-night]').eq(0).data('night')  );
 
       } else {
 
-        $(".number_of_nights").text(  nights + " " + $('[data-night]').eq(0).data('nights')  );
+        $(".zcalendar-wrap-so .number_of_nights").text(  nights + " " + $('[data-night]').eq(0).data('nights')  );
         $(".number_of_nights-mobile-so").text(  nights + " " + $('[data-night]').eq(0).data('nights')  );
 
       }
 
       // update number of nights in preview
-      $(".nights_preview .preview_value").text( nights );
+      //$(".nights_preview .preview_value").text( nights );
 
       // update mobile dates
 
@@ -2285,7 +1957,7 @@ jQuery(document).ready(function($){
 
       var formatedEnd =  moment( $("#date_to-so").val(), 'DDMMYYYY').format("ddd, D MMM")  ;
 
-      $(".mobile-accept-dates-from-to-so").text(  formatedStart + " - " + formatedEnd   );
+      $(".mobile-accept-dates-from-to-so").text( formatedStart + " - " + formatedEnd  );
 
   }
 
@@ -2306,15 +1978,17 @@ jQuery(document).ready(function($){
               if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 400  
                 &&  loadingFinished == true)  {
 
+                console.log("skroll");
+
                 loadingFinished = false;
 
-                if ( $(".zc-month").length < 12) {
+                if ( $(".zcalendar-wrap-so .zc-month").length < 12) {
 
-                  scrolled_months = $(".zc-month").length;
+                  scrolled_months = $(".zcalendar-wrap-so .zc-month").length;
 
-                   widget.newRequest = true;
+                   widget_offer.newRequest = true;
 
-                   widget.drawCalendar("mobile");
+                   widget_offer.drawCalendar("mobile");
 
                   // return;
 

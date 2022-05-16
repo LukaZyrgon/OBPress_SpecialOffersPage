@@ -1,6 +1,9 @@
 jQuery(document).ready(function($){
 
 
+    maximumRoomsSelected = false;
+
+
     function update_cart(){
 
         var basket = $("#basket");
@@ -19,6 +22,7 @@ jQuery(document).ready(function($){
         $.each($(".roomrateinfo"), function() {
 
             var quantity = Number($(this).attr("data-quantity"));
+
 
             if ( quantity > 0 ) { 
 
@@ -94,7 +98,11 @@ jQuery(document).ready(function($){
 
             } else {
 
-                $(this).find(".room-btn-add").prop("disabled", false);
+                 $(this).find(".room-btn-add").prop("disabled", false);
+
+                 if ( maximumRoomsSelected == true ) {
+                    $(".room-btn-add").prop("disabled", "disabled");
+                 }
                 
             }
 
@@ -147,8 +155,8 @@ jQuery(document).ready(function($){
 
         var max_total = 20; //maximum quantity total of rooms for hotel
 
-        if ( Number($(this).closest("#hotels_grid").attr("data-max-rooms")) > 0 ) {
-            max_total = Number($(this).closest("#hotels_grid").attr("data-max-rooms"));
+        if ( Number($(this).closest("#package-results").attr("data-max-rooms")) > 0 ) {
+            max_total = Number($(this).closest("#package-results").attr("data-max-rooms"));
         }
 
         var max = 10; //maximum quantity for room
@@ -236,12 +244,22 @@ jQuery(document).ready(function($){
             $(".room-btn-plus").prop("disabled", "disabled");
             $(".room-btn-add").prop("disabled", "disabled");
 
+             maximumRoomsSelected = true;
+
              if ( room_quantity >= max )  { 
                   room.addClass("maximum");
+
                }
+
+               console.log("opsti max");
 
                
     } else {  // if not, enable pluses
+
+        console.log("else");
+
+
+         maximumRoomsSelected = false;
 
 
              // enable all pluses , except the one that went to maximum
@@ -264,6 +282,8 @@ jQuery(document).ready(function($){
 
                     room.addClass("maximum");
 
+                    console.log("maximum");
+
              }  else { // take class off and enables it
 
                    room.removeClass("maximum");
@@ -275,10 +295,14 @@ jQuery(document).ready(function($){
 
     }
 
+    $(".room-btn-add").prop("disabled", "disabled");
+
 
 
     // if on request room
     if (on_request == true)  {
+
+        console.log("request");
 
         $(".basket-send-book-now").hide();
         $(".basket-send-request-now").show();
@@ -587,8 +611,11 @@ jQuery(document).ready(function($){
 
             success:function(response){
 
+                var getUrl = window.location;
+                var baseUrl = getUrl.protocol + "//" + getUrl.host;
+
                 //redirect on success
-                var url = window.location.hostname + "/extras"; // read the step3 url
+                var url = baseUrl + "/extras"; // read the step3 url
                 
                 //url = url.replace("hotel-results","extras"); // replace step2 from step3
                 url = updateUrlParam('c',null,url); //remove c param
@@ -605,7 +632,7 @@ jQuery(document).ready(function($){
                     url = updateUrlParam('roomuids', room_id_single, url);
                     url = updateUrlParam('rateuids', rateplan_id_single, url);
                 }
-                
+
                 window.location.href = url; // redirect  
 
             },
