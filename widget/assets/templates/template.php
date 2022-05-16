@@ -562,7 +562,8 @@
 
                         <div class="obpress-package-rooms-basket"> 
 
-                            <div id="package-results">
+                            <div id="package-results" data-max-rooms="<?php if ( isset( $style->Result->MaxRooms) ) { 
+                                echo $style->Result->MaxRooms; }?>">
                                 <?php require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php'); ?>
                             </div>
 
