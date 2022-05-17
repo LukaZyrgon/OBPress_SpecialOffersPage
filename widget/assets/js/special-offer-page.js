@@ -33,10 +33,29 @@ jQuery(window).on("elementor/frontend/init", function () {
       var url_no_parametres = location.protocol + '//' + location.host + location.pathname;
 
       $(".ob-searchbar-submit-so").click(function() {
-        // var data = {};
-        // var action = "get_data_for_rooms";
 
-        // data.action = action;
+       
+        // update info in basket
+
+        $(".obpress-hotel-basket-stay-checkin-date").html(  moment( $("#date_from-so").val(), "DDMMYYYY").format("DD MMM") );
+
+        $(".obpress-hotel-basket-stay-checkout-date").html( moment( $("#date_to-so").val(), "DDMMYYYY").format("DD MMM") );
+
+        $(".obpress-hotel-basket-stay-guests-num").html( $("#ad-so").val() );
+
+
+        var startDay =  moment( $("#date_from-so").val(), "DDMMYYYY");
+        var endDay = moment( $("#date_to-so").val(), "DDMMYYYY");
+
+        $(".obpress-hotel-basket-stay-nights").html( endDay.diff(startDay, 'days') );
+
+
+        // obpress-hotel-basket-stay-checkout-date
+
+        // obpress-hotel-basket-stay-rooms-num
+
+
+        // obpress-hotel-basket-stay-guests
 
         var package_id = $(".single-package").data("package-id");
         var CheckIn = $("#date_from-so").val();
@@ -52,8 +71,9 @@ jQuery(window).on("elementor/frontend/init", function () {
           $("#package-results").html(res);
 
           //change url in browser 
-           window.history.pushState(  "", "Title", url_no_parametres + "?package_id="+ package_id + "&" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()   );
-        })
+           window.history.pushState(  "", "Title", url_no_parametres + "?package_id="+ package_id + "&" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()  );
+        });
+
       });
 
 
