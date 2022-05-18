@@ -33,10 +33,10 @@ jQuery(window).on("elementor/frontend/init", function () {
       var url_no_parametres = location.protocol + '//' + location.host + location.pathname;
 
       $(".ob-searchbar-submit-so").click(function() {
-        // var data = {};
-        // var action = "get_data_for_rooms";
 
-        // data.action = action;
+         $(".obpress-hotel-basket-stay-checkin-date").html("TODO");
+
+         console.log("stiog");
 
         var package_id = $(".single-package").data("package-id");
         var CheckIn = $("#date_from-so").val();

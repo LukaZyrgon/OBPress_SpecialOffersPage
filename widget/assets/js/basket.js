@@ -248,19 +248,11 @@ jQuery(document).ready(function($){
 
              if ( room_quantity >= max )  { 
                   room.addClass("maximum");
-
                }
 
-               console.log("opsti max");
-
-               
     } else {  // if not, enable pluses
 
-        console.log("else");
-
-
-         maximumRoomsSelected = false;
-
+            maximumRoomsSelected = false;
 
              // enable all pluses , except the one that went to maximum
               $.each($(".roomrate"), function() { 
@@ -282,8 +274,6 @@ jQuery(document).ready(function($){
 
                     room.addClass("maximum");
 
-                    console.log("maximum");
-
              }  else { // take class off and enables it
 
                    room.removeClass("maximum");
@@ -291,7 +281,6 @@ jQuery(document).ready(function($){
                    room.find(".room-btn-plus").prop("disabled", false);
                    room.find(".room-btn-add").prop("disabled", false);
              }
-
 
     }
 
@@ -778,8 +767,6 @@ jQuery(document).ready(function($){
             if ( $(this).data("rate-id") == rate_id ) {
 
                 var rate_to_remove = $(this);
-
-                console.log(rate_to_remove);
 
                 rate_to_remove.find(".room-btn-minus , .room-btn-value , .room-btn-plus , .text-number-of-rooms" ).hide();
 
