@@ -3399,1685 +3399,1685 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 
 		$this->end_controls_section();
 
-		// $this->start_controls_section(
-		// 	'basket_section',
-		// 	[
-		// 		'label' => __('Basket Style', 'OBPress_SpecialOffersPage'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->start_controls_section(
+			'basket_section',
+			[
+				'label' => __('Basket Style', 'OBPress_SpecialOffersPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_vertical_position',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Vertical Position', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 160,
-		// 				'max' => 350,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 265,
-		// 		],
-		// 		'selectors' => [
-		// 			'.obpress-body-admin-bar-shown .single-package .obpress-hotel-results-basket' => 'top: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_vertical_position',
+			[
+				'label' => esc_html__( 'Basket Vertical Position', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 160,
+						'max' => 350,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 265,
+				],
+				'selectors' => [
+					'.obpress-body-admin-bar-shown .single-package .obpress-hotel-results-basket' => 'top: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_margin',
-		// 	[
-		// 		'label' => __( 'Basket Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '25',
-		// 			'right' => '0',
-		// 			'bottom' => '45',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_margin',
+			[
+				'label' => __( 'Basket Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '25',
+					'right' => '0',
+					'bottom' => '45',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		
-		// $this->add_control(
-		// 	'basket_width',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Width', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 313,
-		// 				'max' => 500,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 336,
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket' => 'width: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_width',
+			[
+				'label' => esc_html__( 'Basket Width', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 313,
+						'max' => 500,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 336,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket' => 'width: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_background_color',
-		// 	[
-		// 		'label' => __('Baket Background Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket, .obpress-hotel-results-basket-info, .single-package .obpress-hotel-results-basket-price' => 'background-color: {{basket_background_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_background_color',
+			[
+				'label' => __('Baket Background Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket, .obpress-hotel-results-basket-info, .single-package .obpress-hotel-results-basket-price' => 'background-color: {{basket_background_color}}',
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Box_Shadow::get_type(),
-		// 	[
-		// 		'name' => 'basket_box_shadow',
-		// 		'label' => esc_html__( 'Basket Box Shadow', 'OBPress_SpecialOffersPage' ),
-		// 		'selector' => '.single-package .obpress-hotel-results-basket',
-		// 		'fields_options' => [
-		// 			'box_shadow_type' => [ 
-		// 				'default' =>'yes' 
-		// 			],
-		// 			'box_shadow' => [
-		// 				'default' =>[
-		// 					'horizontal' => 0,
-		// 					'vertical' => 4,
-		// 					'blur' => 7,
-		// 					'color' => '#00000029'
-		// 				]
-		// 			]
-		// 		]
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'basket_box_shadow',
+				'label' => esc_html__( 'Basket Box Shadow', 'OBPress_SpecialOffersPage' ),
+				'selector' => '.single-package .obpress-hotel-results-basket',
+				'fields_options' => [
+					'box_shadow_type' => [ 
+						'default' =>'yes' 
+					],
+					'box_shadow' => [
+						'default' =>[
+							'horizontal' => 0,
+							'vertical' => 4,
+							'blur' => 7,
+							'color' => '#00000029'
+						]
+					]
+				]
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_result_background_color',
-		// 	[
-		// 		'label' => __('Baket Hotel Result Background Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#F9F9F9',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket-cart' => 'background-color: {{basket_hotel_result_background_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_result_background_color',
+			[
+				'label' => __('Baket Hotel Result Background Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#F9F9F9',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-cart' => 'background-color: {{basket_hotel_result_background_color}}',
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->end_controls_section();
 
-		// $this->start_controls_section(
-		// 	'basket_info_section',
-		// 	[
-		// 		'label' => __('Basket Info Style', 'OBPress_SpecialOffersPage'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->start_controls_section(
+			'basket_info_section',
+			[
+				'label' => __('Basket Info Style', 'OBPress_SpecialOffersPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_info_padding',
-		// 	[
-		// 		'label' => __( 'Basket Info Padding', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '17',
-		// 			'right' => '0',
-		// 			'bottom' => '14',
-		// 			'left' => '25',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_info_padding',
+			[
+				'label' => __( 'Basket Info Padding', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '17',
+					'right' => '0',
+					'bottom' => '14',
+					'left' => '25',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_stars_color',
-		// 	[
-		// 		'label' => __('Baket Hotel Result Background Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#ffc70e',
-		// 		'selectors' => [
-		// 			'.single-package .hotel-stars .star-full path' => 'fill: {{basket_hotel_stars_color}}',
-		// 			'.single-package .star-lines g .c' => 'stroke: {{basket_hotel_stars_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_stars_color',
+			[
+				'label' => __('Baket Hotel Result Background Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#ffc70e',
+				'selectors' => [
+					'.single-package .hotel-stars .star-full path' => 'fill: {{basket_hotel_stars_color}}',
+					'.single-package .star-lines g .c' => 'stroke: {{basket_hotel_stars_color}}',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_stars_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Hotel Stars Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'flex-start',
-		// 		'options' => [
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-stars-holder' => 'justify-content: {{basket_hotel_stars_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_stars_justify_content',
+			[
+				'label' => __( 'Basket Hotel Stars Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-stars-holder' => 'justify-content: {{basket_hotel_stars_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_stars_margin',
-		// 	[
-		// 		'label' => __( 'Basket Hotel Stars Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '7',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .hotel-stars' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_stars_margin',
+			[
+				'label' => __( 'Basket Hotel Stars Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '7',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .hotel-stars' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_stars_width',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Hotel Stars Width', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 10,
-		// 				'max' => 60,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 14,
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .hotel-stars svg' => 'width: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_stars_width',
+			[
+				'label' => esc_html__( 'Basket Hotel Stars Width', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'selectors' => [
+					'.single-package .hotel-stars svg' => 'width: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_stars_height',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Hotel Stars Height', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 10,
-		// 				'max' => 40,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 14,
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .hotel-stars svg' => 'height: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_stars_height',
+			[
+				'label' => esc_html__( 'Basket Hotel Stars Height', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 40,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'selectors' => [
+					'.single-package .hotel-stars svg' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_name_margin',
-		// 	[
-		// 		'label' => __( 'Basket Hotel Name Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '19',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_name_margin',
+			[
+				'label' => __( 'Basket Hotel Name Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '19',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_name_color',
-		// 	[
-		// 		'label' => __('Baket Hotel Name Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-title' => 'color: {{basket_hotel_name_color}}',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_name_color',
+			[
+				'label' => __('Baket Hotel Name Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-title' => 'color: {{basket_hotel_name_color}}',
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_hotel_name_typography',
-		// 		'label' => __('Basket Hotel Name Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-basket-title',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '16',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '19',
-		// 				],
-		// 			],
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_hotel_name_typography',
+				'label' => __('Basket Hotel Name Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-basket-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
 					
-		// 		],
-		// 	]
-		// );
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_hotel_name_align_title',
-		// 	[
-		// 		'label' => __( 'Basket Hotel Name Align', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-title' => 'text-align: {{basket_hotel_name_align_title}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_hotel_name_align_title',
+			[
+				'label' => __( 'Basket Hotel Name Align', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-title' => 'text-align: {{basket_hotel_name_align_title}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Stay Info Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'flex-start',
-		// 		'options' => [
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-info' => 'justify-content: {{basket_stay_info_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_justify_content',
+			[
+				'label' => __( 'Basket Stay Info Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-info' => 'justify-content: {{basket_stay_info_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Border::get_type(),
-		// 	[
-		// 		'name' => 'basket_stay_dates_border',
-		// 		'label' => __( 'Basket Stay Dates Border', 'OBPress_SpecialOffersPage' ),
-		// 		'fields_options' => [
-		// 			'border' => [
-		// 				'default' => 'solid',
-		// 			],
-		// 			'width' => [
-		// 				'default' => [
-		// 					'top' => '0',
-		// 					'right' => '1',
-		// 					'bottom' => '0',
-		// 					'left' => '0',
-		// 					'isLinked' => false,
-		// 				],
-		// 			],
-		// 			'color' => [
-		// 				'default' => '#DFDFDF',
-		// 			],
-		// 		],
-		// 		'selector' => '.single-package .obpress-hotel-basket-stay-dates',
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'basket_stay_dates_border',
+				'label' => __( 'Basket Stay Dates Border', 'OBPress_SpecialOffersPage' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '0',
+							'right' => '1',
+							'bottom' => '0',
+							'left' => '0',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#DFDFDF',
+					],
+				],
+				'selector' => '.single-package .obpress-hotel-basket-stay-dates',
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_dates_margin',
-		// 	[
-		// 		'label' => __( 'Basket Stay Dates Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '8',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-checkout' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_dates_margin',
+			[
+				'label' => __( 'Basket Stay Dates Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '8',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkout' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_title_color',
-		// 	[
-		// 		'label' => __('Basket Stay Info Title Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#2c2f33',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-checkin-string' => 'color: {{basket_stay_info_title_color}}',
-		// 			'.single-package .obpress-hotel-basket-stay-checkout-string' => 'color: {{basket_stay_info_title_color}}',
-		// 			'.single-package .obpress-hotel-basket-stay-rooms-string' => 'color: {{basket_stay_info_title_color}}',
-		// 			'.single-package .obpress-hotel-basket-stay-nights-string' => 'color: {{basket_stay_info_title_color}}',
-		// 			'.single-package .obpress-hotel-basket-stay-guests-string' => 'color: {{basket_stay_info_title_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_title_color',
+			[
+				'label' => __('Basket Stay Info Title Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#2c2f33',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkin-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-checkout-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-rooms-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-nights-string' => 'color: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-guests-string' => 'color: {{basket_stay_info_title_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_stay_info_title_typography',
-		// 		'label' => __('Basket Stay Info Title Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-basket-stay-checkin-string, .single-package .obpress-hotel-basket-stay-checkout-string, .single-package .obpress-hotel-basket-stay-rooms-string, .single-package .obpress-hotel-basket-stay-nights-string, .single-package .obpress-hotel-basket-stay-guests-string',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '10',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '13',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_stay_info_title_typography',
+				'label' => __('Basket Stay Info Title Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-basket-stay-checkin-string, .single-package .obpress-hotel-basket-stay-checkout-string, .single-package .obpress-hotel-basket-stay-rooms-string, .single-package .obpress-hotel-basket-stay-nights-string, .single-package .obpress-hotel-basket-stay-guests-string',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '10',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '13',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_title_margin',
-		// 	[
-		// 		'label' => __( 'Basket Stay Info Title Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '4',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-checkin-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 			'.single-package .obpress-hotel-basket-stay-checkout-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 			'.single-package .obpress-hotel-basket-stay-rooms-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 			'.single-package .obpress-hotel-basket-stay-nights-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 			'.single-package .obpress-hotel-basket-stay-guests-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_title_margin',
+			[
+				'label' => __( 'Basket Stay Info Title Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '4',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkin-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-checkout-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-rooms-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-nights-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .obpress-hotel-basket-stay-guests-string' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		
-		// $this->add_control(
-		// 	'basket_stay_info_date_color',
-		// 	[
-		// 		'label' => __('Basket Stay Info Date Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-checkin-date, .single-package .obpress-hotel-basket-stay-checkout-date' => 'color: {{basket_stay_info_title_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_date_color',
+			[
+				'label' => __('Basket Stay Info Date Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-checkin-date, .single-package .obpress-hotel-basket-stay-checkout-date' => 'color: {{basket_stay_info_title_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_stay_info_date_typography',
-		// 		'label' => __('Basket Stay Info Date Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-basket-stay-checkin-date, .single-package .obpress-hotel-basket-stay-checkout-date',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_stay_info_date_typography',
+				'label' => __('Basket Stay Info Date Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-basket-stay-checkin-date, .single-package .obpress-hotel-basket-stay-checkout-date',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_arrow_color',
-		// 	[
-		// 		'label' => __('Basket Stay Info Arrow Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow .b' => 'stroke: {{basket_stay_info_title_color}}',
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow .c' => 'stroke: {{basket_stay_info_title_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_arrow_color',
+			[
+				'label' => __('Basket Stay Info Arrow Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow .b' => 'stroke: {{basket_stay_info_title_color}}',
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow .c' => 'stroke: {{basket_stay_info_title_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_arrow_width',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Stay Info Arrow Width', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 8,
-		// 				'max' => 30,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 10,
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'width: {{SIZE}}px',
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow svg' => 'width: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_arrow_width',
+			[
+				'label' => esc_html__( 'Basket Stay Info Arrow Width', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'width: {{SIZE}}px',
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow svg' => 'width: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_arrow_height',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Stay Info Arrow Height', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 8,
-		// 				'max' => 30,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 10,
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'height: {{SIZE}}px',
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow svg' => 'height: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_arrow_height',
+			[
+				'label' => esc_html__( 'Basket Stay Info Arrow Height', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'height: {{SIZE}}px',
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow svg' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_arrow_margin',
-		// 	[
-		// 		'label' => __( 'Basket Stay Info Arrow Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '8',
-		// 			'bottom' => '0',
-		// 			'left' => '8',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_arrow_margin',
+			[
+				'label' => __( 'Basket Stay Info Arrow Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '8',
+					'bottom' => '0',
+					'left' => '8',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-dates .obpress-hotel-searchbar-arrow' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_stay_info_values_color',
-		// 	[
-		// 		'label' => __('Basket Stay Info Values Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num' => 'color: {{basket_stay_info_values_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_values_color',
+			[
+				'label' => __('Basket Stay Info Values Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num' => 'color: {{basket_stay_info_values_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_stay_info_values_typography',
-		// 		'label' => __('Basket Stay Info Values Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_stay_info_values_typography',
+				'label' => __('Basket Stay Info Values Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
 		
-		// $this->add_control(
-		// 	'basket_stay_info_values_text_align',
-		// 	[
-		// 		'label' => __( 'Basket Stay Info Values Text Align', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'left',
-		// 		'options' => [
-		// 			'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
-		// 			'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'right'  => __( 'Right', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num' => 'text-align: {{basket_stay_info_values_text_align}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_stay_info_values_text_align',
+			[
+				'label' => __( 'Basket Stay Info Values Text Align', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'left',
+				'options' => [
+					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
+					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'right'  => __( 'Right', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num' => 'text-align: {{basket_stay_info_values_text_align}}'
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->end_controls_section();
 
-		// $this->start_controls_section(
-		// 	'basket_room_info_section',
-		// 	[
-		// 		'label' => __('Basket Room Styles', 'OBPress_SpecialOffersPage'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->start_controls_section(
+			'basket_room_info_section',
+			[
+				'label' => __('Basket Room Styles', 'OBPress_SpecialOffersPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_margin',
-		// 	[
-		// 		'label' => __( 'Basket Room Info Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '10',
-		// 			'right' => '0',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket-cart' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_margin',
+			[
+				'label' => __( 'Basket Room Info Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-cart' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Border::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_info_border',
-		// 		'label' => __( 'Basket Room Info Border', 'OBPress_SpecialOffersPage' ),
-		// 		'fields_options' => [
-		// 			'border' => [
-		// 				'default' => 'solid',
-		// 			],
-		// 			'width' => [
-		// 				'default' => [
-		// 					'top' => '1',
-		// 					'right' => '0',
-		// 					'bottom' => '0',
-		// 					'left' => '0',
-		// 					'isLinked' => false,
-		// 				],
-		// 			],
-		// 			'color' => [
-		// 				'default' => '#E6E6E6',
-		// 			],
-		// 		],
-		// 		'selector' => '.single-package .obpress-hotel-results-basket-cart',
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'basket_room_info_border',
+				'label' => __( 'Basket Room Info Border', 'OBPress_SpecialOffersPage' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '1',
+							'right' => '0',
+							'bottom' => '0',
+							'left' => '0',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#E6E6E6',
+					],
+				],
+				'selector' => '.single-package .obpress-hotel-results-basket-cart',
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_padding',
-		// 	[
-		// 		'label' => __( 'Basket Room Info Padding', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '20',
-		// 			'right' => '31',
-		// 			'bottom' => '19',
-		// 			'left' => '26',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket-cart .basket-room-div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_padding',
+			[
+				'label' => __( 'Basket Room Info Padding', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '31',
+					'bottom' => '19',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-cart .basket-room-div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Room Info Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-title-price' => 'justify-content: {{basket_room_info_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_justify_content',
+			[
+				'label' => __( 'Basket Room Info Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-title-price' => 'justify-content: {{basket_room_info_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_title_price_margin',
-		// 	[
-		// 		'label' => __( 'Basket Room Title Price Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '14',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-title-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_title_price_margin',
+			[
+				'label' => __( 'Basket Room Title Price Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '14',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-title-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_name_color',
-		// 	[
-		// 		'label' => __('Basket Room Info Name Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-title, .single-package .obpress-hotel-results-total-room-selected, .single-package .obpress-hotel-results-item-price' => 'color: {{basket_room_info_name_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_name_color',
+			[
+				'label' => __('Basket Room Info Name Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-title, .single-package .obpress-hotel-results-total-room-selected, .single-package .obpress-hotel-results-item-price' => 'color: {{basket_room_info_name_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_info_name_typography',
-		// 		'label' => __('Basket Room Info Name Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-item-title',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '16',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '600',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '19',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_name_typography',
+				'label' => __('Basket Room Info Name Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-item-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '600',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '19',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_info_quantity_typography',
-		// 		'label' => __('Basket Room Info Quantity Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-total-room-selected',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_quantity_typography',
+				'label' => __('Basket Room Info Quantity Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-total-room-selected',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_info_price_typography',
-		// 		'label' => __('Basket Room Info Price Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-item-price',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_price_typography',
+				'label' => __('Basket Room Info Price Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-item-price',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_info_currency_typography',
-		// 		'label' => __('Basket Room Info Currency Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-item-curr',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '10',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_currency_typography',
+				'label' => __('Basket Room Info Currency Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-item-curr',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '10',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_policy_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-promo-edit' => 'justify-content: {{basket_room_info_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_policy_justify_content',
+			[
+				'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo-edit' => 'justify-content: {{basket_room_info_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_policy_padding',
-		// 	[
-		// 		'label' => __( 'Basket Room Policy Padding', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '15',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-promo-edit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_policy_padding',
+			[
+				'label' => __( 'Basket Room Policy Padding', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '15',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo-edit' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_policy_name_color',
-		// 	[
-		// 		'label' => __('Basket Room Info Policy Name Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#82B789',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-promo' => 'color: {{basket_room_info_name_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_policy_name_color',
+			[
+				'label' => __('Basket Room Info Policy Name Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#82B789',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo' => 'color: {{basket_room_info_name_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_info_policy_name_typography',
-		// 		'label' => __('Basket Room Info Policy Name Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-item-promo',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '12',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '600',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '15',
-		// 				],
-		// 			],
-		// 			'font_style' => [
-		// 				'default' => 'italic',
-		// 			]
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_info_policy_name_typography',
+				'label' => __('Basket Room Info Policy Name Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-item-promo',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '600',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+					'font_style' => [
+						'default' => 'italic',
+					]
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_remover_color',
-		// 	[
-		// 		'label' => __('Basket Room Remover Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#4B8CF4',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-edit' => 'color: {{basket_room_remover_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_remover_color',
+			[
+				'label' => __('Basket Room Remover Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#4B8CF4',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-edit' => 'color: {{basket_room_remover_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_remover_typography',
-		// 		'label' => __('Basket Room Remover Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-item-edit',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '10',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '15',
-		// 				],
-		// 			],
-		// 			'text_decoration' => [
-		// 				'default' => 'underline',
-		// 			]
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_remover_typography',
+				'label' => __('Basket Room Remover Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-item-edit',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '10',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+					'text_decoration' => [
+						'default' => 'underline',
+					]
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_info_policy_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-item-promo-edit' => 'justify-content: {{basket_room_info_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_info_policy_justify_content',
+			[
+				'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-item-promo-edit' => 'justify-content: {{basket_room_info_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_discount_padding',
-		// 	[
-		// 		'label' => __( 'Basket Room Discount Padding', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '10',
-		// 			'right' => '0',
-		// 			'bottom' => '10',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-discount-holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_discount_padding',
+			[
+				'label' => __( 'Basket Room Discount Padding', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '10',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-discount-holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_discount_color',
-		// 	[
-		// 		'label' => __('Basket Room Discount Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-discount-message, .single-package .obpress-hotel-results-discount-currency, .single-package .obpress-hotel-results-discount-price' => 'color: {{basket_room_discount_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_discount_color',
+			[
+				'label' => __('Basket Room Discount Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-discount-message, .single-package .obpress-hotel-results-discount-currency, .single-package .obpress-hotel-results-discount-price' => 'color: {{basket_room_discount_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_discount_typography',
-		// 		'label' => __('Basket Room Discount Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-discount-message, .single-package .obpress-hotel-results-discount-currency, .single-package .obpress-hotel-results-discount-price',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_discount_typography',
+				'label' => __('Basket Room Discount Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-discount-message, .single-package .obpress-hotel-results-discount-currency, .single-package .obpress-hotel-results-discount-price',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Border::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_discount_border',
-		// 		'label' => __( 'Basket Room Discount Border', 'OBPress_SpecialOffersPage' ),
-		// 		'fields_options' => [
-		// 			'border' => [
-		// 				'default' => 'solid',
-		// 			],
-		// 			'width' => [
-		// 				'default' => [
-		// 					'top' => '1',
-		// 					'right' => '0',
-		// 					'bottom' => '0',
-		// 					'left' => '0',
-		// 					'isLinked' => false,
-		// 				],
-		// 			],
-		// 			'color' => [
-		// 				'default' => '#E6E6E6',
-		// 			],
-		// 		],
-		// 		'selector' => '.single-package .obpress-hotel-results-discount-holder, .single-package .obpress-hotel-results-tax-holder',
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'basket_room_discount_border',
+				'label' => __( 'Basket Room Discount Border', 'OBPress_SpecialOffersPage' ),
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '1',
+							'right' => '0',
+							'bottom' => '0',
+							'left' => '0',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#E6E6E6',
+					],
+				],
+				'selector' => '.single-package .obpress-hotel-results-discount-holder, .single-package .obpress-hotel-results-tax-holder',
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_padding',
-		// 	[
-		// 		'label' => __( 'Basket Room Tax Padding', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '12',
-		// 			'right' => '0',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_padding',
+			[
+				'label' => __( 'Basket Room Tax Padding', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '12',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-holder' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Room Tax Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'flex-start',
-		// 		'options' => [
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-title' => 'justify-content: {{basket_room_tax_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_justify_content',
+			[
+				'label' => __( 'Basket Room Tax Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'flex-start',
+				'options' => [
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-title' => 'justify-content: {{basket_room_tax_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_title_margin',
-		// 	[
-		// 		'label' => __( 'Basket Room Tax Title Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '8',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_title_margin',
+			[
+				'label' => __( 'Basket Room Tax Title Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '8',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_title_color',
-		// 	[
-		// 		'label' => __('Basket Room Tax Title Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-title' => 'color: {{basket_room_tax_title_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_title_color',
+			[
+				'label' => __('Basket Room Tax Title Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-title' => 'color: {{basket_room_tax_title_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_tax_title_typography',
-		// 		'label' => __('Basket Room Tax Title Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-tax-title',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '12',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '15',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_tax_title_typography',
+				'label' => __('Basket Room Tax Title Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-tax-title',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_icon_width',
-		// 	[
-		// 		'label' => __( 'Basket Room Tax Icon Width', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 15,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 30,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-title svg' => 'width: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_icon_width',
+			[
+				'label' => __( 'Basket Room Tax Icon Width', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 15,
+				],
+				'range' => [
+					'px' => [
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-title svg' => 'width: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_icon_height',
-		// 	[
-		// 		'label' => __( 'Basket Room Tax Icon Height', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 15,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 30,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-title svg' => 'height: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_icon_height',
+			[
+				'label' => __( 'Basket Room Tax Icon Height', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 15,
+				],
+				'range' => [
+					'px' => [
+						'max' => 30,
+						'step' => 1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-title svg' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_results_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Room Tax Results Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-bottom' => 'justify-content: {{basket_room_tax_results_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_results_justify_content',
+			[
+				'label' => __( 'Basket Room Tax Results Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-bottom' => 'justify-content: {{basket_room_tax_results_justify_content}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_room_tax_message_color',
-		// 	[
-		// 		'label' => __('Basket Room Tax Message Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-tax-message, .single-package .obpress-hotel-results-tax-total' => 'color: {{basket_room_tax_message_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_room_tax_message_color',
+			[
+				'label' => __('Basket Room Tax Message Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-results-tax-message, .single-package .obpress-hotel-results-tax-total' => 'color: {{basket_room_tax_message_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_tax_message_typography',
-		// 		'label' => __('Basket Room Tax Message Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-tax-message',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '12',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '15',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_tax_message_typography',
+				'label' => __('Basket Room Tax Message Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-tax-message',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '12',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '15',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_tax_price_typography',
-		// 		'label' => __('Basket Room Tax Price Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-tax-total',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_tax_price_typography',
+				'label' => __('Basket Room Tax Price Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-tax-total',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_room_tax_currency_typography',
-		// 		'label' => __('Basket Room Tax Currency Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-results-tax-currency',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '14',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '400',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '18',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_room_tax_currency_typography',
+				'label' => __('Basket Room Tax Currency Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-results-tax-currency',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '14',
+						],
+					],
+					'font_weight' => [
+						'default' => '400',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '18',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->end_controls_section();
 
-		// $this->start_controls_section(
-		// 	'basket_total_price_section',
-		// 	[
-		// 		'label' => __('Basket Total Price Styles', 'OBPress_SpecialOffersPage'),
-		// 		'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
+		$this->start_controls_section(
+			'basket_total_price_section',
+			[
+				'label' => __('Basket Total Price Styles', 'OBPress_SpecialOffersPage'),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_total_price_padding',
-		// 	[
-		// 		'label' => __( 'Basket Total Price Padding', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '8',
-		// 			'right' => '31',
-		// 			'bottom' => '22',
-		// 			'left' => '26',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-results-basket-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_total_price_padding',
+			[
+				'label' => __( 'Basket Total Price Padding', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '8',
+					'right' => '31',
+					'bottom' => '22',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-results-basket-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		
-		// $this->add_control(
-		// 	'basket_total_price_justify_content',
-		// 	[
-		// 		'label' => __( 'Basket Total Price Justify Content', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'space-between',
-		// 		'options' => [
-		// 			'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
-		// 			'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
-		// 			'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
-		// 			'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
-		// 			'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-total-price-holder' => 'justify-content: {{basket_total_price_justify_content}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_total_price_justify_content',
+			[
+				'label' => __( 'Basket Total Price Justify Content', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'space-between',
+				'options' => [
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
+					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
+					'space-evenly'  => __( 'Space Evenly', 'OBPress_SpecialOffersPage' ),
+					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
+					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-total-price-holder' => 'justify-content: {{basket_total_price_justify_content}}'
+				],
+			]
+		);
 		
-		// $this->add_control(
-		// 	'basket_total_title_color',
-		// 	[
-		// 		'label' => __('Basket Total Title Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#000',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-total-price-string' => 'color: {{basket_total_title_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_total_title_color',
+			[
+				'label' => __('Basket Total Title Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .obpress-hotel-total-price-string' => 'color: {{basket_total_title_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_total_title_typography',
-		// 		'label' => __('Basket Total Title Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-total-price-string',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '16',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '24',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_total_title_typography',
+				'label' => __('Basket Total Title Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-total-price-string',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '16',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_total_price_color',
-		// 	[
-		// 		'label' => __('Basket Total Price Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#82B789',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-total-price' => 'color: {{basket_total_price_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_total_price_color',
+			[
+				'label' => __('Basket Total Price Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#82B789',
+				'selectors' => [
+					'.single-package .obpress-hotel-total-price' => 'color: {{basket_total_price_color}}'
+				],
+			]
+		);
 
-		// $this->add_group_control(
-		// 	\Elementor\Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'basket_total_price_typography',
-		// 		'label' => __('Basket Total Price Typography', 'OBPress_SpecialOffersPage'),
-		// 		'selector' => '.single-package .obpress-hotel-total-price',
-		// 		'fields_options' => [
-		// 			'typography' => [
-		// 				'default' => 'yes'
-		// 			],
-		// 			'font_family' => [
-		// 				'default' => 'Montserrat',
-		// 			],
-		// 			'font_size' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '20',
-		// 				],
-		// 			],
-		// 			'font_weight' => [
-		// 				'default' => '700',
-		// 			],
-		// 			'line_height' => [
-		// 				'default' => [
-		// 					'unit' => 'px',
-		// 					'size' => '24',
-		// 				],
-		// 			],
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'basket_total_price_typography',
+				'label' => __('Basket Total Price Typography', 'OBPress_SpecialOffersPage'),
+				'selector' => '.single-package .obpress-hotel-total-price',
+				'fields_options' => [
+					'typography' => [
+						'default' => 'yes'
+					],
+					'font_family' => [
+						'default' => 'Montserrat',
+					],
+					'font_size' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '20',
+						],
+					],
+					'font_weight' => [
+						'default' => '700',
+					],
+					'line_height' => [
+						'default' => [
+							'unit' => 'px',
+							'size' => '24',
+						],
+					],
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_button_margin',
-		// 	[
-		// 		'label' => __( 'Basket Button Margin', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::DIMENSIONS,
-		// 		'default' => [
-		// 			'top' => '15',
-		// 			'right' => '0',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 			'isLinked' => false
-		// 		],
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_margin',
+			[
+				'label' => __( 'Basket Button Margin', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '15',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'.single-package .obpress-hotel-submit' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_button_bg_color',
-		// 	[
-		// 		'label' => __('Basket Button Backgournd Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#82B789',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit' => 'background-color: {{basket_button_bg_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_bg_color',
+			[
+				'label' => __('Basket Button Backgournd Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#82B789',
+				'selectors' => [
+					'.single-package .obpress-hotel-submit' => 'background-color: {{basket_button_bg_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_button_color',
-		// 	[
-		// 		'label' => __('Basket Button Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit' => 'color: {{basket_button_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_color',
+			[
+				'label' => __('Basket Button Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .obpress-hotel-submit' => 'color: {{basket_button_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_button_bg_hover_color',
-		// 	[
-		// 		'label' => __('Basket Button Hover Backgournd Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#82B789',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit:hover' => 'background-color: {{basket_button_bg_hover_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_bg_hover_color',
+			[
+				'label' => __('Basket Button Hover Backgournd Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#82B789',
+				'selectors' => [
+					'.single-package .obpress-hotel-submit:hover' => 'background-color: {{basket_button_bg_hover_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_button_hover_color',
-		// 	[
-		// 		'label' => __('Basket Button Hover Color', 'OBPress_SpecialOffersPage'),
-		// 		'type' => \Elementor\Controls_Manager::COLOR,
-		// 		'input_type' => 'color',
-		// 		'default' => '#fff',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit:hover' => 'color: {{basket_button_hover_color}}'
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_hover_color',
+			[
+				'label' => __('Basket Button Hover Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .obpress-hotel-submit:hover' => 'color: {{basket_button_hover_color}}'
+				],
+			]
+		);
 
-		// $this->add_control(
-		// 	'basket_button_transition',
-		// 	[
-		// 		'label' => __( 'Basket Button Transition Duration', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 0.3,
-		// 		],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'max' => 3,
-		// 				'step' => 0.1,
-		// 			],
-		// 		],
-		// 		'render_type' => 'ui',
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit' => 'transition-duration: {{SIZE}}s',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_transition',
+			[
+				'label' => __( 'Basket Button Transition Duration', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.3,
+				],
+				'range' => [
+					'px' => [
+						'max' => 3,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .obpress-hotel-submit' => 'transition-duration: {{SIZE}}s',
+				],
+			]
+		);
 		
-		// $this->add_control(
-		// 	'basket_button_height',
-		// 	[
-		// 		'label' => esc_html__( 'Basket Button Height', 'OBPress_SpecialOffersPage' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ 'px' ],
-		// 		'range' => [
-		// 			'px' => [
-		// 				'min' => 20,
-		// 				'max' => 100,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => 'px',
-		// 			'size' => 40,
-		// 		],
-		// 		'selectors' => [
-		// 			'.single-package .obpress-hotel-submit' => 'height: {{SIZE}}px',
-		// 		],
-		// 	]
-		// );
+		$this->add_control(
+			'basket_button_height',
+			[
+				'label' => esc_html__( 'Basket Button Height', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 20,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 40,
+				],
+				'selectors' => [
+					'.single-package .obpress-hotel-submit' => 'height: {{SIZE}}px',
+				],
+			]
+		);
 
-		// $this->end_controls_section();
+		$this->end_controls_section();
 	}
 
 	protected function render()
