@@ -1151,16 +1151,33 @@ jQuery(document).ready(function($){
           var q = this.getQ();
 
 
+          // // if mobile fill ,add after added month , if desktop add last 3
+          // if ( typeof scrolled_months !== 'undefined' && resolution != 1) {
+
+          //   var month = moment(this.month,"X").clone().add( i + scrolled_months ,"months");
+
+          // } else {
+
+          //   var month = moment(this.month,"X").clone().add(i,"months"); //first month that is picked
+
+          // }
+
+
+
           // if mobile fill ,add after added month , if desktop add last 3
-          if ( typeof scrolled_months !== 'undefined' && resolution != 1) {
+  if ( typeof scrolled_months !== 'undefined' && resolution != 1) {
 
-            var month = moment(this.month,"X").clone().add( i + scrolled_months ,"months");
+    var month = moment(this.realToday,"X").clone().add( i + scrolled_months ,"months");
 
-          } else {
+  } else if (resolution != 1) { // if initial mobile load
 
-            var month = moment(this.month,"X").clone().add(i,"months"); //first month that is picked
+    var month = moment(this.realToday).startOf('month').add(i,"months");
 
-          }
+  } else {
+
+    var month = moment(this.month,"X").clone().add(i,"months"); //first month that is picked
+
+  }
 
 
           var first = month.clone().startOf('month'); //first day of the month
@@ -1963,43 +1980,125 @@ jQuery(document).ready(function($){
 
 
 
-  // LOAD MORE MONTHS
-  document.getElementById("calendar-holder").addEventListener("scroll", calendarScroll);
+  // load more months on mobile  
 
-  loadingFinished = true;
+  var calendar_element = $(".zcalendar-so");
 
-
-  function calendarScroll() {
-
-            if ( resolution != 1 && $(".zcalendar-wrap-so").is(':visible') ) {
-
-              var calendar_element = $(".zcalendar-so");
-
-              if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 400  
-                &&  loadingFinished == true)  {
-
-                console.log("skroll");
-
-                loadingFinished = false;
-
-                if ( $(".zcalendar-wrap-so .zc-month").length < 12) {
-
-                  scrolled_months = $(".zcalendar-wrap-so .zc-month").length;
-
-                   widget_offer.newRequest = true;
-
-                   widget_offer.drawCalendar("mobile");
-
-                  // return;
+  $("#calendar-holder").scroll(function(){ 
 
 
-                }
+    if (  resolution != 1  ) {
+
+      if  (  ( $("#calendar-holder").scrollTop() + 100 )  >  $("#calendar-holder").height()  )  {
+
+        if ( $(".zc-month").length < 12) {
+
+          loadThreeMoreMonths();
+
+        }
+
+      }
+
+    }
+
+
+  });
+
+
+
+
+  function loadThreeMoreMonths() {
+
+    console.log("load 3 more");
+
+    scrolled_months = $(".zc-month").length;
+
+    console.log(scrolled_months);
+
+    widget_offer.newRequest = true;
+
+    widget_offer.drawCalendar("mobile");
+
+    $(".zc-dates").find('div[data-unix=' + this.startDate + ']').click(); 
+    $(".zc-dates").find('div[data-unix=' + endDate + ']').click(); 
+
+  }
+
+
+  this.startDate = moment( $("#date_from").val(), 'DDMMYYYY').unix() + 43200;
+  var endDate = moment( $("#date_to").val(), 'DDMMYYYY').unix()  + 43200;
+
+
+    if ( resolution == 1 ) {
+
+      $(".zc-dates").find('div[data-unix=' + this.startDate + ']').click(); 
+      $(".zc-dates").find('div[data-unix=' + endDate + ']').click(); 
+
+    } else {
+
+      if (  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').length > 0 &&  
+         $(".zc-dates").find('div[data-unix=' + endDate + ']').length > 0 ) {
+
+        $(".zc-dates").find('div[data-unix=' + this.startDate + ']').click(); 
+        $(".zc-dates").find('div[data-unix=' + endDate + ']').click(); 
+
+      }  else {
+
+          var checkIfCalendar = setInterval(checkIfCalendarIsFinished, 1000);
+
+          function checkIfCalendarIsFinished() {
+
+            console.log("uso u fju");
+
+            if (    $("#hotel_code").val() != "" &&  $("#hotel_code").val() != "0") { // if hotel is not selected, load more
+
+              var datesInCalendar = $(".zc-date[data-unix]");
+              var lastDate = datesInCalendar[datesInCalendar.length-1];
+
+
+              if ( $(lastDate).find(".zc-date-price").text() != ""  || $(lastDate).attr("data-open") === "false") {
+
+                  if (  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').length > 0 &&  
+                     $(".zc-dates").find('div[data-unix=' + endDate + ']').length > 0 ) {
+                      clearInterval(checkIfCalendar);
+                  } else {
+
+                    if ( $(".zc-month").length < 12) {
+                      loadThreeMoreMonths();
+                    } else {
+                      clearInterval(checkIfCalendar);
+                    }
+                  }
 
               }
 
+
+            } else {
+
+              if (  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').length > 0 &&  
+                     $(".zc-dates").find('div[data-unix=' + endDate + ']').length > 0 ) {
+                      clearInterval(checkIfCalendar);
+              } else {
+
+                if ( $(".zc-month").length < 12) {
+                  loadThreeMoreMonths();
+                } else {
+                  clearInterval(checkIfCalendar);
+                }
+              }
+
             }
-   
-  }
+
+          }
+
+
+      }
+
+
+    }
+
+
+
 
 
 
