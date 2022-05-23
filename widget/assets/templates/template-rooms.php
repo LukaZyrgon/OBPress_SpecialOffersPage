@@ -50,7 +50,9 @@
 			$AllRoomRates = [];
 			$AllRoomRates = $AllRoomRatesCopy;
 
-			// TODO var_dump($AllRoomRates["76586"]->Total->AmountBeforeTax);
+			//var_dump($AllRoomRates);
+
+			//var_dump($AllRoomRates["34058"]->Total->AmountBeforeTax);
 
 			$AllRoomsEmpty = false;
 
