@@ -331,8 +331,7 @@
 }
 
 .room-amenities {
-    /* width: 329px; */
-    width: calc(100% - 103px);
+    width: calc(100% - 80px);
     height: 53px;
     display: flex;
     justify-content: space-between;
@@ -341,6 +340,7 @@
     align-items: center;
     position: absolute;
     top: -26px;
+    left: 40px;
     box-shadow: 0px 14px 24px #BEAD8E30;
 }
 
@@ -826,10 +826,59 @@ form {
         display: none;
     }
 
+    .single-package .single-package-room-container {
+        width: 100%;
+        padding: 0px 20px;
+    }
 
+    .elementor-section.elementor-section-boxed > .elementor-container {
+        max-width: 100%;
+    }
 
+    .single-package {
+        overflow: hidden;
+    }
 
+    .single-package .rooms-message-header {
+        font-size: 16px;
+        text-align: left;
+        margin: 30px 0px 30px 0px;
+        padding-left: 20px;
+    }
 
+    .single-package .single-package-room-name {
+        font-size: 16px;
+    }
+
+    .single-package .single-package-room-icon-name span , .single-package .single-package-room-icon-name {
+        font-size: 9px;
+    }
+
+    .single-package .single-package-room-icons-type img {
+      height: 10px;
+      margin-top: 3px;
+    }
+
+    .single-package-room-icons {
+        height: auto;
+    }
+
+    .single-package .price-after .currency_symbol_price, .single-package .price-after .decimal_value_price {
+        font-size: 20px;
+    }
+
+    .single-package .price-after .decimal_value_price {
+        font-size: 16px;
+    }
+
+    .single-package .single-package-room {
+        margin: 0px 0px 30px 0px;
+    }
+
+    .single-package .room-btn-add {
+        padding:  10px 17px 10px 17px;
+        font-size: 12px;
+    }
 
 
 
