@@ -797,7 +797,9 @@ form {
 
 }
 
-
+.single-package-info-categories.mobile {
+  display: none;
+}
 
 
 /* MOBILE */
@@ -879,9 +881,6 @@ form {
         padding:  10px 17px 10px 17px;
         font-size: 12px;
     }
-
-
-
 
     /* Basket mobile */
 
@@ -1083,9 +1082,61 @@ form {
         background-repeat: no-repeat;
     }
 
-
     /*  end of basket css */
 
+    .single-package-info-categories.desktop {
+      display: none;
+    }
 
+    .single-package-info-categories.mobile {
+      display: flex;
+      flex-direction: column;
+    }
 
+    .single-package-info-categories.mobile .single-package-info-category-holder {
+      position: relative;
+      border-bottom: 1px solid rgba(112, 112, 112, 0.15);
+    }
+
+    .single-package-info-categories.mobile .single-package-info-category-title {
+      font-size: 14px;
+      color: #2C2F33;
+      font-weight: bold;
+      padding: 20px 0px;
+    }
+
+    .single-package-info-categories.mobile .single-package-info-description-holder {
+      font-size: 14px;
+      color: #2C2F33;
+      padding-bottom: 21px;
+      display: none;
+    }
+
+    .single-package-info-categories.mobile .single-package-info-description-holder > div {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .single-package-info-categories.mobile .single-package-info-description-holder div div {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .single-package-info-categories.mobile .single-package-info-description-holder div div:last-child, 
+    .single-package-info-categories.mobile .single-package-info-description-holder div div:nth-last-child(2) {
+      margin-bottom: 0px;
+  }
+
+    .single-package-info-categories.mobile .single-package-info-description-arrow {
+      position: absolute;
+      top: 25px;
+      right: 0;
+    }
+
+    .single-package-info-categories.mobile .single-package-info-description-holder img {
+      width: 11px;
+      margin-right: 8px;
+    }
 }
