@@ -541,6 +541,7 @@ jQuery(document).ready(function($){
             }
         });
 
+
         reservation.rooms = rooms;
         reservation.occupancies = occupancies;
 
@@ -550,6 +551,7 @@ jQuery(document).ready(function($){
         var ch = getUrlParam("ch");
         var ag = getUrlParam("ag");
 
+
         if (ad==null) ad = "";
         if (ch==null) ch = "";
         if (ag==null) ag = "";
@@ -557,6 +559,7 @@ jQuery(document).ready(function($){
         chArr = ch.split(",");
         agArr = ag.split(",");
         var old_occupancies = [];
+
 
         for ( var i=0 ; i<rooms.length ; i++) {
 
@@ -583,6 +586,7 @@ jQuery(document).ready(function($){
             old_occupancies.push(old_occupancy);
 
         }
+
 
         data.reservation = JSON.stringify(reservation);
 
@@ -613,9 +617,10 @@ jQuery(document).ready(function($){
                 url = updateUrlParam('sid',data.sid,url);
                 url = updateUrlParam('CheckIn',newCheckIn.join(','),url);
                 url = updateUrlParam('CheckOut',newCheckOut.join(','),url);
-                url = updateUrlParam('ad',newAd.join(','),url);
-                url = updateUrlParam('ch',newCh.join(','),url);
-                url = updateUrlParam('ag',newAg.join(','),url);
+                url = updateUrlParam('ad',old_occupancy.adults,url);
+                url = updateUrlParam('ch',old_occupancy.children,url);
+                url = updateUrlParam('ag',old_occupancy.ages,url);
+
 
                 if (rooms.length == 1) {
                     url = updateUrlParam('roomuids', room_id_single, url);

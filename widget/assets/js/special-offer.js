@@ -48,8 +48,8 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         $.get(specialOfferAjax.ajaxurl+"?action=get_data_for_rooms&package_id=" + package_id + "&CheckIn=" +  CheckIn + "&CheckOut=" + 
           CheckOut + "&ad=" + ad + "&ch=" + ch + "&ag=" + ag , function( res ) {
-          $("#package-results").empty();
-          $("#package-results").html(res);
+          $("#room-results").empty();
+          $("#room-results").html(res);
 
         });
 
