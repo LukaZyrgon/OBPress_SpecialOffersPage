@@ -78,6 +78,16 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       });
 
+      $('.single-package-info-category-title').on('click', function() {
+        if($(this).closest('.single-package-info-category-holder').find('.single-package-info-description-holder').css('display') == 'none'){
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-holder').slideDown(200);
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-arrow').css('transform', 'rotate(180deg)')
+        }
+        else {
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-holder').slideUp(200);
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-arrow').css('transform', 'rotate(0deg)')
+        }
+      });
 
 
       /* add or update parameters in url */
