@@ -510,6 +510,9 @@ jQuery(document).ready(function($){
                 room.start = $(this).attr("data-start");
                 room.end = $(this).attr("data-end");
 
+
+                  console.log(room);
+
                 room_id_single = Number($(this).attr("data-room-id"));
                 rateplan_id_single = Number($(this).attr("data-rate-id"));
 
@@ -540,6 +543,8 @@ jQuery(document).ready(function($){
             
             }
         });
+
+      
 
 
         reservation.rooms = rooms;
@@ -586,6 +591,7 @@ jQuery(document).ready(function($){
             old_occupancies.push(old_occupancy);
 
         }
+        
 
 
         data.reservation = JSON.stringify(reservation);

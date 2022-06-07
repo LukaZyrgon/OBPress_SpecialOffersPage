@@ -89,9 +89,22 @@
                             data-price-before-discount="<?= isset($roomrate->Total->TPA_Extensions->TotalDiscountValue) ? (@$roomrate->Total->TPA_Extensions->TotalDiscountValue+@$roomrate->Total->AmountBeforeTax)/$nights : "" ?>" 
                             data-tax-policy-name="Taxas de Serviço e ISS" 
                             data-total-price-after-tax="<?php echo $roomrate->Total->AmountAfterTax; ?>"
-                            data-children-ages="" data-rate-id="<?= $roomrate->RatePlanID ?>"
+                            data-children-ages="" 
+                            data-rate-id="<?= $roomrate->RatePlanID ?>"
                             data-room-id="<?php echo $roomtype->RoomID; ?>"
-                            data-currency-symbol="<?= $currencies[0]->CurrencySymbol ?>"  
+                            data-currency-symbol="<?= $currencies[0]->CurrencySymbol ?>" 
+                            data-rph="<?= $roomrate->RoomStayCandidateRPH ?>" 
+                            data-start="<?= $roomrate->EffectiveDate ?>" 
+                            data-end="<?= $roomrate->ExpireDate ?>" 
+
+
+                            data-name="<?= $roomtype->RoomName ?>"
+                            data-rate-name="<?= $rate_plan->RatePlanName ?>"
+                            data-adults="<?= $adults?>" 
+                            data-children="<?= $children?>" 
+                            data-children-ages="<?= $children_ages?>"
+
+
                             data-policy="<?php if($rate_plan->CancelPenalties != null): ?>
                                                     <?php foreach($rate_plan->CancelPenalties as $cancellation): ?>
                                                         <?php if($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount == 0 && $cancellation->AmountPercent->Percent == 0 && $cancellation->AmountPercent->NmbrOfNights == 0)): ?>
@@ -245,6 +258,12 @@
                             data-children-ages="" data-rate-id="<?= $roomrate->RatePlanID ?>"
                             data-room-id="<?php echo $roomtype->RoomID; ?>"
                             data-currency-symbol="<?= $currencies[0]->CurrencySymbol ?>"  
+                            data-name="<?= $roomtype->RoomName ?>"
+                            data-rate-name="<?= $rate_plan->RatePlanName ?>"
+                            data-adults="<?= $adults?>" 
+                            data-children="<?= $children?>" 
+                            data-children-ages="<?= $children_ages?>"
+                            data-rph="<?= $roomrate->RoomStayCandidateRPH ?>" 
                             data-policy="<?php if($rate_plan->CancelPenalties != null): ?>
                                                     <?php foreach($rate_plan->CancelPenalties as $cancellation): ?>
                                                         <?php if($cancellation->NonRefundable == false && ($cancellation->AmountPercent->Amount == 0 && $cancellation->AmountPercent->Percent == 0 && $cancellation->AmountPercent->NmbrOfNights == 0)): ?>
