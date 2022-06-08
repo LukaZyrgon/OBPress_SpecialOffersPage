@@ -802,6 +802,102 @@ form {
 }
 
 
+
+
+
+/* NEXT PAGE LOADER */
+
+.next-step-loader {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  left: calc(50% - 70px);
+}
+
+.gooey {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  width: 142px;
+  height: 40px;
+  margin: -20px 0 0 -71px;
+  filter: contrast(20);
+}
+.gooey .dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 12px;
+  left: 15px;
+  background: #000;
+  border-radius: 50%;
+  transform: translateX(0);
+  animation: dot 2.8s infinite;
+}
+.gooey .dots {
+  transform: translateX(0);
+  margin-top: 12px;
+  margin-left: 31px;
+  animation: dots 2.8s infinite;
+}
+.gooey .dots span {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  background: #000;
+  border-radius: 50%;
+}
+
+
+@-moz-keyframes dot {
+  50% {
+    transform: translateX(96px);
+  }
+}
+@-webkit-keyframes dot {
+  50% {
+    transform: translateX(96px);
+  }
+}
+@-o-keyframes dot {
+  50% {
+    transform: translateX(96px);
+  }
+}
+@keyframes dot {
+  50% {
+    transform: translateX(96px);
+  }
+}
+@-moz-keyframes dots {
+  50% {
+    transform: translateX(-31px);
+  }
+}
+@-webkit-keyframes dots {
+  50% {
+    transform: translateX(-31px);
+  }
+}
+@-o-keyframes dots {
+  50% {
+    transform: translateX(-31px);
+  }
+}
+@keyframes dots {
+  50% {
+    transform: translateX(-31px);
+  }
+}
+
+/* end of loader */
+
+
+
+
 /* MOBILE */
 
 @media (max-width: 1279px) { 
@@ -810,6 +906,7 @@ form {
 
     .obpress-package-rooms-basket {
         display: block;
+        position: relative;
     }
 
     .single-package-room-container {
@@ -822,6 +919,12 @@ form {
 
     #package-results {
         overflow: auto;
+        margin-bottom: 67px;
+    }
+
+    .next-step-loader {
+      left: 50% ;
+      top: -97px;
     }
 
     .obpress-hotel-results-basket-holder {

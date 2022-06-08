@@ -703,11 +703,27 @@
                                 <?php require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php'); ?>
                             </div>
 
+
+                            <div class="next-step-loader">
+                                <div class="gooey">
+                                    <span class="dot"></span>
+                                    <div class="dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!--  Get basket html -->
 
                             <?php require_once( WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/basket.php'); ?>
 
                         </div>
+
+
+                        
+
 
 					<?php endif; ?>
 				<?php endforeach; ?>
@@ -1529,6 +1545,13 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 
 <?php endif; ?>
 

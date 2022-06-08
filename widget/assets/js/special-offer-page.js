@@ -34,7 +34,9 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       $(".ob-searchbar-submit-so").click(function() {
 
+        $("#package-results").empty();
 
+        $(".next-step-loader").show();
        
         // update info in basket
 
@@ -69,11 +71,12 @@ jQuery(window).on("elementor/frontend/init", function () {
         $.get(specialOfferAjax.ajaxurl+"?action=get_data_for_rooms&package_id=" + package_id + "&CheckIn=" +  CheckIn + "&CheckOut=" + 
           CheckOut + "&ad=" + ad + "&ch=" + ch + "&ag=" + ag , function( res ) {
             
-          $("#package-results").empty();
-          $("#package-results").html(res);
+            $(".next-step-loader").hide();
+          
+            $("#package-results").html(res);
 
-          //change url in browser 
-           window.history.pushState(  "", "Title", url_no_parametres + "?package_id="+ package_id + "&" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()  );
+            //change url in browser 
+             window.history.pushState(  "", "Title", url_no_parametres + "?package_id="+ package_id + "&" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()  );
         });
 
       });
