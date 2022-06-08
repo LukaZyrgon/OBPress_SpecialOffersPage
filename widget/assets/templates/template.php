@@ -1549,11 +1549,22 @@
 
 
 
-
-
-
-
 <?php endif; ?>
+
+
+<div class="next-step-loader-next-page">
+    <div class="gooey">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="search-loading-message">
+        <?php _e("Please wait...", 'OBPressTheme') ?>
+    </div>
+</div>
 
 <script type="text/javascript">
     var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";

@@ -807,7 +807,7 @@ form {
 
 /* NEXT PAGE LOADER */
 
-.next-step-loader {
+.next-step-loader , .next-step-loader-next-page {
   position: absolute;
   display: none;
   justify-content: center;
@@ -922,7 +922,7 @@ form {
         margin-bottom: 67px;
     }
 
-    .next-step-loader {
+    .next-step-loader , .next-step-loader-nex-page {
       left: 50% ;
       top: -97px;
     }

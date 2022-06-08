@@ -291,7 +291,6 @@ jQuery(document).ready(function($){
     // if on request room
     if (on_request == true)  {
 
-        console.log("request");
 
         $(".basket-send-book-now").hide();
         $(".basket-send-request-now").show();
@@ -434,8 +433,8 @@ jQuery(document).ready(function($){
 
 
         // show loader
-        $("body > .container").hide();
-        $(".next-step-loader").css("display", "flex");
+        $(".single-package").hide();
+        $(".next-step-loader-next-page").css("display", "flex");
         $(".obpress-footer").hide();
 
 
