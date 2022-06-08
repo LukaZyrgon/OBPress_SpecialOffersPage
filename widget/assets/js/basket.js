@@ -440,7 +440,6 @@ jQuery(document).ready(function($){
 
         var chain = $("input[name='c']").val();
         var data = {};
-        //data._token = $("#token").val(); // TODO
         data.sid = ( Math.random() + 1 ).toString(36).substring( 2,8 );
         var reservation = {};
 
@@ -510,8 +509,6 @@ jQuery(document).ready(function($){
                 room.end = $(this).attr("data-end");
 
 
-                  console.log(room);
-
                 room_id_single = Number($(this).attr("data-room-id"));
                 rateplan_id_single = Number($(this).attr("data-rate-id"));
 
@@ -544,7 +541,6 @@ jQuery(document).ready(function($){
         });
 
       
-
 
         reservation.rooms = rooms;
         reservation.occupancies = occupancies;
@@ -592,8 +588,8 @@ jQuery(document).ready(function($){
         }
         
 
-
         data.reservation = JSON.stringify(reservation);
+
 
         // send ajax request step 2 save
 
