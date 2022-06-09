@@ -291,7 +291,6 @@ jQuery(document).ready(function($){
     // if on request room
     if (on_request == true)  {
 
-        console.log("request");
 
         $(".basket-send-book-now").hide();
         $(".basket-send-request-now").show();
@@ -434,14 +433,13 @@ jQuery(document).ready(function($){
 
 
         // show loader
-        $("body > .container").hide();
-        $(".next-step-loader").css("display", "flex");
+        $(".single-package").hide();
+        $(".next-step-loader-next-page").css("display", "flex");
         $(".obpress-footer").hide();
 
 
         var chain = $("input[name='c']").val();
         var data = {};
-        //data._token = $("#token").val(); // TODO
         data.sid = ( Math.random() + 1 ).toString(36).substring( 2,8 );
         var reservation = {};
 
@@ -510,6 +508,7 @@ jQuery(document).ready(function($){
                 room.start = $(this).attr("data-start");
                 room.end = $(this).attr("data-end");
 
+
                 room_id_single = Number($(this).attr("data-room-id"));
                 rateplan_id_single = Number($(this).attr("data-rate-id"));
 
@@ -541,6 +540,8 @@ jQuery(document).ready(function($){
             }
         });
 
+      
+
         reservation.rooms = rooms;
         reservation.occupancies = occupancies;
 
@@ -550,6 +551,7 @@ jQuery(document).ready(function($){
         var ch = getUrlParam("ch");
         var ag = getUrlParam("ag");
 
+
         if (ad==null) ad = "";
         if (ch==null) ch = "";
         if (ag==null) ag = "";
@@ -557,6 +559,7 @@ jQuery(document).ready(function($){
         chArr = ch.split(",");
         agArr = ag.split(",");
         var old_occupancies = [];
+
 
         for ( var i=0 ; i<rooms.length ; i++) {
 
@@ -583,8 +586,10 @@ jQuery(document).ready(function($){
             old_occupancies.push(old_occupancy);
 
         }
+        
 
         data.reservation = JSON.stringify(reservation);
+
 
         // send ajax request step 2 save
 
@@ -613,9 +618,10 @@ jQuery(document).ready(function($){
                 url = updateUrlParam('sid',data.sid,url);
                 url = updateUrlParam('CheckIn',newCheckIn.join(','),url);
                 url = updateUrlParam('CheckOut',newCheckOut.join(','),url);
-                url = updateUrlParam('ad',newAd.join(','),url);
-                url = updateUrlParam('ch',newCh.join(','),url);
-                url = updateUrlParam('ag',newAg.join(','),url);
+                url = updateUrlParam('ad',old_occupancy.adults,url);
+                url = updateUrlParam('ch',old_occupancy.children,url);
+                url = updateUrlParam('ag',old_occupancy.ages,url);
+
 
                 if (rooms.length == 1) {
                     url = updateUrlParam('roomuids', room_id_single, url);

@@ -95,7 +95,7 @@
 	                        	}
 	                        ?>
 
-	                        <div class="single-package-info-categories">
+	                        <div class="single-package-info-categories desktop">
 	                        	<ul class="single-package-info-categories-bars">
 	                        		<li class="single-package-info-categories-bar active-bar" data-category="package-description"><?php _e('Description', 'OBPress_SpecialOffersPage') ?></li>
                                     <?php if(isset($offer["get_rate_plans"]->Guarantees)): ?>
@@ -252,6 +252,142 @@
 	                    			</div>
 	                    		<?php endforeach; ?>
 	                        </div>
+                            <div class="single-package-info-categories mobile">
+                                <div class="single-package-info-category-holder">
+                                    <div class="single-package-info-category-title"><?php _e('Description', 'OBPress_SpecialOffersPage') ?></div>
+                                    <div class="single-package-info-description-holder">
+                                        <?= nl2br($offer["get_rate_plans"]->RatePlanDescription->Description) ?>
+                                    </div>
+                                    <img class="single-package-info-description-arrow" src="<?= get_template_directory_uri() ?>/templates/assets/icons/arrow_down.svg" alt="">
+                                </div>
+                                <?php if(isset($offer["get_rate_plans"]->Guarantees)): ?>
+                                    <div class="single-package-info-category-holder">
+                                        <div class="single-package-info-category-title"><?php _e('Deposit / Guarantee Policies', 'OBPress_SpecialOffersPage') ?></div>
+                                        <div class="single-package-info-description-holder">
+                                            <?php if(isset($offer["get_rate_plans"]->Guarantees)): ?>
+                                                <?php
+                                                    $Guarantees = $offer["get_rate_plans"]->Guarantees;
+                                                    $NewGuarantees = [];
+                                                    foreach($Guarantees as $key => $Guaranty) {
+                                                        if(is_null($Guaranty->GuaranteeDescription)) {
+                                                            unset($Guarantees[$key]);
+                                                        }
+                                                        else {
+                                                            $NewGuarantees[$Guaranty->GuaranteeDescription->Name][] = $Guaranty;
+                                                        }
+                                                    }
+                                                    $Guarantees = $NewGuarantees;
+                                                    $Guarantees = array_values($Guarantees);
+                                                    
+                                                    $first_element = array_shift($Guarantees);
+                                                    array_push($Guarantees, $first_element);
+                                                ?>                                
+
+                                                <?php if(current($Guarantees) == null): ?>
+
+                                                <?php elseif(current($Guarantees) != null && count($Guarantees) == 1 && count($Guarantees[0]) == 1 && $Guarantees[0][0]->Start == null && $Guarantees[0][0]->GuaranteeDescription != null): ?>
+                                                    <?= nl2br($Guarantees[0][0]->GuaranteeDescription->Description) ?>
+                                                <?php else: ?>
+                                                    <?php foreach($Guarantees as $GuarantyByType): ?>
+                                                        <?php if(count($GuarantyByType) == 1 && $GuarantyByType[0]->Start == null && $GuarantyByType[0]->GuaranteeDescription != null): ?>
+                                                            <span class="policy_dates"><?php _e('On other dates:', 'OBPress_SpecialOffersPage') ?></span>
+                                                        <?php elseif(count($GuarantyByType) > 1 && $GuarantyByType[0]->Start != null && $GuarantyByType[0]->GuaranteeDescription != null): ?>
+                                                            <span class="policy_dates"><?php _e('Policy applicable on dates:', 'OBPress_SpecialOffersPage') ?></span>
+                                                        <?php else: ?>
+                                                            <span class="policy_dates"><?php _e('Policy applicable on dates:', 'OBPress_SpecialOffersPage') ?></span><br>
+                                                        <?php endif; ?>
+                                                        <?php foreach($GuarantyByType as $Guaranty): ?>
+                                                            <?php if($Guaranty->Start != null && $Guaranty->GuaranteeDescription != null): ?>
+                                                                <span class="incentive-dates responsive-incentive-text-guarantee">
+                                                                    <?= Lang_Curr_Functions::dateFormatCulture($Guaranty->Start, $language, 9); ?> - <?php Lang_Curr_Functions::dateFormatCulture($Guaranty->End, $language, 9); ?> <br>
+                                                                </span>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                        <?php if($GuarantyByType[0]->GuaranteeDescription->Name): ?>
+                                                            <p class="incentive-text responsive-incentive-text-guarantee"><?= nl2br($GuarantyByType[0]->GuaranteeDescription->Description) ?></p>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <img class="single-package-info-description-arrow" src="<?= get_template_directory_uri() ?>/templates/assets/icons/arrow_down.svg" alt="">
+                                    </div>
+                                <?php endif; ?>
+                                <?php if(isset($offer["get_rate_plans"]->CancelPenalties)): ?>
+                                    <div class="single-package-info-category-holder">
+                                        <div class="single-package-info-category-title"><?php _e('Cancellation Policies', 'OBPress_SpecialOffersPage') ?></div>
+                                        <div class="single-package-info-description-holder">
+                                            <?php if(isset($offer["get_rate_plans"]->CancelPenalties)): ?>
+                                                <?php
+                                                    $CancelPenalties = $offer["get_rate_plans"]->CancelPenalties;
+
+                                                    $NewCancelPenalties = [];
+                                                    foreach($CancelPenalties as $key => $CancelPenalty) {
+                                                        if(is_null($CancelPenalty->PenaltyDescription)) {
+                                                            unset($CancelPenalties[$key]);
+                                                        }
+                                                        else {
+                                                            $NewCancelPenalties[$CancelPenalty->PenaltyDescription->Name][] = $CancelPenalty;
+                                                        }
+                                                    }
+                                                    $CancelPenalties = $NewCancelPenalties;
+                                                    $CancelPenalties = array_values($CancelPenalties);
+
+                                                    $first_element = array_shift($CancelPenalties);
+                                                    array_push($CancelPenalties, $first_element);
+                                                ?>
+                                                
+                                                <?php if(current($CancelPenalties) == null): ?>
+                                                <?php elseif(current($CancelPenalties) != null && count($CancelPenalties) == 1 && count($CancelPenalties[0]) == 1 && $CancelPenalties[0][0]->Start == null && $CancelPenalties[0][0]->PenaltyDescription != null): ?>
+                                                    <div class="offer-text-holder">
+                                                        <img class="" src="<?= get_template_directory_uri() ?>/templates/assets/icons/check_dark.svg" alt="">
+                                                        <span class="offer-text" data-open="false"><?= nl2br($CancelPenalties[0][0]->PenaltyDescription->Description); ?></span>
+                                                    </div>
+                                                <?php else: ?>
+                                                    <?php foreach($CancelPenalties as $CancelPenaltyByType): ?>
+                                                        <img class="" src="<?= get_template_directory_uri() ?>/templates/assets/icons/check_dark.svg" alt="">
+                                                        <?php if(count($CancelPenaltyByType) == 1 && $CancelPenaltyByType[0]->Start == null): ?>
+                                                            <span class="policy_dates"><?php _e('On other dates:', 'OBPress_SpecialOffersPage') ?></span><br>
+                                                        <?php else: ?>
+                                                            <span class="policy_dates"><?php _e('Policy applicable on dates:', 'OBPress_SpecialOffersPage') ?></span><br>
+                                                        <?php endif; ?>
+                                                        <?php foreach($CancelPenaltyByType as $CancelPenaltyByPeriod): ?>
+                                                            <?php if($CancelPenaltyByPeriod->Start != null && $CancelPenaltyByPeriod->PenaltyDescription != null): ?>
+                                                                <span class="incentive-dates responsive-incentive-text-cancel">
+                                                                    <?php Lang_Curr_Functions::dateFormatCulture($CancelPenaltyByPeriod->Start, $language, 9); ?> - <?php Lang_Curr_Functions::dateFormatCulture($CancelPenaltyByPeriod->End, $language, 9); ?> <br>
+                                                                </span>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                        <?php if($CancelPenaltyByType[0]->PenaltyDescription->Name): ?>
+                                                            <p class="incentive-text responsive-incentive-text-cancel"><?= nl2br($CancelPenaltyByType[0]->PenaltyDescription->Description); ?></p>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <img class="single-package-info-description-arrow" src="<?= get_template_directory_uri() ?>/templates/assets/icons/arrow_down.svg" alt="">
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php foreach($amenity_categories as $key => $amenity_category): ?>
+                                    <div class="single-package-info-category-holder">
+                                        <div class="single-package-info-category-title"><?= $key ?></div>
+                                        <div class="single-package-info-description-holder">
+                                            <div>
+                                                <?php foreach($amenity_category as $amenity): ?>
+                                                    <div>
+                                                        <img class="" src="<?= get_template_directory_uri() ?>/templates/assets/icons/check_dark.svg" alt=""> 
+                                                        <?= $amenity->HotelAmenity ?>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <img class="single-package-info-description-arrow" src="<?= get_template_directory_uri() ?>/templates/assets/icons/arrow_down.svg" alt="">
+                                    </div>
+                                <?php endforeach; ?>
+
+
+                            </div>
 						</div>
 
 						<?php echo $hotelFolders ; ?>
@@ -567,11 +703,27 @@
                                 <?php require_once(WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/template-rooms.php'); ?>
                             </div>
 
+
+                            <div class="next-step-loader">
+                                <div class="gooey">
+                                    <span class="dot"></span>
+                                    <div class="dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!--  Get basket html -->
 
                             <?php require_once( WP_PLUGIN_DIR . '/OBPress_SpecialOffersPage/widget/assets/templates/basket.php'); ?>
 
                         </div>
+
+
+                        
+
 
 					<?php endif; ?>
 				<?php endforeach; ?>
@@ -1394,7 +1546,25 @@
     </div>
 </div>
 
+
+
+
 <?php endif; ?>
+
+
+<div class="next-step-loader-next-page">
+    <div class="gooey">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="search-loading-message">
+        <?php _e("Please wait...", 'OBPressTheme') ?>
+    </div>
+</div>
 
 <script type="text/javascript">
     var ajaxurl = "<?php echo admin_url( 'admin-ajax.php' ); ?>";

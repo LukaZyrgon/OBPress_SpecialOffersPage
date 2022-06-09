@@ -34,7 +34,9 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       $(".ob-searchbar-submit-so").click(function() {
 
+        $("#package-results").empty();
 
+        $(".next-step-loader").show();
        
         // update info in basket
 
@@ -69,15 +71,26 @@ jQuery(window).on("elementor/frontend/init", function () {
         $.get(specialOfferAjax.ajaxurl+"?action=get_data_for_rooms&package_id=" + package_id + "&CheckIn=" +  CheckIn + "&CheckOut=" + 
           CheckOut + "&ad=" + ad + "&ch=" + ch + "&ag=" + ag , function( res ) {
             
-          $("#package-results").empty();
-          $("#package-results").html(res);
+            $(".next-step-loader").hide();
+          
+            $("#package-results").html(res);
 
-          //change url in browser 
-           window.history.pushState(  "", "Title", url_no_parametres + "?package_id="+ package_id + "&" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()  );
+            //change url in browser 
+             window.history.pushState(  "", "Title", url_no_parametres + "?package_id="+ package_id + "&" + $( $(".package-form")[0].elements ).not("#chain_code-so, #hotel_code-so").serialize()  );
         });
 
       });
 
+      $('.single-package-info-category-title').on('click', function() {
+        if($(this).closest('.single-package-info-category-holder').find('.single-package-info-description-holder').css('display') == 'none'){
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-holder').slideDown(200);
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-arrow').css('transform', 'rotate(180deg)')
+        }
+        else {
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-holder').slideUp(200);
+          $(this).closest('.single-package-info-category-holder').find('.single-package-info-description-arrow').css('transform', 'rotate(0deg)')
+        }
+      });
 
 
       /* add or update parameters in url */
