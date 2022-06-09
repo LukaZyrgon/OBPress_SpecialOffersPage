@@ -36,6 +36,10 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         $("#package-results").empty();
 
+        $(".obpress-hotel-results-item-top").empty();
+
+        $(".obpress-hotel-total-price-value").html("0,00");
+
         $(".next-step-loader").show();
        
         // update info in basket
@@ -155,6 +159,10 @@ jQuery(document).ready(function($){
 
   $(document).on("click", ".error_message_btn_calendar", function() {
     $("#calendar_dates-so").click();
+  });
+
+  $(document).on("click", ".error_message_btn_occupancy", function() {
+    $("#guests-so").click();
   });
 
 

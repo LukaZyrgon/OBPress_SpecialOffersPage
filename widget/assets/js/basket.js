@@ -778,7 +778,10 @@ jQuery(document).ready(function($){
 
                 rate_to_remove.find(".room-btn-add").show();
 
+               
+
                 rate_to_remove.attr("data-quantity","0");
+
 
             }
 
@@ -786,6 +789,8 @@ jQuery(document).ready(function($){
 
        
        update_cart();
+
+       $(".room-btn-add").prop("disabled", false);
 
 
     });
