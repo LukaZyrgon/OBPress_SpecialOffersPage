@@ -10,6 +10,11 @@
   License: GPlv2 or Later
 */
 
+function language_init_obpress_special_offers_page() {
+  load_plugin_textdomain( 'OBPress_SpecialOffersPage', false, '/OBPress_SpecialOffersPage/languages' );
+}
+add_action('init', 'language_init_obpress_special_offers_page');
+
 //Show Elementor plugins only if api token and chain/hotel are set in the admin
 if(get_option('obpress_api_set') == true){
     require_once('elementor/init.php');
