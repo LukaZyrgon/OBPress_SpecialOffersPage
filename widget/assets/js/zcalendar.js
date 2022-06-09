@@ -79,6 +79,7 @@ jQuery(document).ready(function($){
             .add(this.daysMin, "days")
             .startOf("day")
             .add(12, "hours"); //second pick
+
   
           //default values
           this.start = this.first.clone();
@@ -836,10 +837,11 @@ jQuery(document).ready(function($){
           }
   
           // ako je promo, uzmi datume i pretvori ih u Unix
+
   
           if (this.promo == true) {
 
-            var offerDates = jQuery(".date-range");
+            var offerDates = jQuery(".stay-period-range");
             var startPromoDates = [];
             var endPromoDates = [];
   
@@ -868,6 +870,7 @@ jQuery(document).ready(function($){
 
             });
 
+
           }
   
           // start of loop
@@ -894,7 +897,7 @@ jQuery(document).ready(function($){
 
                     if ( Number(dates[i].getAttribute("data-unix")) >= startPromoDates[j] &&
                         Number(dates[i].getAttribute("data-unix") <= endPromoDates[j]) ) {
-                      dates[i].removeAttribute("data-disabled");
+                        dates[i].removeAttribute("data-disabled");
                     }
 
                   }
@@ -1841,13 +1844,12 @@ jQuery(document).ready(function($){
           promo: false,
           onSelect: function () {
 
-            console.log("package select");
-
             document.querySelector("#date_from-so").value =
               this.start.format(this.outputDateFormat);
 
             document.querySelector("#date_to-so").value =
               this.end.format(this.outputDateFormat);
+
   
             if (jQuery("#as-date-from").length) {
               document.querySelector("#as-date-from").value = this.first.format(
@@ -1869,7 +1871,7 @@ jQuery(document).ready(function($){
               mobileRangeCheckIn = moment(mobileRangeCheckIn, "DD MMM YYYY").format("MMM DD YYYY");
               mobileRangeCheckOut = moment(mobileRangeCheckOut, "DD MMM YYYY").format("MMM DD YYYY");
             }
-  
+            
             // .innerHTML = this.start.format(this.outputShowFormat);
             if (this.isRangeSelected == true) {
               // if second date is good
@@ -2009,11 +2011,9 @@ jQuery(document).ready(function($){
 
   function loadThreeMoreMonths() {
 
-    console.log("load 3 more");
 
     scrolled_months = $(".zc-month").length;
 
-    console.log(scrolled_months);
 
     widget_offer.newRequest = true;
 
@@ -2100,6 +2100,13 @@ jQuery(document).ready(function($){
 
 
 
+
+  if ( widget_offer.isRangeSelected == false ) { //hotfix for selecting end date on initial load
+
+    var unix_end = moment( $("#date_to-so").val(), "DDMMYYYY").unix() + 43200 ;
+    $(".zc-dates").find('div[data-unix=' + unix_end + ']').trigger("click"); 
+
+  }
 
 
 });
