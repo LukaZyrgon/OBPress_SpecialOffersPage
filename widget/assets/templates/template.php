@@ -77,17 +77,30 @@
                                     <?php endif; ?>						
                                 </ul>
                             <?php endif; ?>
+                            <?php if(isset($offer["get_rate_plans"]->MealsIncluded) || isset($offer["get_rate_plans"]->RatePlanInclusions)) : ?>
+                                <p class="single-package-included-msg"><?php _e('This special package offers', 'OBPress_SpecialOffersPage') ?>:</p> 
+                                <div class="single-package-included-holder">
+                                    <?php if(isset($offer["get_rate_plans"]->MealsIncluded)) : ?>
+                                        <?php if($offer["get_rate_plans"]->MealsIncluded != null) : ?>
+                                            <div class="meals_included">
+                                                <img class="" src="<?= get_template_directory_uri() ?>/templates/assets/icons/check_dark.svg" alt="">
+                                                <?= $offer["get_rate_plans"]->MealsIncluded->Name ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
 
-							<?php if(isset($offer["get_rate_plans"]->RatePlanInclusions)): ?>
-	                            <?php if($offer["get_rate_plans"]->RatePlanInclusions != null): ?>
-	                            	<p class="single-package-included-msg"><?php _e('This special package offers', 'OBPress_SpecialOffersPage') ?>:</p> 
-	                            	<div class="single-package-included-holder">
-		                                <?php foreach($offer["get_rate_plans"]->RatePlanInclusions as $included): ?>
-		                                    <span class="single-package-included"><?= $included->RatePlanInclusionDesciption->Name ?></span>
-		                                <?php endforeach; ?>
-		                            </div>
-	                            <?php endif; ?>
-	                        <?php endif; ?>
+                                    <?php if(isset($offer["get_rate_plans"]->RatePlanInclusions)): ?>
+                                        <?php if($offer["get_rate_plans"]->RatePlanInclusions != null): ?>
+                                            <?php foreach($offer["get_rate_plans"]->RatePlanInclusions as $included): ?>
+                                                <div>
+                                                    <img class="" src="<?= get_template_directory_uri() ?>/templates/assets/icons/check_dark.svg" alt="">
+                                                    <span class="single-package-included"><?= $included->RatePlanInclusionDesciption->Name ?></span>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
 
 	                        <?php
 	                        	foreach($descriptive_info->get()->HotelDescriptiveContentsType->HotelDescriptiveContents[0]->HotelInfo->HotelAmenities as $HotelAmenity) {
@@ -447,7 +460,7 @@
                                             <p><?php _e('Check-in', 'OBPress_SpecialOffersPage') ?></p>
                                             <input class="calendarToggle" type="text" id="check_in_mobile-so" value="<?php echo $CheckInShowMobile ?? date("d M Y") ?>"  readonly>
                                         </div>
-                                        <div class="ob-mobile-searchbar-calendar">
+                                        <div class="ob-mobile-searchbar-calendar-so">
                                             <p><?php _e('Check-out', 'OBPress_SpecialOffersPage') ?></p>
                                             <input class="calendarToggle" type="text" id="check_out_mobile-so" value="<?php echo $CheckOutShowMobile ?? date("d M Y", strtotime("+1 day")) ?>"  readonly>
                                         </div>
