@@ -40,6 +40,10 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         $(".obpress-hotel-total-price-value").html("0,00");
 
+         if (resolution != 1 ) {
+          $(".obpress-hotel-results-basket-holder").hide();
+        }
+
         $(".next-step-loader").show();
        
         // update info in basket
@@ -163,6 +167,17 @@ jQuery(document).ready(function($){
 
   $(document).on("click", ".error_message_btn_occupancy", function() {
     $("#guests-so").click();
+  });
+
+
+  // close basket and scroll to searchbar
+  $(document).on("click", ".obpress-hotel-searchbar-button", function() {
+    $(".obpress-hotel-results-basket-price").click();
+
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#special-offer").offset().top 
+    }, 0);
+
   });
 
 
