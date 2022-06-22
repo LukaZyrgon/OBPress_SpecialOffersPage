@@ -114,7 +114,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_image_height',
 			[
 				'label' => esc_html__( 'Package Image Height', 'OBPress_SpecialOffersPage' ),
@@ -127,7 +127,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 318,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 318,
 				],
@@ -138,12 +143,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_image_margin',
 			[
 				'label' => __( 'Package Image Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '28',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '28',
@@ -157,12 +170,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_partial_payment_padding',
 			[
 				'label' => __( 'Partial Payment Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '11',
+					'right' => '10.85',
+					'bottom' => '10',
+					'left' => '12',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '11',
 					'right' => '10.85',
 					'bottom' => '10',
@@ -266,12 +287,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_partial_package_name_padding',
 			[
 				'label' => __( 'Package Name Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '18.75',
+					'right' => '35',
+					'bottom' => '22.76',
+					'left' => '35',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '18.75',
 					'right' => '35',
 					'bottom' => '22.76',
@@ -407,12 +436,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_info_padding',
 			[
 				'label' => __( 'Package Info Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '22',
+					'right' => '42',
+					'bottom' => '25',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '22',
 					'right' => '42',
 					'bottom' => '25',
@@ -448,12 +485,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'stay_period_title_margin',
 			[
 				'label' => __( 'Stay Period Title Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '23',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '23',
@@ -512,12 +557,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'stay_period_title_text_align',
 			[
 				'label' => __( 'Stay Period Title Text Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -529,12 +576,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'stay_period_list_margin',
 			[
 				'label' => __( 'Stay Period List Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '44',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '44',
@@ -638,12 +693,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_message_text_align',
 			[
 				'label' => __( 'Packages Message Text Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -655,12 +712,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_message_margin',
 			[
 				'label' => __( 'Package Message Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '22.91',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '22.91',
@@ -674,12 +739,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_included_message_margin',
 			[
 				'label' => __( 'Package Included Message Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '44',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '44',
@@ -738,12 +811,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_included_text_margin',
 			[
 				'label' => __( 'Package Included Text Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '40',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '40',
 					'bottom' => '0',
@@ -757,12 +838,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_included_margin',
 			[
 				'label' => __( 'Package Included Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '41.5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '41.5',
@@ -866,12 +955,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_included_categories_text_margin',
 			[
 				'label' => __( 'Package Included Categories Text Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '40',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '40',
 					'bottom' => '0',
@@ -885,12 +982,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_included_categories_margin',
 			[
 				'label' => __( 'Package Included Categories Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '41.5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '41.5',
@@ -950,12 +1055,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_description_text_align',
 			[
 				'label' => __( 'Packages Description Text Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -1023,12 +1130,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_margin',
 			[
 				'label' => __( 'Searchbar Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '20',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '20',
 					'right' => '0',
 					'bottom' => '0',
@@ -1042,12 +1157,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_padding',
 			[
 				'label' => __( 'Searchbar Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '30',
+					'bottom' => '0',
+					'left' => '30',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '30',
 					'bottom' => '0',
@@ -1061,12 +1184,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_justify_content',
 			[
 				'label' => __( 'Searchbar Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -1081,12 +1206,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_elements_padding',
 			[
 				'label' => __( 'Searchbar Elements Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '20',
+					'right' => '10',
+					'bottom' => '20',
+					'left' => '10',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '20',
 					'right' => '10',
 					'bottom' => '20',
@@ -1199,12 +1332,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_button_padding',
 			[
 				'label' => __( 'Searchbar Button Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '30',
+					'right' => '10',
+					'bottom' => '30',
+					'left' => '10',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '30',
 					'right' => '10',
 					'bottom' => '30',
@@ -1289,12 +1430,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_buutton_border_width',
 			[
 				'label' => __( 'Searchbar Button Border Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 1,
+				],
+				'mobile_default' => [
 					'size' => 1,
 				],
 				'range' => [
@@ -1349,7 +1494,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_buutton_width',
 			[
 				'label' => __( 'Button Width', 'OBPress_SpecialOffersPage' ),
@@ -1375,12 +1520,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'package_searchbar_buutton_height',
 			[
 				'label' => __( 'Button Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 60,
+				],
+				'mobile_default' => [
 					'size' => 60,
 				],
 				'range' => [
@@ -1473,12 +1622,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'relate_packages_title_margin',
 			[
 				'label' => __( 'Related Packages Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '69.85',
+					'right' => '0',
+					'bottom' => '43.77',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '69.85',
 					'right' => '0',
 					'bottom' => '43.77',
@@ -1492,12 +1649,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'relate_packages_text_align_title',
 			[
 				'label' => __( 'Related Packages Title Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'center',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'center',
+				'mobile_default' => 'center',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -1519,12 +1678,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_between_cards_padding',
 			[
 				'label' => __( 'Between Cards Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '25',
+					'right' => '50',
+					'bottom' => '25',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '25',
 					'right' => '50',
 					'bottom' => '25',
@@ -1538,12 +1705,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_width',
 			[
 				'label' => __( 'Cards Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 50,
+				],
+				'mobile_default' => [
 					'size' => 50,
 				],
 				'range' => [
@@ -1573,12 +1744,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_padding',
 			[
 				'label' => __( 'Cards Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '54',
+					'right' => '32',
+					'bottom' => '31',
+					'left' => '32',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '54',
 					'right' => '32',
 					'bottom' => '31',
@@ -1614,12 +1793,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_margin',
 			[
 				'label' => __( 'Cards Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '20',
@@ -1633,12 +1820,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_img_height',
 			[
 				'label' => __( 'Cards Image Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 254,
+				],
+				'mobile_default' => [
 					'size' => 254,
 				],
 				'range' => [
@@ -1654,12 +1845,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenities_padding',
 			[
 				'label' => __( 'Cards Amenities Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '29',
+					'bottom' => '0',
+					'left' => '29',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '29',
 					'bottom' => '0',
@@ -1695,12 +1894,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_justify_content',
 			[
 				'label' => __( 'Cards Amenities Horizontal Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -1728,12 +1929,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_align_items',
 			[
 				'label' => __( 'Cards Amenities Vertical Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'center',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'center',
+				'mobile_default' => 'center',
 				'options' => [
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
 					'flex-end'  => __( 'Bottom', 'OBPress_SpecialOffersPage' ),
@@ -1745,12 +1948,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_width',
 			[
 				'label' => __( 'Cards Amenities Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 103,
+				],
+				'mobile_default' => [
 					'size' => 103,
 				],
 				'range' => [
@@ -1766,12 +1973,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_height',
 			[
 				'label' => __( 'Cards Amenities Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 53,
+				],
+				'mobile_default' => [
 					'size' => 53,
 				],
 				'range' => [
@@ -1787,12 +1998,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_horizontal_position',
 			[
 				'label' => __( 'Cards Amenities Horizontal Positon', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 32,
+				],
+				'mobile_default' => [
 					'size' => 32,
 				],
 				'range' => [
@@ -1808,12 +2023,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_vertical_position',
 			[
 				'label' => __( 'Cards Amenities Vertical Positon', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => -26,
+				],
+				'mobile_default' => [
 					'size' => -26,
 				],
 				'range' => [
@@ -1829,12 +2048,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_icon_width',
 			[
 				'label' => __( 'Cards Amenities Icon Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 24,
+				],
+				'mobile_default' => [
 					'size' => 24,
 				],
 				'range' => [
@@ -1850,12 +2073,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_amenitites_icon_height',
 			[
 				'label' => __( 'Cards Amenities Icon Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 24,
+				],
+				'mobile_default' => [
 					'size' => 24,
 				],
 				'range' => [
@@ -1916,12 +2143,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_name_text_align',
 			[
 				'label' => __( 'Cards Room Name Text Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -1933,12 +2162,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_name_margin',
 			[
 				'label' => __( 'Cards Room Name Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '20',
@@ -1952,12 +2189,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_icon_height',
 			[
 				'label' => __( 'Cards Room Icon Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 12,
+				],
+				'mobile_default' => [
 					'size' => 12,
 				],
 				'range' => [
@@ -2018,12 +2259,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_icons_justify_content',
 			[
 				'label' => __( 'Cards Room Icons Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-start',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-start',
+				'mobile_default' => 'flex-start',
 				'options' => [
 					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
@@ -2038,12 +2281,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_icons_margin',
 			[
 				'label' => __( 'Cards Room Icons Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '23',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '23',
@@ -2057,12 +2308,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_between_icons_margin',
 			[
 				'label' => __( 'Cards Room Between Icons Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '8',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '8',
@@ -2121,12 +2380,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_icon_text_margin',
 			[
 				'label' => __( 'Cards Room Icons Name Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '8',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '0',
@@ -2185,12 +2452,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_full_price_margin',
 			[
 				'label' => __( 'Cards Room Full Price Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '5',
@@ -2204,12 +2479,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_full_price_text_align',
 			[
 				'label' => __( 'Cards Room Full Price Text Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -2221,12 +2498,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_price_button_justify_content',
 			[
 				'label' => __( 'Cards Room Price Button Horizontal Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -2241,12 +2520,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_room_price_button_align_items',
 			[
 				'label' => __( 'Cards Room Price Button Vertical Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-end',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-end',
+				'mobile_default' => 'flex-end',
 				'options' => [
 					'flex-end'  => __( 'Bottom', 'OBPress_SpecialOffersPage' ),
 					'flex-start'  => __( 'Top', 'OBPress_SpecialOffersPage' ),
@@ -2403,12 +2684,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_book_btn_padding',
 			[
 				'label' => __( 'Book Button Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '16',
+					'right' => '17',
+					'bottom' => '16',
+					'left' => '16',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '16',
 					'right' => '17',
 					'bottom' => '16',
@@ -2584,12 +2873,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_number_rooms_padding',
 			[
 				'label' => __( 'Number Rooms Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '5',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '5',
@@ -2603,12 +2900,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_btn_minus_plus_justify_content',
 			[
 				'label' => __( 'Add Remove Buttons Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-start',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-start',
+				'mobile_default' => 'flex-start',
 				'options' => [
 					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
 					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -2712,12 +3011,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_btn_minus_plus_width',
 			[
 				'label' => __( 'Add Remove Buttons Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 30,
+				],
+				'mobile_default' => [
 					'size' => 30,
 				],
 				'range' => [
@@ -2734,12 +3037,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_selected_rooms_value_width',
 			[
 				'label' => __( 'Selected Rooms Value Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 30,
+				],
+				'mobile_default' => [
 					'size' => 30,
 				],
 				'range' => [
@@ -2756,12 +3063,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_btn_minus_plus_height',
 			[
 				'label' => __( 'Add Remove Buttons Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 30,
+				],
+				'mobile_default' => [
 					'size' => 30,
 				],
 				'range' => [
@@ -2899,12 +3210,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_cards_change_search_btn_padding',
 			[
 				'label' => __( 'Change Search Button Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '10',
 					'right' => '0',
 					'bottom' => '0',
@@ -3010,12 +3329,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_margin',
 			[
 				'label' => __( 'Error Margin', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '25',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '25',
 					'right' => '0',
 					'bottom' => '0',
@@ -3029,12 +3356,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_padding',
 			[
 				'label' => __( 'Error Padding', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '20',
+					'bottom' => '0',
+					'left' => '20',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '20',
 					'bottom' => '0',
@@ -3048,12 +3383,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_width',
 			[
 				'label' => __( 'Error Width', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 20,
+				],
+				'mobile_default' => [
 					'size' => 20,
 				],
 				'range' => [
@@ -3070,12 +3409,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_height',
 			[
 				'label' => __( 'Error Height', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 80,
+				],
+				'mobile_default' => [
 					'size' => 80,
 				],
 				'range' => [
@@ -3105,12 +3448,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_border_radius',
 			[
 				'label' => __( 'Error Border Radius', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '4',
+					'right' => '4',
+					'bottom' => '4',
+					'left' => '4',
+					'isLinked' => true
+				],
+				'mobile_default' => [
 					'top' => '4',
 					'right' => '4',
 					'bottom' => '4',
@@ -3124,12 +3475,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_justify_content',
 			[
 				'label' => __( 'Error Horizontal Align', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_RoomPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_RoomPage' ),
@@ -3144,12 +3497,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_align_items',
 			[
 				'label' => __( 'Error Vertical Align', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'center',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'center',
+				'mobile_default' => 'center',
 				'options' => [
 					'center'  => __( 'Center', 'OBPress_RoomPage' ),
 					'flex-end'  => __( 'Bottom', 'OBPress_RoomPage' ),
@@ -3162,12 +3517,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		);
 
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_icon_width',
 			[
 				'label' => __( 'Error Icon Width', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 24,
+				],
+				'mobile_default' => [
 					'size' => 24,
 				],
 				'range' => [
@@ -3184,12 +3543,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_icon_margin',
 			[
 				'label' => __( 'Error Icon Margin', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '15',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '15',
 					'bottom' => '0',
@@ -3356,12 +3723,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_btn_padding',
 			[
 				'label' => __( 'Error Button Padding', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '9',
+					'right' => '20',
+					'bottom' => '9',
+					'left' => '20',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '9',
 					'right' => '20',
 					'bottom' => '9',
@@ -3375,12 +3750,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'releted_packages_error_btn_width',
 			[
 				'label' => __( 'Error Button Width', 'OBPress_RoomPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 115,
+				],
+				'mobile_default' => [
 					'size' => 115,
 				],
 				'range' => [
@@ -3407,7 +3786,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_vertical_position',
 			[
 				'label' => esc_html__( 'Basket Vertical Position', 'OBPress_SpecialOffersPage' ),
@@ -3420,7 +3799,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 265,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 265,
 				],
@@ -3430,12 +3814,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_margin',
 			[
 				'label' => __( 'Basket Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '25',
+					'right' => '0',
+					'bottom' => '45',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '25',
 					'right' => '0',
 					'bottom' => '45',
@@ -3449,7 +3841,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_width',
 			[
 				'label' => esc_html__( 'Basket Width', 'OBPress_SpecialOffersPage' ),
@@ -3462,7 +3854,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 336,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 336,
 				],
@@ -3530,12 +3927,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_info_padding',
 			[
 				'label' => __( 'Basket Info Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '17',
+					'right' => '0',
+					'bottom' => '14',
+					'left' => '25',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '17',
 					'right' => '0',
 					'bottom' => '14',
@@ -3563,12 +3968,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_hotel_stars_justify_content',
 			[
 				'label' => __( 'Basket Hotel Stars Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-start',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-start',
+				'mobile_default' => 'flex-start',
 				'options' => [
 					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
 					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
@@ -3580,12 +3987,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_hotel_stars_margin',
 			[
 				'label' => __( 'Basket Hotel Stars Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '7',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '7',
@@ -3599,7 +4014,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_hotel_stars_width',
 			[
 				'label' => esc_html__( 'Basket Hotel Stars Width', 'OBPress_SpecialOffersPage' ),
@@ -3612,7 +4027,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 14,
 				],
@@ -3622,7 +4042,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_hotel_stars_height',
 			[
 				'label' => esc_html__( 'Basket Hotel Stars Height', 'OBPress_SpecialOffersPage' ),
@@ -3635,7 +4055,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 14,
 				],
@@ -3645,12 +4070,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_hotel_name_margin',
 			[
 				'label' => __( 'Basket Hotel Name Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '19',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '19',
@@ -3710,12 +4143,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_hotel_name_align_title',
 			[
 				'label' => __( 'Basket Hotel Name Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -3727,12 +4162,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_info_justify_content',
 			[
 				'label' => __( 'Basket Stay Info Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-start',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-start',
+				'mobile_default' => 'flex-start',
 				'options' => [
 					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
 					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -3770,12 +4207,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_dates_margin',
 			[
 				'label' => __( 'Basket Stay Dates Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '8',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '8',
 					'bottom' => '0',
@@ -3838,12 +4283,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_info_title_margin',
 			[
 				'label' => __( 'Basket Stay Info Title Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '4',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '4',
@@ -3920,7 +4373,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_info_arrow_width',
 			[
 				'label' => esc_html__( 'Basket Stay Info Arrow Width', 'OBPress_SpecialOffersPage' ),
@@ -3933,7 +4386,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 10,
 				],
@@ -3944,7 +4402,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_info_arrow_height',
 			[
 				'label' => esc_html__( 'Basket Stay Info Arrow Height', 'OBPress_SpecialOffersPage' ),
@@ -3957,7 +4415,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 10,
 				],
@@ -3968,12 +4431,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_info_arrow_margin',
 			[
 				'label' => __( 'Basket Stay Info Arrow Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '8',
+					'bottom' => '0',
+					'left' => '8',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '8',
 					'bottom' => '0',
@@ -4033,12 +4504,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		);
 
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_stay_info_values_text_align',
 			[
 				'label' => __( 'Basket Stay Info Values Text Align', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'left',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'left',
+				'mobile_default' => 'left',
 				'options' => [
 					'left'  => __( 'Left', 'OBPress_SpecialOffersPage' ),
 					'center'  => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -4060,12 +4533,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_info_margin',
 			[
 				'label' => __( 'Basket Room Info Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '10',
 					'right' => '0',
 					'bottom' => '0',
@@ -4105,12 +4586,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_info_padding',
 			[
 				'label' => __( 'Basket Room Info Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '20',
+					'right' => '31',
+					'bottom' => '19',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '20',
 					'right' => '31',
 					'bottom' => '19',
@@ -4124,12 +4613,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_info_justify_content',
 			[
 				'label' => __( 'Basket Room Info Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -4144,12 +4635,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_title_price_margin',
 			[
 				'label' => __( 'Basket Room Title Price Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '14',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '14',
@@ -4304,12 +4803,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_info_policy_justify_content',
 			[
 				'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -4324,12 +4825,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_info_policy_padding',
 			[
 				'label' => __( 'Basket Room Policy Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '15',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '15',
@@ -4439,12 +4948,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_info_policy_justify_content',
 			[
 				'label' => __( 'Basket Room Policy Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -4459,12 +4970,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_discount_padding',
 			[
 				'label' => __( 'Basket Room Discount Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '10',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '10',
 					'right' => '0',
 					'bottom' => '10',
@@ -4549,12 +5068,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_tax_padding',
 			[
 				'label' => __( 'Basket Room Tax Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '12',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '12',
 					'right' => '0',
 					'bottom' => '0',
@@ -4568,12 +5095,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_tax_justify_content',
 			[
 				'label' => __( 'Basket Room Tax Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'flex-start',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'flex-start',
+				'mobile_default' => 'flex-start',
 				'options' => [
 					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
 					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
@@ -4588,12 +5117,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_tax_title_margin',
 			[
 				'label' => __( 'Basket Room Tax Title Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '8',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
 					'bottom' => '8',
@@ -4652,12 +5189,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_tax_icon_width',
 			[
 				'label' => __( 'Basket Room Tax Icon Width', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 15,
+				],
+				'mobile_default' => [
 					'size' => 15,
 				],
 				'range' => [
@@ -4673,12 +5214,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_tax_icon_height',
 			[
 				'label' => __( 'Basket Room Tax Icon Height', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 15,
+				],
+				'mobile_default' => [
 					'size' => 15,
 				],
 				'range' => [
@@ -4694,12 +5239,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_room_tax_results_justify_content',
 			[
 				'label' => __( 'Basket Room Tax Results Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -4833,12 +5380,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_total_price_padding',
 			[
 				'label' => __( 'Basket Total Price Padding', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '8',
+					'right' => '31',
+					'bottom' => '22',
+					'left' => '26',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '8',
 					'right' => '31',
 					'bottom' => '22',
@@ -4852,12 +5407,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_total_price_justify_content',
 			[
 				'label' => __( 'Basket Total Price Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'space-between',
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 					'space-around'  => __( 'Space Around', 'OBPress_SpecialOffersPage' ),
@@ -4962,12 +5519,20 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_button_margin',
 			[
 				'label' => __( 'Basket Button Margin', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'top' => '15',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => false
+				],
+				'mobile_default' => [
 					'top' => '15',
 					'right' => '0',
 					'bottom' => '0',
@@ -5054,7 +5619,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'basket_button_height',
 			[
 				'label' => esc_html__( 'Basket Button Height', 'OBPress_SpecialOffersPage' ),
@@ -5067,7 +5632,12 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 						'step' => 1,
 					],
 				],
-				'default' => [
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => 40,
+				],
+				'mobile_default' => [
 					'unit' => 'px',
 					'size' => 40,
 				],
