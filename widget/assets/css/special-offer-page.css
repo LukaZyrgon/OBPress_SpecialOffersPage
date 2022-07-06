@@ -41,7 +41,7 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  padding: 18.75px 35px 22.76px 35px;
+  padding: 20;
   background-color: #ffffff;
   box-shadow: 0px 3px 6px #00000029;
 }
@@ -119,7 +119,6 @@
   color: #9C9C9C;
   cursor: pointer;
   float: left;
-  padding-bottom: 33px;
 }
 
 .single-package-info-categories-bar.active-bar {
@@ -409,7 +408,6 @@ form {
 
 .obpress-hotel-results-basket-info {
     background-color: #fff;
-    height: 126px;
     padding: 17px 0px 14px 25px;
 }
 

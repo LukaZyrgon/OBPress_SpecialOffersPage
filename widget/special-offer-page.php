@@ -294,17 +294,17 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '18.75',
-					'right' => '35',
-					'bottom' => '22.76',
-					'left' => '35',
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '18.75',
-					'right' => '35',
-					'bottom' => '22.76',
-					'left' => '35',
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -585,14 +585,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'desktop_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '44',
+					'bottom' => '30',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '44',
+					'bottom' => '30',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -748,14 +748,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'desktop_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '44',
+					'bottom' => '30',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '44',
+					'bottom' => '30',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -964,14 +964,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'desktop_default' => [
 					'top' => '0',
 					'right' => '40',
-					'bottom' => '0',
+					'bottom' => '10',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '40',
-					'bottom' => '0',
+					'bottom' => '10',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -991,14 +991,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'desktop_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '41.5',
+					'bottom' => '30',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '41.5',
+					'bottom' => '30',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -1629,16 +1629,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '69.85',
+					'top' => '20',
 					'right' => '0',
-					'bottom' => '43.77',
+					'bottom' => '0',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '69.85',
+					'top' => '20',
 					'right' => '0',
-					'bottom' => '43.77',
+					'bottom' => '0',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -1685,14 +1685,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '25',
+					'top' => '20',
 					'right' => '50',
 					'bottom' => '25',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '25',
+					'top' => '20',
 					'right' => '50',
 					'bottom' => '25',
 					'left' => '0',
@@ -3821,14 +3821,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '25',
+					'top' => '20',
 					'right' => '0',
 					'bottom' => '45',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '25',
+					'top' => '20',
 					'right' => '0',
 					'bottom' => '45',
 					'left' => '0',
@@ -3934,17 +3934,17 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '17',
-					'right' => '0',
+					'top' => '20',
+					'right' => '20',
 					'bottom' => '14',
-					'left' => '25',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '17',
-					'right' => '0',
+					'top' => '20',
+					'right' => '20',
 					'bottom' => '14',
-					'left' => '25',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -3996,14 +3996,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'desktop_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '7',
+					'bottom' => '10',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '7',
+					'bottom' => '10',
 					'left' => '0',
 					'isLinked' => false
 				],
@@ -4440,14 +4440,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'desktop_default' => [
 					'top' => '0',
 					'right' => '8',
-					'bottom' => '0',
+					'bottom' => '3',
 					'left' => '8',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
 					'right' => '8',
-					'bottom' => '0',
+					'bottom' => '3',
 					'left' => '8',
 					'isLinked' => false
 				],
@@ -4594,16 +4594,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'top' => '20',
-					'right' => '31',
+					'right' => '20',
 					'bottom' => '19',
-					'left' => '26',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '20',
-					'right' => '31',
+					'right' => '20',
 					'bottom' => '19',
-					'left' => '26',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -5387,17 +5387,17 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '8',
-					'right' => '31',
-					'bottom' => '22',
-					'left' => '26',
+					'top' => '15',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '8',
-					'right' => '31',
-					'bottom' => '22',
-					'left' => '26',
+					'top' => '15',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
