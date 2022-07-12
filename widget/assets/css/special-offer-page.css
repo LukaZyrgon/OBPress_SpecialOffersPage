@@ -332,7 +332,7 @@
 }
 
 .room-amenities {
-    width: calc(100% - 80px);
+    width: calc(100% - 64px);
     height: 53px;
     display: flex;
     justify-content: space-between;
@@ -341,8 +341,15 @@
     align-items: center;
     position: absolute;
     top: -26px;
-    left: 40px;
+    left: 32px;
+    overflow: scroll;
     box-shadow: 0px 14px 24px #BEAD8E30;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */    
+}
+
+.room-amenities::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 .price-before {
@@ -442,6 +449,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .obpress-hotel-basket-stay-checkin-string, .obpress-hotel-basket-stay-checkout-string {
@@ -457,6 +465,11 @@ form {
     font-weight: bold;
     line-height: 18px;
     width: fit-content;
+}
+
+.vertical-line {
+  border-left: 1px solid #dfdfdf;
+  height: 35px
 }
 
 .obpress-hotel-basket-stay-room-info {
@@ -478,7 +491,6 @@ form {
 }
 
 .obpress-hotel-basket-stay-guests {
-    width: 50px;
     height: 35px;
 }
 
@@ -1001,6 +1013,7 @@ form {
         width: 100%;
         margin-bottom: 0px;
         margin-top: 0px;
+        z-index: 20;
     }
 
     .single-package .obpress-hotel-results-basket-info-holder {
@@ -1030,7 +1043,6 @@ form {
     }
 
     .single-package .obpress-hotel-basket-stay-dates {
-        min-width: 140px;
     }
     
     .single-package .obpress-hotel-searchbar-arrow {
@@ -1045,6 +1057,10 @@ form {
     .single-package .obpress-hotel-basket-stay-rooms-string, .single-package .obpress-hotel-basket-stay-nights-string, .single-package .obpress-hotel-basket-stay-guests-string {
         font-size: 9px;
         line-height: 11px;
+    }
+
+    .obpress-hotel-basket-stay-rooms {
+      margin-left: 0px;
     }
 
     .single-package .obpress-hotel-basket-stay-rooms-num, .single-package .obpress-hotel-basket-stay-nights-num, .single-package .obpress-hotel-basket-stay-guests-num {

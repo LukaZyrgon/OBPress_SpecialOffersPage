@@ -1,4 +1,4 @@
-<div class="obpress-hotel-results-basket-holder">
+<div class="obpress-hotel-results-basket-holder" data-currency-symbol="<?= $currency_string ?>" data-currency="<?= $currency ?>" data-language="<?= $language ?>">
 
         <div class="obpress-hotel-results-basket <?php if(is_admin_bar_showing() == true){echo 'obpress-admin-bar-shown-basket';} ?>"  id="basket">
             <div class="obpress-hotel-results-basket-info-holder">
@@ -89,6 +89,7 @@
                                 <span class="obpress-hotel-basket-stay-checkout-date"><?php  $CheckOutBasket = date("d M", strtotime($CheckOut)); echo $CheckOutBasket; ?></span>                            
                             </span>
                         </div>
+                        <span class="vertical-line"></span>
                         <div class="obpress-hotel-basket-stay-room-info">
                             <span class="obpress-hotel-basket-stay-rooms">
                                 <span class="obpress-hotel-basket-stay-rooms-string"><?php _e('Rooms', 'OBPress_SpecialOffersPage') ?></span>
@@ -151,7 +152,6 @@
                 <div class="obpress-hotel-total-price-holder">
                     <span class="obpress-hotel-total-price-string"><?php _e('Total', 'OBPress_SpecialOffersPage') ?></span>
                     <span class="obpress-hotel-total-price">
-                    	<span class="font-weight-regular obpress-hotel-total-price-currency">R$</span> 
                     	<span class="obpress-hotel-total-price-value">0,00</span>
                     </span>
                     <?php if(isset($hotel['MaxPartialPaymentParcel'])) : ?>
@@ -181,7 +181,6 @@
                 <span class="obpress-hotel-results-total-room-counter">1</span>
             </span>
 	        <span class="obpress-hotel-results-item-price">
-	            <span class="obpress-hotel-results-item-curr"></span>
 	            <span class="obpress-hotel-results-item-value"></span>
 	        </span>
 	    </div>
@@ -194,7 +193,6 @@
         <div class="obpress-hotel-results-discount-holder">
             <div class="obpress-hotel-results-discount-message"><?php _e('Discount', 'OBPress_SpecialOffersPage') ?> <span class="obpress-hotel-results-discount-percent"></span></div>
             <div class="obpress-hotel-results-discount-total">
-                <span class="obpress-hotel-results-discount-currency">-R$</span>    
                 <span class="obpress-hotel-results-discount-price">123</span>
             </div>
         </div>
@@ -207,7 +205,6 @@
             <div class="obpress-hotel-results-tax-bottom">
                 <div class="obpress-hotel-results-tax-message"></div>
                 <div class="obpress-hotel-results-tax-total">
-                    <span class="obpress-hotel-results-tax-currency">R$</span>
                     <span class="obpress-hotel-results-tax-price"></span>
                 </div>
             </div>

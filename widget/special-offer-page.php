@@ -1955,10 +1955,10 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'size' => 103,
+					'size' => 64,
 				],
 				'mobile_default' => [
-					'size' => 103,
+					'size' => 64,
 				],
 				'range' => [
 					'px' => [
@@ -3787,34 +3787,6 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'basket_vertical_position',
-			[
-				'label' => esc_html__( 'Basket Vertical Position', 'OBPress_SpecialOffersPage' ),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
-						'min' => 160,
-						'max' => 350,
-						'step' => 1,
-					],
-				],
-				'devices' => [ 'desktop', 'mobile' ],
-				'desktop_default' => [
-					'unit' => 'px',
-					'size' => 265,
-				],
-				'mobile_default' => [
-					'unit' => 'px',
-					'size' => 265,
-				],
-				'selectors' => [
-					'.obpress-body-admin-bar-shown .single-package .obpress-hotel-results-basket' => 'top: {{SIZE}}px',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'basket_margin',
 			[
 				'label' => __( 'Basket Margin', 'OBPress_SpecialOffersPage' ),
@@ -3934,17 +3906,17 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '20',
-					'right' => '20',
-					'bottom' => '14',
-					'left' => '20',
+					'top' => '17.5',
+					'right' => '26.5',
+					'bottom' => '14.5',
+					'left' => '26.5',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '20',
-					'right' => '20',
-					'bottom' => '14',
-					'left' => '20',
+					'top' => '17.5',
+					'right' => '26.5',
+					'bottom' => '14.5',
+					'left' => '26.5',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -4168,12 +4140,13 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'label' => __( 'Basket Stay Info Justify Content', 'OBPress_SpecialOffersPage' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'devices' => [ 'desktop', 'mobile' ],
-				'desktop_default' => 'flex-start',
-				'mobile_default' => 'flex-start',
+				'desktop_default' => 'space-between',
+				'mobile_default' => 'space-between',
 				'options' => [
 					'flex-start'  => __( 'Flex Start', 'OBPress_SpecialOffersPage' ),
 					'center' => __( 'Center', 'OBPress_SpecialOffersPage' ),
 					'flex-end'  => __( 'Flex End', 'OBPress_SpecialOffersPage' ),
+					'space-between'  => __( 'Space Between', 'OBPress_SpecialOffersPage' ),
 				],
 				'selectors' => [
 					'.single-package .obpress-hotel-basket-stay-info' => 'justify-content: {{basket_stay_info_justify_content}}'
@@ -4193,7 +4166,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 					'width' => [
 						'default' => [
 							'top' => '0',
-							'right' => '1',
+							'right' => '0',
 							'bottom' => '0',
 							'left' => '0',
 							'isLinked' => false,
@@ -4215,14 +4188,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'top' => '0',
-					'right' => '8',
+					'right' => '0',
 					'bottom' => '0',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '0',
-					'right' => '8',
+					'right' => '0',
 					'bottom' => '0',
 					'left' => '0',
 					'isLinked' => false
@@ -4540,14 +4513,14 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '10',
+					'top' => '0',
 					'right' => '0',
 					'bottom' => '0',
 					'left' => '0',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '10',
+					'top' => '0',
 					'right' => '0',
 					'bottom' => '0',
 					'left' => '0',
@@ -4594,16 +4567,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'top' => '20',
-					'right' => '20',
+					'right' => '26.5',
 					'bottom' => '19',
-					'left' => '20',
+					'left' => '26',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '20',
-					'right' => '20',
+					'right' => '26.5',
 					'bottom' => '19',
-					'left' => '20',
+					'left' => '26',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -5387,17 +5360,17 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
-					'top' => '15',
-					'right' => '20',
-					'bottom' => '20',
-					'left' => '20',
+					'top' => '9',
+					'right' => '26.5',
+					'bottom' => '11.75',
+					'left' => '26',
 					'isLinked' => false
 				],
 				'mobile_default' => [
-					'top' => '15',
-					'right' => '20',
-					'bottom' => '20',
-					'left' => '20',
+					'top' => '9',
+					'right' => '26.5',
+					'bottom' => '11.75',
+					'left' => '26',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],

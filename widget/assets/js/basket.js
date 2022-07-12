@@ -3,6 +3,59 @@ jQuery(document).ready(function($){
 
     maximumRoomsSelected = false;
 
+    function money_v4(val) {
+        var symbol = $(".obpress-hotel-results-basket-holder").attr("data-currency-symbol");
+        var code = Number($(".obpress-hotel-results-basket-holder").attr("data-currency"));
+        var lang = Number($(".obpress-hotel-results-basket-holder").attr("data-language"));
+    
+        //1english,2french,3es 4ptpt, 5dansk,6italian,7deutch, 8ptbr,
+    
+        val = Number(val);
+        value = val.toFixed(2);
+        parts = value.split(".");
+    
+        thau = ",";
+        deci = ".";
+    
+        var result = "";
+    
+        if (lang != 1) {
+          thau = ".";
+          deci = ",";
+        }
+    
+        if (lang == 2 || lang == 4) {
+          thau = " ";
+        }
+    
+        parts[0] = parts[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, thau);
+    
+        value = parts[0] + deci + parts[1];
+    
+        if (lang == 1 || lang == 8) {
+          result =
+            "<span class='symbol'>" +
+            symbol +
+            "</span class='price'> <span  class='price'>" +
+            parts[0] +
+            "</span><span class='deci'>" +
+            deci +
+            parts[1] +
+            "</span>";
+        } else {
+          result =
+            "<span class='price'>" +
+            parts[0] +
+            "</span><span class='deci'>" +
+            deci +
+            parts[1] +
+            "</span> <span class='symbol'>" +
+            symbol +
+            "</span>";
+        }
+    
+        return result;
+    }
 
     function update_cart(){
 
@@ -65,20 +118,20 @@ jQuery(document).ready(function($){
                 clone.find(".obpress-hotel-results-item-curr").text(  currency );
 
                 if(total_price_for_room_without_discount > 0) {
-                    clone.find(".obpress-hotel-results-item-value").text( total_price_for_room_without_discount.toFixed(2) );
+                    clone.find(".obpress-hotel-results-item-value").html( money_v4(total_price_for_room_without_discount.toFixed(2)) );
                 } else {
-                    clone.find(".obpress-hotel-results-item-value").text( total_price_for_room.toFixed(2) );
+                    clone.find(".obpress-hotel-results-item-value").html( money_v4(total_price_for_room.toFixed(2)) );
                 }
 
                 clone.find(".obpress-hotel-results-total-room-counter").text(quantity);
 
                 clone.find(".obpress-hotel-results-item-promo").text( policy );
 
-                clone.find(".obpress-hotel-results-discount-price").text(total_discount.toFixed(2));
+                clone.find(".obpress-hotel-results-discount-price").html(money_v4(total_discount.toFixed(2)));
 
                 clone.find(".obpress-hotel-results-tax-message").text($(this).attr("data-tax-policy-name"));
 
-                clone.find(".obpress-hotel-results-tax-price").text(room_tax_price.toFixed(2));
+                clone.find(".obpress-hotel-results-tax-price").html(money_v4(room_tax_price.toFixed(2)));
 
                 if ( total_discount == "") {
                     clone.find(".obpress-hotel-results-discount-holder").css("display", "none");
@@ -124,7 +177,7 @@ jQuery(document).ready(function($){
             $("#basket-send").removeAttr("disabled");
         }
 
-        $(".obpress-hotel-total-price-value").text( total_price.toFixed(2) );
+        $(".obpress-hotel-total-price-value").html( money_v4(total_price.toFixed(2)) );
 
 
         return false;
