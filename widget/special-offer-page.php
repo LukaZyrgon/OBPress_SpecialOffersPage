@@ -1354,7 +1354,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				],
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'.single-package .ob-searchbar-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.single-package .ob-searchbar-button-so' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1367,7 +1367,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'input_type' => 'color',
 				'default' => '#fff',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit' => 'color: {{package_searchbar_buutton_text_color}}'
+					'.single-package .ob-searchbar-submit-so, .single-package .select-occupancy-apply-so, .single-package #promo_code_apply-so, .single-package .select-button-so svg line' => 'color: {{package_searchbar_buutton_text_color}}'
 				],
 			]
 		);
@@ -1412,7 +1412,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'input_type' => 'color',
 				'default' => '#000',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit' => 'background-color: {{package_searchbar_buutton_bg_color}}'
+					'.single-package .ob-searchbar-submit-so, .single-package .select-occupancy-apply-so, .single-package #promo_code_apply-so, .single-package .select-button-so' => 'background-color: {{package_searchbar_buutton_bg_color}}'
 				],
 			]
 		);
@@ -1425,7 +1425,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'input_type' => 'color',
 				'default' => '#000',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit' => 'border-color: {{package_searchbar_buutton_border_color}}'
+					'.single-package .ob-searchbar-submit-so, .single-package .select-occupancy-apply-so, .single-package #promo_code_apply-so, .single-package .select-button-so' => 'border-color: {{package_searchbar_buutton_border_color}}'
 				],
 			]
 		);
@@ -1450,7 +1450,7 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				],
 				'render_type' => 'ui',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit' => 'border-width: {{SIZE}}px',
+					'.single-package .ob-searchbar-submit-so, .single-package .select-occupancy-apply-so, .single-package #promo_code_apply-so, .single-package .select-button-so' => 'border-width: {{SIZE}}px',
 				],
 			]
 		);
@@ -1461,9 +1461,9 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'label' => __('Searchbar Button Text Hover Color', 'OBPress_SpecialOffersPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#fff',
+				'default' => '#191919',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit:hover' => 'color: {{package_searchbar_buutton_text_hover_color}}'
+					'.single-package .ob-searchbar-submit-so:hover, .single-package .select-occupancy-apply-so:hover, .single-package #promo_code_apply-so:hover, .single-package .select-button-so:hover svg line' => 'color: {{package_searchbar_buutton_text_hover_color}}',
 				],
 			]
 		);
@@ -1474,9 +1474,9 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'label' => __('Searchbar Button Background Hover Color', 'OBPress_SpecialOffersPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#000',
+				'default' => '#FFFFFF',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit:hover' => 'background-color: {{package_searchbar_buutton_hover_bg_color}}'
+					'.single-package .ob-searchbar-submit-so:hover, .single-package .select-occupancy-apply-so:hover, .single-package #promo_code_apply-so:hover, .single-package .select-button-so:hover' => 'background-color: {{package_searchbar_buutton_hover_bg_color}}'
 				],
 			]
 		);
@@ -1487,9 +1487,9 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'label' => __('Searchbar Button Border Hover Color', 'OBPress_SpecialOffersPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#000',
+				'default' => '#191919',
 				'selectors' => [
-					'.single-package .ob-searchbar-submit:hover' => 'border-color: {{package_searchbar_buutton_hover_border_color}}'
+					'.single-package .ob-searchbar-submit-so:hover, .single-package .select-occupancy-apply-so:hover, .single-package #promo_code_apply-so:hover, .single-package .select-button-so:hover' => 'border-color: {{package_searchbar_buutton_hover_border_color}}'
 				],
 			]
 		);
@@ -2737,6 +2737,19 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'releted_packages_cards_book_border_color',
+			[
+				'label' => __('Book Button Border Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-add' => 'border-color: {{releted_packages_cards_book_border_color}} !important'
+				],
+			]
+		);
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -2775,18 +2788,45 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'releted_packages_cards_book_btn_border_width',
+			[
+				'label' => __( 'Book Button Border Width', 'OBPress_SpecialOffersPage' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'devices' => [ 'desktop', 'mobile' ],
+				'desktop_default' => [
+					'size' => 1,
+				],
+				'mobile_default' => [
+					'size' => 1,
+				],
+				'range' => [
+					'px' => [
+						'max' => 10,
+						'step' => 0.1,
+					],
+				],
+				'render_type' => 'ui',
+				'selectors' => [
+					'.single-package .room-btn-add' => 'border: {{SIZE}}px solid',
+				],
+			]
+		);
+
 		$this->add_control(
 			'releted_packages_cards_book_btn_bg_hover_color',
 			[
 				'label' => __('Book Button Hover Background Color', 'OBPress_SpecialOffersPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#000',
+				'default' => '#fff',
 				'selectors' => [
 					'.single-package .room-btn-add:hover' => 'background-color: {{releted_packages_cards_book_btn_bg_hover_color}}'
 				],
 			]
 		);
+
+
 
 		$this->add_control(
 			'releted_packages_cards_book_btn_hover_color',
@@ -2794,9 +2834,22 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'label' => __('Book Button Hover Color', 'OBPress_SpecialOffersPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#fff',
+				'default' => '#000',
 				'selectors' => [
 					'.single-package .room-btn-add:hover' => 'color: {{releted_packages_cards_book_btn_hover_color}}'
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_book_btn_border_hover_color',
+			[
+				'label' => __('Book Button Hover Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-add:hover' => 'border-color: {{releted_packages_cards_book_btn_border_hover_color}} !important'
 				],
 			]
 		);
@@ -2933,14 +2986,66 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_color',
+			[
+				'label' => __('Add Remove Buttons Text Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus' => 'color: {{releted_packages_cards_btn_minus_plus_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_border_color',
+			[
+				'label' => __('Add Remove Buttons Border Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#000',
+				'selectors' => [
+					'.single-package .room-btn-minus, .single-package .room-btn-plus' => 'border-color: {{releted_packages_cards_btn_minus_plus_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
 			'releted_packages_cards_btn_minus_plus_hover_bg_color',
 			[
 				'label' => __('Add Remove Buttons Hover Background Color', 'OBPress_SpecialOffersPage'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#000',
+				'default' => '#fff',
 				'selectors' => [
 					'.single-package .room-btn-minus:hover, .single-package .room-btn-plus:hover' => 'background-color: {{releted_packages_cards_btn_minus_plus_hover_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_hover_color',
+			[
+				'label' => __('Add Remove Buttons Hover Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#191919',
+				'selectors' => [
+					'.single-package .room-btn-minus:hover, .single-package .room-btn-plus:hover' => 'color: {{releted_packages_cards_btn_minus_plus_hover_bg_color}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'releted_packages_cards_btn_minus_plus_hover_border_color',
+			[
+				'label' => __('Add Remove Buttons Hover Border Color', 'OBPress_SpecialOffersPage'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#191919',
+				'selectors' => [
+					'.single-package .room-btn-minus:hover, .single-package .room-btn-plus:hover' => 'border-color: {{releted_packages_cards_btn_minus_plus_hover_bg_color}}',
 				],
 			]
 		);
