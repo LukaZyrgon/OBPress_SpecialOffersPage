@@ -57,6 +57,7 @@ body {
 
 .ob-searchbar-so button {
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:disabled {
