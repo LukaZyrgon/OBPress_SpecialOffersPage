@@ -3934,11 +3934,11 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'unit' => 'px',
-					'size' => 336,
+					'size' => 348,
 				],
 				'mobile_default' => [
 					'unit' => 'px',
-					'size' => 336,
+					'size' => 348,
 				],
 				'selectors' => [
 					'.single-package .obpress-hotel-results-basket' => 'width: {{SIZE}}px',
