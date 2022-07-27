@@ -4012,16 +4012,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'top' => '17.5',
-					'right' => '26.5',
+					'right' => '20',
 					'bottom' => '14.5',
-					'left' => '26.5',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '17.5',
-					'right' => '26.5',
+					'right' => '20',
 					'bottom' => '14.5',
-					'left' => '26.5',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -4672,16 +4672,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'top' => '20',
-					'right' => '26.5',
+					'right' => '20',
 					'bottom' => '19',
-					'left' => '26',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '20',
-					'right' => '26.5',
+					'right' => '20',
 					'bottom' => '19',
-					'left' => '26',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
@@ -5466,16 +5466,16 @@ class SpecialOfferPage extends \Elementor\Widget_Base
 				'devices' => [ 'desktop', 'mobile' ],
 				'desktop_default' => [
 					'top' => '9',
-					'right' => '26.5',
+					'right' => '20',
 					'bottom' => '11.75',
-					'left' => '26',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'mobile_default' => [
 					'top' => '9',
-					'right' => '26.5',
+					'right' => '20',
 					'bottom' => '11.75',
-					'left' => '26',
+					'left' => '20',
 					'isLinked' => false
 				],
 				'size_units' => [ 'px', '%', 'em' ],
